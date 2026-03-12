@@ -3,7 +3,7 @@ import "./Success.css";
 
 export default function Success() {
   const [open, setOpen] = useState(false);
-  const [activeProject, setActiveProject] = useState(null);
+  const [activeProject] = useState(null);
   const [visibleItems, setVisibleItems] = useState([]);
 
   // Scroll animation

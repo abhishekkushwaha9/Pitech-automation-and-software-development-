@@ -1,6 +1,6 @@
 // src/pages/Vision.js
 import PageLayout from "../layouts/PageLayout";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import BlurText from '../components/BlurText';
 import RippleGrid from '../components/RippleGrid';
 import './Vision.css';

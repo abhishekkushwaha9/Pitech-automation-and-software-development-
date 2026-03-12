@@ -1,0 +1,16 @@
+
+> pitech-website@0.1.0 build
+> react-scripts build
+
+(node:10196) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Creating an optimized production build...
+Failed to compile.
+
+[eslint] 
+src\pages\industry\Digitalization.js
+  Line 429:18:  'Link' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+

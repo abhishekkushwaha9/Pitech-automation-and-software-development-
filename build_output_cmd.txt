@@ -1,0 +1,49 @@
+
+> pitech-website@0.1.0 build
+> react-scripts build
+
+(node:9872) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Creating an optimized production build...
+
+Treating warnings as errors because process.env.CI = true.
+Most CI servers set it automatically.
+
+Failed to compile.
+
+[eslint] 
+src\components\RippleGrid.js
+  Line 142:23:  'waveX' is assigned a value but never used  no-unused-vars
+  Line 143:23:  'waveY' is assigned a value but never used  no-unused-vars
+
+src\pages\Success.js
+  Line 6:25:  'setActiveProject' is assigned a value but never used  no-unused-vars
+
+src\pages\Vision.js
+  Line 3:21:  'useRef' is defined but never used  no-unused-vars
+
+src\pages\generated\PLC.js
+  Line 2:10:  'Link' is defined but never used  no-unused-vars
+
+src\pages\generated\RFID.js
+  Line 2:10:  'Link' is defined but never used  no-unused-vars
+
+src\pages\industry\DigitalAndon.js
+  Line 2:10:  'Link' is defined but never used  no-unused-vars
+
+src\pages\industry\EnergyMonitoring.js
+  Line 2:10:  'Link' is defined but never used  no-unused-vars
+
+src\pages\industry\IoT.js
+  Line 2:10:  'Link' is defined but never used  no-unused-vars
+
+src\pages\industry\PredictiveMaintenance.js
+  Line 2:10:  'Link' is defined but never used  no-unused-vars
+
+src\pages\industry\ProductionDashboard.js
+  Line 2:10:  'Link' is defined but never used  no-unused-vars
+
+src\pages\products\Sensors.js
+  Line 2:10:  'Link' is defined but never used  no-unused-vars
+
+
