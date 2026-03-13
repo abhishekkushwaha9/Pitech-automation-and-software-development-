@@ -60,29 +60,29 @@ const SOLUTIONS = [
 ];
 
 const INDUSTRIES = [
-  { 
-    title: 'Automotive', 
-    desc: 'Assembly lines, traceability, and robotics for automotive OEMs.', 
-    img: '/images/Automotive.gif', 
-    path: '/industry-4/automotive-industry' 
+  {
+    title: 'Automotive',
+    desc: 'Assembly lines, traceability, and robotics for automotive OEMs.',
+    img: '/images/Automotive.gif',
+    path: '/industry-4/automotive-industry'
   },
-  { 
-    title: 'Metal & Steel', 
-    desc: 'Molten metal tracking, quality control, and energy monitoring.', 
-    img: '/images/METAL_gif.gif', 
-    path: '/industry-4/metal-industry' 
+  {
+    title: 'Metal & Steel',
+    desc: 'Molten metal tracking, quality control, and energy monitoring.',
+    img: '/images/METAL_gif.gif',
+    path: '/industry-4/metal-industry'
   },
-  { 
-    title: 'Glass Manufacturing', 
-    desc: 'Process automation, defect detection, and production analytics.', 
-    img: '/images/glass.webp', 
-    path: '/industry-4/glass-industry' 
+  {
+    title: 'Glass Manufacturing',
+    desc: 'Process automation, defect detection, and production analytics.',
+    img: '/images/glass.webp',
+    path: '/industry-4/glass-industry'
   },
-  { 
-    title: 'Material Handling', 
-    desc: 'Conveyor systems, robotics integration, and WMS solutions.', 
-    img: '/images/Assembly line.avif', 
-    path: '/industry-4/material-handling' 
+  {
+    title: 'Material Handling',
+    desc: 'Conveyor systems, robotics integration, and WMS solutions.',
+    img: '/images/Assembly line.avif',
+    path: '/industry-4/material-handling'
   },
   {
     title: 'Food & Beverages',
@@ -124,21 +124,23 @@ const PROCESS = [
 ];
 
 const TESTIMONIALS = [
-  { text: 'PiTech transformed our assembly line with their traceability solution. We achieved 99.9% defect detection and a 40% increase in throughput within 3 months of deployment.', name: 'Rajesh Sharma', role: 'Plant Head, Automotive OEM', initials: 'RS', color: 'linear-gradient(135deg, #2a6b9e, #4fb5e0)' },
-  { text: 'The Digital Andon system completely changed how we respond to production issues. Our response time dropped from 25 minutes to under 3 minutes. Exceptional work.', name: 'Priya Mehta', role: 'Operations Director, Steel Plant', initials: 'PM', color: '#7c3aed' },
-  { text: 'Their IIoT platform gave us complete visibility into our 12 machines. Energy costs down 22%, and predictive maintenance has prevented 3 major breakdowns.', name: 'Suresh Kumar', role: 'GM Manufacturing, Glass Industry', initials: 'SK', color: '#059669' },
-  { text: 'PiTech transformed our assembly line with their traceability solution. We achieved 99.9% defect detection and a 40% increase in throughput within 3 months of deployment.', name: 'Rajesh Sharma', role: 'Plant Head, Automotive OEM', initials: 'RS', color: 'linear-gradient(135deg, #2a6b9e, #4fb5e0)' },
-  { text: 'The Digital Andon system completely changed how we respond to production issues. Our response time dropped from 25 minutes to under 3 minutes. Exceptional work.', name: 'Priya Mehta', role: 'Operations Director, Steel Plant', initials: 'PM', color: '#7c3aed' },
-  { text: 'Their IIoT platform gave us complete visibility into our 12 machines. Energy costs down 22%, and predictive maintenance has prevented 3 major breakdowns.', name: 'Suresh Kumar', role: 'GM Manufacturing, Glass Industry', initials: 'SK', color: '#059669' },
+  { text: "PiTech's factory digitalization tools have revolutionized our quality control processes. The real-time monitoring of our production lines has led to a significant reduction in waste and improved overall efficiency.", name: "Mahesh Dhaka", role: "Plant Head, Saint Gobain", initials: "MD", color: "linear-gradient(135deg, #2a6b9e, #4fb5e0)" },
+  { text: "The integration of PiTech's IIoT platform across our manufacturing systems has provided unprecedented visibility. We've seen a significant improvement in energy efficiency and data accuracy since implementation.", name: "Akshay Agrawal", role: "Operations Director, CMR", initials: "AA", color: "#7c3aed" },
+  { text: "PiTech's automated assembly line solutions have significantly boosted our throughput. Their expertise in robotics and PLC programming ensured a seamless transition to our new production standards.", name: "Nippun Kumar", role: "Senior Manager - Production, Honda", initials: "NK", color: "#059669" },
+  { text: "The custom MES solution provided by PiTech has streamlined our compliance reporting and batch tracking. Their understanding of complex manufacturing workflows is truly world-class.", name: "Sanjay Yadav", role: "GM Manufacturing, Johnson Matthey", initials: "SY", color: "linear-gradient(135deg, #f59e0b, #d97706)" },
+  { text: "Implementing PiTech’s smart manufacturing solution improved our production visibility and reduced downtime significantly. Their team understands the nuances of industrial automation perfectly.", name: "Manish Sehgal", role: "Technical Lead, PV", initials: "MS", color: "#e11d48" },
 ];
 
-const CLIENT_CONTACTS = [
-  { company: 'Spiro', contact: 'Nikhil Wani', logo: '/images/sebros.jpg' },
-  { company: 'PV', contact: 'Manish Sehgal', logo: '/images/PV.png' },
+const ALL_CLIENTS = [
   { company: 'Saint Gobain', logo: '/images/saint goobin.jpg', contact: 'Mahesh Dhaka' },
-  { company: 'Johnson Matthey', logo: '/images/johnson-matthey.png', contact: 'Sanjay Yadav' },
+  { company: 'A2Z Fil', logo: '/images/a2z-fil.png', contact: 'Industrial Partner' },
   { company: 'CMR', logo: '/images/CMR_logo.png', contact: 'Akshay Agrawal' },
-  { company: 'Honda Motorcycle & Scooter', logo: '/images/honda.png', contact: 'Nippun Kumar' },
+  { company: 'Hi-Tech', logo: '/images/Hi-Tech.png', contact: 'Automation Partner' },
+  { company: 'Honda', logo: '/images/honda.png', contact: 'Nippun Kumar' },
+  { company: 'Johnson Matthey', logo: '/images/johnson-matthey.png', contact: 'Sanjay Yadav' },
+  { company: 'JSW', logo: '/images/jsw.png', contact: 'Strategic Partner' },
+  { company: 'Lenskart', logo: '/images/lenskart.jpg', contact: 'Manufacturing Partner' },
+  { company: 'PV', logo: '/images/PV.png', contact: 'Manish Sehgal' },
 ];
 
 /* ── Intersection Observer Hook ── */
@@ -277,7 +279,7 @@ export default function Home() {
               }}>Manufacturing Revolution</span>
             </h2>
             <p style={{ color: 'var(--gray-500)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '8px' }}>
-              Pi Tech Automation & Software Solutions brings world-class Industry 4.0
+              PiTech Automation & Software Solutions brings world-class Industry 4.0
               technologies to Indian MSMEs and large manufacturers. Our skilled team
               of engineers and developers helps you harness the power of IIoT,
               digitalization, and smart automation.
@@ -473,18 +475,38 @@ export default function Home() {
             <h2 style={{ color: '#0f172a' }}>Strategic Partnerships</h2>
             <p>Collaborating with global giants to drive industrial excellence.</p>
           </div>
-          <div className="clients-grid animate-on-scroll">
-            {CLIENT_CONTACTS.map((client, idx) => (
-              <div key={idx} className="client-contact-card">
-                <div className="client-logo-box">
-                  <img src={client.logo} alt={client.company} onError={e => e.target.style.opacity = '0.5'} />
-                </div>
-                <div className="client-info">
-                  <h4>{client.company}</h4>
-                  <p><span>Contact Person:</span> {client.contact}</p>
-                </div>
-              </div>
-            ))}
+          <div className="clients-slider-wrapper animate-on-scroll" style={{ marginTop: '60px' }}>
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={30}
+              slidesPerView={1}
+              loop={true}
+              speed={4000}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                576: { slidesPerView: 2 },
+                992: { slidesPerView: 3 },
+                1200: { slidesPerView: 4 },
+              }}
+              className="clients-swiper"
+            >
+              {ALL_CLIENTS.map((client, idx) => (
+                <SwiperSlide key={idx}>
+                  <div className="client-contact-card" style={{ height: '100%' }}>
+                    <div className="client-logo-box">
+                      <img src={client.logo} alt={client.company} onError={e => e.target.style.opacity = '0.5'} />
+                    </div>
+                    <div className="client-info">
+                      <h4>{client.company}</h4>
+                      <p><span>Contact Person:</span> {client.contact}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </section>

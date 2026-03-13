@@ -40,7 +40,7 @@ const AutomationLines = () => {
 
                     <div className="premium-animate slide-left" style={{ transitionDelay: '0.2s' }}>
                         <div className="premium-hero-image-wrapper">
-                            <img src="/images/development.jpeg" alt="Industrial Automation Interface" className="premium-hero-image" />
+                            <img src="/images/pv1.jpeg" alt="Industrial Automation Interface" className="premium-hero-image" />
                             <div className="premium-floating-card">
                                 <div className="premium-fc-icon">⚡</div>
                                 <div className="premium-fc-text">
@@ -58,7 +58,7 @@ const AutomationLines = () => {
                 <div className="container">
                     <div className="premium-split">
                         <div className="premium-split-image premium-animate slide-up">
-                            <img src="/images/dashboard-neww.jpeg" alt="Dashboard Analytics UI" />
+                            <img src="/images/pv2.jpeg" alt="Dashboard Analytics UI" />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s' }}>
                             <h2>Redefining Standard Operations with Complete Automation Lines</h2>

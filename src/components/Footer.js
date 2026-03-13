@@ -20,13 +20,7 @@ const FOOTER_LINKS = {
     { name: "HMI", path: "/products/hmi" },
     { name: "BLE Tag", path: "/products/ble-tag" },
   ],
-  company: [
-    { name: "About Us", path: "/about" },
-    { name: "Our Vision", path: "/about/vision" },
-    { name: "Success Stories", path: "/about/success" },
-    { name: "Contact Us", path: "/contact" },
-    { name: "Register / Sign Up", path: "/signup" },
-  ],
+
   industries: [
     { name: "Food & Beverages", path: "/industries/food-beverages" },
     { name: "Pharma Industry", path: "/industries/pharma" },
@@ -68,18 +62,6 @@ export default function Footer() {
           </p>
           <div className="footer-subscribe-label" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ color: '#ffffff' }}>Stay Updated</span>
-            <Link to="/contact" style={{
-              color: '#ffffff',
-              textTransform: 'none',
-              letterSpacing: 'normal',
-              fontWeight: '600',
-              textDecoration: 'underline'
-            }}
-              onMouseOver={(e) => e.target.style.textDecoration = 'none'}
-              onMouseOut={(e) => e.target.style.textDecoration = 'underline'}
-            >
-              Contact Us
-            </Link>
           </div>
         </div>
 
@@ -119,17 +101,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Company */}
-        <div className="footer-col">
-          <div className="footer-col-title">Company</div>
-          <ul>
-            {FOOTER_LINKS.company.map(item => (
-              <li key={item.path}>
-                <Link to={item.path}>{item.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+
       </div>
 
       {/* ── Divider ── */}

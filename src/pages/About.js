@@ -19,17 +19,10 @@ const VALUES = [
 
 const SUCCESS_STORIES = [
   {
-    id: 1, cat: 'IIoT', color: '#2563eb', catBg: 'rgba(37,99,235,0.1)',
-    title: 'Smart Molten Metal Supply Chain',
-    desc: 'Cloud-based IIoT solution with real-time monitoring and automated supply chain tracking for a steel plant.',
-    img: '/images/connected-machines.jpg',
-    stats: [{ val: '+35%', label: 'Efficiency' }, { val: '98%', label: 'Accuracy' }, { val: '₹2.5Cr', label: 'Savings' }],
-  },
-  {
     id: 2, cat: 'Automation', color: '#7c3aed', catBg: 'rgba(124,58,237,0.1)',
-    title: 'Assembly Line Traceability',
+    title: 'Traceability & SCADA', // Renamed from Assembly Line Traceability
     desc: 'End-to-end barcode-based product traceability with real-time defect detection and quality checkpoints.',
-    img: '/images/Assembly line.avif',
+    img: '/images/trace_pv.jpeg',
     stats: [{ val: '+40%', label: 'Productivity' }, { val: '99.9%', label: 'Accuracy' }, { val: '₹3.2Cr', label: 'Savings' }],
   },
   {
@@ -55,10 +48,38 @@ const SUCCESS_STORIES = [
   },
   {
     id: 6, cat: 'Robotics', color: '#6366f1', catBg: 'rgba(99,102,241,0.1)',
-    title: 'Robotic Inspection System',
+    title: 'RoboVision Inspection System', // Renamed from Robotic Inspection System
     desc: 'Vision-based robotic inspection reducing manual QC while achieving 100% component coverage.',
     img: '/images/robotics_inspection.webp',
     stats: [{ val: '+60%', label: 'Efficiency' }, { val: '100%', label: 'Coverage' }, { val: '₹1.5Cr', label: 'Savings' }],
+  },
+  {
+    id: 7, cat: 'Industry 4.0', color: '#3b82f6', catBg: 'rgba(59,130,246,0.1)',
+    title: 'DWI (Digital Work Instruction)',
+    desc: 'Digital work instruction platform that provides step-by-step guidance to operators on the production line, reducing human errors and improving process consistency.',
+    img: '/images/1763185884948.jpg',
+    stats: [{ val: '-45%', label: 'Errors' }, { val: '99.8%', label: 'Consistency' }, { val: '₹1.2Cr', label: 'Savings' }],
+  },
+  {
+    id: 8, cat: 'Safety', color: '#ef4444', catBg: 'rgba(239,68,68,0.1)',
+    title: 'Digital Safety System',
+    desc: 'Smart industrial safety monitoring solution that detects unsafe conditions, tracks compliance, and sends real-time alerts to maintain a safer manufacturing environment.',
+    img: '/images/1746077711453.jpg',
+    stats: [{ val: '100%', label: 'Compliance' }, { val: 'Zero', label: 'Incidents' }, { val: '₹85L', label: 'Savings' }],
+  },
+  {
+    id: 9, cat: 'Production', color: '#8b5cf6', catBg: 'rgba(139,92,246,0.1)',
+    title: 'Smart Parallel Assembly System',
+    desc: 'Advanced assembly line optimization system that manages parallel production stations, improves workflow synchronization, and increases overall productivity.',
+    img: '/images/Traceability998.jpeg',
+    stats: [{ val: '+55%', label: 'Output' }, { val: '92%', label: 'Utilization' }, { val: '₹2.8Cr', label: 'Savings' }],
+  },
+  {
+    id: 10, cat: 'Management', color: '#f97316', catBg: 'rgba(249,115,22,0.1)',
+    title: 'Robot Access Control Management System',
+    desc: 'Secure robot access management platform that controls operator permissions, monitors robotic usage, and ensures safe human-robot collaboration.',
+    img: '/images/development.jpeg',
+    stats: [{ val: 'Secure', label: 'Access' }, { val: '100%', label: 'Control' }, { val: '₹1.1Cr', label: 'Savings' }],
   },
 ];
 

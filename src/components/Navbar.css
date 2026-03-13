@@ -283,35 +283,4 @@
   .navbar-inner { padding: 0 20px; height: 64px; }
 }
 
-/* ── Dark Mode Overrides ── */
-.dark .navbar-main {
-  background: var(--white);
-  box-shadow: 0 1px 0 var(--gray-200);
-}
 
-.dark .navbar-main.scrolled {
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
-}
-
-.dark .navbar-mega-wrap {
-  background: var(--white);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-}
-
-.dark .navbar-hamburger span {
-  background: var(--gray-800);
-}
-
-.dark .navbar-drawer {
-  background: var(--white);
-  box-shadow: -4px 0 40px rgba(0, 0, 0, 0.4);
-}
-
-.dark .drawer-close,
-.dark .drawer-btn-secondary {
-  background: var(--gray-200);
-}
-
-.dark .navbar-logo-text {
-  color: #ffffff;
-}

@@ -1,6 +1,6 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { useTheme } from "../context/ThemeContext";
+
 import './Navbar.css';
 
 const NAV_DATA = {
@@ -90,7 +90,7 @@ export default function Navbar() {
   const [activeCategory, setActiveCategory] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null);
-  const { isDark, toggleTheme } = useTheme();
+
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
   const location = useLocation();
@@ -207,13 +207,7 @@ export default function Navbar() {
 
           {/* Right Actions */}
           <div className="navbar-actions">
-            <div className="navbar-toggle-wrap">
-              <span>{isDark ? '🌙' : '☀️'}</span>
-              <label className="navbar-switch">
-                <input type="checkbox" checked={isDark} onChange={toggleTheme} />
-                <span className="navbar-slider"></span>
-              </label>
-            </div>
+
             <Link to="/contact" className="navbar-btn-primary">Get a Quote</Link>
 
             {/* Hamburger */}
@@ -370,14 +364,7 @@ export default function Navbar() {
             </nav>
 
             <div className="drawer-footer">
-              <div className="navbar-toggle-wrap" style={{ display: 'flex', marginBottom: '10px' }}>
-                <span>{isDark ? '🌙' : '☀️'}</span>
-                <label className="navbar-switch">
-                  <input type="checkbox" checked={isDark} onChange={toggleTheme} />
-                  <span className="navbar-slider"></span>
-                </label>
-                <span style={{ marginLeft: 'auto' }}>{isDark ? 'Dark Mode' : 'Light Mode'}</span>
-              </div>
+
               <Link to="/contact" className="drawer-btn drawer-btn-primary" onClick={() => setMobileOpen(false)}>Get a Quote</Link>
               <Link to="/signup" className="drawer-btn drawer-btn-secondary" onClick={() => setMobileOpen(false)}>Register / Sign Up</Link>
             </div>

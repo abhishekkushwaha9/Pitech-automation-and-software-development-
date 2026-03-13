@@ -53,25 +53,9 @@
   --transition-slow:all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── Dark Mode Tokens ── */
-.dark {
-  --white:          #0f172a; /* Slate 900 */
-  --gray-50:        #121d33;
-  --gray-100:       #1e293b;
-  --gray-200:       #334155;
-  --gray-300:       #475569;
-  --gray-400:       #64748b;
-  --gray-500:       #94a3b8;
-  --gray-600:       #cbd5e1;
-  --gray-700:       #e2e8f0;
-  --gray-800:       #f1f5f9;
-  --gray-900:       #f8fafc;
 
-  --shadow:         0 4px 16px rgba(0,0,0,0.4);
-}
 
-.dark-bg { background-color: #0f172a !important; color: #ffffff !important; }
-.dark .dark-bg { background-color: #020617 !important; }
+
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -199,5 +183,4 @@ h2 { font-weight: 700; letter-spacing: -0.02em; }
 }
 .fade-section.fade-in { opacity: 1; transform: translateY(0); }
 
-/* ── Dark mode support ── */
-.navbar-dark-mode body { background: var(--gray-900); color: var(--gray-100); }
+

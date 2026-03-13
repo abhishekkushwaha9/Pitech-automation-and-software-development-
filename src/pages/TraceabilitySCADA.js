@@ -114,7 +114,7 @@ const TraceabilitySCADA = () => {
                         </div>
                         <div className="ts-split-visual ts-animate slide-left" style={{ transitionDelay: "0.2s" }}>
                             <img
-                                src="/images/Assembly line.avif"
+                                src="/images/trace_pv.jpeg"
                                 alt="Traceability System"
                                 style={{ width: '100%', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
                             />
