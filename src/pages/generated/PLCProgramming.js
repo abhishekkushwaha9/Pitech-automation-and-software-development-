@@ -187,21 +187,7 @@ const PLCProgramming = () => {
                 </div>
             </section>
 
-            {/* CTA SECTION */}
-            <section className="premium-section-padding premium-bg-light">
-                <div className="container">
-                    <div className="premium-cta premium-animate slide-up">
-                        <div className="premium-cta-bg"></div>
-                        <div style={{ position: 'relative', zIndex: 1 }}>
-                            <h2 className="premium-cta-title">Ready to modernize your infrastructure?</h2>
-                            <p className="premium-cta-subtitle">Talk to our automation architects to design your bespoke deployment strategy today.</p>
-                            <Link to="/contact" className="premium-btn-primary" style={{ padding: '20px 40px', fontSize: '1.2rem', background: '#fff', color: '#0f172a' }}>
-                                Schedule Technical Consultation
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
         </div>
     );
 };

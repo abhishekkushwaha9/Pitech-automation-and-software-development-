@@ -34,11 +34,11 @@ const GlassIndustry = () => {
         <div className="premium-page" style={{ backgroundColor: '#ffffff' }}>
             {/* HERO SECTION */}
             <section className="premium-hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '650px', display: 'flex', alignItems: 'center' }}>
-                <div 
+                <div
                     className="premium-hero-parallax-bg"
-                    style={{ 
-                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%', 
-                        backgroundImage: "url('/images/Ditial andon.jpg')", 
+                    style={{
+                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%',
+                        backgroundImage: "url('/images/Glasss.jpg')",
                         backgroundSize: "cover", backgroundPosition: "center", zIndex: 0,
                         transition: 'transform 0.1s ease-out'
                     }}
@@ -72,7 +72,7 @@ const GlassIndustry = () => {
                     </div>
                     <div className="premium-split">
                         <div className="premium-split-image premium-animate slide-up">
-                            <img src="/images/Hi-Tech.png" alt="Glass Industry Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", width: '100%', objectFit: 'cover' }} />
+                            <img src="/images/Glasss.jpg" alt="Glass Industry Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", width: '100%', objectFit: 'cover' }} />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s' }}>
                             <p className="lead" style={{ color: '#2563eb', fontWeight: '600' }}>
@@ -148,17 +148,17 @@ const GlassIndustry = () => {
                     </div>
                     <div className="premium-features-grid">
                         {[
-                            { 
-                                q: "Fragility & Scrap Rates", 
-                                a: "Our robotic handling systems and precision vibration-dampened conveyors minimize physical impact, significantly reducing breakage compared to manual labor." 
+                            {
+                                q: "Fragility & Scrap Rates",
+                                a: "Our robotic handling systems and precision vibration-dampened conveyors minimize physical impact, significantly reducing breakage compared to manual labor."
                             },
-                            { 
-                                q: "Inconsistent Thermal Profiles", 
-                                a: "Pitech implements high-accuracy temperature zones with rapid-response PLC feedback, ensuring glass is annealed perfectly every time." 
+                            {
+                                q: "Inconsistent Thermal Profiles",
+                                a: "Pitech implements high-accuracy temperature zones with rapid-response PLC feedback, ensuring glass is annealed perfectly every time."
                             },
-                            { 
-                                q: "Invisible Defects", 
-                                a: "We utilize multi-angle vision inspection with specialized lighting that highlights bubbles and inclusions invisible to the human eye on a moving line." 
+                            {
+                                q: "Invisible Defects",
+                                a: "We utilize multi-angle vision inspection with specialized lighting that highlights bubbles and inclusions invisible to the human eye on a moving line."
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="premium-card premium-animate slide-up" style={{ transitionDelay: `${idx * 0.1}s`, backgroundColor: '#fff' }}>
