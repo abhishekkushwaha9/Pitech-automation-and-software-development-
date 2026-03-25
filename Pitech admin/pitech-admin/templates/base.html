@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PiTech Admin{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>PiTech Admin</h3>
+            </div>
+
+            <ul class="components">
+                <li class="{% if request.endpoint == 'dashboard' %}active{% endif %}">
+                    <a href="{{ url_for('dashboard') }}"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li class="{% if request.endpoint == 'manage_clients' %}active{% endif %}">
+                    <a href="{{ url_for('manage_clients') }}"><i class="fas fa-users"></i> Manage Clients</a>
+                </li>
+                <li class="{% if request.endpoint == 'manage_testimonials' %}active{% endif %}">
+                    <a href="{{ url_for('manage_testimonials') }}"><i class="fas fa-quote-left"></i> Testimonials</a>
+                </li>
+                <li class="{% if request.endpoint == 'view_messages' %}active{% endif %}">
+                    <a href="{{ url_for('view_messages') }}"><i class="fas fa-envelope"></i> Messages</a>
+                </li>
+                <li class="{% if request.endpoint == 'manage_images' %}active{% endif %}">
+                    <a href="{{ url_for('manage_images') }}"><i class="fas fa-images"></i> Manage Images</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <header>
+                <h2>{% block header %}{% endblock %}</h2>
+                <hr>
+            </header>
+            
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Auto-hide flash messages
+        setTimeout(() => {
+            const flashes = document.querySelectorAll('.flash');
+            flashes.forEach(f => f.style.opacity = '0');
+            setTimeout(() => flashes.forEach(f => f.remove()), 500);
+        }, 3000);
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

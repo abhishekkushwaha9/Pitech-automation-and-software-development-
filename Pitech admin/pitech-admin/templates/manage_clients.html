@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Clients | PiTech Admin{% endblock %}
+{% block header %}Client Management{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+    <p>Manage your clients and their logos.</p>
+    <button class="btn btn-success" onclick="openModal('addClientModal')"><i class="fas fa-plus"></i> Add New Client</button>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Client Name</th>
+                <th>Contact Person</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td>
+                    {% if client.logo_path %}
+                    <img src="{{ url_for('serve_upload', filename=client.logo_path) }}" class="client-logo" alt="Logo">
+                    {% else %}
+                    <i class="fas fa-user-circle fa-2x" style="color: #ccc;"></i>
+                    {% endif %}
+                </td>
+                <td>{{ client.name }}</td>
+                <td>{{ client.contact_person or 'N/A' }}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm" onclick="editClient('{{ client.id }}', {{ client.name|tojson }}, {{ (client.contact_person or '')|tojson }})"><i class="fas fa-edit"></i></button>
+                    <a href="{{ url_for('delete_client', id=client.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% if not clients %}
+            <tr>
+                <td colspan="4" style="text-align: center;">No clients found.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Add Client Modal -->
+<div id="addClientModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('addClientModal')">&times;</span>
+        <h3>Add New Client</h3>
+        <form action="{{ url_for('add_client') }}" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Client Name</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Contact Person</label>
+                <input type="text" name="contact_person">
+            </div>
+            <div class="form-group">
+                <label>Client Logo</label>
+                <input type="file" name="logo" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-success">Save Client</button>
+        </form>
+    </div>
+</div>
+
+<!-- Edit Client Modal -->
+<div id="editClientModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('editClientModal')">&times;</span>
+        <h3>Edit Client</h3>
+        <form id="editClientForm" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Client Name</label>
+                <input type="text" name="name" id="edit_name" required>
+            </div>
+            <div class="form-group">
+                <label>Contact Person</label>
+                <input type="text" name="contact_person" id="edit_contact">
+            </div>
+            <div class="form-group">
+                <label>Update Logo (Keep empty to maintain current)</label>
+                <input type="file" name="logo" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Client</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function openModal(id) {
+        document.getElementById(id).style.display = 'block';
+    }
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+    function editClient(id, name, contact) {
+        document.getElementById('editClientForm').action = '/edit_client/' + id;
+        document.getElementById('edit_name').value = name;
+        document.getElementById('edit_contact').value = contact;
+        openModal('editClientModal');
+    }
+    // Close modal on outside click
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            event.target.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}
