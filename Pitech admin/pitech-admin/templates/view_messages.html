@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Messages | PiTech Admin{% endblock %}
+{% block header %}Contact Messages{% endblock %}
+
+{% block content %}
+<p>View messages received from your website's contact form.</p>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Contact Info</th>
+                <th>Message</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in messages %}
+            <tr>
+                <td>{{ m.created_at }}</td>
+                <td style="font-weight: 600;">{{ m.name }}</td>
+                <td>
+                    <div><i class="fas fa-envelope"></i> {{ m.email }}</div>
+                    <div><i class="fas fa-phone"></i> {{ m.phone or 'N/A' }}</div>
+                </td>
+                <td style="max-width: 300px;">{{ m.message }}</td>
+                <td>
+                    <a href="{{ url_for('delete_message', id=m.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this message?')"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% if not messages %}
+            <tr>
+                <td colspan="5" style="text-align: center;">No messages found.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
