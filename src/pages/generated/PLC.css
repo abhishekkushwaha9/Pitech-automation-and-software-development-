@@ -1,0 +1,313 @@
+/* ============================================================
+   PLC CONTROLLERS PAGE — Professional Product Page
+   ============================================================ */
+
+/* ── BRANDS SECTION ── */
+.plc-brands-section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.plc-brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.brand-card {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.02), rgba(59, 130, 246, 0.02));
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--gray-200);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-light), transparent);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.brand-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-8px);
+}
+
+.brand-card:hover::before {
+  opacity: 1;
+}
+
+.brand-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.brand-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--gray-900);
+}
+
+.brand-desc {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin-bottom: 20px;
+}
+
+.brand-features {
+  list-style: none;
+  padding: 0;
+}
+
+.brand-features li {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+}
+
+.brand-features li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary-light);
+  font-weight: 700;
+}
+
+/* ── FEATURES SECTION ── */
+.plc-features-section {
+  padding: 80px 0;
+  background: var(--gray-50);
+}
+
+.plc-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .plc-features-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.plc-features-content h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  margin-bottom: 20px;
+  color: var(--gray-900);
+}
+
+.plc-features-content .lead {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.feature-text h4 {
+  font-size: 1rem;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.feature-text p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.plc-features-image {
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+.image-accent {
+  position: absolute;
+  top: -40%;
+  right: -40%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── BENEFITS SECTION ── */
+.plc-benefits-section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.benefit-card {
+  background: linear-gradient(135deg, var(--white), rgba(37, 99, 235, 0.02));
+  padding: 40px 32px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--gray-100);
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+}
+
+.benefit-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-8px);
+}
+
+.benefit-number {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 auto 16px;
+}
+
+.benefit-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  color: var(--gray-900);
+}
+
+.benefit-card p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── CTA SECTION ── */
+.plc-cta-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.02), rgba(37, 99, 235, 0.02));
+  border-top: 1px solid var(--gray-100);
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  margin-bottom: 20px;
+  color: var(--gray-900);
+}
+
+.cta-content p {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.cta-content .btn-primary {
+  margin: 0 auto;
+  display: inline-flex;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .plc-brands-section,
+  .plc-features-section,
+  .plc-benefits-section,
+  .plc-cta-section {
+    padding: 60px 0;
+  }
+
+  .plc-brands-grid {
+    gap: 24px;
+  }
+
+  .brand-card {
+    padding: 24px;
+  }
+
+  .benefits-grid {
+    gap: 24px;
+  }
+
+  .benefit-card {
+    padding: 32px 24px;
+  }
+}

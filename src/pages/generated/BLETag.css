@@ -1,0 +1,272 @@
+.ble-container {
+    font-family: 'Inter', sans-serif;
+    color: #334155;
+    background-color: #f8fafc;
+}
+
+.ble-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+}
+
+.ble-hero-parallax-bg {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 140%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    will-change: transform;
+}
+
+.ble-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.7) 100%);
+    z-index: 1;
+}
+
+.ble-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.ble-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.ble-hero-highlight {
+    color: #60a5fa;
+}
+
+.ble-hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.ble-section {
+    padding: 80px 20px;
+    background: #ffffff;
+}
+
+.ble-section-alt {
+    padding: 80px 20px;
+    background: #f8fafc;
+}
+
+.ble-section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.ble-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+
+.ble-section-desc {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Feature Cards */
+.ble-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ble-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #3b82f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ble-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.ble-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 15px;
+    background: #eff6ff;
+    border-radius: 12px;
+}
+
+.ble-card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.ble-card-text {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Overview Section */
+.ble-overview {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ble-overview-content {
+    flex: 1;
+}
+
+.ble-overview-image {
+    flex: 1;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.ble-overview-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.ble-overview-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Working Principle (Steps) */
+.ble-steps {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ble-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border-left: 4px solid #3b82f6;
+    transition: transform 0.3s ease;
+}
+
+.ble-step:hover {
+    transform: translateX(10px);
+}
+
+.ble-step-number {
+    width: 50px;
+    height: 50px;
+    background: #3b82f6;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.ble-step-content h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.ble-step-content p {
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Benefits Map */
+.ble-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ble-benefit-item {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.ble-benefit-icon {
+    color: #3b82f6;
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.ble-benefit-text {
+    font-weight: 600;
+    color: #334155;
+    font-size: 1.1rem;
+}
+
+/* Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .ble-overview {
+        flex-direction: column;
+    }
+
+    .ble-hero-title {
+        font-size: 2.2rem;
+    }
+}

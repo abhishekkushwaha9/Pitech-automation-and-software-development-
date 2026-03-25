@@ -1,0 +1,783 @@
+/* DWI.css - Premium Enterprise Tier UI Elements */
+
+.dwi-page {
+    font-family: var(--font-body);
+    color: #1a202c;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+.section-padding {
+    padding: 120px 0;
+}
+
+.bg-light {
+    background-color: #f8fafc;
+}
+
+.bg-slate {
+    background-color: #0f172a;
+}
+
+.dwi-section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.dwi-section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.dwi-section-header.light-text h2 {
+    color: #f8fafc;
+}
+
+.dwi-section-header.light-text p {
+    color: #94a3b8;
+}
+
+.dwi-section-header p {
+    font-size: 1.25rem;
+    color: #475569;
+    line-height: 1.8;
+}
+
+/* 1. HERO SECTION */
+.dwi-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 0 80px;
+    background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.dwi-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dwi-hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.85) 100%);
+    backdrop-filter: blur(5px);
+}
+
+.dwi-hero-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.dwi-hero-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.2);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.dwi-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.dwi-hero-title span {
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dwi-hero-subtitle {
+    font-size: 1.3rem;
+    color: #e2e8f0;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.dwi-hero-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.dwi-btn-primary {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+.dwi-btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
+}
+
+.dwi-btn-secondary {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.dwi-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+}
+
+.dwi-tablet-mockup {
+    width: 100%;
+    max-width: 500px;
+    background: #1e293b;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: perspective(1000px) rotateY(-8deg) rotateX(5deg);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-left: auto;
+}
+
+.dwi-tablet-mockup:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+.dwi-tablet-screen {
+    background: #f8fafc;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dwi-mock-header {
+    background: #2563eb;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.dwi-mock-image {
+    height: 180px;
+    background-color: #cbd5e1;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.dwi-mock-marker {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+.dwi-mock-steps {
+    padding: 15px;
+    flex: 1;
+    background: white;
+}
+
+.dwi-mock-step {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.dwi-mock-step.completed {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+}
+
+.dwi-mock-step.active {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.dwi-check {
+    width: 20px;
+    height: 20px;
+    background: #22c55e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+.dwi-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+}
+
+.dwi-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3b82f6;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 2. SPLIT LAYOUT */
+.dwi-split-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 80px;
+    align-items: center;
+}
+
+.dwi-split-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: #0f172a;
+    font-family: var(--font-heading);
+}
+
+.dwi-lead {
+    font-size: 1.4rem;
+    color: #3b82f6;
+    font-weight: 500;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* 3. FEATURES */
+.dwi-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.dwi-feature-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.dwi-feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.dwi-fc-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.dwi-feature-card h3 {
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+
+/* 4. TIMELINE */
+.dwi-timeline-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+.dwi-timeline {
+    display: flex;
+    min-width: 1000px;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+.dwi-timeline::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    right: 50px;
+    height: 4px;
+    background: #e2e8f0;
+    z-index: 0;
+}
+
+.dwi-timeline-step {
+    width: 15%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.dwi-ts-marker {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 25px;
+    background: #ffffff;
+    border: 4px solid #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
+    transition: all 0.3s;
+}
+
+.dwi-timeline-step:hover .dwi-ts-marker {
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.1);
+}
+
+.dwi-ts-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #0f172a;
+}
+
+.dwi-ts-content p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* 5. DASHBOARD UI */
+.dwi-dash-wrapper {
+    background: #1e293b;
+    border-radius: 20px;
+    border: 1px solid #334155;
+    padding: 10px;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+}
+
+.dwi-dash-ui {
+    display: flex;
+    background: #0f172a;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 500px;
+}
+
+.dwi-ui-sidebar {
+    width: 250px;
+    background: #1e293b;
+    padding: 30px;
+    color: white;
+    border-right: 1px solid #334155;
+}
+
+.dwi-ui-main {
+    flex: 1;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+}
+
+.dwi-ui-header {
+    padding: 25px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dwi-ui-timer {
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.dwi-ui-content {
+    display: flex;
+    padding: 30px;
+    gap: 40px;
+    flex: 1;
+}
+
+.dwi-ui-visual {
+    width: 50%;
+    background: #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.dwi-ui-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dwi-ui-instruction {
+    width: 50%;
+}
+
+.dwi-ui-alert {
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.dwi-ui-alert.warning {
+    background: #fef08a;
+    color: #854d0e;
+}
+
+.dwi-ui-btn {
+    padding: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.dwi-ui-btn.success {
+    background: #22c55e;
+    color: white;
+}
+
+.dwi-ui-btn.danger {
+    background: transparent;
+    border: 2px solid #ef4444;
+    color: #ef4444;
+}
+
+/* 6. INDUSTRY CARDS */
+.dwi-industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.dwi-ind-card {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 300px;
+    transition: all 0.4s;
+}
+
+.dwi-ind-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.dwi-ind-img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+}
+
+.dwi-ind-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 40px 30px 30px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
+    color: white;
+    transform: translateY(30px);
+    transition: transform 0.4s;
+}
+
+.dwi-ind-card:hover .dwi-ind-overlay {
+    transform: translateY(0);
+}
+
+/* 7. BENEFITS GRID */
+.dwi-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.dwi-benefit-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.dwi-ben-icon {
+    font-size: 2.5rem;
+}
+
+/* 8. TECHNOLOGY */
+.dwi-integration-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 400px;
+    justify-content: center;
+}
+
+.dwi-diag-center {
+    width: 120px;
+    height: 120px;
+    background: #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    z-index: 2;
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.dwi-diag-node {
+    position: absolute;
+    padding: 15px 25px;
+    background: #1e293b;
+    color: white;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    width: 220px;
+    text-align: center;
+    z-index: 2;
+}
+
+.top-left {
+    top: 0;
+    left: 10%;
+}
+
+.top-right {
+    top: 0;
+    right: 10%;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 10%;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 10%;
+}
+
+.dwi-diag-node strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #38bdf8;
+}
+
+.dwi-diag-line {
+    position: absolute;
+    background: #334155;
+    height: 2px;
+    z-index: 1;
+}
+
+/* (Lines simplified for space, relies on layout proximity visually) */
+
+/* 9. FINAL CTA */
+.dwi-final-cta {
+    background: #0f172a;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    margin: 0 30px;
+}
+
+.dwi-cta-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* ANIMATION UTILITIES */
+.dwi-animate {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.dwi-animate.fade-in {
+    transition: opacity 0.8s ease;
+}
+
+.dwi-animate.fade-in.visible {
+    opacity: 1;
+}
+
+.dwi-animate.slide-up {
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.dwi-animate.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dwi-animate.slide-right {
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.dwi-animate.slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.dwi-animate.slide-left {
+    transform: translateX(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.dwi-animate.slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+
+    .dwi-hero-container,
+    .dwi-split-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dwi-features-grid,
+    .dwi-industry-grid,
+    .dwi-benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dwi-dash-ui {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .dwi-ui-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #334155;
+    }
+
+    .dwi-ui-content {
+        flex-direction: column;
+    }
+
+    .dwi-ui-visual,
+    .dwi-ui-instruction {
+        width: 100%;
+    }
+
+    .dwi-diag-node {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .dwi-integration-diagram {
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .dwi-features-grid,
+    .dwi-industry-grid,
+    .dwi-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dwi-hero-title {
+        font-size: 2.5rem;
+    }
+}

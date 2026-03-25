@@ -1,0 +1,1000 @@
+/* TraceabilitySCADA.css - Premium Enterprise Tier UI */
+
+.ts-page {
+    font-family: var(--font-body);
+    color: #1e293b;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.bg-light {
+    background-color: #f8fafc;
+}
+
+.bg-slate {
+    background-color: #0f172a;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.ts-section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.ts-section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.ts-section-header p {
+    font-size: 1.25rem;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* 1. HERO SECTION */
+.ts-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 0 80px;
+    background-color: #020617;
+    overflow: hidden;
+}
+
+.ts-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.ts-hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center right, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+}
+
+.ts-hero-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% {
+        transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px);
+    }
+
+    100% {
+        transform: perspective(500px) rotateX(60deg) translateY(40px) translateZ(-200px);
+    }
+}
+
+.ts-hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.ts-hero-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.ts-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.ts-hero-title span {
+    background: linear-gradient(135deg, #60a5fa, #c084fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ts-hero-subtitle {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.ts-hero-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.ts-btn-primary {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+.ts-btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
+}
+
+.ts-btn-secondary {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.ts-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+}
+
+/* HERO DASHBOARD CSS ART */
+.ts-mock-dashboard {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+    transition: transform 0.6s ease;
+}
+
+.ts-mock-dashboard:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+.ts-mock-header {
+    height: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.ts-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.ts-dot.close {
+    background: #ef4444;
+}
+
+.ts-dot.min {
+    background: #eab308;
+}
+
+.ts-dot.max {
+    background: #22c55e;
+}
+
+.ts-mock-title {
+    margin-left: 15px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-family: monospace;
+}
+
+.ts-mock-body {
+    display: flex;
+    flex: 1;
+}
+
+.ts-mock-sidebar {
+    width: 60px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ts-nav-item {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ts-nav-item.active {
+    background: #3b82f6;
+}
+
+.ts-mock-main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ts-mock-top {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.ts-stat-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ts-stat-box span {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.ts-stat-box strong {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.ts-stat-box .error {
+    color: #ef4444;
+}
+
+.ts-stat-box .success {
+    color: #22c55e;
+}
+
+.ts-mock-chart {
+    flex: 1;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.ts-bar {
+    width: 30px;
+    background: rgba(59, 130, 246, 0.4);
+    border-radius: 4px 4px 0 0;
+    transition: height 1s ease;
+}
+
+.ts-bar.active {
+    background: #3b82f6;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+/* 2. SPLIT LAYOUT */
+.ts-split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.ts-split-layout.inverse {
+    direction: rtl;
+}
+
+.ts-split-layout.inverse>* {
+    direction: ltr;
+}
+
+.ts-split-content h2 {
+    font-size: 2.5rem;
+    color: #0f172a;
+    margin-bottom: 25px;
+}
+
+.ts-what-is-scada .ts-split-content h2 {
+    color: #ffffff;
+}
+
+.ts-lead {
+    font-size: 1.4rem;
+    color: #3b82f6;
+    font-weight: 500;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.ts-split-content p {
+    font-size: 1.15rem;
+    color: #475569;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.ts-lifecycle {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #f8fafc;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.ts-lc-step {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.ts-lc-dot {
+    width: 24px;
+    height: 24px;
+    background: #3b82f6;
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.2);
+    z-index: 2;
+}
+
+.ts-lc-step span {
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.ts-lc-line {
+    position: absolute;
+    left: 11px;
+    top: 24px;
+    width: 2px;
+    height: 20px;
+    background: #cbd5e1;
+    z-index: 1;
+}
+
+.ts-scada-illustration {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ts-control-room {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ts-screen {
+    background: #1e293b;
+    border: 4px solid #334155;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.ts-main-screen {
+    width: 240px;
+    height: 160px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.ts-side-screen {
+    width: 140px;
+    height: 100px;
+    opacity: 0.8;
+}
+
+.ts-wave {
+    width: 100%;
+    height: 50%;
+    border-top: 3px solid #38bdf8;
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.4) 0%, transparent 100%);
+    margin-top: auto;
+}
+
+/* 3. FEATURES & ARCHITECTURE */
+.ts-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.ts-components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.ts-feature-card,
+.ts-comp-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.ts-feature-card:hover,
+.ts-comp-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.ts-fc-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.ts-feature-card h3,
+.ts-comp-inner h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+/* 4. IMPLEMENTATION FLOW */
+.ts-flow-container {
+    background: #0f172a;
+    padding: 60px 40px;
+    border-radius: 20px;
+    color: white;
+}
+
+.ts-flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ts-flow-node {
+    text-align: center;
+    width: 150px;
+}
+
+.ts-flow-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.ts-flow-node h4 {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.ts-flow-arrow {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #334155, #60a5fa, #334155);
+    margin: 0 10px;
+    position: relative;
+}
+
+.ts-flow-arrow::after {
+    content: '>';
+    position: absolute;
+    right: 0;
+    top: -10px;
+    color: #60a5fa;
+    font-weight: bold;
+}
+
+/* 6. SCADA LAYERS */
+.ts-arch-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ts-layer-card {
+    display: flex;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.ts-layer-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    border-color: #3b82f6;
+}
+
+.ts-layer-badge {
+    background: #1e293b;
+    color: white;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.ts-layer-info {
+    padding: 25px;
+    flex: 1;
+    background: white;
+}
+
+.ts-layer-info h4 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #0f172a;
+}
+
+.ts-layer-info p {
+    margin: 0;
+    color: #64748b;
+}
+
+/* 8. SCADA UI */
+.ts-scada-ui-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #020617;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+}
+
+.ts-ui-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: #0f172a;
+    border-bottom: 1px solid #1e293b;
+}
+
+.ts-ui-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.ts-ui-logo span {
+    color: #38bdf8;
+}
+
+.ts-alert.warning {
+    background: rgba(234, 179, 8, 0.2);
+    color: #fde047;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    animation: pulseAlarm 2s infinite;
+}
+
+@keyframes pulseAlarm {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.ts-ui-body {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+}
+
+.ts-ui-widget {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ts-ui-widget.large {
+    grid-column: span 2;
+}
+
+.ts-ui-widget.wide {
+    grid-column: span 3;
+}
+
+.ts-ui-widget h4 {
+    font-size: 1rem;
+    color: #94a3b8;
+    font-weight: 500;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+}
+
+.ts-status-item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.ts-status-item .ts-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.green {
+    background: #22c55e;
+}
+
+.yellow {
+    background: #eab308;
+}
+
+.red {
+    background: #ef4444;
+}
+
+.ts-energy-ring {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    border: 10px solid #334155;
+    border-top-color: #38bdf8;
+    border-right-color: #38bdf8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ts-ring-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.ts-chart-line svg {
+    width: 100%;
+    height: 100%;
+}
+
+.ts-health-bars {
+    display: flex;
+    gap: 40px;
+}
+
+.ts-h-bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ts-h-bar .ts-fill {
+    height: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* 9. GALLERY */
+.ts-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.ts-gallery-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 300px;
+}
+
+.ts-gallery-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.ts-gallery-item:hover .ts-gallery-img {
+    transform: scale(1.05);
+}
+
+.ts-gallery-cap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 20px 20px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* 10. INDUSTRIES */
+.ts-industry-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.ts-ind-card {
+    text-align: center;
+    background: white;
+    padding: 40px 20px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s;
+}
+
+.ts-ind-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    border-color: #3b82f6;
+}
+
+.ts-ind-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* 11. BENEFITS */
+.ts-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.ts-benefit-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    border-left: 6px solid #3b82f6;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+}
+
+.ts-check {
+    background: #dcfce7;
+    color: #16a34a;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 0.8rem;
+}
+
+.ts-b-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* 12. CTA */
+.ts-cta {
+    background: #0f172a;
+    margin: 0 40px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ts-cta::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.5;
+}
+
+.ts-cta-title {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.ts-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* ANIMATIONS */
+.ts-animate {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.ts-animate.fade-in {
+    transition: opacity 0.8s ease;
+}
+
+.ts-animate.fade-in.visible {
+    opacity: 1;
+}
+
+.ts-animate.slide-up {
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.ts-animate.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ts-animate.slide-right {
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.ts-animate.slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.ts-animate.slide-left {
+    transform: translateX(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.ts-animate.slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+
+    .ts-hero-container,
+    .ts-split-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .ts-features-grid,
+    .ts-benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ts-industry-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ts-flow-diagram {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .ts-flow-arrow {
+        width: 2px;
+        height: 30px;
+        background: linear-gradient(180deg, #334155, #60a5fa, #334155);
+    }
+
+    .ts-flow-arrow::after {
+        content: 'v';
+        bottom: -10px;
+        top: auto;
+        right: -4px;
+    }
+
+    .ts-ui-body {
+        grid-template-columns: 1fr;
+    }
+
+    .ts-ui-widget.large,
+    .ts-ui-widget.wide {
+        grid-column: span 1;
+    }
+
+    .ts-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .ts-features-grid,
+    .ts-benefits-grid,
+    .ts-components-grid,
+    .ts-industry-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .ts-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .ts-cta-title {
+        font-size: 2rem;
+    }
+
+    .ts-split-layout.inverse {
+        direction: ltr;
+    }
+}

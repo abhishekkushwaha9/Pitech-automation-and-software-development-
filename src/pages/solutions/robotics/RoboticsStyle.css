@@ -1,0 +1,224 @@
+/* RoboticsStyle.css */
+.robotics-container {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #f8fafc;
+    overflow-x: hidden;
+}
+
+/* Parallax Hero */
+.robo-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.robo-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 25, 47, 0.7);
+    z-index: -1;
+}
+
+.robo-hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.robo-hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #60efff, #00ff87);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 1s ease-out;
+}
+
+.robo-hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+/* Sections */
+.robo-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.robo-section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #1e293b;
+    margin-bottom: 50px;
+    position: relative;
+    font-weight: 700;
+}
+
+.robo-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #3b82f6;
+    border-radius: 2px;
+}
+
+/* Cards & Layout */
+.robo-split-card {
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
+    margin-bottom: 60px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.robo-split-card:hover {
+    transform: translateY(-5px);
+}
+
+.robo-split-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.robo-card-image {
+    flex: 1;
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+.robo-card-content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.robo-card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 25px;
+}
+
+.robo-card-req {
+    background: #f1f5f9;
+    padding: 20px;
+    border-left: 4px solid #f59e0b;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.robo-card-sol {
+    background: #f0fdf4;
+    padding: 20px;
+    border-left: 4px solid #10b981;
+    border-radius: 0 8px 8px 0;
+}
+
+.robo-card-req strong,
+.robo-card-sol strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 1.1rem;
+}
+
+p {
+    line-height: 1.7;
+    color: #475569;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Nav */
+.robo-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    .robo-split-card,
+    .robo-split-card.reverse {
+        flex-direction: column;
+    }
+
+    .robo-card-image {
+        width: 100%;
+        min-height: 300px;
+    }
+
+    .robo-hero-title {
+        font-size: 2.2rem;
+    }
+
+    .robo-hero-subtitle {
+        font-size: 1.2rem;
+    }
+}

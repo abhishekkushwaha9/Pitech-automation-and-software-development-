@@ -1,0 +1,12 @@
+.blur-text {
+    display: inline-block;
+}
+
+.blur-text-word {
+    display: inline-block;
+}
+
+.blur-text-char {
+    display: inline-block;
+    white-space: pre;
+}

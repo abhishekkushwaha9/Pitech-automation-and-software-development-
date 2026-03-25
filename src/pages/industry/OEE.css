@@ -1,0 +1,972 @@
+/* OEE.css - Premium Enterprise Tier UI Elements */
+
+.oee-dwi-page {
+    font-family: var(--font-body);
+    color: #1a202c;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+.section-padding {
+    padding: 120px 0;
+}
+
+.bg-light {
+    background-color: #f8fafc;
+}
+
+.od-section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.od-section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+.od-section-header p {
+    font-size: 1.25rem;
+    color: #475569;
+    line-height: 1.8;
+}
+
+/* 1. HERO SECTION */
+.od-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 0 80px;
+    overflow: hidden;
+}
+
+.od-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.od-hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a1930 0%, #1e3a8a 100%);
+}
+
+.od-hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+    background-size: 120% 120%;
+    background-position: center;
+}
+
+.od-hero-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.od-hero-content {
+    color: #ffffff;
+}
+
+.od-hero-badge {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(147, 197, 253, 0.3);
+    color: #93c5fd;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.od-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.od-hero-title span {
+    background: linear-gradient(to right, #60a5fa, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.od-hero-subtitle {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.od-hero-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.od-btn-primary {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+.od-btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
+}
+
+.od-btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.od-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+/* Mockup CSS */
+.od-hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.od-hero-device {
+    width: 100%;
+    max-width: 550px;
+    background: #1e293b;
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+    transition: transform 0.5s ease;
+}
+
+.od-hero-device:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+.od-hero-device-screen {
+    background: #0f172a;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.od-hero-mock-header {
+    height: 48px;
+    background: #334155;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 1px solid #475569;
+}
+
+.od-dots {
+    display: flex;
+    gap: 6px;
+    margin-right: 15px;
+}
+
+.od-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ef4444;
+}
+
+.od-dots span:nth-child(2) {
+    background: #eab308;
+}
+
+.od-dots span:nth-child(3) {
+    background: #22c55e;
+}
+
+.od-hero-mock-body {
+    padding: 24px;
+    flex: 1;
+}
+
+.od-mock-stat {
+    background: #1e293b;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.od-mock-stat span {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.od-mock-stat strong {
+    display: block;
+    font-size: 2.5rem;
+    color: #60a5fa;
+    margin: 10px 0;
+}
+
+.od-mock-bar {
+    height: 8px;
+    background: #334155;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.od-mock-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 4px;
+}
+
+.od-mock-task {
+    background: #1e293b;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.od-mock-task.active {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #ffffff;
+}
+
+.od-time {
+    background: #334155;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.od-mock-task.active .od-time {
+    background: #3b82f6;
+}
+
+
+/* 2. ABOUT OEE FORMULA */
+.od-formula-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.od-formula-item {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    width: 20%;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.od-formula-item.active,
+.od-formula-item:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.od-formula-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.od-formula-item h3 {
+    font-size: 1.2rem;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.od-formula-item p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.od-formula-bar {
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.od-formula-inner {
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 3px;
+    transition: width 1s ease;
+}
+
+.od-formula-item.active .od-formula-inner {
+    background: #2563eb;
+}
+
+.od-formula-math {
+    font-size: 3rem;
+    color: #cbd5e1;
+    font-weight: 300;
+}
+
+.od-formula-result {
+    text-align: center;
+    width: 25%;
+    background: #f0fdf4;
+    padding: 30px 20px;
+    border-radius: 16px;
+    border: 1px solid #bbf7d0;
+}
+
+.od-formula-result h3 {
+    font-size: 1.5rem;
+    color: #166534;
+    margin-bottom: 15px;
+}
+
+.od-formula-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #22c55e;
+    border: 6px solid #86efac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+}
+
+
+/* 3. BENEFITS CARDS */
+.od-features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.od-feature-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.od-feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.od-feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: #eff6ff;
+    color: #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.od-feature-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.od-feature-card h3 {
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+
+.od-feature-card p {
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* 4. SPLIT DWI SECTION */
+.od-split-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 80px;
+    align-items: center;
+}
+
+.od-split-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+.od-highlight-text {
+    font-size: 1.4rem;
+    color: #3b82f6;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.od-split-content p {
+    font-size: 1.15rem;
+    color: #475569;
+    margin-bottom: 30px;
+}
+
+.od-dwi-list {
+    list-style: none;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.od-dwi-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.od-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #dcfce7;
+    color: #16a34a;
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.od-split-visual {
+    position: relative;
+}
+
+.od-dwi-panel {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.od-dwi-header {
+    padding: 24px;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+}
+
+.od-dwi-status {
+    background: #fef08a;
+    color: #854d0e;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.od-dwi-image {
+    height: 250px;
+    background: #cbd5e1;
+}
+
+.od-dwi-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.od-dwi-step {
+    padding: 30px 24px;
+}
+
+.od-dwi-step h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.od-dwi-step p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.od-btn-validate {
+    width: 100%;
+    padding: 16px;
+    background: #22c55e;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.od-btn-validate:hover {
+    background: #16a34a;
+}
+
+
+/* 5. WORKFLOW */
+.od-workflow-chain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.od-flow-step {
+    text-align: center;
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    width: 22%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease;
+}
+
+.od-flow-step:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6;
+}
+
+.od-flow-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.od-flow-step h4 {
+    font-size: 1.1rem;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.od-flow-step p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.od-flow-arrow {
+    font-size: 2rem;
+    color: #cbd5e1;
+}
+
+
+/* 6. MOCK DASHBOARD */
+.od-dash-mockup {
+    display: flex;
+    background: #0f172a;
+    border-radius: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    height: 600px;
+}
+
+.od-dash-sidebar {
+    width: 220px;
+    background: #1e293b;
+    padding: 30px 0;
+    border-right: 1px solid #334155;
+}
+
+.od-dash-logo {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    padding: 0 25px;
+    margin-bottom: 40px;
+}
+
+.od-dash-nav {
+    padding: 15px 25px;
+    color: #94a3b8;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.od-dash-nav:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.od-dash-nav.active {
+    color: #60a5fa;
+    background: rgba(59, 130, 246, 0.1);
+    border-right: 3px solid #60a5fa;
+}
+
+.od-dash-main {
+    flex: 1;
+    padding: 40px;
+    overflow: hidden;
+}
+
+.od-dash-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.od-dash-title {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.od-dash-alert {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.od-dash-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.od-widget-large {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.od-dash-widget {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.od-widget-title {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.od-oee-massive {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.od-trend.positive {
+    color: #4ade80;
+    font-size: 1.1rem;
+}
+
+.od-widget-stat {
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.od-mini-bar {
+    height: 6px;
+    background: #334155;
+    border-radius: 3px;
+}
+
+.od-mini-bar div {
+    height: 100%;
+    background: #60a5fa;
+    border-radius: 3px;
+}
+
+
+/* 7. USE CASES */
+.od-usecase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.od-usecase-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+    transition: transform 0.4s;
+}
+
+.od-usecase-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.od-uc-image {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+
+.od-uc-content {
+    padding: 30px;
+}
+
+.od-uc-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+.od-uc-content p {
+    color: #475569;
+}
+
+
+/* 8. CTA SECTION */
+.od-cta-section {
+    position: relative;
+    text-align: center;
+    padding: 100px 0;
+    background: #0f172a;
+    color: white;
+}
+
+.od-cta-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at center, #1e3a8a 0%, #0f172a 70%);
+    opacity: 0.6;
+}
+
+.od-cta-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.od-cta-text {
+    font-size: 1.3rem;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.od-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.od-btn-cta-primary {
+    background: #3b82f6;
+    color: white;
+    padding: 18px 45px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.od-btn-cta-primary:hover {
+    background: #2563eb;
+}
+
+.od-btn-cta-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid #334155;
+    padding: 18px 45px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.od-btn-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #475569;
+}
+
+
+/* RESPONSIVE CSS */
+@media (max-width: 1024px) {
+
+    .od-hero-container,
+    .od-split-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .od-hero-visual {
+        justify-content: center;
+    }
+
+    .od-formula-wrap {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .od-formula-item,
+    .od-formula-result {
+        width: 100%;
+    }
+
+    .od-features-grid,
+    .od-usecase-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .od-workflow-chain {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .od-flow-arrow {
+        transform: rotate(90deg);
+    }
+
+    .od-flow-step {
+        width: 100%;
+    }
+
+    .od-dash-mockup {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .od-dash-sidebar {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid #334155;
+    }
+
+    .od-dash-logo {
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+
+    .od-dash-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .od-widget-large {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .od-features-grid,
+    .od-usecase-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .od-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .od-section-header h2 {
+        font-size: 2rem;
+    }
+
+    .od-cta-title {
+        font-size: 2.2rem;
+    }
+}

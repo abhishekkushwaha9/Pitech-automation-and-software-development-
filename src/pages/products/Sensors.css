@@ -1,0 +1,303 @@
+/* ============================================================
+   SENSORS PAGE — Professional Sensor Product Page
+   ============================================================ */
+
+/* ── CATEGORIES SECTION ── */
+.sensors-categories-section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.sensors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.sensor-category-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  border: 1.5px solid var(--gray-100);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-image {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.category-image img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.sensor-category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sensor-category-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-8px);
+}
+
+.sensor-category-card:hover::before {
+  transform: scaleX(1);
+}
+
+.category-icon {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.sensor-category-card h3 {
+  font-size: 1.25rem;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.category-description {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  margin-bottom: 24px;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.category-models h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.category-models ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-models li {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  padding-left: 20px;
+  position: relative;
+}
+
+.category-models li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  color: var(--primary-light);
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.card-accent {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── FEATURES SECTION ── */
+.sensors-features-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.02), rgba(59, 130, 246, 0.02));
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.features-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .features-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.features-left h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  margin-bottom: 20px;
+  color: var(--gray-900);
+}
+
+.features-left .lead {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+.highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.highlight-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.highlight-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.highlight-item h4 {
+  font-size: 1rem;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.highlight-item p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.feature-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+.image-glow {
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── CTA SECTION ── */
+.sensors-cta-section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.cta-wrapper {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.03), rgba(37, 99, 235, 0.03));
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-xl);
+  padding: 60px 48px;
+}
+
+.cta-wrapper h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  margin-bottom: 20px;
+  color: var(--gray-900);
+}
+
+.cta-wrapper p {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-buttons .btn-primary,
+.cta-buttons .btn-secondary {
+  display: inline-flex;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+
+  .sensors-categories-section,
+  .sensors-features-section,
+  .sensors-cta-section {
+    padding: 60px 0;
+  }
+
+  .sensors-grid {
+    gap: 24px;
+  }
+
+  .sensor-category-card {
+    padding: 28px 20px;
+  }
+
+  .cta-wrapper {
+    padding: 48px 32px;
+  }
+
+  .cta-buttons {
+    gap: 12px;
+  }
+
+  .cta-buttons a {
+    width: 100%;
+    justify-content: center;
+  }
+}

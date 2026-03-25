@@ -1,0 +1,410 @@
+/* src/components/StarBorder.css */
+
+.star-border-container {
+    display: inline-block;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.star-border-container:hover {
+    transform: scale(1.02);
+}
+
+.star-border-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Glowing orbs */
+.star-glow {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--star-color, white);
+    filter: blur(20px);
+    opacity: 0.3;
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.glow-1 {
+    top: -20px;
+    left: -20px;
+    animation-delay: 0s;
+}
+
+.glow-2 {
+    bottom: -20px;
+    right: -20px;
+    animation-delay: 1s;
+}
+
+.glow-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    opacity: 0.2;
+    animation-delay: 2s;
+}
+
+.glow-4 {
+    top: 50%;
+    left: 20%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 1.5s;
+}
+
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.2);
+    }
+}
+
+/* Star particles */
+.star-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--star-color, white);
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0;
+    animation: particle-move var(--star-speed, 6s) linear infinite;
+}
+
+.particle-1 {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle-2 {
+    top: 60%;
+    right: 15%;
+    animation-delay: 0.5s;
+}
+
+.particle-3 {
+    bottom: 30%;
+    left: 30%;
+    animation-delay: 1s;
+}
+
+.particle-4 {
+    top: 40%;
+    right: 40%;
+    animation-delay: 1.5s;
+}
+
+.particle-5 {
+    bottom: 10%;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+.particle-6 {
+    top: 80%;
+    left: 50%;
+    animation-delay: 2.5s;
+}
+
+.particle-7 {
+    bottom: 50%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+.particle-8 {
+    top: 15%;
+    right: 60%;
+    animation-delay: 3.5s;
+}
+
+@keyframes particle-move {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(5px, -5px) scale(1);
+    }
+
+    20% {
+        transform: translate(10px, -10px) scale(1.2);
+    }
+
+    30% {
+        transform: translate(15px, -15px) scale(1);
+    }
+
+    40% {
+        transform: translate(20px, -20px) scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(25px, -25px) scale(0.5);
+    }
+
+    60% {
+        opacity: 0.5;
+        transform: translate(30px, -30px) scale(0.3);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(50px, -50px) scale(0);
+    }
+}
+
+/* Moving border gradients */
+.star-border-top,
+.star-border-bottom,
+.star-border-left,
+.star-border-right {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, var(--star-color, white), transparent);
+    animation: border-move var(--star-speed, 6s) linear infinite;
+}
+
+.star-border-top {
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: var(--star-thickness, 1px);
+    animation: border-move-horizontal var(--star-speed, 6s) linear infinite;
+}
+
+.star-border-bottom {
+    bottom: 0;
+    right: -100%;
+    width: 200%;
+    height: var(--star-thickness, 1px);
+    animation: border-move-horizontal-reverse var(--star-speed, 6s) linear infinite;
+}
+
+.star-border-left {
+    left: 0;
+    top: -100%;
+    width: var(--star-thickness, 1px);
+    height: 200%;
+    background: linear-gradient(180deg, transparent, var(--star-color, white), transparent);
+    animation: border-move-vertical var(--star-speed, 6s) linear infinite;
+}
+
+.star-border-right {
+    right: 0;
+    bottom: -100%;
+    width: var(--star-thickness, 1px);
+    height: 200%;
+    background: linear-gradient(180deg, transparent, var(--star-color, white), transparent);
+    animation: border-move-vertical-reverse var(--star-speed, 6s) linear infinite;
+}
+
+@keyframes border-move-horizontal {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(50%);
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes border-move-horizontal-reverse {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes border-move-vertical {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(50%);
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes border-move-vertical-reverse {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+/* Star corners */
+.star-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--star-color, white);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    filter: blur(2px);
+    opacity: 0;
+    animation: corner-twinkle 2s ease-in-out infinite;
+}
+
+.corner-tl {
+    top: 0;
+    left: 0;
+    animation-delay: 0s;
+}
+
+.corner-tr {
+    top: 0;
+    right: 0;
+    animation-delay: 0.5s;
+}
+
+.corner-bl {
+    bottom: 0;
+    left: 0;
+    animation-delay: 1s;
+}
+
+.corner-br {
+    bottom: 0;
+    right: 0;
+    animation-delay: 1.5s;
+}
+
+@keyframes corner-twinkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Inner content styling */
+.inner-content {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    padding: 16px 26px;
+    border-radius: 20px;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.star-border-container:hover .inner-content {
+    border-color: var(--star-color, white);
+    box-shadow: 0 0 20px rgba(var(--star-color), 0.3);
+}
+
+/* Hover effects */
+.star-border-container:hover .star-glow {
+    animation-duration: 1.5s;
+}
+
+.star-border-container:hover .star-particle {
+    animation-duration: calc(var(--star-speed, 6s) / 2);
+}
+
+.star-border-container:hover .star-border-top,
+.star-border-container:hover .star-border-bottom,
+.star-border-container:hover .star-border-left,
+.star-border-container:hover .star-border-right {
+    animation-duration: calc(var(--star-speed, 6s) / 2);
+}

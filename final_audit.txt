@@ -1,0 +1,8 @@
+
+> pitech-website@0.1.0 build
+> react-scripts build
+
+(node:13748) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Creating an optimized production build...
+Terminate batch job (Y/N)? Terminate batch job (Y/N)? 
