@@ -19,11 +19,12 @@ const OEE = () => {
     return (
         <div className="ent-page">
             <section className="ent-hero" style={{
-                backgroundImage: "url('/images/OEE-image.png')",
-                backgroundAttachment: "fixed",
+                backgroundImage: "url('/images/OEE_DASHBOARD.png')",
+                backgroundAttachment: "scroll",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover"
+                backgroundSize: "contain",
+                backgroundColor: "#0f172a"
             }}>
                 {/* Light dark overlay replacing the previous white gradient */}
                 <div style={{

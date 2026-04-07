@@ -60,8 +60,16 @@ export default function Footer() {
             machine manufacturing, and premium IIoT technologies to Indian MSMEs
             and large manufacturers.
           </p>
-          <div className="footer-subscribe-label" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div className="footer-subscribe-label" style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
             <span style={{ color: '#ffffff' }}>Stay Updated</span>
+            <a 
+              href="https://pitechiotdashboard.runasp.net/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="live-iot-badge"
+            >
+              Live IoT Platform
+            </a>
           </div>
         </div>
 

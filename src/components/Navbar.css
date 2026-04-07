@@ -99,6 +99,47 @@
 }
 .navbar-btn-primary:hover { background: var(--primary); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,99,235,0.38); }
 
+.navbar-btn-live-iot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.navbar-btn-live-iot::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: shine-nav-btn 3s infinite;
+}
+
+@keyframes shine-nav-btn {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+
+.navbar-btn-live-iot:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 25px rgba(16, 185, 129, 0.7);
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+}
+
 /* Dark Mode Toggle */
 .navbar-toggle-wrap { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--gray-500); font-weight: 500; }
 .navbar-switch { position: relative; display: inline-block; width: 38px; height: 20px; cursor: pointer; }
@@ -269,6 +310,28 @@
 }
 .drawer-btn-primary { background: var(--primary-light); color: var(--white); }
 .drawer-btn-primary:hover { background: var(--primary); }
+
+.drawer-btn-live-iot {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.drawer-btn-live-iot::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: shine-nav-btn 3s infinite;
+}
+.drawer-btn-live-iot:hover {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+}
 .drawer-btn-secondary { background: var(--gray-100); color: var(--gray-700); }
 .drawer-btn-secondary:hover { background: var(--gray-200); }
 

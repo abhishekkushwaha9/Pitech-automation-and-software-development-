@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PageLayout from "../layouts/PageLayout";
+import "./Services.css";
+
 
 /* ── Solution Categories Data ── */
 const CATEGORIES = [
@@ -92,6 +94,59 @@ const BENEFITS = [
   { icon: '📊', title: 'Data Analytics', desc: 'Real-time dashboards and reports that drive better decisions.' },
 ];
 
+function CategoryCard({ cat }) {
+  const [expanded, setExpanded] = useState(false);
+  const limit = 4;
+  const hasMore = cat.solutions.length > limit;
+  const visibleSolutions = expanded ? cat.solutions : cat.solutions.slice(0, limit);
+
+  return (
+    <div className="service-category-card animate-on-scroll">
+      {/* Category Header */}
+      <div className="service-category-header" style={{ background: cat.bg }}>
+        <div className="service-category-icon-wrapper" style={{ color: cat.color }}>
+          {cat.icon}
+        </div>
+        <div className="service-category-text">
+          <h3 className="service-category-title" style={{ color: cat.color }}>{cat.title}</h3>
+          <p className="service-category-desc">{cat.desc}</p>
+        </div>
+      </div>
+      {/* Solutions List */}
+      <div className="service-solutions-list">
+        {visibleSolutions.map((sol, si) => (
+          <Link key={si} to={sol.path}
+            className="service-solution-item"
+            style={{ color: cat.color }}
+            onMouseEnter={e => {
+              e.currentTarget.style.backgroundColor = cat.bg;
+              e.currentTarget.style.borderColor = cat.color;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.backgroundColor = 'var(--gray-50)';
+              e.currentTarget.style.borderColor = 'transparent';
+            }}>
+            <div className="service-solution-icon">{sol.icon}</div>
+            <div className="service-solution-content">
+              <div className="service-solution-name">{sol.name}</div>
+              <div className="service-solution-desc">{sol.desc}</div>
+            </div>
+            <span className="service-solution-arrow">›</span>
+          </Link>
+        ))}
+      </div>
+      {/* View More Button */}
+      {hasMore && (
+        <div className="service-card-footer">
+          <button className="service-view-more-btn" style={{ color: cat.color }} aria-label="Toggle solutions" onClick={() => setExpanded(!expanded)}>
+            {expanded ? `Show Less ↑` : `+ ${cat.solutions.length - limit} More Solutions`}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Services() {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -110,81 +165,43 @@ export default function Services() {
       heroImage="/images/1759499868874.jpg"
       breadcrumb={[{ label: 'Solutions' }]}
     >
-      {/* ── Solution Categories ── */}
-      <section style={{ padding: '80px 0' }}>
-        <div style={{ maxWidth: 'var(--container)', margin: '0 auto', padding: '0 32px' }}>
-          <div className="section-header animate-on-scroll">
-            <span className="section-tag">Full Portfolio</span>
-            <h2>Every Solution Your Factory Needs</h2>
-            <p>Six comprehensive domains covering every aspect of modern manufacturing automation.</p>
-          </div>
+      <div className="services-page">
+        {/* ── Solution Categories ── */}
+        <section className="services-section">
+          <div className="services-container">
+            <div className="section-header animate-on-scroll">
+              <span className="section-tag">Full Portfolio</span>
+              <h2>Every Solution Your Factory Needs</h2>
+              <p>Six comprehensive domains covering every aspect of modern manufacturing automation.</p>
+            </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '48px', marginTop: '64px' }}>
-            {CATEGORIES.map((cat, ci) => (
-              <div key={ci} className="animate-on-scroll"
-                style={{ background: 'var(--white)', borderRadius: 'var(--radius-xl)', border: '1px solid var(--gray-100)', boxShadow: 'var(--shadow)', overflow: 'hidden' }}>
-                {/* Category Header */}
-                <div style={{ padding: '32px 36px', borderBottom: '1px solid var(--gray-100)', display: 'flex', alignItems: 'center', gap: '20px', background: cat.bg }}>
-                  <div style={{ width: '56px', height: '56px', borderRadius: 'var(--radius-lg)', background: cat.bg, border: `2px solid ${cat.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.6rem', flexShrink: 0 }}>
-                    {cat.icon}
-                  </div>
-                  <div>
-                    <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: cat.color, margin: 0 }}>{cat.title}</h3>
-                    <p style={{ fontSize: '0.88rem', color: 'var(--gray-500)', margin: '4px 0 0', lineHeight: 1.6 }}>{cat.desc}</p>
-                  </div>
+            <div className="services-grid">
+              {CATEGORIES.map((cat, ci) => (
+                <CategoryCard key={ci} cat={cat} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Why Choose PiTech ── */}
+        <section className="benefits-section">
+          <div className="benefits-inner" style={{ maxWidth: 'var(--container)', margin: '0 auto', padding: '0 32px' }}>
+            <div className="section-header animate-on-scroll">
+              <span className="section-tag">Why PiTech?</span>
+              <h2>What Sets Us Apart</h2>
+              <p>We don't just sell solutions — we become long-term technology partners in your manufacturing success.</p>
+            </div>
+            <div className="benefits-grid">
+              {BENEFITS.map((b, i) => (
+                <div key={i} className="benefit-card animate-on-scroll" style={{ transitionDelay: `${i * 0.08}s` }}>
+                  <div className="benefit-icon">{b.icon}</div>
+                  <h4>{b.title}</h4>
+                  <p>{b.desc}</p>
                 </div>
-                {/* Solutions Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1px', background: 'var(--gray-100)' }}>
-                  {cat.solutions.map((sol, si) => (
-                    <Link key={si} to={sol.path}
-                      style={{ background: 'var(--white)', padding: '20px 24px', textDecoration: 'none', display: 'flex', alignItems: 'flex-start', gap: '14px', transition: 'background 0.2s' }}
-                      onMouseEnter={e => e.currentTarget.style.background = cat.bg}
-                      onMouseLeave={e => e.currentTarget.style.background = 'var(--white)'}>
-                      <div style={{ fontSize: '1.3rem', marginTop: '2px' }}>{sol.icon}</div>
-                      <div>
-                        <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--gray-900)', marginBottom: '4px' }}>{sol.name}</div>
-                        <div style={{ fontSize: '0.78rem', color: 'var(--gray-500)', lineHeight: 1.6 }}>{sol.desc}</div>
-                      </div>
-                      <span style={{ marginLeft: 'auto', color: 'var(--gray-300)', fontSize: '0.9rem', flexShrink: 0, marginTop: '2px' }}>›</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── Why Choose PiTech ── */}
-      <section className="benefits-section">
-        <div className="benefits-inner">
-          <div className="section-header animate-on-scroll">
-            <span className="section-tag">Why PiTech?</span>
-            <h2>What Sets Us Apart</h2>
-            <p>We don't just sell solutions — we become long-term technology partners in your manufacturing success.</p>
-          </div>
-          <div className="benefits-grid">
-            {BENEFITS.map((b, i) => (
-              <div key={i} className="benefit-card animate-on-scroll" style={{ transitionDelay: `${i * 0.08}s` }}>
-                <div className="benefit-icon">{b.icon}</div>
-                <h4>{b.title}</h4>
-                <p>{b.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <div className="related-cta">
-        <div className="related-cta-inner">
-          <h2>Let's Build Your Solution Together</h2>
-          <p>Tell us your manufacturing challenge — we'll design the right automation and digitalization solution for your factory.</p>
-          <div className="related-cta-btns">
-            <Link to="/contact" className="related-btn-w">Start a Conversation</Link>
-            <Link to="/about/success" className="related-btn-o">View Success Stories</Link>
-          </div>
-        </div>
+        </section>
       </div>
     </PageLayout>
   );

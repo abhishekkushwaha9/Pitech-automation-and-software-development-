@@ -40,7 +40,7 @@ const NAV_DATA = {
       ],
     },
     {
-      category: "Convergence",
+      category: "Conveyor",
       items: [
         { name: "Pallet Conveyor", path: "/solutions/convergence/pallet-conveyor" },
         { name: "Assembly Conveyor", path: "/solutions/convergence/assembly-conveyor" },
@@ -208,6 +208,14 @@ export default function Navbar() {
           {/* Right Actions */}
           <div className="navbar-actions">
 
+            <a 
+              href="https://pitechiotdashboard.runasp.net/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="navbar-btn-live-iot"
+            >
+              Live IoT Platform
+            </a>
             <Link to="/contact" className="navbar-btn-primary">Get a Quote</Link>
 
             {/* Hamburger */}
@@ -365,6 +373,7 @@ export default function Navbar() {
 
             <div className="drawer-footer">
 
+              <a href="https://pitechiotdashboard.runasp.net/" target="_blank" rel="noreferrer" className="drawer-btn drawer-btn-live-iot" onClick={() => setMobileOpen(false)}>Live IoT Platform</a>
               <Link to="/contact" className="drawer-btn drawer-btn-primary" onClick={() => setMobileOpen(false)}>Get a Quote</Link>
               <Link to="/signup" className="drawer-btn drawer-btn-secondary" onClick={() => setMobileOpen(false)}>Register / Sign Up</Link>
             </div>

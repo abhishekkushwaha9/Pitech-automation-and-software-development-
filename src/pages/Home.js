@@ -56,7 +56,7 @@ const SOLUTIONS = [
   { tag: 'Analytics', title: 'Production Dashboard', desc: 'Gain real-time insights, view key performance metrics, and track production objectives with customizable data visualization.', img: '/images/dashboard-ui.png', path: '/industry/production-dashboard' },
   { tag: 'AI/ML', title: 'Predictive Maintenance', desc: 'Leverage AI and sensor data to predict equipment failures before they occur, minimizing downtime and maintenance costs.', img: '/images/ai-maintenance.jpg', path: '/industry/predictive-maintenance' },
   { tag: 'Automation', title: 'Traceability SCADA', desc: 'Monitor and track production data in real time using SCADA systems. Ensure complete traceability, improve quality control, and optimize industrial automation processes.', img: '/images/scada_new.jpg', path: '/solutions/automation/traceability-scada' },
-  { tag: 'Traceability', title: 'OEE Dashboard', desc: 'Track Overall Equipment Effectiveness through an interactive dashboard that provides real-time insights into availability, performance, and quality metrics using automated data collection.', img: '/images/OEE-image.png', path: '/industry/oee' },
+  { tag: 'Traceability', title: 'OEE Dashboard', desc: 'Track Overall Equipment Effectiveness through an interactive dashboard that provides real-time insights into availability, performance, and quality metrics using automated data collection.', img: '/images/OEE_DASHBOARD.png', path: '/industry/oee' },
 ];
 
 const INDUSTRIES = [
@@ -132,15 +132,25 @@ const TESTIMONIALS = [
 ];
 
 const ALL_CLIENTS = [
-  { company: 'Saint Gobain', logo: '/images/saint goobin.jpg', contact: 'Mahesh Dhaka' },
+  { company: 'Saint Gobain', logo: '/images/saint goobin.png', contact: 'Mahesh Dhaka' },
   { company: 'A2Z Fil', logo: '/images/a2z-fil.png', contact: 'Industrial Partner' },
   { company: 'CMR', logo: '/images/CMR_logo.png', contact: 'Akshay Agrawal' },
   { company: 'Hi-Tech', logo: '/images/Hi-Tech.png', contact: 'Automation Partner' },
   { company: 'Honda', logo: '/images/honda.png', contact: 'Nippun Kumar' },
   { company: 'Johnson Matthey', logo: '/images/johnson-matthey.png', contact: 'Sanjay Yadav' },
   { company: 'JSW', logo: '/images/jsw.png', contact: 'Strategic Partner' },
-  { company: 'Lenskart', logo: '/images/lenskart.jpg', contact: 'Manufacturing Partner' },
+  { company: 'Lenskart', logo: '/images/lenskart.avif', contact: 'Manufacturing Partner' },
   { company: 'PV', logo: '/images/PV.png', contact: 'Manish Sehgal' },
+  { company: 'Panasonic', logo: '/images/parasonic.png', contact: 'Industrial Partner' },
+  { company: 'Ahresty', logo: '/images/ahresty.jpg', contact: 'Industrial Partner' },
+  { company: 'Spiro', logo: '/images/spiro.jpeg', contact: 'Industrial Partner' },
+  { company: 'SQT', logo: '/images/SQT.png', contact: 'Industrial Partner' },
+  { company: 'Shigan', logo: '/images/shigan.jpeg', contact: 'Industrial Partner' },
+  { company: 'SKH ', logo: '/images/skh-grp.png', contact: 'Industrial Partner' },
+  { company: 'Somic ZF', logo: '/images/somic_zf.png', contact: 'Industrial Partner' },
+  { company: 'Pranav Vikas', logo: '/images/pranav%20vikas.png', contact: 'Industrial Partner' },
+  { company: 'Havells', logo: '/images/haveels.png', contact: 'Industrial Partner' },
+  { company: 'Exide', logo: '/images/exide.png', contact: 'Industrial Partner' },
 ];
 
 /* ── Intersection Observer Hook ── */
@@ -364,6 +374,25 @@ export default function Home() {
       </section>
 
       {/* ════════════════════════════════════════════
+          LIVE IOT PLATFORM
+      ════════════════════════════════════════════ */}
+      <section className="live-iot-section">
+        <div className="live-iot-inner">
+          <div className="live-iot-card animate-on-scroll">
+            <div className="live-iot-content">
+              <span className="section-tag" style={{ border: '2px solid #10b981', color: '#10b981', background: 'rgba(16, 185, 129, 0.1)' }}>Interactive Demo</span>
+              <h2>Live IoT Platform</h2>
+              <p>Experience our real-time IoT platform designed for smart monitoring, real-time analytics, and efficient industrial automation.</p>
+              <a href="https://pitechiotdashboard.runasp.net/" target="_blank" rel="noreferrer" className="live-iot-btn">Explore Live Platform →</a>
+            </div>
+            <div className="live-iot-image-wrapper">
+              <div className="live-iot-parallax-bg" style={{ backgroundImage: "url('/images/Live IoT Platform.png')" }}></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
           SOLUTIONS
       ════════════════════════════════════════════ */}
       <section className="solutions">
@@ -379,12 +408,15 @@ export default function Home() {
                 <div className="solution-card-img">
                   <img src={s.img} alt={s.title}
                     onError={e => { e.target.src = '/images/connected-machines.jpg'; }} />
+                  <div className="solution-card-overlay">
+                    <p>{s.desc}</p>
+                    <span className="solution-card-view-btn">View Details</span>
+                  </div>
                 </div>
-                <span className="solution-card-tag">{s.tag}</span>
                 <div className="solution-card-body">
+                  <span className="solution-card-tag">{s.tag}</span>
                   <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                  <span className="solution-card-link">Learn More →</span>
+                  <p className="solution-card-short-desc">{s.desc}</p>
                 </div>
               </Link>
             ))}
@@ -495,13 +527,12 @@ export default function Home() {
             >
               {ALL_CLIENTS.map((client, idx) => (
                 <SwiperSlide key={idx}>
-                  <div className="client-contact-card" style={{ height: '100%' }}>
+                  <div className="client-contact-card">
                     <div className="client-logo-box">
                       <img src={client.logo} alt={client.company} onError={e => e.target.style.opacity = '0.5'} />
                     </div>
                     <div className="client-info">
                       <h4>{client.company}</h4>
-                      <p><span>Contact Person:</span> {client.contact}</p>
                     </div>
                   </div>
                 </SwiperSlide>

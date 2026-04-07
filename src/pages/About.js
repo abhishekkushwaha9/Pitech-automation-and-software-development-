@@ -36,15 +36,8 @@ const SUCCESS_STORIES = [
     id: 4, cat: 'Energy', color: '#f59e0b', catBg: 'rgba(245,158,11,0.1)',
     title: 'Energy Monitoring System',
     desc: 'Real-time energy tracking across 12 machines with automated alerts and predictive analytics.',
-    img: '/images/energy monitioring.jpg',
+    img: '/images/Energy%20Monitoring%20.png',
     stats: [{ val: '-22%', label: 'Energy Cost' }, { val: '15 min', label: 'ROI Period' }, { val: '₹95L', label: 'Savings' }],
-  },
-  {
-    id: 5, cat: 'Testing', color: '#ec4899', catBg: 'rgba(236,72,153,0.1)',
-    title: 'Hydrostatic Pressure Tester',
-    desc: 'Fully automated pressure testing system with safety protocols, data logging, and predictive maintenance.',
-    img: '/images/1748323766560.jpg',
-    stats: [{ val: '+300%', label: 'Capacity' }, { val: '99.95%', label: 'Accuracy' }, { val: '₹2.1Cr', label: 'Savings' }],
   },
   {
     id: 6, cat: 'Robotics', color: '#6366f1', catBg: 'rgba(99,102,241,0.1)',

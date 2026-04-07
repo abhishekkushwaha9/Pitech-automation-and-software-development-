@@ -132,7 +132,7 @@ export default function EnergyMonitoring() {
             {/* Right Column - Image */}
             <div className="animate-on-scroll">
               <img
-                src="/images/energy monitioring.jpg"
+                src="/images/Energy%20Monitoring%20.png"
                 alt="Energy Monitoring System"
                 style={{
                   width: "100%",
