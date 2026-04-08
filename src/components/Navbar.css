@@ -346,4 +346,12 @@
   .navbar-inner { padding: 0 20px; height: 64px; }
 }
 
+/* --- HIDDEN ON MOBILE (MOVED TO HAMBURGER MENU) --- */
+@media (max-width: 768px) {
+  .navbar-actions .navbar-btn-live-iot,
+  .navbar-actions .navbar-btn-primary {
+    display: none !important;
+  }
+}
+
 

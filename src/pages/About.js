@@ -21,59 +21,113 @@ const SUCCESS_STORIES = [
   {
     id: 2, cat: 'Automation', color: '#7c3aed', catBg: 'rgba(124,58,237,0.1)',
     title: 'Traceability & SCADA', // Renamed from Assembly Line Traceability
-    desc: 'End-to-end barcode-based product traceability with real-time defect detection and quality checkpoints.',
+    desc: 'Product traceability and process monitoring with automated data collection and validation checkpoints.',
     img: '/images/trace_pv.jpeg',
-    stats: [{ val: '+40%', label: 'Productivity' }, { val: '99.9%', label: 'Accuracy' }, { val: '₹3.2Cr', label: 'Savings' }],
   },
   {
     id: 3, cat: 'Monitoring', color: '#059669', catBg: 'rgba(5,150,105,0.1)',
     title: 'Digital Andon for Automotive',
-    desc: 'AI-powered production monitoring system reducing response time from 25 minutes to under 3 minutes.',
+    desc: 'Production monitoring system that provides immediate line-side alerts to technicians to reduce downtime.',
     img: '/images/Ditial andon.jpg',
-    stats: [{ val: '87%', label: 'Faster Response' }, { val: '100%', label: 'Uptime' }, { val: '₹1.8Cr', label: 'Savings' }],
   },
   {
     id: 4, cat: 'Energy', color: '#f59e0b', catBg: 'rgba(245,158,11,0.1)',
     title: 'Energy Monitoring System',
-    desc: 'Real-time energy tracking across 12 machines with automated alerts and predictive analytics.',
+    desc: 'Continuous monitoring of plant energy consumption, load patterns, and power quality parameters.',
     img: '/images/Energy%20Monitoring%20.png',
-    stats: [{ val: '-22%', label: 'Energy Cost' }, { val: '15 min', label: 'ROI Period' }, { val: '₹95L', label: 'Savings' }],
   },
-  {
-    id: 6, cat: 'Robotics', color: '#6366f1', catBg: 'rgba(99,102,241,0.1)',
-    title: 'RoboVision Inspection System', // Renamed from Robotic Inspection System
-    desc: 'Vision-based robotic inspection reducing manual QC while achieving 100% component coverage.',
-    img: '/images/robotics_inspection.webp',
-    stats: [{ val: '+60%', label: 'Efficiency' }, { val: '100%', label: 'Coverage' }, { val: '₹1.5Cr', label: 'Savings' }],
-  },
+
   {
     id: 7, cat: 'Industry 4.0', color: '#3b82f6', catBg: 'rgba(59,130,246,0.1)',
     title: 'DWI (Digital Work Instruction)',
-    desc: 'Digital work instruction platform that provides step-by-step guidance to operators on the production line, reducing human errors and improving process consistency.',
+    desc: 'Electronic work instruction platform providing step-by-step guidance to assembly operators for improved process consistency.',
     img: '/images/1763185884948.jpg',
-    stats: [{ val: '-45%', label: 'Errors' }, { val: '99.8%', label: 'Consistency' }, { val: '₹1.2Cr', label: 'Savings' }],
   },
-  {
-    id: 8, cat: 'Safety', color: '#ef4444', catBg: 'rgba(239,68,68,0.1)',
-    title: 'Digital Safety System',
-    desc: 'Smart industrial safety monitoring solution that detects unsafe conditions, tracks compliance, and sends real-time alerts to maintain a safer manufacturing environment.',
-    img: '/images/1746077711453.jpg',
-    stats: [{ val: '100%', label: 'Compliance' }, { val: 'Zero', label: 'Incidents' }, { val: '₹85L', label: 'Savings' }],
-  },
+
   {
     id: 9, cat: 'Production', color: '#8b5cf6', catBg: 'rgba(139,92,246,0.1)',
     title: 'Smart Parallel Assembly System',
-    desc: 'Advanced assembly line optimization system that manages parallel production stations, improves workflow synchronization, and increases overall productivity.',
+    desc: 'Control system that manages and synchronizes parallel production stations to balance assembly workflows.',
     img: '/images/Traceability998.jpeg',
-    stats: [{ val: '+55%', label: 'Output' }, { val: '92%', label: 'Utilization' }, { val: '₹2.8Cr', label: 'Savings' }],
   },
   {
     id: 10, cat: 'Management', color: '#f97316', catBg: 'rgba(249,115,22,0.1)',
     title: 'Robot Access Control Management System',
-    desc: 'Secure robot access management platform that controls operator permissions, monitors robotic usage, and ensures safe human-robot collaboration.',
+    desc: 'Access control management for robotic cells, managing operator authentication and monitoring equipment intervention.',
     img: '/images/development.jpeg',
-    stats: [{ val: 'Secure', label: 'Access' }, { val: '100%', label: 'Control' }, { val: '₹1.1Cr', label: 'Savings' }],
   },
+  {
+    id: 11, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Shop Floor Dashboard',
+    desc: 'Centralized display of machine status, operational shifts, and production metrics across the manufacturing floor.',
+    img: '/images/Screenshot 2026-04-08 112752.png',
+  },
+  {
+    id: 12, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Injection Molding Dashboard',
+    desc: 'Visualization of key molding process parameters such as cycle times, cavity temperatures, and mold stroke counts.',
+    img: '/images/Injection molding_   .png',
+  },
+  {
+    id: 13, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'CNC Machine Dashboard',
+    desc: 'Monitoring interface tracking CNC spindle speeds, axis loads, tool lifespans, and machine fault codes.',
+    img: '/images/CNC.png',
+  },
+  {
+    id: 14, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Press Shop Dashboard',
+    desc: 'Tracking of press stroke rates, cumulative tonnage, and production tallies for daily shift management.',
+    img: '/images/Press Shop.png',
+  },
+  {
+    id: 15, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Assembly Line Dashboard',
+    desc: 'Display of station takt times, line bottlenecks, and output rates for assembly process tracking.',
+    img: '/images/Assembly line dashboard.png',
+  },
+  {
+    id: 16, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Quality Management',
+    desc: 'Platform for logging quality defects, managing inspection checklists, and storing audit records.',
+    img: '/images/Quality Management .png',
+  },
+  {
+    id: 17, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Predictive Maintenance',
+    desc: 'Condition-based monitoring using vibration and temperature sensors to schedule proactive equipment maintenance.',
+    img: '/images/Predictive maintenance.png',
+  },
+  {
+    id: 18, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Production Planning',
+    desc: 'System for scheduling production orders, managing bill of materials (BOM), and tracking work-in-progress (WIP).',
+    img: '/images/Production Planning.png',
+  },
+  {
+    id: 19, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Plant Utility Monitoring',
+    desc: 'Tracking of facility utilities including compressed air pressure, chilled water flow, and ambient temperatures.',
+    img: '/images/Plant Utilities.png',
+  },
+  {
+    id: 20, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Mold & Die Management',
+    desc: 'Management system tracking tooling life cycles, stroke counts, and physical storage locations for molds and dies.',
+    img: '/images/Mold Die management.png',
+  },
+  {
+    id: 21, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'Warehouse Management',
+    desc: 'Inventory tracking system utilizing barcode scanners to manage raw material storage and finished goods dispatch.',
+    img: '/images/WMS pro.png',
+  },
+  {
+    id: 22, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
+    title: 'IoT Architecture & Data Flow',
+    desc: 'Visualization of network topology, PLC connection statuses, and MQTT data payloads across the factory.',
+    img: '/images/Iot Architecture & data flow .png',
+  }
 ];
 
 function useScrollFade() {
@@ -104,7 +158,7 @@ export default function About() {
           </div>
           <span className="page-hero-tag">Our Story</span>
           <h1>About <span>PiTech</span> Automation</h1>
-          <p>India's trusted partner in industrial automation and Industry 4.0 transformation — powering manufacturing excellence since 2021.</p>
+          <p>India's trusted partner in industrial automation and Industry 4.0 transformation — powering manufacturing excellence.</p>
         </div>
         <div className="page-hero-wave">
           <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -132,7 +186,7 @@ export default function About() {
               A Decade of Manufacturing <span style={{ color: 'var(--primary-light)' }}>Experience</span>
             </h2>
             <p>
-              PiTech Automation & Software Solutions was established with a clear mission: bring world-class Industry 4.0 technologies to Indian manufacturers. Based in Pune, the heart of India's industrial corridor, we serve clients across automotive, steel, glass, and material handling sectors.
+              PiTech Automation & Software Solutions was established with a clear mission: bring world-class Industry 4.0 technologies to Indian manufacturers. Based in Manesar, Haryana, the heart of India's industrial corridor, we serve clients across automotive, steel, glass, and material handling sectors.
 
             </p>
             <p>
@@ -243,14 +297,6 @@ export default function About() {
                   <span className="success-card-cat" style={{ background: s.catBg, color: s.color }}>{s.cat}</span>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
-                  <div className="success-stats">
-                    {s.stats.map(stat => (
-                      <div key={stat.label} className="success-stat">
-                        <div className="success-stat-val" style={{ color: s.color }}>{stat.val}</div>
-                        <div className="success-stat-label">{stat.label}</div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
             ))}
