@@ -38,7 +38,7 @@ const DWI = () => {
 
             <div className="container ent-visual-banner ent-scale-in">
                 <img
-                    src="/images/DWI ud.png"
+                    src="/images/DWI .jpeg"
                     alt="Digital Work Instructions"
                     className="ent-banner-img dwi-banner-image"
                 />

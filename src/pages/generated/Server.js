@@ -34,7 +34,6 @@ const IoTGateway = () => {
                         <p className="premium-hero-subtitle">Enable seamless industrial connectivity, protocol conversion, and edge data processing.</p>
                         <div>
                             <Link to="/contact" className="premium-btn-primary">Explore Platform</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Architecture</a>
                         </div>
                     </div>
 

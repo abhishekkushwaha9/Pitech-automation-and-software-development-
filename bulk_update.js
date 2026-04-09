@@ -346,7 +346,6 @@ const ${p.replace('.js', '')} = () => {
                         <p className="premium-hero-subtitle">${data.desc}</p>
                         <div>
                             <Link to="/contact" className="premium-btn-primary">Explore Platform</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Architecture</a>
                         </div>
                     </div>
                     

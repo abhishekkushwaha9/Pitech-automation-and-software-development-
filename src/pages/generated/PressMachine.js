@@ -34,7 +34,6 @@ const PressMachine = () => {
                         <p className="premium-hero-subtitle">Heavy mechanical press integration mapped perfectly with comprehensive safety matrices.</p>
                         <div>
                             <Link to="/contact" className="premium-btn-primary">Explore Platform</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Architecture</a>
                         </div>
                     </div>
                     

@@ -132,7 +132,7 @@ export default function PredictiveMaintenance() {
             {/* Right Column - Image */}
             <div className="animate-on-scroll">
               <img
-                src="/images/ai-maintenance.jpg"
+                src="/images/Predictive maintenance.png"
                 alt="Predictive Maintenance"
                 style={{
                   width: "100%",

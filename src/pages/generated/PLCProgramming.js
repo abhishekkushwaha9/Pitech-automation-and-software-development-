@@ -117,7 +117,7 @@ const PLCProgramming = () => {
                             onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-10px)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'; }}
                             onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.05)'; }}
                         >
-                            <img src="/images/HMI!.jpg" alt="HMI Development" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                            <img src="/images/HMI.jpeg" alt="HMI Development" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
                             <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                                 <h3 style={{ fontSize: '1.5rem', color: '#0f172a', marginBottom: '15px', fontWeight: 'bold' }}>HMI Development</h3>
                                 <p style={{ color: '#475569', marginBottom: '25px', lineHeight: '1.6', flexGrow: 1 }}>
@@ -147,7 +147,7 @@ const PLCProgramming = () => {
                             onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-10px)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'; }}
                             onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.05)'; }}
                         >
-                            <img src="/images/automation-hero.png" alt="Sensor Integration" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                            <img src="/images/industrial sensor .jpeg" alt="Sensor Integration" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
                             <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                                 <h3 style={{ fontSize: '1.5rem', color: '#0f172a', marginBottom: '15px', fontWeight: 'bold' }}>Sensor Integration</h3>
                                 <p style={{ color: '#475569', marginBottom: '25px', lineHeight: '1.6', flexGrow: 1 }}>

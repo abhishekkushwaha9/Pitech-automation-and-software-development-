@@ -41,3 +41,4 @@ env/
 
 # Project specific
 backend/.env
+.vercel

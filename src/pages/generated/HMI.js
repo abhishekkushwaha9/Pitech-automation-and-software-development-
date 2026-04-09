@@ -65,7 +65,6 @@ const HMI = () => {
                         </p>
                         <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Platform</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Architecture</a>
                         </div>
                     </div>
                 </div>

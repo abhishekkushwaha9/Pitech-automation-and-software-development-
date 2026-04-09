@@ -30,99 +30,49 @@ export default function EnergyMonitoring() {
       ]}
     >
       {/* Section 1: Energy Monitoring Overview */}
-      <section style={{ padding: "80px 20px", backgroundColor: "var(--white)" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div
-            className="animate-on-scroll"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "60px",
-              alignItems: "center"
-            }}
-          >
+      <section className="energy-section">
+        <div className="energy-container">
+          <div className="energy-grid animate-on-scroll">
             {/* Left Column */}
-            <div>
-              <h2
-                style={{
-                  fontSize: "32px",
-                  fontWeight: "700",
-                  marginBottom: "20px",
-                  color: "var(--gray-900)"
-                }}
-              >
-                Control Your Energy Costs
-              </h2>
-              <p
-                style={{
-                  fontSize: "16px",
-                  lineHeight: "1.6",
-                  color: "var(--gray-600)",
-                  marginBottom: "40px"
-                }}
-              >
+            <div className="energy-text-col">
+              <h2>Control Your Energy Costs</h2>
+              <p className="energy-desc">
                 Energy is often your third-largest manufacturing cost. Our monitoring system provides real-time visibility into consumption, identifies waste, and helps you achieve measurable cost reductions while meeting sustainability goals.
               </p>
 
               {/* Feature List */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div className="energy-feature-list">
                 {[
                   {
                     title: "Real-time Metering",
-                    desc: "Per-machine and per-line energy consumption"
+                    desc: "Per-machine and line"
                   },
                   {
                     title: "Cost Analytics",
-                    desc: "Convert kWh to cost in real-time"
+                    desc: "Convert kWh to cost"
                   },
                   {
                     title: "Anomaly Detection",
-                    desc: "Automatic alerts for abnormal consumption"
+                    desc: "Automatic waste alerts"
                   },
                   {
                     title: "Load Forecasting",
-                    desc: "AI-based energy demand prediction"
+                    desc: "AI demand prediction"
                   },
                   {
                     title: "Carbon Footprint",
-                    desc: "Track and report CO2 emissions"
+                    desc: "Track CO2 emissions"
                   },
                   {
-                    title: "Peak Demand Management",
-                    desc: "Alerts when approaching peak demand limits"
+                    title: "Peak Management",
+                    desc: "Avoid demand charges"
                   }
                 ].map((feature, idx) => (
-                  <div key={idx} style={{ display: "flex", gap: "16px" }}>
-                    <div
-                      style={{
-                        width: "24px",
-                        height: "24px",
-                        backgroundColor: "var(--primary-light)",
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                        color: "var(--white)",
-                        fontWeight: "600",
-                        fontSize: "14px"
-                      }}
-                    >
-                      ✓
-                    </div>
-                    <div>
-                      <h4
-                        style={{
-                          fontWeight: "600",
-                          color: "var(--gray-900)",
-                          marginBottom: "4px"
-                        }}
-                      >
-                        {feature.title}
-                      </h4>
-                      <p style={{ fontSize: "14px", color: "var(--gray-600)" }}>
-                        {feature.desc}
-                      </p>
+                  <div key={idx} className="energy-feature-item">
+                    <div className="energy-check">✓</div>
+                    <div className="energy-feature-info">
+                      <h4>{feature.title}</h4>
+                      <p>{feature.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -130,16 +80,10 @@ export default function EnergyMonitoring() {
             </div>
 
             {/* Right Column - Image */}
-            <div className="animate-on-scroll">
+            <div className="energy-img-col">
               <img
                 src="/images/Energy%20Monitoring%20.png"
                 alt="Energy Monitoring System"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "var(--radius-lg)",
-                  boxShadow: "var(--shadow-lg)"
-                }}
               />
             </div>
           </div>
@@ -331,79 +275,39 @@ export default function EnergyMonitoring() {
       </section>
 
       {/* Section 4: Sustainability & Compliance */}
-      <section style={{ padding: "80px 20px", backgroundColor: "var(--gray-50)" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "60px",
-              alignItems: "center"
-            }}
-          >
+      <section className="energy-section energy-section-gray">
+        <div className="energy-container">
+          <div className="energy-grid animate-on-scroll">
             {/* Left Column - Text */}
-            <div className="animate-on-scroll">
-              <h2
-                style={{
-                  fontSize: "32px",
-                  fontWeight: "700",
-                  marginBottom: "20px",
-                  color: "var(--gray-900)"
-                }}
-              >
-                Sustainability Reporting
-              </h2>
-              <p
-                style={{
-                  fontSize: "16px",
-                  lineHeight: "1.6",
-                  color: "var(--gray-600)",
-                  marginBottom: "30px"
-                }}
-              >
+            <div className="energy-text-col">
+              <h2>Sustainability Reporting</h2>
+              <p className="energy-desc">
                 Meet ESG goals and compliance requirements with automated carbon footprint tracking and reporting. Our system helps you document energy efficiency improvements for certifications and stakeholder communication.
               </p>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
                 {[
                   {
                     icon: "📊",
                     title: "Carbon Tracking",
-                    desc: "Automatic CO2 calculation based on energy usage"
+                    desc: "Automatic CO2 calculation based on usage"
                   },
                   {
                     icon: "✅",
                     title: "Compliance Ready",
-                    desc: "ISO 50001, ISO 14001, and ESG frameworks"
+                    desc: "ISO 50001, ISO 14001, and ESG"
                   },
                   {
                     icon: "📈",
                     title: "Improvement Reports",
-                    desc: "Track year-over-year energy efficiency gains"
+                    desc: "Track year-over-year efficiency gains"
                   }
                 ].map((item, idx) => (
-                  <div key={idx} style={{ display: "flex", gap: "16px" }}>
-                    <div
-                      style={{
-                        fontSize: "28px",
-                        flexShrink: 0
-                      }}
-                    >
-                      {item.icon}
-                    </div>
+                  <div key={idx} style={{ display: "flex", gap: "16px", background: 'white', padding: '15px', borderRadius: '12px' }}>
+                    <div style={{ fontSize: "28px", flexShrink: 0 }}>{item.icon}</div>
                     <div>
-                      <h4
-                        style={{
-                          fontWeight: "600",
-                          color: "var(--gray-900)",
-                          marginBottom: "4px"
-                        }}
-                      >
-                        {item.title}
-                      </h4>
-                      <p style={{ fontSize: "14px", color: "var(--gray-600)" }}>
-                        {item.desc}
-                      </p>
+                      <h4 style={{ fontWeight: "700", color: "var(--gray-900)", marginBottom: "2px", fontSize: '15px' }}>{item.title}</h4>
+                      <p style={{ fontSize: "13px", color: "var(--gray-600)", margin: 0 }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -411,16 +315,10 @@ export default function EnergyMonitoring() {
             </div>
 
             {/* Right Column - Image */}
-            <div className="animate-on-scroll">
+            <div className="energy-img-col">
               <img
                 src="/images/energy-dashboard.jpg"
                 alt="Sustainability Reporting"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "var(--radius-lg)",
-                  boxShadow: "var(--shadow-lg)"
-                }}
               />
             </div>
           </div>

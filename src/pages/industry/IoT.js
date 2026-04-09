@@ -159,7 +159,7 @@ export default function IIoT() {
                         {/* Right Column - Image */}
                         <div className="animate-on-scroll">
                             <img
-                                src="/images/IOT-neww.jpeg"
+                                src="/images/iott new.jpeg"
                                 alt="IIoT Features"
                                 style={{
                                     width: "100%",

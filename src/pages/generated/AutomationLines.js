@@ -34,7 +34,6 @@ const AutomationLines = () => {
                         <p className="premium-hero-subtitle">Turnkey smart factory rollouts from mechanical design to deep cloud analytics integration.</p>
                         <div>
                             <Link to="/contact" className="premium-btn-primary">Explore Platform</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Architecture</a>
                         </div>
                     </div>
 

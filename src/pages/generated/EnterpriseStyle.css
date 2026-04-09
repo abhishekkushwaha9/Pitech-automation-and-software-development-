@@ -171,32 +171,35 @@
   position: relative;
   z-index: 10;
   padding: 0 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .ent-banner-img {
   width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 20px;
+  max-width: 100%;
+  height: auto;              /* Maintain aspect ratio */
+  max-height: 75vh;          /* Limit vertical space on desktop */
+  object-fit: contain;       /* Ensure the full image is visible */
+  border-radius: 24px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
   transition: transform 0.5s ease;
+  background-color: #ffffff; /* Professional background for disparate ratios */
 }
 
 .ent-visual-banner:hover .ent-banner-img {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 /* Specific fix for DWI Page Banner Responsiveness */
 .dwi-banner-image {
-  border-radius: 24px !important;
+  /* Inherits from .ent-banner-img, now naturally responsive */
+  border-radius: 24px;
 }
 
 @media (max-width: 900px) {
-  .dwi-banner-image {
-    height: auto !important;
-    object-fit: contain !important;
-    border-radius: 16px !important;
-    /* Slightly smaller radius for mobile */
+  .ent-visual-banner {
+    margin-top: -40px; /* Less overlap on mobile */
   }
 }
 
