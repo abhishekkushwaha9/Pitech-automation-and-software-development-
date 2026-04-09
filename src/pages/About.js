@@ -28,13 +28,14 @@ const SUCCESS_STORIES = [
     id: 3, cat: 'Monitoring', color: '#059669', catBg: 'rgba(5,150,105,0.1)',
     title: 'Digital Andon for Automotive',
     desc: 'Production monitoring system that provides immediate line-side alerts to technicians to reduce downtime.',
-    img: '/images/Ditial andon.jpg',
+    img: '/images/digital-andonnn.jpg',
   },
   {
-    id: 4, cat: 'Energy', color: '#f59e0b', catBg: 'rgba(245,158,11,0.1)',
+    id: 4, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Energy Monitoring System',
     desc: 'Continuous monitoring of plant energy consumption, load patterns, and power quality parameters.',
     img: '/images/Energy%20Monitoring%20.png',
+    link: 'https://pitechiotdashboard.runasp.net/EnergyMonitoring/Index'
   },
 
   {
@@ -60,73 +61,85 @@ const SUCCESS_STORIES = [
     id: 11, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Shop Floor Dashboard',
     desc: 'Centralized display of machine status, operational shifts, and production metrics across the manufacturing floor.',
-    img: '/images/Screenshot 2026-04-08 112752.png',
+    img: '/images/Shop floor .png',
+    link: 'https://pitechiotdashboard.runasp.net/Home/Index'
   },
   {
     id: 12, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Injection Molding Dashboard',
     desc: 'Visualization of key molding process parameters such as cycle times, cavity temperatures, and mold stroke counts.',
     img: '/images/Injection molding_   .png',
+    link: 'https://pitechiotdashboard.runasp.net/InjectionMolding/Index'
   },
   {
     id: 13, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'CNC Machine Dashboard',
     desc: 'Monitoring interface tracking CNC spindle speeds, axis loads, tool lifespans, and machine fault codes.',
     img: '/images/CNC.png',
+    link: 'https://pitechiotdashboard.runasp.net/CNC/Index'
   },
   {
     id: 14, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Press Shop Dashboard',
     desc: 'Tracking of press stroke rates, cumulative tonnage, and production tallies for daily shift management.',
     img: '/images/Press Shop.png',
+    link: 'https://pitechiotdashboard.runasp.net/PressShop/Index'
   },
   {
     id: 15, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Assembly Line Dashboard',
     desc: 'Display of station takt times, line bottlenecks, and output rates for assembly process tracking.',
     img: '/images/Assembly line dashboard.png',
+    link: 'https://pitechiotdashboard.runasp.net/AssemblyLine/Index'
   },
   {
     id: 16, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Quality Management',
     desc: 'Platform for logging quality defects, managing inspection checklists, and storing audit records.',
     img: '/images/Quality Management .png',
+    link: 'https://pitechiotdashboard.runasp.net/QualityManagement/Index'
   },
   {
     id: 17, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Predictive Maintenance',
     desc: 'Condition-based monitoring using vibration and temperature sensors to schedule proactive equipment maintenance.',
     img: '/images/Predictive maintenance.png',
+    link: 'https://pitechiotdashboard.runasp.net/PredictiveMaintenance/Index'
   },
   {
     id: 18, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Production Planning',
     desc: 'System for scheduling production orders, managing bill of materials (BOM), and tracking work-in-progress (WIP).',
     img: '/images/Production Planning.png',
+    link: 'https://pitechiotdashboard.runasp.net/ProductionPlanning/Index'
   },
   {
     id: 19, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Plant Utility Monitoring',
     desc: 'Tracking of facility utilities including compressed air pressure, chilled water flow, and ambient temperatures.',
     img: '/images/Plant Utilities.png',
+    link: 'https://pitechiotdashboard.runasp.net/PlantUtility/Index'
   },
   {
     id: 20, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Mold & Die Management',
     desc: 'Management system tracking tooling life cycles, stroke counts, and physical storage locations for molds and dies.',
     img: '/images/Mold Die management.png',
+    link: 'https://pitechiotdashboard.runasp.net/MoldManagement/Index'
   },
   {
     id: 21, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Warehouse Management',
     desc: 'Inventory tracking system utilizing barcode scanners to manage raw material storage and finished goods dispatch.',
     img: '/images/WMS pro.png',
+    link: 'https://pitechiotdashboard.runasp.net/WMS/Index'
   },
   {
     id: 22, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'IoT Architecture & Data Flow',
     desc: 'Visualization of network topology, PLC connection statuses, and MQTT data payloads across the factory.',
     img: '/images/Iot Architecture & data flow .png',
+    link: 'https://pitechiotdashboard.runasp.net/IoTArchitecture/Index'
   }
 ];
 
@@ -294,7 +307,21 @@ export default function About() {
                     onError={e => { e.target.src = '/images/connected-machines.jpg'; }} />
                 </div>
                 <div className="success-card-body">
-                  <span className="success-card-cat" style={{ background: s.catBg, color: s.color }}>{s.cat}</span>
+                  {s.cat === 'Live Now' && s.link ? (
+                    <a
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="success-card-cat"
+                      style={{ background: s.catBg, color: s.color, textDecoration: 'none', display: 'inline-block' }}
+                    >
+                      {s.cat}
+                    </a>
+                  ) : (
+                    <span className="success-card-cat" style={{ background: s.catBg, color: s.color }}>
+                      {s.cat}
+                    </span>
+                  )}
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
                 </div>

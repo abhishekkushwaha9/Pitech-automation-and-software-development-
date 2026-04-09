@@ -45,14 +45,14 @@ const EXPERTISE = [
     num: '04',
     title: 'Industrial Equipment',
     desc: 'Premium sensors, PLCs, HMIs, drives, RFID, and BLE tags — everything needed for effective Industry 4.0 implementation.',
-    img: '/images/1746077711453.jpg',
+    img: '/images/industrial equipment .png',
 
   },
 ];
 
 const SOLUTIONS = [
   { tag: 'Industry 4.0', title: 'Digitalization', desc: 'Streamline production workflows, enhance data-driven decisions, and improve product quality with end-to-end factory digitalization.', img: '/images/Digitilization.jpg', path: '/industry/digitalization' },
-  { tag: 'Monitoring', title: 'Digital Andon System', desc: 'Visualize production status in real-time, reduce unplanned downtime, and enable rapid problem-solving with smart alert systems.', img: '/images/andon digital.jpeg', path: '/industry/digital-andon' },
+  { tag: 'Monitoring', title: 'Digital Andon System', desc: 'Visualize production status in real-time, reduce unplanned downtime, and enable rapid problem-solving with smart alert systems.', img: '/images/digital-andonnn.jpg', path: '/industry/digital-andon' },
   { tag: 'Analytics', title: 'Production Dashboard', desc: 'Gain real-time insights, view key performance metrics, and track production objectives with customizable data visualization.', img: '/images/production-dashboard.jpeg', path: '/industry/production-dashboard' },
   { tag: 'AI/ML', title: 'Predictive Maintenance', desc: 'Leverage AI and sensor data to predict equipment failures before they occur, minimizing downtime and maintenance costs.', img: '/images/Predictive maintenance.png', path: '/industry/predictive-maintenance' },
   { tag: 'Automation', title: 'Traceability SCADA', desc: 'Monitor and track production data in real time using SCADA systems. Ensure complete traceability, improve quality control, and optimize industrial automation processes.', img: '/images/scada_new.jpg', path: '/solutions/automation/traceability-scada' },

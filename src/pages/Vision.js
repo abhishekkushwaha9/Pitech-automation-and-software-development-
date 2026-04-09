@@ -334,7 +334,7 @@ export default function Vision() {
                 {/* ===== WHAT WE DO - EXPERTISE SECTION ===== */}
                 <section className="expertise-section">
                     <div className="section-header animate-on-scroll">
-                        <span className="section-tag">✦ WHAT WE DO — OUR EXPERTISE ✦</span>
+
                         <h2 className="section-title">
                             <BlurText
                                 text="End-to-End Solutions Across Industrial Technology"

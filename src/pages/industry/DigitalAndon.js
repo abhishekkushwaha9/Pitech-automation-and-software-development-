@@ -23,7 +23,7 @@ export default function DigitalAndon() {
       title="Digital <span>Andon System</span>"
       subtitle="Visualize production status in real-time, respond to issues instantly, and eliminate downtime with intelligent alert escalation."
       tag="Production Monitoring"
-      heroImage="/images/andon digital.jpeg"
+      heroImage="/images/digital-andonnn.jpg"
       breadcrumb={[
         { label: "Solutions", path: "/services" },
         { label: "Digital Andon" }
@@ -130,17 +130,25 @@ export default function DigitalAndon() {
             </div>
 
             {/* Right Column - Image */}
-            <div className="animate-on-scroll">
+            <div
+              className="animate-on-scroll"
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
               <img
                 src="/images/andon digital.jpeg"
                 alt="Digital Andon System"
                 style={{
-                  width: "100%",
+                  maxWidth: "100%",
                   height: "auto",
+                  maxHeight: "360px",
                   borderRadius: "var(--radius-lg)",
                   boxShadow: "var(--shadow-lg)",
-                  transform: "scale(1.55)",
-                  transformOrigin: "center"
+                  display: "block"
                 }}
               />
             </div>
@@ -422,15 +430,25 @@ export default function DigitalAndon() {
             </div>
 
             {/* Right Column - Image */}
-            <div className="animate-on-scroll">
+            <div
+              className="animate-on-scroll"
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
               <img
                 src="/images/andon_mobile_image.jpg"
                 alt="Mobile Andon Interface"
                 style={{
-                  width: "100%",
+                  maxWidth: "100%",
                   height: "auto",
+                  maxHeight: "320px", /* Limits height without breaking ratio or using contain layout gaps */
                   borderRadius: "var(--radius-lg)",
-                  boxShadow: "var(--shadow-lg)"
+                  boxShadow: "var(--shadow-lg)",
+                  display: "block"
                 }}
               />
             </div>
