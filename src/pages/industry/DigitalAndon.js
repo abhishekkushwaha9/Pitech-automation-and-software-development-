@@ -23,7 +23,7 @@ export default function DigitalAndon() {
       title="Digital <span>Andon System</span>"
       subtitle="Visualize production status in real-time, respond to issues instantly, and eliminate downtime with intelligent alert escalation."
       tag="Production Monitoring"
-      heroImage="/images/DigitalAndon_hero.jpg"
+      heroImage="/images/andon digital.jpeg"
       breadcrumb={[
         { label: "Solutions", path: "/services" },
         { label: "Digital Andon" }
@@ -132,7 +132,7 @@ export default function DigitalAndon() {
             {/* Right Column - Image */}
             <div className="animate-on-scroll">
               <img
-                src="/images/new_andon_image.png"
+                src="/images/andon digital.jpeg"
                 alt="Digital Andon System"
                 style={{
                   width: "100%",

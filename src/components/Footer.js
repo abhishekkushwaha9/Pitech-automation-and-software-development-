@@ -27,6 +27,10 @@ const FOOTER_LINKS = {
     { name: "Home Appliances", path: "/industries/home-appliances" },
     { name: "EV Manufacturing", path: "/industries/ev-manufacturing" },
     { name: "E-Commerce", path: "/industries/ecommerce" },
+    { name: "Metal Industry", path: "/industry-4/metal-industry" },
+    { name: "Glass Industry", path: "/industry-4/glass-industry" },
+    { name: "Automotive Industry", path: "/industry-4/automotive-industry" },
+    { name: "Material Handling", path: "/industry-4/material-handling" },
   ],
 };
 

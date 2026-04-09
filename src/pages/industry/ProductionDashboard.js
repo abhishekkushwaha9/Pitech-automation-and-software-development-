@@ -132,7 +132,7 @@ export default function ProductionDashboard() {
             {/* Right Column - Image */}
             <div className="animate-on-scroll">
               <img
-                src="/images/dashboard-neww.jpeg"
+                src="/images/Production Planning.png"
                 alt="Production Dashboard"
                 style={{
                   width: "100%",

@@ -38,7 +38,7 @@ export default function Digitalization() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "60px",
+              gap: "40px", /* Reduced from 60px for compact layout */
               alignItems: "center"
             }}
           >
@@ -131,15 +131,25 @@ export default function Digitalization() {
             </div>
 
             {/* Right Column - Image */}
-            <div className="animate-on-scroll">
+            <div 
+              className="animate-on-scroll"
+              style={{
+                width: "100%",
+                height: "400px", /* Consistent height */
+                borderRadius: "var(--radius-lg)",
+                boxShadow: "var(--shadow-lg)",
+                overflow: "hidden",
+                display: "flex"
+              }}
+            >
               <img
                 src="/images/digitalization-new.jpeg"
                 alt="Factory Digitalization"
                 style={{
                   width: "100%",
-                  height: "auto",
-                  borderRadius: "var(--radius-lg)",
-                  boxShadow: "var(--shadow-lg)"
+                  height: "100%",
+                  objectFit: "cover", /* Prevents stretching */
+                  display: "block"
                 }}
               />
             </div>

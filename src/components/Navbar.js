@@ -133,7 +133,7 @@ export default function Navbar() {
             <span>📍 Manesar, Haryana, India</span>
             <a href="tel:+919312774178">📞 +91 93127 74178 </a>
             <a href="tel:+917737374330">📞 +91 77373 74330</a>
-            <a href="mailto:service@pitechautomation.com?subject=Inquiry&body=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services.">✉ service@pitechautomation.com</a>
+            <a href="mailto:info@pitechautomation.com?subject=Inquiry&body=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services.">✉ info@pitechautomation.com</a>
           </div>
           <div className="navbar-topbar-social">
             <a href="https://www.linkedin.com/company/pitech-automation-and-software-solutions/posts/?feedView=all" target="_blank" rel="noreferrer" aria-label="LinkedIn" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>

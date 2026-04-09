@@ -33,13 +33,13 @@ const EXPERTISE = [
     num: '02',
     title: 'Custom Software Development',
     desc: 'Tailored .NET, C#, JavaScript, and SQL solutions for real-time monitoring, analytics, and enterprise-grade MES applications.',
-    img: '/images/1763185884948.jpg',
+    img: '/images/custom software.jpeg',
   },
   {
     num: '03',
     title: 'Special Purpose Machines',
     desc: 'Custom-designed SPMs, leak testing systems, press machines, and assembly lines to solve unique manufacturing challenges.',
-    img: '/images/1748323766560.jpg',
+    img: '/images/SPM home.jpeg',
   },
   {
     num: '04',
@@ -52,9 +52,9 @@ const EXPERTISE = [
 
 const SOLUTIONS = [
   { tag: 'Industry 4.0', title: 'Digitalization', desc: 'Streamline production workflows, enhance data-driven decisions, and improve product quality with end-to-end factory digitalization.', img: '/images/Digitilization.jpg', path: '/industry/digitalization' },
-  { tag: 'Monitoring', title: 'Digital Andon System', desc: 'Visualize production status in real-time, reduce unplanned downtime, and enable rapid problem-solving with smart alert systems.', img: '/images/Ditial andon.jpg', path: '/industry/digital-andon' },
-  { tag: 'Analytics', title: 'Production Dashboard', desc: 'Gain real-time insights, view key performance metrics, and track production objectives with customizable data visualization.', img: '/images/dashboard-ui.png', path: '/industry/production-dashboard' },
-  { tag: 'AI/ML', title: 'Predictive Maintenance', desc: 'Leverage AI and sensor data to predict equipment failures before they occur, minimizing downtime and maintenance costs.', img: '/images/ai-maintenance.jpg', path: '/industry/predictive-maintenance' },
+  { tag: 'Monitoring', title: 'Digital Andon System', desc: 'Visualize production status in real-time, reduce unplanned downtime, and enable rapid problem-solving with smart alert systems.', img: '/images/andon digital.jpeg', path: '/industry/digital-andon' },
+  { tag: 'Analytics', title: 'Production Dashboard', desc: 'Gain real-time insights, view key performance metrics, and track production objectives with customizable data visualization.', img: '/images/production-dashboard.jpeg', path: '/industry/production-dashboard' },
+  { tag: 'AI/ML', title: 'Predictive Maintenance', desc: 'Leverage AI and sensor data to predict equipment failures before they occur, minimizing downtime and maintenance costs.', img: '/images/Predictive maintenance.png', path: '/industry/predictive-maintenance' },
   { tag: 'Automation', title: 'Traceability SCADA', desc: 'Monitor and track production data in real time using SCADA systems. Ensure complete traceability, improve quality control, and optimize industrial automation processes.', img: '/images/scada_new.jpg', path: '/solutions/automation/traceability-scada' },
   { tag: 'Traceability', title: 'OEE Dashboard', desc: 'Track Overall Equipment Effectiveness through an interactive dashboard that provides real-time insights into availability, performance, and quality metrics using automated data collection.', img: '/images/OEE_DASHBOARD.png', path: '/industry/oee' },
 ];
