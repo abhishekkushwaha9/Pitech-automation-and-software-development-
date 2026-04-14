@@ -58,7 +58,7 @@ const BeltConveyors = () => {
 
                 {/* Split Image/Text */}
                 <div className="conv-split reveal">
-                    <div className="conv-split-image" style={{ backgroundImage: "url('/images/convergence/belt_conveyor.png')" }}></div>
+                    <div className="conv-split-image" style={{ backgroundImage: "url('/images/belt conve.jpg')" }}></div>
                     <div className="conv-split-content">
                         <h2 className="conv-split-title">Benefits & Applications</h2>
                         <ul className="conv-list" style={{ marginBottom: "30px" }}>

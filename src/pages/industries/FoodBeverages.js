@@ -34,11 +34,11 @@ const FoodBeverages = () => {
         <div className="premium-page" style={{ backgroundColor: '#ffffff' }}>
             {/* HERO SECTION */}
             <section className="premium-hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '650px', display: 'flex', alignItems: 'center' }}>
-                <div 
+                <div
                     className="premium-hero-parallax-bg"
-                    style={{ 
-                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%', 
-                        backgroundImage: "url('/images/Food and beverage.jpg')", 
+                    style={{
+                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%',
+                        backgroundImage: "url('/images/Food and beverage.jpg')",
                         backgroundSize: "cover", backgroundPosition: "center", zIndex: 0,
                         transition: 'transform 0.1s ease-out'
                     }}
@@ -55,9 +55,8 @@ const FoodBeverages = () => {
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Pitech delivers advanced automation solutions to ensure food safety, optimize production yield, and maintain strict quality standards across beverage and food processing plants.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
-                            <a href="#overview" className="premium-btn-secondary">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -72,7 +71,7 @@ const FoodBeverages = () => {
                     </div>
                     <div className="premium-split">
                         <div className="premium-split-image premium-animate slide-up">
-                            <img src="/images/FOOD and beveraee.jpg" alt="F&B Industry Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", width: '100%', objectFit: 'cover' }} />
+                            <img src="/images/fooddieee.jpeg" alt="F&B Industry Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", width: '100%', objectFit: 'cover' }} />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s' }}>
                             <p className="lead" style={{ color: '#2563eb', fontWeight: '600' }}>
@@ -148,17 +147,17 @@ const FoodBeverages = () => {
                     </div>
                     <div className="premium-features-grid">
                         {[
-                            { 
-                                q: "Strict Hygiene & Safety Standards", 
-                                a: "We implement food-grade sensors and stainless-steel automation components that withstand rigorous washdown procedures while maintaining accuracy." 
+                            {
+                                q: "Strict Hygiene & Safety Standards",
+                                a: "We implement food-grade sensors and stainless-steel automation components that withstand rigorous washdown procedures while maintaining accuracy."
                             },
-                            { 
-                                q: "Batch Consistency Issues", 
-                                a: "Our SCADA systems and recipe management modules ensure every batch follows exact specifications, reducing product variation and waste." 
+                            {
+                                q: "Batch Consistency Issues",
+                                a: "Our SCADA systems and recipe management modules ensure every batch follows exact specifications, reducing product variation and waste."
                             },
-                            { 
-                                q: "Complex Regulatory Compliance", 
-                                a: "Pitech provides automated batch genealogy and digital logbooks that make auditing and recall management simple and transparent." 
+                            {
+                                q: "Complex Regulatory Compliance",
+                                a: "Pitech provides automated batch genealogy and digital logbooks that make auditing and recall management simple and transparent."
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="premium-card premium-animate slide-up" style={{ transitionDelay: `${idx * 0.1}s`, backgroundColor: '#fff' }}>

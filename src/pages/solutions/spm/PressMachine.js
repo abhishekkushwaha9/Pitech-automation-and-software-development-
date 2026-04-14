@@ -68,7 +68,7 @@ const PressMachine = () => {
 
                 {/* Split Image/Text */}
                 <div className="spm-split reverse reveal">
-                    <div className="spm-split-image" style={{ backgroundImage: "url('/images/spm/press_machine.png')" }}></div>
+                    <div className="spm-split-image" style={{ backgroundImage: "url('/images/automatic toools integration.jpeg')", height: "500px", }}></div>
                     <div className="spm-split-content">
                         <h2 className="spm-split-title">Applications & Benefits</h2>
                         <h4 style={{ marginBottom: "10px", color: "#3b82f6" }}>Common Applications</h4>

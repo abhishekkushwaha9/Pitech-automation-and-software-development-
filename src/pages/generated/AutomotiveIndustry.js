@@ -55,9 +55,8 @@ const AutomotiveIndustry = () => {
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Advanced Industry 4.0 automation for automotive OEMs. Orchestrating body shops, paint lines, and assembly floors with zero-defect synchronization.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Case Studies</a>
                         </div>
                     </div>
                 </div>

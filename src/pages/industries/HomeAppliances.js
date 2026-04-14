@@ -34,11 +34,11 @@ const HomeAppliances = () => {
         <div className="premium-page" style={{ backgroundColor: '#ffffff' }}>
             {/* HERO SECTION with Parallax */}
             <section className="premium-hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '650px', display: 'flex', alignItems: 'center' }}>
-                <div 
+                <div
                     className="premium-hero-parallax-bg"
-                    style={{ 
-                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%', 
-                        backgroundImage: "url('/images/home_appliances.jpg')", 
+                    style={{
+                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%',
+                        backgroundImage: "url('/images/home_appliances.jpg')",
                         backgroundSize: "cover", backgroundPosition: "center", zIndex: 0,
                         transition: 'transform 0.1s ease-out'
                     }}
@@ -55,9 +55,8 @@ const HomeAppliances = () => {
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Precision automation for high-volume consumer electronic and appliance manufacturing. Scaling production from assembly to final quality inspection with robotic accuracy.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Case Studies</a>
                         </div>
                     </div>
                 </div>
@@ -148,17 +147,17 @@ const HomeAppliances = () => {
                     </div>
                     <div className="premium-features-grid">
                         {[
-                            { 
-                                q: "High Model Variability", 
-                                a: "Our flexible PLC programming and smart conveyors allow for rapid changeovers between different appliance models on the same line." 
+                            {
+                                q: "High Model Variability",
+                                a: "Our flexible PLC programming and smart conveyors allow for rapid changeovers between different appliance models on the same line."
                             },
-                            { 
-                                q: "Aesthetic & Surface Quality", 
-                                a: "Pitech vision systems detect microscopic surface defects and misalignments that human inspectors might miss during high-speed assembly." 
+                            {
+                                q: "Aesthetic & Surface Quality",
+                                a: "Pitech vision systems detect microscopic surface defects and misalignments that human inspectors might miss during high-speed assembly."
                             },
-                            { 
-                                q: "Complex Testing Requirements", 
-                                a: "We build integrated end-of-line testing rigs that perform automated leak tests, electrical safety checks, and functional audits simultaneously." 
+                            {
+                                q: "Complex Testing Requirements",
+                                a: "We build integrated end-of-line testing rigs that perform automated leak tests, electrical safety checks, and functional audits simultaneously."
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="premium-card premium-animate slide-up" style={{ transitionDelay: `${idx * 0.1}s`, backgroundColor: '#fff' }}>

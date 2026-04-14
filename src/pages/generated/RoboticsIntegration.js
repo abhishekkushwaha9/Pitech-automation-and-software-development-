@@ -81,7 +81,7 @@ const RoboticsIntegration = () => {
                     </div>
                     <div className="premium-split">
                         <div className="premium-split-image premium-animate slide-up">
-                            <img src="/images/automation tools integration.webp" alt="Robotic Integration Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }} />
+                            <img src="/images/1763185884948.jpg" alt="Robotic Integration Operations" style={{ borderRadius: "12px", height: "500px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }} />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s' }}>
                             <p className="lead" style={{ color: '#0f172a' }}>

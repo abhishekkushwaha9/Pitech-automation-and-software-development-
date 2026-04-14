@@ -34,11 +34,11 @@ const PharmaIndustry = () => {
         <div className="premium-page" style={{ backgroundColor: '#ffffff' }}>
             {/* HERO SECTION */}
             <section className="premium-hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '650px', display: 'flex', alignItems: 'center' }}>
-                <div 
+                <div
                     className="premium-hero-parallax-bg"
-                    style={{ 
-                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%', 
-                        backgroundImage: "url('/images/pharma.png')", 
+                    style={{
+                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%',
+                        backgroundImage: "url('/images/pharma.png')",
                         backgroundSize: "cover", backgroundPosition: "center", zIndex: 0,
                         transition: 'transform 0.1s ease-out'
                     }}
@@ -55,9 +55,8 @@ const PharmaIndustry = () => {
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Advanced automation solutions for pharmaceutical manufacturing, ensuring 21 CFR Part 11 compliance, absolute traceability, and high-precision production.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Compliance</a>
                         </div>
                     </div>
                 </div>
@@ -148,17 +147,17 @@ const PharmaIndustry = () => {
                     </div>
                     <div className="premium-features-grid">
                         {[
-                            { 
-                                q: "21 CFR Part 11 Compliance", 
-                                a: "Our SCADA systems are built with multi-level authentication, encrypted audit trails, and electronic signatures to ensure total data integrity." 
+                            {
+                                q: "21 CFR Part 11 Compliance",
+                                a: "Our SCADA systems are built with multi-level authentication, encrypted audit trails, and electronic signatures to ensure total data integrity."
                             },
-                            { 
-                                q: "Risk of Cross-Contamination", 
-                                a: "We implement automated cleaning-in-place (CIP) controls and non-contact sensing to maintain sterile production environments." 
+                            {
+                                q: "Risk of Cross-Contamination",
+                                a: "We implement automated cleaning-in-place (CIP) controls and non-contact sensing to maintain sterile production environments."
                             },
-                            { 
-                                q: "Product Serialization Requirements", 
-                                a: "Pitech delivers integrated track-and-trace modules that generate and verify unique identifiers from the primary pack to the pallet." 
+                            {
+                                q: "Product Serialization Requirements",
+                                a: "Pitech delivers integrated track-and-trace modules that generate and verify unique identifiers from the primary pack to the pallet."
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="premium-card premium-animate slide-up" style={{ transitionDelay: `${idx * 0.1}s`, backgroundColor: '#fff' }}>

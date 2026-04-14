@@ -58,7 +58,7 @@ const ChainConveyors = () => {
 
                 {/* Split Image/Text */}
                 <div className="conv-split reverse reveal">
-                    <div className="conv-split-image" style={{ backgroundImage: "url('/images/convergence/chain_conveyor.png')" }}></div>
+                    <div className="conv-split-image" style={{ backgroundImage: "url('/images/chain conv.webp')" }}></div>
                     <div className="conv-split-content">
                         <h2 className="conv-split-title">Benefits & Applications</h2>
                         <ul className="conv-list" style={{ marginBottom: "30px" }}>

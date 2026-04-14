@@ -34,11 +34,11 @@ const MetalIndustry = () => {
         <div className="premium-page" style={{ backgroundColor: '#ffffff' }}>
             {/* HERO SECTION */}
             <section className="premium-hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '650px', display: 'flex', alignItems: 'center' }}>
-                <div 
+                <div
                     className="premium-hero-parallax-bg"
-                    style={{ 
-                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%', 
-                        backgroundImage: "url('/images/METAL_gif.gif')", 
+                    style={{
+                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%',
+                        backgroundImage: "url('/images/METAL_gif.gif')",
                         backgroundSize: "cover", backgroundPosition: "center", zIndex: 0,
                         transition: 'transform 0.1s ease-out'
                     }}
@@ -55,9 +55,8 @@ const MetalIndustry = () => {
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Advanced Industry 4.0 automation for the modern metal industry, transforming traditional facilities into smart, connected, and safe manufacturing hubs.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Strategy</a>
                         </div>
                     </div>
                 </div>
@@ -148,17 +147,17 @@ const MetalIndustry = () => {
                     </div>
                     <div className="premium-features-grid">
                         {[
-                            { 
-                                q: "Extreme Working Conditions", 
-                                a: "We deploy ruggedized automation hardware and remote sensing that eliminates the need for human presence in hazardous, high-heat areas." 
+                            {
+                                q: "Extreme Working Conditions",
+                                a: "We deploy ruggedized automation hardware and remote sensing that eliminates the need for human presence in hazardous, high-heat areas."
                             },
-                            { 
-                                q: "Massive Energy Consumption", 
-                                a: "Pitech energy monitoring systems identify inefficiencies in furnaces and motors, allowing plants to reduce carbon footprint and costs." 
+                            {
+                                q: "Massive Energy Consumption",
+                                a: "Pitech energy monitoring systems identify inefficiencies in furnaces and motors, allowing plants to reduce carbon footprint and costs."
                             },
-                            { 
-                                q: "Continuous Process Downtime", 
-                                a: "Our predictive maintenance modules analyze asset health in real-time, scheduling repairs before a breakdown occurs." 
+                            {
+                                q: "Continuous Process Downtime",
+                                a: "Our predictive maintenance modules analyze asset health in real-time, scheduling repairs before a breakdown occurs."
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="premium-card premium-animate slide-up" style={{ transitionDelay: `${idx * 0.1}s`, backgroundColor: '#fff' }}>

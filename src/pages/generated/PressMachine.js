@@ -23,7 +23,7 @@ const PressMachine = () => {
             <section className="premium-hero">
                 <div className="premium-hero-bg"></div>
                 <div className="premium-hero-grid"></div>
-                
+
                 <div className="container premium-hero-container">
                     <div className="premium-animate slide-right">
                         <span className="premium-chip">SPM Innovation</span>
@@ -36,7 +36,7 @@ const PressMachine = () => {
                             <Link to="/contact" className="premium-btn-primary">Explore Platform</Link>
                         </div>
                     </div>
-                    
+
                     <div className="premium-animate slide-left" style={{ transitionDelay: '0.2s' }}>
                         <div className="premium-hero-image-wrapper">
                             <img src="/images/automation-hero.png" alt="Industrial Automation Interface" className="premium-hero-image" />
@@ -57,7 +57,7 @@ const PressMachine = () => {
                 <div className="container">
                     <div className="premium-split">
                         <div className="premium-split-image premium-animate slide-up">
-                             <img src="/images/dashboard-ui.png" alt="Dashboard Analytics UI" />
+                            <img src="/images/automatic toools integration.jpeg" alt="Dashboard Analytics UI" />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s' }}>
                             <h2>Redefining Standard Operations with Press Machine Automation</h2>
@@ -111,8 +111,8 @@ const PressMachine = () => {
                             "Deep API availability for IT/OT convergence"
                         ].map((b, idx) => (
                             <div key={idx} className="premium-benefit-row premium-animate slide-up" style={{ transitionDelay: `${0.1 * idx}s` }}>
-                                <div style={{width:'30px', height:'30px', borderRadius:'50%', background:'#dbeafe', color:'#2563eb', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:'bold'}}>✓</div>
-                                <div style={{fontSize:'1.1rem', fontWeight:'600', color:'#334155'}}>{b}</div>
+                                <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: '#dbeafe', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>✓</div>
+                                <div style={{ fontSize: '1.1rem', fontWeight: '600', color: '#334155' }}>{b}</div>
                             </div>
                         ))}
                     </div>
@@ -124,7 +124,7 @@ const PressMachine = () => {
                 <div className="container">
                     <div className="premium-cta premium-animate slide-up">
                         <div className="premium-cta-bg"></div>
-                        <div style={{position: 'relative', zIndex: 1}}>
+                        <div style={{ position: 'relative', zIndex: 1 }}>
                             <h2 className="premium-cta-title">Ready to modernize your infrastructure?</h2>
                             <p className="premium-cta-subtitle">Talk to our automation architects to design your bespoke deployment strategy today.</p>
                             <Link to="/contact" className="premium-btn-primary" style={{ padding: '20px 40px', fontSize: '1.2rem', background: '#fff', color: '#0f172a' }}>

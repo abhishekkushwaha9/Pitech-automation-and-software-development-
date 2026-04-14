@@ -55,9 +55,8 @@ const MaterialHandling = () => {
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Advanced automation solutions for transport, sorting, and storage. Modernizing internal logistics with robotic precision and intelligent control.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
-                            <a href="#overview" className="premium-btn-secondary">Check Throughput</a>
                         </div>
                     </div>
                 </div>

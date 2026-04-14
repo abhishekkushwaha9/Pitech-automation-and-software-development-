@@ -55,9 +55,8 @@ const GlassIndustry = () => {
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Innovative automation for float glass, bottle production, and specialty glass manufacturing. Enhancing precision, safety, and yield in extreme environments.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Innovation</a>
                         </div>
                     </div>
                 </div>

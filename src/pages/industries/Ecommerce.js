@@ -34,11 +34,11 @@ const EcommerceAutomation = () => {
         <div className="premium-page" style={{ backgroundColor: '#ffffff' }}>
             {/* HERO SECTION with Parallax */}
             <section className="premium-hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '650px', display: 'flex', alignItems: 'center' }}>
-                <div 
+                <div
                     className="premium-hero-parallax-bg"
-                    style={{ 
-                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%', 
-                        backgroundImage: "url('/images/E_commerce.jpg')", 
+                    style={{
+                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%',
+                        backgroundImage: "url('/images/E_commerce.jpg')",
                         backgroundSize: "cover", backgroundPosition: "center", zIndex: 0,
                         transition: 'transform 0.1s ease-out'
                     }}
@@ -55,9 +55,8 @@ const EcommerceAutomation = () => {
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Intelligent warehouse solutions for ultra-fast sorting, reliable traceability, and optimized fulfillment centers to drive global E-commerce success.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
-                            <a href="#overview" className="premium-btn-secondary">Check Throughput</a>
                         </div>
                     </div>
                 </div>
@@ -148,17 +147,17 @@ const EcommerceAutomation = () => {
                     </div>
                     <div className="premium-features-grid">
                         {[
-                            { 
-                                q: "Peak Season Bottlenecks", 
-                                a: "Our high-speed sorting algorithms intelligently balance conveyor loads to prevent parcel pile-ups during massive sales events." 
+                            {
+                                q: "Peak Season Bottlenecks",
+                                a: "Our high-speed sorting algorithms intelligently balance conveyor loads to prevent parcel pile-ups during massive sales events."
                             },
-                            { 
-                                q: "Picking & Sorting Errors", 
-                                a: "Pitech vision-based barcode and OCR readers achieve 99.9% accuracy, significantly reducing returns due to shipping errors." 
+                            {
+                                q: "Picking & Sorting Errors",
+                                a: "Pitech vision-based barcode and OCR readers achieve 99.9% accuracy, significantly reducing returns due to shipping errors."
                             },
-                            { 
-                                q: "Return Management Complexity", 
-                                a: "We implement specialized reverse-logistics automation that identifies, sorts, and re-bins returned goods in record time." 
+                            {
+                                q: "Return Management Complexity",
+                                a: "We implement specialized reverse-logistics automation that identifies, sorts, and re-bins returned goods in record time."
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="premium-card premium-animate slide-up" style={{ transitionDelay: `${idx * 0.1}s`, backgroundColor: '#fff' }}>

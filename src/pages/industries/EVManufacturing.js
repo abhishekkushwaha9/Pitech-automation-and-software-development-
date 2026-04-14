@@ -34,11 +34,11 @@ const EVManufacturing = () => {
         <div className="premium-page" style={{ backgroundColor: '#ffffff' }}>
             {/* HERO SECTION with Parallax */}
             <section className="premium-hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '650px', display: 'flex', alignItems: 'center' }}>
-                <div 
+                <div
                     className="premium-hero-parallax-bg"
-                    style={{ 
-                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%', 
-                        backgroundImage: "url('/images/EV.png')", 
+                    style={{
+                        position: 'absolute', top: '-15%', left: 0, width: '100%', height: '130%',
+                        backgroundImage: "url('/images/EV.png')",
                         backgroundSize: "cover", backgroundPosition: "center", zIndex: 0,
                         transition: 'transform 0.1s ease-out'
                     }}
@@ -55,9 +55,8 @@ const EVManufacturing = () => {
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Accelerating the transition to electric mobility with smart automation for battery assembly, E-motor manufacturing, and end-of-line vehicle integration.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
-                            <a href="#overview" className="premium-btn-secondary">View Gigafactory Tech</a>
                         </div>
                     </div>
                 </div>
@@ -148,17 +147,17 @@ const EVManufacturing = () => {
                     </div>
                     <div className="premium-features-grid">
                         {[
-                            { 
-                                q: "Extreme Cell Traceability", 
-                                a: "Pitech implements high-density barcode scanning and database integration to log every single cell's electrical profile before module assembly." 
+                            {
+                                q: "Extreme Cell Traceability",
+                                a: "Pitech implements high-density barcode scanning and database integration to log every single cell's electrical profile before module assembly."
                             },
-                            { 
-                                q: "Safety in High-Voltage Environments", 
-                                a: "Our automation systems feature redundant safety PLCs and light curtains to protect operators while handling high-energy battery packs." 
+                            {
+                                q: "Safety in High-Voltage Environments",
+                                a: "Our automation systems feature redundant safety PLCs and light curtains to protect operators while handling high-energy battery packs."
                             },
-                            { 
-                                q: "Thermal Management Precision", 
-                                a: "We utilize automated dispensing vision systems to ensure thermal interface material is applied with 0.1mm accuracy for optimal cell cooling." 
+                            {
+                                q: "Thermal Management Precision",
+                                a: "We utilize automated dispensing vision systems to ensure thermal interface material is applied with 0.1mm accuracy for optimal cell cooling."
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="premium-card premium-animate slide-up" style={{ transitionDelay: `${idx * 0.1}s`, backgroundColor: '#fff' }}>

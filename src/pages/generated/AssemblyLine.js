@@ -68,7 +68,7 @@ const AssemblyLine = () => {
 
                 {/* Split Image/Text */}
                 <div className="spm-split reveal">
-                    <div className="spm-split-image" style={{ backgroundImage: "url('/images/spm/assembly_line.png')" }}></div>
+                    <div className="spm-split-image" style={{ backgroundImage: "url('/images/Assembly line conveyer.png')" }}></div>
                     <div className="spm-split-content">
                         <h2 className="spm-split-title">Applications & Benefits</h2>
                         <h4 style={{ marginBottom: "10px", color: "#3b82f6" }}>Common Applications</h4>
