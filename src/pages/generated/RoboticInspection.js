@@ -80,7 +80,7 @@ const RoboticInspection = () => {
                     </div>
                     <div className="premium-split">
                         <div className="premium-split-image premium-animate slide-up" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <img src="/images/robotics_inspection.webp" alt="Robotic Inspection Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", width: '100%', height: 'auto', objectFit: 'contain' }} />
+                            <img src="/images/ROOOObotic inspection.webp" alt="Robotic Inspection Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", width: '100%', height: 'auto', objectFit: 'contain' }} />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s' }}>
                             <p className="lead" style={{ color: '#0f172a' }}>
@@ -131,7 +131,18 @@ const RoboticInspection = () => {
                     </div>
                     <div className="premium-split" style={{ flexDirection: "row-reverse", marginTop: '40px' }}>
                         <div className="premium-split-image premium-animate slide-up" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <img src="/images/robotics_inspection.webp" alt="Robotic Inspection Applications" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", width: '100%', height: 'auto', objectFit: 'contain' }} />
+                            <video
+                                src="/images/roboticesssss.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                style={{
+                                    borderRadius: "12px",
+                                    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                                    width: "100%"
+                                }}
+                            />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s', padding: '0 40px 0 0' }}>
                             <div style={{ marginBottom: "25px" }}>

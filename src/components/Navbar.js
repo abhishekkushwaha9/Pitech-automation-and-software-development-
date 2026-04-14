@@ -199,6 +199,10 @@ export default function Navbar() {
                 <span className="navbar-chevron">▾</span>
               </button>
             ))}
+            <NavLink to="/blogs" className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
+              onMouseEnter={closeMenu}>
+              Blogs
+            </NavLink>
             <NavLink to="/contact" className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
               onMouseEnter={closeMenu}>
               Contact Us
@@ -369,6 +373,7 @@ export default function Navbar() {
                 </div>
               )}
 
+              <Link to="/blogs" className="drawer-link" onClick={() => setMobileOpen(false)}>Blogs</Link>
               <Link to="/contact" className="drawer-link" onClick={() => setMobileOpen(false)}>Contact Us</Link>
             </nav>
 

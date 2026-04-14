@@ -49,7 +49,18 @@ const MachineIntegration = () => {
                             <p>We deploy industrial-grade Machine Integration frameworks designed to bring cloud-level intelligence directly to your factory floor. Every integration ensures modularity, maximum uptime, and robust protocol security conforming to global manufacturing requirements.</p>
                         </div>
                         <div className="ent-overview-visual ent-animate" style={{ transitionDelay: "0.2s" }}>
-                            <img src="/images/dashboard-ui.png" alt="Dashboard Analytics UI" style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '300px', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
+                            <video
+                                src="/images/Machineeeee.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                style={{
+                                    borderRadius: "12px",
+                                    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                                    width: "100%"
+                                }}
+                            />
                         </div>
                     </div>
                 </div>

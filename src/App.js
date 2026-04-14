@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -12,6 +12,9 @@ import Vision from "./pages/Vision";
 import Success from "./pages/Success";
 import Services from "./pages/Services";
 import Signup from "./pages/Signup";
+import Blogs from "./pages/Blogs";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 /* ===== INDUSTRY 4.0 ===== */
 import Digitalization from "./pages/industry/Digitalization";
@@ -69,11 +72,14 @@ import HomeAppliances from "./pages/industries/HomeAppliances";
 import EVManufacturing from "./pages/industries/EVManufacturing";
 import Ecommerce from "./pages/industries/Ecommerce";
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname === '/@PAAM' || location.pathname === '/dashboard';
+
   return (
-    <Router>
+    <>
       <ScrollToTop />
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
 
       <Routes>
         {/* ===== HOME ===== */}
@@ -109,6 +115,11 @@ function App() {
         {/* ===== OTHER ===== */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/blogs" element={<Blogs />} />
+
+        {/* ===== ADMIN ===== */}
+        <Route path="/@PAAM" element={<AdminLogin />} />
+        <Route path="/dashboard" element={<AdminDashboard />} />
 
         {/* ===== AUTO-GENERATED ROUTES ===== */}
         <Route path="/industry-4/metal-industry" element={<MetalIndustry />} />
@@ -146,7 +157,15 @@ function App() {
         <Route path="/industries/ecommerce" element={<Ecommerce />} />
       </Routes>
 
-      <Footer />
+      {!isAdminRoute && <Footer />}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

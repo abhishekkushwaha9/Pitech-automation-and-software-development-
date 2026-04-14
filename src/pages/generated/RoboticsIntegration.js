@@ -132,7 +132,18 @@ const RoboticsIntegration = () => {
                     </div>
                     <div className="premium-split" style={{ flexDirection: "row-reverse", marginTop: '40px' }}>
                         <div className="premium-split-image premium-animate slide-up">
-                            <img src="/images/automation tools integration1.gif" alt="Automation Application Environment" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", height: '100%', objectFit: 'cover' }} />
+                            <video
+                                src="/images/AUTO intergration.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                style={{
+                                    borderRadius: "12px",
+                                    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                                    width: "100%"
+                                }}
+                            />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s', padding: '0 40px 0 0' }}>
                             <div style={{ marginBottom: "25px" }}>

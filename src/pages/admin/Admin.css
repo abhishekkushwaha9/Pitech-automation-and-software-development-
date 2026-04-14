@@ -1,0 +1,209 @@
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7f6;
+}
+
+.admin-login-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.admin-login-card h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.admin-login-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.admin-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.admin-login-card .admin-btn {
+    width: 100%;
+    background-color: #0066cc;
+    color: white;
+    font-size: 1rem;
+    padding: 12px;
+}
+
+.admin-login-card .admin-btn:hover {
+    background-color: #0052a3;
+}
+
+.admin-error {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Dashboard */
+.admin-dashboard {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    min-height: calc(100vh - 200px);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-header h2 {
+    color: #2c3e50;
+    margin: 0;
+}
+
+.admin-btn.logout {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.admin-btn.logout:hover {
+    background-color: #c0392b;
+}
+
+.admin-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.admin-form-container, .admin-list-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+}
+
+.admin-form-container h3, .admin-list-container h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #34495e;
+}
+
+.admin-form input, .admin-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccd1d9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-btn.primary {
+    background-color: #27ae60;
+    color: white;
+}
+
+.admin-btn.primary:hover {
+    background-color: #219653;
+}
+
+.admin-btn.secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.admin-btn.secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.admin-blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin-blog-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+
+.admin-blog-info h4 {
+    margin: 0 0 5px 0;
+    color: #2980b9;
+}
+
+.admin-blog-info span {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+}
+
+.admin-blog-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.admin-btn.edit {
+    background-color: #f39c12;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+.admin-btn.edit:hover {
+    background-color: #d68910;
+}
+
+.admin-btn.delete {
+    background-color: #c0392b;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+.admin-btn.delete:hover {
+    background-color: #a93226;
+}
+
+.admin-loading {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+@media (max-width: 768px) {
+    .admin-content {
+        grid-template-columns: 1fr;
+    }
+}

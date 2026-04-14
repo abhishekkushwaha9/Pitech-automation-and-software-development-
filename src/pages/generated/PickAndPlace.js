@@ -81,7 +81,18 @@ const PickAndPlace = () => {
                     </div>
                     <div className="premium-split">
                         <div className="premium-split-image premium-animate slide-up">
-                            <img src="/images/PEEKandPLACE.webp" alt="Pick and Place Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }} />
+                            <video
+                                src="/images/picking and place .mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                style={{
+                                    borderRadius: "12px",
+                                    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                                    width: "100%"
+                                }}
+                            />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s' }}>
                             <p className="lead" style={{ color: '#0f172a' }}>
