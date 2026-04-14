@@ -133,7 +133,7 @@ const TESTIMONIALS = [
 
 const ALL_CLIENTS = [
   { company: 'Saint Gobain', logo: '/images/saint goobin.png', contact: 'Mahesh Dhaka' },
-  { company: 'A2Z Fil', logo: '/images/a2z-fil.png', contact: 'Industrial Partner' },
+  { company: 'Green fuel', logo: '/images/green fuel.png', contact: 'Industrial Partner' },
   { company: 'CMR', logo: '/images/CMR_logo.png', contact: 'Akshay Agrawal' },
   { company: 'Hi-Tech', logo: '/images/Hi-Tech.png', contact: 'Automation Partner' },
   { company: 'Honda', logo: '/images/honda.png', contact: 'Nippun Kumar' },
@@ -154,6 +154,7 @@ const ALL_CLIENTS = [
   { company: 'India Nippon', logo: '/images/india%20nippon.jpg', contact: 'Industrial Partner' },
   { company: 'Sun N Shade', logo: '/images/sun%20n%20shade.jpg', contact: 'Industrial Partner' },
   { company: 'PMI', logo: '/images/PMI.webp', contact: 'Industrial Partner' },
+  { company: 'A2Z Fil', logo: '/images/a2z-fil.png', contact: 'Industrial Partner' },
 ];
 
 /* ── Intersection Observer Hook ── */
