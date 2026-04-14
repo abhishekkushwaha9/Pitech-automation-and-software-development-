@@ -145,12 +145,15 @@ const ALL_CLIENTS = [
   { company: 'Ahresty', logo: '/images/ahresty.jpg', contact: 'Industrial Partner' },
   { company: 'Spiro', logo: '/images/spiro.jpeg', contact: 'Industrial Partner' },
   { company: 'SQT', logo: '/images/SQT.png', contact: 'Industrial Partner' },
-  { company: 'Shigan', logo: '/images/shigan.jpeg', contact: 'Industrial Partner' },
   { company: 'SKH ', logo: '/images/skh-grp.png', contact: 'Industrial Partner' },
   { company: 'Somic ZF', logo: '/images/somic_zf.png', contact: 'Industrial Partner' },
   { company: 'Pranav Vikas', logo: '/images/pranav%20vikas.png', contact: 'Industrial Partner' },
   { company: 'Havells', logo: '/images/haveels.png', contact: 'Industrial Partner' },
   { company: 'Exide', logo: '/images/exide.png', contact: 'Industrial Partner' },
+  { company: 'Bharat Seats Limited', logo: '/images/bharat%20seats%20limited.png', contact: 'Industrial Partner' },
+  { company: 'India Nippon', logo: '/images/india%20nippon.jpg', contact: 'Industrial Partner' },
+  { company: 'Sun N Shade', logo: '/images/sun%20n%20shade.jpg', contact: 'Industrial Partner' },
+  { company: 'PMI', logo: '/images/PMI.webp', contact: 'Industrial Partner' },
 ];
 
 /* ── Intersection Observer Hook ── */
