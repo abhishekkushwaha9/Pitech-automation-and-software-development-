@@ -297,7 +297,8 @@ export default function Navbar() {
           <div className="navbar-drawer">
             <div className="drawer-header">
               <Link to="/" className="navbar-logo-wrap" onClick={() => setMobileOpen(false)}>
-                <span className="navbar-logo-text">Pi<span>Tech</span></span>
+                <img src="/images/pitech-logo.png" alt="PiTech" className="navbar-logo"
+                  onError={e => { e.target.style.display = 'none'; }} />
               </Link>
               <button className="drawer-close" onClick={() => setMobileOpen(false)}>✕</button>
             </div>

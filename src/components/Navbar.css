@@ -50,16 +50,6 @@
 /* Logo */
 .navbar-logo-wrap { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; }
 .navbar-logo { height: 44px; width: auto; object-fit: contain; }
-.navbar-logo-text {
-  margin-left: 10px;
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--primary);
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-.navbar-logo-text span { color: var(--primary-light); }
 
 /* Center Nav */
 .navbar-center { display: flex; align-items: center; gap: 2px; }
@@ -344,6 +334,7 @@
 @media (max-width: 640px) {
   .navbar-topbar { display: none; }
   .navbar-inner { padding: 0 20px; height: 64px; }
+  .navbar-logo { height: 36px; max-height: 40px; }
 }
 
 /* --- HIDDEN ON MOBILE (MOVED TO HAMBURGER MENU) --- */
