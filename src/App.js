@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -164,10 +165,41 @@ function AppContent() {
   );
 }
 
+// Error Boundary to catch runtime errors and prevent blank screens
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("App Component Error Caught:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: "40px", textAlign: "center", fontFamily: "sans-serif" }}>
+          <h1>App is Working (but caught an error)</h1>
+          <p style={{ color: "red" }}>{this.state.error && this.state.error.toString()}</p>
+          <button onClick={() => window.location.reload()} style={{ padding: "10px 20px", marginTop: "20px" }}>Reload Page</button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 function App() {
   return (
     <Router>
-      <AppContent />
+      <ErrorBoundary>
+        <AppContent />
+      </ErrorBoundary>
     </Router>
   );
 }

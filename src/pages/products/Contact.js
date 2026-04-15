@@ -35,15 +35,22 @@ export default function Contact() {
     }));
   };
 
+  const [formError, setFormError] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isLoading) return; // Prevent double submission
+    
     setIsLoading(true);
+    setFormError("");
     console.log("Submitting form data:", formData);
 
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || "";
-      const response = await fetch(`${apiUrl}/contact`, {
+      let apiUrl = process.env.REACT_APP_API_URL || "";
+      // Use the newly created /send-email endpoint
+      const endpoint = apiUrl ? `${apiUrl}/send-email` : '/api/send-email';
+      
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,6 +59,7 @@ export default function Contact() {
       });
 
       console.log("Response status:", response.status);
+      
       if (response.ok) {
         console.log("Form successfully submitted to backend!");
         setSubmitted(true);
@@ -69,12 +77,13 @@ export default function Contact() {
           setSubmitted(false);
         }, 5000);
       } else {
-        console.error("Backend returned an error. Status:", response.status);
-        alert("Failed to send message. Please try again later.");
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Backend error:", errorData.error || response.status);
+        setFormError(errorData.error || "Failed to send message. Please try again later.");
       }
     } catch (error) {
       console.error("Error submitting form at frontend:", error);
-      alert("An error occurred while sending the message. Ensure the backend is running.");
+      setFormError("Network error. Ensure you are connected to the internet.");
     } finally {
       setIsLoading(false);
     }
@@ -240,6 +249,12 @@ export default function Contact() {
                       rows="6"
                     />
                   </div>
+
+                  {formError && (
+                    <div className="form-error-message" style={{ color: '#ef4444', marginBottom: '16px', fontSize: '0.95rem', backgroundColor: '#fef2f2', border: '1px solid #fecaca', padding: '12px 16px', borderRadius: '8px' }}>
+                      ⚠️ {formError}
+                    </div>
+                  )}
 
                   <button type="submit" className="form-submit-btn" disabled={isLoading} style={{ opacity: isLoading ? 0.7 : 1, cursor: isLoading ? 'not-allowed' : 'pointer' }}>
                     {isLoading ? "Sending..." : "Send Message →"}

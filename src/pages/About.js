@@ -271,6 +271,51 @@ export default function About() {
         </div>
       </section>
 
+      {/* ── Leadership / Founders ── */}
+      <section className="about-leadership">
+        <div className="about-leadership-inner">
+          <div className="section-header animate-on-scroll">
+            <span className="section-tag">Our Leadership</span>
+            <h2>Meet Our Founders</h2>
+            <p>The visionaries driving PiTech Automation's mission to revolutionize manufacturing.</p>
+          </div>
+
+          <div className="leadership-grid">
+            {/* Founder 1 */}
+            <div className="founder-card animate-on-scroll">
+              <div className="founder-img-wrapper">
+                <img
+                  src="/images/appu.jpg"
+                  alt="Appu Kumar Yadav"
+                  onError={(e) => { e.target.src = 'https://ui-avatars.com/api/?name=Appu+Kumar+Yadav&background=0f172a&color=fff&size=200'; }}
+                />
+              </div>
+              <div className="founder-info">
+                <h3>Appu Kumar Yadav</h3>
+                <span className="founder-role">Technical Director / Co-Founder</span>
+                <p>Driving technological innovation and spearheading strategic initiatives to deliver world-class Industry 4.0 solutions. Leads software development and handles PLC & SCADA systems.</p>
+              </div>
+            </div>
+
+            {/* Founder 2 */}
+            <div className="founder-card animate-on-scroll" style={{ transitionDelay: '0.1s' }}>
+              <div className="founder-img-wrapper">
+                <img
+                  src="/images/mahesh.jpg"
+                  alt="Mahesh Sehrawat"
+                  onError={(e) => { e.target.src = 'https://ui-avatars.com/api/?name=Mahesh+Sehrawat&background=0f172a&color=fff&size=200'; }}
+                />
+              </div>
+              <div className="founder-info">
+                <h3>Mahesh Sehrawat</h3>
+                <span className="founder-role">Sales Director / Co-Founder</span>
+                <p>Leading operational excellence and building long-lasting partnerships across the Indian manufacturing sector. Expert in the seals domain and industrial operations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Values ── */}
       <section className="about-values">
         <div className="about-values-inner">

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./PremiumTemplate.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PLCProgramming = () => {
     const navigate = useNavigate();
