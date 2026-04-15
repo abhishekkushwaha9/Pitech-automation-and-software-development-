@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
 import './Blogs.css';
 
-import './Blogs.css';
-
 const Blogs = () => {
+    const navigate = useNavigate();
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
@@ -71,8 +71,8 @@ const Blogs = () => {
                 </div>
             </div>
 
-            <div className="container corp-blogs-layout">
-                {/* LEFT CONENT - BLOGS (70%) */}
+            <div className="corp-blogs-layout">
+                {/* LEFT CONTENT - BLOGS (70%) */}
                 <div className="corp-blogs-main">
                     {loading ? (
                         <div className="corp-loading">Loading articles...</div>
@@ -82,8 +82,8 @@ const Blogs = () => {
                         <>
                             <div className="corp-blogs-grid">
                                 {currentBlogs.map((blog, idx) => (
-                                    <div 
-                                        key={blog.id} 
+                                    <div
+                                        key={blog.id}
                                         className="corp-blog-card fade-in"
                                         style={{ animationDelay: `${idx * 0.1}s` }}
                                     >
@@ -96,9 +96,19 @@ const Blogs = () => {
                                         </div>
                                         <div className="corp-blog-content">
                                             <h3 className="corp-blog-title">{blog.title}</h3>
-                                            <span className="corp-blog-date">
-                                                {blog.date ? new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}
-                                            </span>
+                                            {blog.content && (
+                                                <p className="corp-blog-excerpt">
+                                                    {blog.content.length > 80 ? blog.content.slice(0, 90) + '...' : blog.content}
+                                                </p>
+                                            )}
+                                            <div className="corp-blog-meta-footer">
+                                                <span className="corp-blog-date">
+                                                    {blog.date ? new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}
+                                                </span>
+                                                <button className="corp-learn-more-btn" onClick={() => navigate(`/blog/${blog.id}`)}>
+                                                    Learn More
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
@@ -107,26 +117,26 @@ const Blogs = () => {
                             {/* PAGINATION */}
                             {totalPages > 1 && (
                                 <div className="corp-pagination">
-                                    <button 
-                                        className="corp-page-btn" 
+                                    <button
+                                        className="corp-page-btn"
                                         disabled={currentPage === 1}
                                         onClick={() => handlePageChange(currentPage - 1)}
                                     >
                                         Prev
                                     </button>
-                                    
+
                                     {[...Array(totalPages)].map((_, i) => (
-                                        <button 
-                                            key={i} 
+                                        <button
+                                            key={i}
                                             className={`corp-page-num ${currentPage === i + 1 ? 'active' : ''}`}
                                             onClick={() => handlePageChange(i + 1)}
                                         >
                                             {i + 1}
                                         </button>
                                     ))}
-                                    
-                                    <button 
-                                        className="corp-page-btn" 
+
+                                    <button
+                                        className="corp-page-btn"
                                         disabled={currentPage === totalPages}
                                         onClick={() => handlePageChange(currentPage + 1)}
                                     >
@@ -142,10 +152,10 @@ const Blogs = () => {
                 <aside className="corp-blogs-sidebar">
                     <div className="corp-sidebar-widget fade-in">
                         <h3>Search</h3>
-                        <input 
-                            type="text" 
-                            className="corp-search-input" 
-                            placeholder="Search blogs..." 
+                        <input
+                            type="text"
+                            className="corp-search-input"
+                            placeholder="Search blogs..."
                             value={searchTerm}
                             onChange={(e) => {
                                 setSearchTerm(e.target.value);
@@ -153,13 +163,13 @@ const Blogs = () => {
                             }}
                         />
                     </div>
-                    
+
                     <div className="corp-sidebar-widget fade-in" style={{ animationDelay: '0.1s' }}>
                         <h3>Categories</h3>
                         <ul className="corp-category-list">
                             {categories.map((cat, i) => (
-                                <li 
-                                    key={i} 
+                                <li
+                                    key={i}
                                     className={activeCategory === cat ? 'active' : ''}
                                     onClick={() => {
                                         setActiveCategory(cat);

@@ -13,6 +13,7 @@ import Success from "./pages/Success";
 import Services from "./pages/Services";
 import Signup from "./pages/Signup";
 import Blogs from "./pages/Blogs";
+import BlogDetails from "./pages/BlogDetails";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
@@ -116,6 +117,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blog/:id" element={<BlogDetails />} />
 
         {/* ===== ADMIN ===== */}
         <Route path="/@PAAM" element={<AdminLogin />} />
