@@ -279,37 +279,37 @@ export default function About() {
             <h2>Meet Our Founders</h2>
             <p>The visionaries driving PiTech Automation's mission to revolutionize manufacturing.</p>
           </div>
-          
+
           <div className="leadership-grid">
             {/* Founder 1 */}
             <div className="founder-card animate-on-scroll">
               <div className="founder-img-wrapper">
-                <img 
-                  src="/images/appu-kumar-yadav.jpg" 
-                  alt="Appu Kumar Yadav" 
+                <img
+                  src="/images/appu.jpg"
+                  alt="Appu Kumar Yadav"
                   onError={(e) => { e.target.src = 'https://ui-avatars.com/api/?name=Appu+Kumar+Yadav&background=0f172a&color=fff&size=200'; }}
                 />
               </div>
               <div className="founder-info">
                 <h3>Appu Kumar Yadav</h3>
-                <span className="founder-role">Director / Co-Founder</span>
-                <p>Driving technological innovation and spearheading strategic initiatives to deliver world-class Industry 4.0 solutions.</p>
+                <span className="founder-role">Technical Director / Co-Founder</span>
+                <p>Leads the software development and automation technology division with strong expertise in PLC, SCADA, and HMI systems. He plays a key role in driving innovation and delivering advanced Industry 4.0 solutions.</p>
               </div>
             </div>
 
             {/* Founder 2 */}
             <div className="founder-card animate-on-scroll" style={{ transitionDelay: '0.15s' }}>
               <div className="founder-img-wrapper">
-                <img 
-                  src="/images/mahesh-sehrawat.jpg" 
-                  alt="Mahesh Sehrawat" 
+                <img
+                  src="/images/mahesh.jpg"
+                  alt="Mahesh Sehrawat"
                   onError={(e) => { e.target.src = 'https://ui-avatars.com/api/?name=Mahesh+Sehrawat&background=2563eb&color=fff&size=200'; }}
                 />
               </div>
               <div className="founder-info">
                 <h3>Mahesh Sehrawat</h3>
-                <span className="founder-role">Director / Co-Founder</span>
-                <p>Leading operational excellence and building long-lasting partnerships across the Indian manufacturing sector.</p>
+                <span className="founder-role">Sales Director / Co-Founder</span>
+                <p>Leads the sales and business development operations, focusing on building strong client relationships and driving growth across the manufacturing sector through strategic partnerships.</p>
               </div>
             </div>
           </div>
