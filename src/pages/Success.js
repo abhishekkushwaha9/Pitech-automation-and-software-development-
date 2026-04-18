@@ -8,6 +8,21 @@ export default function Success() {
 
   // Scroll animation
   useEffect(() => {
+    // SEO logic
+    document.title = "Success Stories - PiTech Automation";
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.pitechautomation.com/about/success');
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        metaDesc.setAttribute("content", "Case studies and real-world implementations of Industry 4.0 and automation solutions by PiTech Automation. Real results for Indian manufacturers.");
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

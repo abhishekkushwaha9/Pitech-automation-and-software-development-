@@ -163,7 +163,7 @@ export default function Services() {
       subtitle="Comprehensive Industry 4.0 solutions — from IIoT platforms to complete automation lines — designed specifically for Indian manufacturers."
       tag="What We Offer"
       heroImage="/images/1759499868874.jpg"
-      breadcrumb={[{ label: 'Solutions' }]}
+      breadcrumb={[{ label: 'Services' }]}
     >
       <div className="services-page">
         {/* ── Solution Categories ── */}

@@ -43,7 +43,7 @@ export default function Footer() {
       <div className="footer-cta">
         <div className="footer-cta-inner">
           <h2>Ready to Transform Your Manufacturing?</h2>
-          <p>Let Pi Tech Automation bring Industry 4.0 to your factory floor — smarter, faster, and more efficient.</p>
+          <p>Let Pi Tech Automation bring Industry 4.0 and SPM Automation solutions to your factory floor.</p>
           <div className="footer-cta-btns">
             <Link to="/contact" className="footer-cta-btn-primary">Talk to Our Experts</Link>
             <Link to="/about/success" className="footer-cta-btn-secondary">See Success Stories</Link>

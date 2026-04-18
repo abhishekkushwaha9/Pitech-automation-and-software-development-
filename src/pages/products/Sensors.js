@@ -4,6 +4,21 @@ import "./Sensors.css";
 
 export default function Sensors() {
   React.useEffect(() => {
+    // SEO logic
+    document.title = "Products - PiTech Automation";
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.pitechautomation.com/products/sensor');
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        metaDesc.setAttribute("content", "Industrial Sensors & Products by PiTech Automation. High-accuracy sensors, PLCs, and IoT gateways for your smart factory transformation.");
+    }
+
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }

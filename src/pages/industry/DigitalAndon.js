@@ -5,6 +5,21 @@ import "./DigitalAndon.css";
 
 export default function DigitalAndon() {
   useEffect(() => {
+    // SEO logic
+    document.title = "Digital Andon System - PiTech Automation";
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.pitechautomation.com/industry/digital-andon');
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        metaDesc.setAttribute("content", "Real-time Digital Andon System by PiTech Automation. Visualize production status, respond to issues instantly, and eliminate downtime.");
+    }
+
     const observer = new IntersectionObserver(
       entries =>
         entries.forEach(e =>

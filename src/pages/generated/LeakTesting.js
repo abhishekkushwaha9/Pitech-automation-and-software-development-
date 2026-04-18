@@ -3,6 +3,21 @@ import '../solutions/spm/SPMStyle.css';
 
 const LeakTesting = () => {
     useEffect(() => {
+        // SEO logic
+        document.title = "SPM Automation - PiTech Automation";
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonical);
+        }
+        canonical.setAttribute('href', 'https://www.pitechautomation.com/solutions/spm/leak-testing');
+
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute("content", "High-end Special Purpose Machines (SPM) for automated leak testing and industrial processes. Ensure 100% quality with PiTech Automation.");
+        }
+
         const reveals = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
@@ -24,7 +39,7 @@ const LeakTesting = () => {
             {/* Hero Section */}
             <section className="spm-hero" style={{ backgroundImage: "url('/images/spm/leak_testing.png')" }}>
                 <div className="spm-hero-content">
-                    <h1 className="spm-hero-title">Leak Testing Systems</h1>
+                    <h1 className="spm-hero-title">SPM Automation - Leak Testing</h1>
                     <p className="spm-hero-subtitle">High-precision automated inspection ensuring flawless quality control in modern manufacturing.</p>
                 </div>
             </section>

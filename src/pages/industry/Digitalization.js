@@ -5,19 +5,34 @@ import "../../layouts/PageLayout.css";
 import "./Digitalization.css";
 
 export default function Digitalization() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries =>
-        entries.forEach(e =>
-          e.isIntersecting && e.target.classList.add("visible")
-        ),
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-    );
-    document.querySelectorAll(".animate-on-scroll").forEach(el =>
-      observer.observe(el)
-    );
-    return () => observer.disconnect();
-  }, []);
+    useEffect(() => {
+        // SEO logic
+        document.title = "Industry 4.0 - PiTech Automation";
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonical);
+        }
+        canonical.setAttribute('href', 'https://www.pitechautomation.com/industry/digitalization');
+
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute("content", "Pitech Automation's Industry 4.0 solutions for factory digitalization and smart manufacturing. Transform your factory with real-time data.");
+        }
+
+        const observer = new IntersectionObserver(
+            entries =>
+                entries.forEach(e =>
+                    e.isIntersecting && e.target.classList.add("visible")
+                ),
+            { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+        );
+        document.querySelectorAll(".animate-on-scroll").forEach(el =>
+            observer.observe(el)
+        );
+        return () => observer.disconnect();
+    }, []);
 
   return (
     <PageLayout

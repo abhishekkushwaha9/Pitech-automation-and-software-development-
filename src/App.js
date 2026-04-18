@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -30,7 +30,7 @@ import Solution from "./pages/industry/Solution";
 import OEE from "./pages/industry/OEE";
 import DWI from "./pages/industry/DWI";
 import TraceabilitySCADA from "./pages/TraceabilitySCADA";
-import Industry from "./pages/industry/Industry";
+
 
 /* ===== PRODUCTS ===== */
 import Contact from "./pages/products/Contact";   // ← YE IMPORT CHANGE KIYA HAI
@@ -112,10 +112,12 @@ function AppContent() {
 
         {/* ===== ABOUT ===== */}
         <Route path="/about" element={<About />} />
+        <Route path="/our-story" element={<Navigate to="/about" replace />} />
         <Route path="/about/vision" element={<Vision />} />
         <Route path="/about/success" element={<Success />} />
 
         {/* ===== INDUSTRY ===== */}
+        <Route path="/industry" element={<Navigate to="/industry/digitalization" replace />} />
         <Route path="/industry/digitalization" element={<Digitalization />} />
         <Route path="/industry/digital-andon" element={<DigitalAndon />} />
         <Route path="/industry/production-dashboard" element={<ProductionDashboard />} />
@@ -126,7 +128,7 @@ function AppContent() {
         <Route path="/industry/solution" element={<Solution />} />
         <Route path="/industry/oee" element={<OEE />} />
         <Route path="/industry/dwi" element={<DWI />} />
-        <Route path="/industry" element={<Industry />} />
+
         <Route path="/solutions/automation/traceability-scada" element={<TraceabilitySCADA />} />
 
         {/* ===== PRODUCTS ===== */}
@@ -152,6 +154,7 @@ function AppContent() {
         <Route path="/industry-4/automotive-industry" element={<AutomotiveIndustry />} />
         <Route path="/industry-4/material-handling" element={<MaterialHandling />} />
         <Route path="/products/sensor" element={<Sensor />} />
+        <Route path="/products" element={<Navigate to="/products/sensor" replace />} />
         <Route path="/products/plc" element={<PLC />} />
         <Route path="/products/iot-gateway" element={<IoTGateway />} />
         <Route path="/products/rfid" element={<RFID />} />
@@ -160,6 +163,7 @@ function AppContent() {
         <Route path="/solutions/automation/plc" element={<PLCProgramming />} />
         <Route path="/solutions/automation/machine-integration" element={<MachineIntegration />} />
         <Route path="/solutions/spm/leak-testing" element={<LeakTesting />} />
+        <Route path="/solutions/spm" element={<Navigate to="/solutions/spm/leak-testing" replace />} />
         <Route path="/solutions/spm/assembly-line" element={<AssemblyLine />} />
         <Route path="/solutions/spm/press-machine" element={<PressMachine />} />
         <Route path="/solutions/automation-lines" element={<AutomationLines />} />

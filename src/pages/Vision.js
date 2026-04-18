@@ -241,6 +241,23 @@ function GlowCard({
 /* ---------------- Page ---------------- */
 
 export default function Vision() {
+  React.useEffect(() => {
+    // SEO logic
+    document.title = "Our Expertise - PiTech Automation";
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.pitechautomation.com/about/vision');
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        metaDesc.setAttribute("content", "Discover the technical vision and expertise driving PiTech Automation. From IIoT and PLC to Industry 4.0 transformation.");
+    }
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-800 selection:bg-cyan-200 selection:text-cyan-900 overflow-x-hidden">
       <ThreeBackground />

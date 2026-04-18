@@ -32,7 +32,7 @@ const NAV_DATA = {
       ],
     },
     {
-      category: "Special Purpose Machines",
+      category: "SPM Automation",
       items: [
         { name: "Leak Testing", path: "/solutions/spm/leak-testing" },
         { name: "Assembly Line", path: "/solutions/spm/assembly-line" },
@@ -189,13 +189,17 @@ export default function Navbar() {
               onMouseEnter={closeMenu}>
               Home
             </NavLink>
+            <NavLink to="/services" className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
+              onMouseEnter={closeMenu}>
+              Services
+            </NavLink>
             {['about', 'solutions', 'products', 'industry'].map(key => (
               <button key={key} className={`navbar-link${activeMenu === key ? ' active' : ''}`}
                 onMouseEnter={() => openMenu(key)}>
                 {key === 'about' ? 'About Us'
                   : key === 'solutions' ? 'Solutions'
                     : key === 'products' ? 'Products'
-                      : 'Industries'}
+                      : 'Industry 4.0'}
                 <span className="navbar-chevron">▾</span>
               </button>
             ))}

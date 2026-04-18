@@ -157,6 +157,24 @@ function useScrollFade() {
 export default function About() {
   useScrollFade();
 
+  useEffect(() => {
+    // SEO Meta Tags
+    document.title = "About Us - PiTech Automation";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Learn about PiTech Automation, India's leading provider of Industrial IoT, Automation, and Industry 4.0 transformation solutions based in Manesar.");
+    }
+
+    // Canonical Tag
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.pitechautomation.com/about');
+  }, []);
+
   return (
     <>
       {/* ── Page Hero ── */}
