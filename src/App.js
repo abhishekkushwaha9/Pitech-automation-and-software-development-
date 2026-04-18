@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useNavigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -76,7 +76,32 @@ import Ecommerce from "./pages/industries/Ecommerce";
 
 function AppContent() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isAdminRoute = location.pathname === '/@PAAM' || location.pathname === '/dashboard';
+
+  // Handle Legacy Query Redirects
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const slug = params.get('slug');
+    const path = location.pathname.toLowerCase();
+
+    if (path === '/industry4') {
+      if (slug === 'digitalization') navigate('/industry/digitalization', { replace: true });
+      if (slug === 'digital-andon-system') navigate('/industry/digital-andon', { replace: true });
+    }
+    if (path === '/automation' && slug === 'paint-marking-machines') {
+      navigate('/solutions/spm/leak-testing', { replace: true });
+    }
+    if (path === '/service' && slug === 'automation-solutions') {
+      navigate('/services', { replace: true });
+    }
+    if (path === '/projects') {
+      navigate('/about/success', { replace: true });
+    }
+    if (path === '/our-expertise') {
+      navigate('/about/vision', { replace: true });
+    }
+  }, [location, navigate]);
 
     // Global Navigation Tracking for Quick Access
   React.useEffect(() => {

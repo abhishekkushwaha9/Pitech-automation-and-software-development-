@@ -1,4 +1,40 @@
 {
+  "redirects": [
+    {
+      "source": "/industry4",
+      "has": [{ "type": "query", "key": "slug", "value": "digitalization" }],
+      "destination": "/industry/digitalization",
+      "permanent": true
+    },
+    {
+      "source": "/industry4",
+      "has": [{ "type": "query", "key": "slug", "value": "digital-andon-system" }],
+      "destination": "/industry/digital-andon",
+      "permanent": true
+    },
+    {
+      "source": "/automation",
+      "has": [{ "type": "query", "key": "slug", "value": "paint-marking-machines" }],
+      "destination": "/solutions/spm/leak-testing",
+      "permanent": true
+    },
+    {
+      "source": "/service",
+      "has": [{ "type": "query", "key": "slug", "value": "automation-solutions" }],
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/about/success",
+      "permanent": true
+    },
+    {
+      "source": "/our-expertise",
+      "destination": "/about/vision",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!.*\\..*).*)",
