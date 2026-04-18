@@ -189,10 +189,6 @@ export default function Navbar() {
               onMouseEnter={closeMenu}>
               Home
             </NavLink>
-            <NavLink to="/services" className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
-              onMouseEnter={closeMenu}>
-              Services
-            </NavLink>
             {['about', 'solutions', 'products', 'industry'].map(key => (
               <button key={key} className={`navbar-link${activeMenu === key ? ' active' : ''}`}
                 onMouseEnter={() => openMenu(key)}>
