@@ -17,7 +17,7 @@ const DEFAULT_CARDS = [
   { id: 'digital-andon', icon: '🔔', name: 'Digital Andon', desc: 'Visual signal tracking system', path: '/industry/digital-andon', bg: 'rgba(139,92,246,0.2)' },
   { id: 'sensor', icon: '📡', name: 'Smart Sensors', desc: 'Advanced industrial sensing', path: '/products/sensor', bg: 'rgba(239,68,68,0.2)' },
   { id: 'success', icon: '🏆', name: 'Success Stories', desc: 'Our proven transformations', path: '/about/success', bg: 'rgba(245,158,11,0.2)' },
-  { id: 'leak-testing', icon: '💧', name: 'Leak Testing', desc: 'Precision detection systems', path: '/solutions/spm/leak-testing', bg: 'rgba(59,130,246,0.2)' },
+  { id: 'leak-testing', icon: '💧', name: 'SPM Automation', desc: 'Precision leak detection systems', path: '/solutions/spm/leak-testing', bg: 'rgba(59,130,246,0.2)' },
   { id: 'assembly-line', icon: '🏗️', name: 'Assembly Lines', desc: 'Automated production flows', path: '/solutions/spm/assembly-line', bg: 'rgba(139,92,246,0.2)' },
   { id: 'automation-lines', icon: '🤖', name: 'Automation Lines', desc: 'Full-scale robotic systems', path: '/solutions/automation-lines', bg: 'rgba(16,185,129,0.2)' },
   { id: 'blogs', icon: '📝', name: 'Our Stories', desc: 'Latest insights and updates', path: '/blogs', bg: 'rgba(37,99,235,0.2)' },

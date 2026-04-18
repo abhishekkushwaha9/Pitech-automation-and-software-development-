@@ -189,16 +189,38 @@ export default function Navbar() {
               onMouseEnter={closeMenu}>
               Home
             </NavLink>
-            {['about', 'solutions', 'products', 'industry'].map(key => (
-              <button key={key} className={`navbar-link${activeMenu === key ? ' active' : ''}`}
-                onMouseEnter={() => openMenu(key)}>
-                {key === 'about' ? 'About Us'
-                  : key === 'solutions' ? 'Solutions'
-                    : key === 'products' ? 'Products'
-                      : 'Industry 4.0'}
-                <span className="navbar-chevron">▾</span>
-              </button>
-            ))}
+            {['about', 'solutions', 'products', 'industry'].map(key => {
+              const label = key === 'about' ? 'About Us' 
+                          : key === 'solutions' ? 'Solutions' 
+                          : key === 'products' ? 'Products' 
+                          : 'Industry 4.0';
+              const path = key === 'about' ? '/about'
+                         : key === 'products' ? '/products/sensor'
+                         : key === 'industry' ? '/industry/digitalization'
+                         : null;
+
+              if (path) {
+                return (
+                  <NavLink
+                    key={key}
+                    to={path}
+                    className={({ isActive }) => `navbar-link${activeMenu === key || isActive ? ' active' : ''}`}
+                    onMouseEnter={() => openMenu(key)}
+                  >
+                    {label}
+                    <span className="navbar-chevron">▾</span>
+                  </NavLink>
+                );
+              }
+
+              return (
+                <button key={key} className={`navbar-link${activeMenu === key ? ' active' : ''}`}
+                  onMouseEnter={() => openMenu(key)}>
+                  {label}
+                  <span className="navbar-chevron">▾</span>
+                </button>
+              );
+            })}
             <NavLink to="/blogs" className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
               onMouseEnter={closeMenu}>
               Blogs
@@ -317,6 +339,7 @@ export default function Navbar() {
               </button>
               {mobileExpanded === 'about' && (
                 <div className="drawer-sub">
+                  <Link to="/about" className="drawer-sub-link" style={{ fontWeight: '700', color: 'var(--primary-light)' }} onClick={() => setMobileOpen(false)}>About Us Overview</Link>
                   <div className="drawer-sub-group">
                     {NAV_DATA.about.map(item => (
                       <Link key={item.path} to={item.path} className="drawer-sub-link" onClick={() => setMobileOpen(false)}>{item.name}</Link>
@@ -360,11 +383,12 @@ export default function Navbar() {
 
               {/* Industries */}
               <button className="drawer-link" onClick={() => toggleMobileSection('industry')}>
-                Industries
+                Industry 4.0
                 <span className={`drawer-chevron${mobileExpanded === 'industry' ? ' open' : ''}`}>▾</span>
               </button>
               {mobileExpanded === 'industry' && (
                 <div className="drawer-sub">
+                  <Link to="/industry/digitalization" className="drawer-sub-link" style={{ fontWeight: '700', color: 'var(--primary-light)' }} onClick={() => setMobileOpen(false)}>Industry 4.0 Overview</Link>
                   <div className="drawer-sub-group">
                     {NAV_DATA.industry.map(item => (
                       <Link key={item.path} to={item.path} className="drawer-sub-link" onClick={() => setMobileOpen(false)}>{item.name}</Link>
