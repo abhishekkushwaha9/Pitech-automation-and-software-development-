@@ -78,6 +78,28 @@ function AppContent() {
   const location = useLocation();
   const isAdminRoute = location.pathname === '/@PAAM' || location.pathname === '/dashboard';
 
+    // Global Navigation Tracking for Quick Access
+  React.useEffect(() => {
+    // Normalize path: ignore case and remove trailing slash
+    let path = location.pathname.toLowerCase();
+    if (path.length > 1 && path.endsWith('/')) {
+      path = path.slice(0, -1);
+    }
+
+    // Don't track home, admin, or empty paths
+    if (path === '' || path === '/' || path.includes('@paam') || path.includes('dashboard')) return;
+
+    try {
+      const saved = localStorage.getItem('pitech_clicks_v3');
+      const clicks = saved ? JSON.parse(saved) : {};
+      clicks[path] = (clicks[path] || 0) + 1;
+      localStorage.setItem('pitech_clicks_v3', JSON.stringify(clicks));
+      console.log(`[Global Tracker] Recorded visit for normalized path: ${path}`);
+    } catch (e) {
+      console.error("Tracker Error:", e);
+    }
+  }, [location]);
+
   return (
     <>
       <ScrollToTop />

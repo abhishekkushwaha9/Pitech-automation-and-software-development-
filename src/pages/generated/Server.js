@@ -37,16 +37,14 @@ const IoTGateway = () => {
                         </div>
                     </div>
 
-                    <div className="premium-animate slide-left" style={{ transitionDelay: '0.2s' }}>
-                        <div className="premium-hero-image-wrapper">
-                            <img src="/images/IOT_gateway.png" alt="Industrial IoT Gateway System" className="premium-hero-image" />
-                            <div className="premium-floating-card">
-                                <div className="premium-fc-icon">⚡</div>
-                                <div className="premium-fc-text">
-                                    <h4>System Health</h4>
-                                    <p>Optimized & Active</p>
-                                </div>
-                            </div>
+                    <div className="premium-animate slide-left" style={{ transitionDelay: '0.2s', display: 'flex', justifyContent: 'center' }}>
+                        <div className="premium-hero-image-wrapper" style={{ width: 'fit-content', transform: 'none' }}>
+                            <img 
+                                src="/images/iottt gateway.jpeg" 
+                                alt="Industrial IoT Gateway System" 
+                                className="premium-hero-image" 
+                                style={{ maxHeight: '420px', width: 'auto', borderRadius: '16px' }} 
+                            />
                         </div>
                     </div>
                 </div>

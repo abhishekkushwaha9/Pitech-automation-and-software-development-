@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import "./home.css";
+import QuickAccess from "../components/QuickAccess";
 
 /* ── Data ── */
 const SLIDES = [
@@ -15,12 +16,6 @@ const SLIDES = [
   '/images/1748323766560.jpg',
 ];
 
-const HERO_SOLUTIONS = [
-  { icon: '🏭', name: 'Digitalization', desc: 'End-to-end factory digitalization', path: '/industry/digitalization', bg: 'rgba(37,99,235,0.2)' },
-  { icon: '📊', name: 'Production Dashboard', desc: 'Real-time KPI visibility', path: '/industry/production-dashboard', bg: 'rgba(16,185,129,0.2)' },
-  { icon: '⚡', name: 'Predictive Maintenance', desc: 'AI-driven downtime prevention', path: '/industry/predictive-maintenance', bg: 'rgba(245,158,11,0.2)' },
-  { icon: '🔗', name: 'IIoT Platform', desc: 'Connected machine ecosystem', path: '/industry/iiot', bg: 'rgba(139,92,246,0.2)' },
-];
 
 const EXPERTISE = [
   {
@@ -219,19 +214,7 @@ export default function Home() {
           </div>
 
           {/* Floating Solutions Card */}
-          <div className="hero-card animate-on-scroll">
-            <div className="hero-card-title">Quick Access</div>
-            {HERO_SOLUTIONS.map(s => (
-              <Link key={s.path} to={s.path} className="hero-card-item">
-                <div className="hero-card-icon" style={{ background: s.bg }}>{s.icon}</div>
-                <div className="hero-card-item-text">
-                  <div className="hero-card-item-name">{s.name}</div>
-                  <div className="hero-card-item-desc">{s.desc}</div>
-                </div>
-                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem' }}>›</span>
-              </Link>
-            ))}
-          </div>
+          <QuickAccess />
         </div>
 
         {/* Indicators */}
