@@ -703,21 +703,6 @@ export default function Vision() {
             ))}
           </div>
 
-          {/* Bottom tagline */}
-          <Reveal delay={400}>
-            <div className="mt-20 pt-8 border-t border-slate-200/60">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-slate-500 font-medium w-full justify-center">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-pulse" />
-                    Engineered in India
-                  </span>
-                  <span className="w-px h-3 bg-slate-300" />
-                  <span>Built for the World</span>
-                </div>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
     </div>
