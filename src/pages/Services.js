@@ -301,7 +301,7 @@ export default function Services() {
       {/* ── HERO ── */}
       <header className="hero">
         <ThreeFloatingShapes />
-        <div className="hero-content">
+        <div className="services-hero-content">
           <div className="section-tag anim">
             What We Offer
           </div>

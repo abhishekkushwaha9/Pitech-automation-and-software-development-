@@ -1233,11 +1233,12 @@
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .hero-card {
-    display: none;
+    width: 300px;
+    padding: 20px;
   }
 
   .hero-content {
-    gap: 0;
+    gap: 40px;
   }
 
   .home-about-inner {
@@ -1288,6 +1289,19 @@
 }
 
 @media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 48px;
+    padding-top: 100px;
+  }
+
+  .hero-card {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
   .expertise-grid {
     grid-template-columns: 1fr;
   }
