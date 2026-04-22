@@ -36,9 +36,6 @@ const MachineIntegration = () => {
                 </div>
             </section>
 
-            <div className="container ent-visual-banner ent-scale-in">
-                <div style={{ height: '400px', backgroundImage: "url('/images/automation-hero.png')", backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '24px' }}></div>
-            </div>
 
             <section className="ent-section ent-bg-white">
                 <div className="container">

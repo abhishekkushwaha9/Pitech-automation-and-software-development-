@@ -1,295 +1,326 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import * as THREE from "three";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Success.css";
 
-export default function Success() {
-  const [open, setOpen] = useState(false);
-  const [activeProject] = useState(null);
-  const [visibleItems, setVisibleItems] = useState([]);
+// Register GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
-  // Scroll animation
+const Success = () => {
+  const [selectedStory, setSelectedStory] = useState(null);
+  const mountRef = useRef(null);
+  const containerRef = useRef(null);
+
+  // THREE.JS BACKGROUND
   useEffect(() => {
-    // SEO logic
-    document.title = "Success Stories - PiTech Automation";
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-        canonical = document.createElement('link');
-        canonical.setAttribute('rel', 'canonical');
-        document.head.appendChild(canonical);
+    const mount = mountRef.current;
+    if (!mount) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    mount.appendChild(renderer.domElement);
+
+    // Particles / Geometry
+    const geometry = new THREE.BufferGeometry();
+    const count = 1000;
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count * 3; i++) {
+      pos[i] = (Math.random() - 0.5) * 50;
     }
-    canonical.setAttribute('href', 'https://www.pitechautomation.com/about/success');
-
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-        metaDesc.setAttribute("content", "Case studies and real-world implementations of Industry 4.0 and automation solutions by PiTech Automation. Real results for Indian manufacturers.");
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleItems((prev) => [...prev, entry.target.dataset.id]);
-          }
-        });
-      },
-      { threshold: 0.2, rootMargin: "50px" }
-    );
-
-    document.querySelectorAll("[data-project-id]").forEach((el) => {
-      observer.observe(el);
+    geometry.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    
+    const material = new THREE.PointsMaterial({
+      size: 0.1,
+      color: 0x2563eb,
+      transparent: true,
+      opacity: 0.4,
+      sizeAttenuation: true
     });
+    
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
 
-    return () => observer.disconnect();
+    camera.position.z = 25;
+
+    let mouseX = 0, mouseY = 0;
+    const handleMouseMove = (e) => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
+    const animate = () => {
+      requestAnimationFrame(animate);
+      points.rotation.y += 0.001;
+      points.rotation.x += 0.0005;
+      
+      camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+      camera.position.y += (-mouseY * 5 - camera.position.y) * 0.05;
+      camera.lookAt(scene.position);
+      
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    const handleResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
+      if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement);
+      renderer.dispose();
+    };
   }, []);
 
-  /* ================= PROJECT LIST ================= */
-  const projects = [
+  // GSAP ANIMATIONS
+  useEffect(() => {
+    // Hero Animations
+    const tl = gsap.timeline();
+    tl.fromTo(".hero-v2-tag", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" })
+      .fromTo(".hero-v2-title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: "power4.out" }, "-=0.5")
+      .fromTo(".hero-v2-subtitle", { opacity: 0 }, { opacity: 1, duration: 1 }, "-=0.7")
+    // Stats Reveal
+    gsap.fromTo(".stat-card-v2", 
+      { opacity: 0, y: 30 },
+      { 
+        opacity: 1, 
+        y: 0, 
+        stagger: 0.15, 
+        duration: 1, 
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".stats-v2",
+          start: "top 90%"
+        }
+      }
+    );
+
+    // Cards Reveal on Scroll
+    gsap.utils.toArray(".story-card-v2").forEach((card) => {
+      gsap.fromTo(card, 
+        { opacity: 0, scale: 0.9, y: 50 },
+        { 
+          opacity: 1, 
+          scale: 1, 
+          y: 0, 
+          duration: 1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(st => st.kill());
+    };
+  }, []);
+
+  const stories = [
     {
       id: 1,
-      name: "Digital Work Instruction System",
-      client: "Automotive Tier-1 Manufacturer",
-      industry: "Automotive Manufacturing",
-      result: "Reduced training time by 45%",
-      image: "/images/dwi.png"
+      company: "Pranav Vikas",
+      title: "Smart Pallet Assembly System",
+      logo: "/images/pranav vikas.png",
+      image: "/images/Assembly line dashboard.png",
+      problem: "Inefficient manual tracking of assembly lines and lack of real-time productivity data led to delayed decision-making.",
+      solution: "Implemented a comprehensive IIoT system including Digital Work Instructions (DWI), ANDON dashboards, and real-time productivity monitoring.",
+      results: "Achieved 100% traceability and a 20% increase in overall assembly line efficiency.",
+      tech: ["Digital DWI", "ANDON Dashboard", "Productivity Monitoring", "Traceability"],
+      stats: { label: "Efficiency", value: "+20%" }
     },
     {
       id: 2,
-      name: "Real-time Production Dashboard",
-      client: "Heavy Engineering Plant",
-      industry: "Industrial Manufacturing",
-      result: "Increased OEE by 18%",
-      image: "/images/production-dashboard.jpeg"
+      company: "Spiro Africa",
+      title: "EV Plant Traceability & Monitoring",
+      logo: "/images/spiro.jpeg",
+      image: "/images/development.jpeg",
+      problem: "Lack of end-to-end component traceability and high energy consumption without a monitoring system.",
+      solution: "Deployed a full-plant traceability system integrated with Robo Vision for quality inspection and energy monitoring dashboards.",
+      results: "Reduced energy costs by 15% and achieved zero-defect leakage through automated vision inspection.",
+      tech: ["Plant Traceability", "Robo Vision", "Energy Monitoring", "Live Dashboards"],
+      stats: { label: "Energy Savings", value: "15%" }
     },
     {
       id: 3,
-      name: "Digital Check Sheets",
-      client: "Automotive Tier-1 Manufacturer",
-      industry: "Automotive Manufacturing",
-      result: "Improved quality compliance",
-      image: "/images/check-sheet.png"
-    },
-    {
-      id: 4,
-      name: "Cloud-based IIoT Monitoring",
-      client: "Automotive Tier-1 Manufacturer",
-      industry: "Automotive Manufacturing",
-      result: "Live monitoring & tracking",
-      image: "/images/real-time.jpeg"
+      company: "Saint Gobain",
+      title: "Robot Access Control System",
+      logo: "/images/saint goobin.png",
+      image: "/images/saint gobin project .png",
+      problem: "Unauthorized personnel entering robotic cells posed significant safety risks and potential machine damage.",
+      solution: "Installed a Biometric-based biometric access control system integrated with the robot safety PLC circuit.",
+      results: "Eliminated unauthorized access incidents and enhanced workplace safety compliance to 100%.",
+      tech: ["Biometric Access", "Safety Integration", "PLC Interlocking"],
+      stats: { label: "Safety Incidents", value: "0" }
     },
     {
       id: 5,
-      name: "IIoT Alerts & Tracking",
-      client: "Automotive Tier-1 Manufacturer",
-      industry: "Automotive Manufacturing",
-      result: "Automated alerts & dashboards",
-      image: "/images/monitoring.jpeg"
+      company: "Honda Logistics",
+      title: "Dock Yard Truck Monitoring",
+      logo: "/images/honda.png",
+      image: "/images/honda project.png",
+      problem: "Severe traffic mismanagement and long turnaround times for trucks at the dock yard.",
+      solution: "Implemented an IIoT tracking system with real-time slot management and automated gate control.",
+      results: "Reduced truck turnaround time by 40% and streamlined yard logistics operations.",
+      tech: ["IIoT Tracking", "Slot Management", "Automated Gate Control"],
+      stats: { label: "Turnaround", value: "-40%" }
     },
     {
       id: 6,
-      name: "Barcode Quality Tracking",
-      client: "Heavy Engineering Plant",
-      industry: "Industrial Manufacturing",
-      result: "Improved traceability",
-      image: "/images/cmr.jpeg"
+      company: "Sebros",
+      title: "Die Casting Monitoring System",
+      logo: "/images/sebros.jpg",
+      image: "/images/sebros project .png",
+      problem: "Manual tracking of die casting cycles led to data inaccuracies and zero visibility into machine downtime.",
+      solution: "Automated data collection from die casting machines with real-time OEE dashboards and downtime analytics.",
+      results: "Improved OEE by 18% through data-driven downtime reduction and process optimization.",
+      tech: ["Real-time Dashboards", "Automation", "Downtime Analytics"],
+      stats: { label: "OEE Increase", value: "18%" }
     },
     {
-      id: 7,
-      name: "Force Measurement Software",
-      client: "Automotive Tier-1 Manufacturer",
-      industry: "Automotive Manufacturing",
-      result: "Accurate force reporting",
-      image: "/images/tracking.jpeg"
+      id: 8,
+      company: "CMR Green Technologies",
+      title: "Supply Chain IIoT - Molten Metal Transfer",
+      logo: "/images/CMR_logo.png",
+      image: "/images/cmr.jpeg",
+      problem: "Frequent mismanagement and safety hazards during molten metal transfer across the supply chain led to material waste and significant risk.",
+      solution: "Integrated smart sensors and RFID tracking with a centralized cloud system for real-time transfer monitoring and automated safety alerts.",
+      results: "Improved transfer accuracy by 30% and significantly reduced material waste and safety hazards.",
+      tech: ["Smart Sensors", "RFID", "Cloud System", "IIoT Tracking"],
+      stats: { label: "Accuracy", value: "+30%" }
     }
   ];
 
-  /* ================= POPUP CONTENT ================= */
-  const caseStudyData = {
-    1: {
-      challenges: ["Paper-based SOPs", "High training effort", "No revision control"],
-      solution: ["Digital SOPs", "Visual instructions", "Instant updates"],
-      benefits: ["45% training reduction", "Paperless shopfloor", "Higher quality"]
-    },
-    2: {
-      challenges: ["No real-time visibility", "Manual reports", "Delayed decisions"],
-      solution: ["Live dashboards", "OEE tracking", "Downtime analytics"],
-      benefits: ["18% OEE increase", "Faster decisions", "Live production data"]
-    },
-    3: {
-      challenges: ["Manual quality checks", "Data loss", "No traceability"],
-      solution: ["Digital check sheets", "Real-time validation", "Centralized data"],
-      benefits: ["Higher compliance", "Reduced defects", "Audit-ready data"]
-    },
-    4: {
-      challenges: ["No machine visibility", "Unplanned downtime"],
-      solution: ["Cloud IIoT platform", "Real-time monitoring"],
-      benefits: ["Live machine status", "Reduced downtime"]
-    },
-    5: {
-      challenges: ["Delayed alerts", "Manual monitoring"],
-      solution: ["Automated alerts", "Real-time tracking"],
-      benefits: ["Instant notifications", "Improved response time"]
-    },
-    6: {
-      challenges: ["Poor traceability", "Manual logs"],
-      solution: ["Barcode scanning", "Quality checkpoints"],
-      benefits: ["Full traceability", "Improved OEE"]
-    },
-    7: {
-      challenges: ["Manual force measurement", "Data inaccuracies"],
-      solution: ["Automated force capture", "Digital reports"],
-      benefits: ["Accurate data", "Standardized reporting"]
-    }
-  };
-
-  /* ================= ENHANCED CARD ================= */
-  const Card = ({ title, icon, items, color, delay = 0 }) => (
-    <div
-      className="info-card-item"
-      style={{
-        borderTop: `6px solid ${color}`,
-        animation: `slideInCard 0.5s ease-out ${delay}s forwards`
-      }}
-    >
-      <h3 className="info-card-title" style={{ color }}>
-        <span style={{ fontSize: "1.5rem" }}>{icon}</span>
-        {title}
-      </h3>
-      <ul className="info-card-list">
-        {items.map((i, idx) => (
-          <li key={idx} className="info-card-list-item">
-            <span style={{ color }}>✔</span>
-            {i}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-
-  /* ================= UI ================= */
   return (
-    <div className="success-container">
-      {/* HEADER */}
-      <div className="success-header">
-        <div className="header-circle-1" />
-        <div className="header-circle-2" />
+    <div className="success-page" ref={containerRef}>
+      {/* 3D BACKGROUND */}
+      <div className="background-canvas" ref={mountRef}></div>
 
-        <div className="header-content">
-          <h1 className="success-title">
-            Our Success Stories
-          </h1>
-          <p className="success-subtitle">
-            Proven Industry 4.0 Solutions Delivered by Pitech
-          </p>
-        </div>
-      </div>
+      {/* HERO SECTION */}
+      <section className="hero-v2">
+        <span className="hero-v2-tag">Our Impact</span>
+        <h1 className="hero-v2-title">
+          Industrial <span>Success</span> <br /> Stories
+        </h1>
+        <p className="hero-v2-subtitle">
+          From legacy factories to intelligent manufacturing hubs. We bridge the gap between human potential and industrial efficiency.
+        </p>
+      </section>
 
-      {/* PROJECT LIST */}
-      <div className="projects-wrapper">
-        {projects.map((p, index) => {
-          const isVisible = visibleItems.includes(p.id.toString());
-
-          return (
-            <div
-              key={p.id}
-              data-project-id={p.id}
-              data-id={p.id}
-              className={`project-item ${isVisible ? 'visible' : ''} ${index % 2 !== 0 ? 'reverse' : ''}`}
-            >
-              <div className="project-image-col">
-                <div className="project-image-wrapper">
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="project-image"
-                  />
-                  <div className="project-overlay" />
-                </div>
-                <div className="case-study-badge">
-                  Case Study #{p.id}
-                </div>
-              </div>
-
-              <div className="project-content-col">
-                <h2 className="project-title">
-                  {p.name}
-                </h2>
-
-                <div className="project-details-card">
-                  <p className="detail-row">
-                    <b>🏢 Client:</b> {p.client}
-                  </p>
-                  <p className="detail-row">
-                    <b>⚙️ Industry:</b> {p.industry}
-                  </p>
-                  <p className="result-row">
-                    <b>🎯 Result:</b> {p.result}
-                  </p>
-                </div>
-
-
+      {/* STORIES GRID */}
+      <section className="stories-grid-v2">
+        {stories.map((story) => (
+          <div key={story.id} className="story-card-v2">
+            <div className="card-v2-header">
+              <img src={story.image} alt={story.title} className="card-v2-img" />
+              <div className="card-v2-overlay"></div>
+              <div className="card-v2-client">
+                <img src={story.logo} alt={story.company} className="client-logo-v2" />
+                <span className="client-name-v2">{story.company}</span>
               </div>
             </div>
-          );
-        })}
-      </div>
 
-      {/* ================= ENHANCED POPUP ================= */}
-      {open && activeProject && (
-        <div
-          className="popup-overlay"
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="popup-container"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* HEADER */}
-            <div className="popup-header">
-              <div className="popup-circle" />
-              <h2 className="popup-title">
-                {activeProject.name}
-              </h2>
-              <p className="popup-subtitle">
-                Industry 4.0 Implementation Case Study
-              </p>
+            <div className="card-v2-body">
+              <h3 className="card-v2-title">{story.title}</h3>
+              
+              <div className="info-item-v2">
+                <span className="info-label-v2">The Challenge</span>
+                <p className="info-text-v2">{story.problem.substring(0, 100)}...</p>
+              </div>
+
+              <div className="info-item-v2">
+                <span className="info-label-v2">Outcome</span>
+                <p className="info-text-v2" style={{ color: "var(--primary)", fontWeight: "bold" }}>{story.results}</p>
+              </div>
             </div>
 
-            {/* CONTENT */}
-            <div className="popup-grid">
-              <Card
-                title="Challenges"
-                icon="⚠️"
-                items={caseStudyData[activeProject.id].challenges}
-                color="#ef4444"
-                delay={0}
-              />
-              <Card
-                title="Solution"
-                icon="💡"
-                items={caseStudyData[activeProject.id].solution}
-                color="#3b82f6"
-                delay={0.1}
-              />
-              <Card
-                title="Benefits"
-                icon="🎯"
-                items={caseStudyData[activeProject.id].benefits}
-                color="#22c55e"
-                delay={0.2}
-              />
-            </div>
-
-            {/* FOOTER */}
-            <div className="popup-footer">
-              <button
-                className="close-btn"
-                onClick={() => setOpen(false)}
+            <div className="card-v2-footer">
+              <button 
+                className="view-case-btn"
+                onClick={() => setSelectedStory(story)}
               >
-                Close Case Study
+                Explore Details →
               </button>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* MODAL V2 - REDESIGNED */}
+      {selectedStory && (
+        <div className="modal-v3-overlay" onClick={() => setSelectedStory(null)}>
+          <div className="modal-v3-content" onClick={e => e.stopPropagation()}>
+            <div className="modal-v3-hero">
+              <img src={selectedStory.image} alt={selectedStory.title} className="modal-v3-hero-img" />
+              <div className="modal-v3-hero-overlay"></div>
+              <button className="modal-v3-close" onClick={() => setSelectedStory(null)}>&times;</button>
+              
+              <div className="modal-v3-hero-text">
+                <div className="client-badge-v3">
+                  <img src={selectedStory.logo} alt={selectedStory.company} className="client-logo-v3" />
+                  <span>{selectedStory.company}</span>
+                </div>
+                <h2 className="modal-v3-title">{selectedStory.title}</h2>
+              </div>
+            </div>
+
+            <div className="modal-v3-body">
+              <div className="modal-v3-grid">
+                <div className="modal-v3-card problem-border">
+                  <div className="modal-v3-icon">⚠️</div>
+                  <h4 className="problem-text">The Challenge</h4>
+                  <p>{selectedStory.problem}</p>
+                </div>
+
+                <div className="modal-v3-card solution-border">
+                  <div className="modal-v3-icon">💡</div>
+                  <h4 className="solution-text">The Solution</h4>
+                  <p>{selectedStory.solution}</p>
+                </div>
+
+                <div className="modal-v3-card results-border">
+                  <div className="modal-v3-icon">🎯</div>
+                  <h4 className="results-text">The Outcome</h4>
+                  <p>{selectedStory.results}</p>
+                </div>
+              </div>
+
+              <div className="modal-v3-tech">
+                <h4>Technologies Deployed</h4>
+                <div className="tech-tags-v3">
+                  {selectedStory.tech.map((t, i) => (
+                    <span key={i} className="tech-tag-v3">{t}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="modal-v3-footer">
+                <button 
+                  className="ent-btn-primary" 
+                  onClick={() => window.location.href='/contact'}
+                >
+                  Request Similar Implementation
+                </button>
+              </div>
             </div>
           </div>
         </div>
       )}
+
     </div>
   );
-}
+};
+
+export default Success;
