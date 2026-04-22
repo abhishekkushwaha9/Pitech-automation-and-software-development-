@@ -271,7 +271,7 @@ export default function Contact() {
                 <div className="info-card-icon">📍</div>
                 <div className="info-card-content">
                   <h4>Address</h4>
-                  <p> 2nd floor, Cabin NO.63,64, Eco Tower-1, Plot No.CP-9, Sector 8, IMT Manesar, Gurugram, Haryana 122051 </p>
+                  <p> 628, 6th Floor, Eros Corporate Park, Sector 2, Imt Manesar, Gurugram, Haryana 122052 </p>
                   <p className="info-card-meta">India</p>
                 </div>
               </div>

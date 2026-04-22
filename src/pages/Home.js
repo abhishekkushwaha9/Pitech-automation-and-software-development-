@@ -46,7 +46,7 @@ const EXPERTISE = [
 ];
 
 const SOLUTIONS = [
-  { tag: 'Industry 4.0', title: 'Digitalization', desc: 'Streamline production workflows, enhance data-driven decisions, and improve product quality with end-to-end factory digitalization.', img: '/images/Digitilization.jpg', path: '/industry/digitalization' },
+  { tag: 'Industry 4.0', title: 'Digitalization', desc: 'Streamline production workflows, enhance data-driven decisions, and improve product quality with end-to-end factory digitalization.', img: '/images/digitalization    .png', path: '/industry/digitalization' },
   { tag: 'Monitoring', title: 'Digital Andon System', desc: 'Visualize production status in real-time, reduce unplanned downtime, and enable rapid problem-solving with smart alert systems.', img: '/images/digital-andonnn.jpg', path: '/industry/digital-andon' },
   { tag: 'Analytics', title: 'Production Dashboard', desc: 'Gain real-time insights, view key performance metrics, and track production objectives with customizable data visualization.', img: '/images/production-dashboard.jpeg', path: '/industry/production-dashboard' },
   { tag: 'AI/ML', title: 'Predictive Maintenance', desc: 'Leverage AI and sensor data to predict equipment failures before they occur, minimizing downtime and maintenance costs.', img: '/images/Predictive maintenance.png', path: '/industry/predictive-maintenance' },

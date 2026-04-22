@@ -568,13 +568,6 @@
   transition: transform 0.5s;
 }
 
-@media (max-width: 1024px) {
-  .expertise-card-img img {
-    object-fit: contain;
-    background: var(--gray-50);
-  }
-}
-
 .expertise-card:hover .expertise-card-img img {
   transform: scale(1.06);
 }
