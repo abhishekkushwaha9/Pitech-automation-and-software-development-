@@ -40,7 +40,7 @@ const EXPERTISE = [
     num: '04',
     title: 'Industrial Equipment',
     desc: 'Premium sensors, PLCs, HMIs, drives, RFID, and BLE tags — everything needed for effective Industry 4.0 implementation.',
-    img: '/images/industrial equipment .png',
+    img: '/images/plc_new.png',
 
   },
 ];

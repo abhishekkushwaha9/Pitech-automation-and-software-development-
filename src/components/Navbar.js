@@ -194,31 +194,27 @@ export default function Navbar() {
                           : key === 'solutions' ? 'Solutions' 
                           : key === 'products' ? 'Products' 
                           : 'Industry 4.0';
-              const path = key === 'about' ? '/about'
-                         : key === 'products' ? '/products/sensor'
-                         : key === 'industry' ? '/industry/digitalization'
-                         : null;
+              
+              // We check if the current path starts with any of the sub-paths to keep the "active" highlight
+              const isChildActive = NAV_DATA[key]?.some(item => 
+                item.path === location.pathname || 
+                (item.items && item.items.some(sub => sub.path === location.pathname))
+              ) || (key === 'solutions' && NAV_DATA.solutions.some(group => group.items.some(sub => sub.path === location.pathname)));
 
-              if (path) {
-                return (
-                  <NavLink
-                    key={key}
-                    to={path}
-                    className={({ isActive }) => `navbar-link${activeMenu === key || isActive ? ' active' : ''}`}
-                    onMouseEnter={() => openMenu(key)}
+              return (
+                <div 
+                  key={key} 
+                  className={`navbar-link-container`}
+                  onMouseEnter={() => openMenu(key)}
+                >
+                  <button 
+                    type="button"
+                    className={`navbar-link ${activeMenu === key || isChildActive ? 'active' : ''}`}
                   >
                     {label}
                     <span className="navbar-chevron">▾</span>
-                  </NavLink>
-                );
-              }
-
-              return (
-                <button key={key} className={`navbar-link${activeMenu === key ? ' active' : ''}`}
-                  onMouseEnter={() => openMenu(key)}>
-                  {label}
-                  <span className="navbar-chevron">▾</span>
-                </button>
+                  </button>
+                </div>
               );
             })}
             <NavLink to="/blogs" className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
@@ -339,7 +335,6 @@ export default function Navbar() {
               </button>
               {mobileExpanded === 'about' && (
                 <div className="drawer-sub">
-                  <Link to="/about" className="drawer-sub-link" style={{ fontWeight: '700', color: 'var(--primary-light)' }} onClick={() => setMobileOpen(false)}>About Us Overview</Link>
                   <div className="drawer-sub-group">
                     {NAV_DATA.about.map(item => (
                       <Link key={item.path} to={item.path} className="drawer-sub-link" onClick={() => setMobileOpen(false)}>{item.name}</Link>
@@ -388,7 +383,6 @@ export default function Navbar() {
               </button>
               {mobileExpanded === 'industry' && (
                 <div className="drawer-sub">
-                  <Link to="/industry/digitalization" className="drawer-sub-link" style={{ fontWeight: '700', color: 'var(--primary-light)' }} onClick={() => setMobileOpen(false)}>Industry 4.0 Overview</Link>
                   <div className="drawer-sub-group">
                     {NAV_DATA.industry.map(item => (
                       <Link key={item.path} to={item.path} className="drawer-sub-link" onClick={() => setMobileOpen(false)}>{item.name}</Link>
