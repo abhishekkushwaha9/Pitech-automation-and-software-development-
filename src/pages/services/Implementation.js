@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Implementation.css";
 
 const Implementation = () => {
@@ -137,9 +138,9 @@ const Implementation = () => {
                             <button className="btn-primary pulse-animation">
                                 Start Your Implementation Journey
                             </button>
-                            <button className="btn-secondary">
+                            <Link to="/contact" className="btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                                 Talk to Our Experts
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

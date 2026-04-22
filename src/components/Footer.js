@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import './Footer.css';
 
 const FOOTER_LINKS = {
@@ -36,6 +36,14 @@ const FOOTER_LINKS = {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const location = useLocation();
+
+  const handleExpertClick = (e) => {
+    if (location.pathname === "/contact") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <footer className="footer-wrap">
@@ -45,7 +53,13 @@ export default function Footer() {
           <h2>Ready to Transform Your Manufacturing?</h2>
           <p>Let Pi Tech Automation bring Industry 4.0 and SPM Automation solutions to your factory floor.</p>
           <div className="footer-cta-btns">
-            <Link to="/contact" className="footer-cta-btn-primary">Talk to Our Experts</Link>
+            <Link 
+              to="/contact" 
+              className="footer-cta-btn-primary"
+              onClick={handleExpertClick}
+            >
+              Talk to Our Experts
+            </Link>
             <Link to="/about/success" className="footer-cta-btn-secondary">See Success Stories</Link>
           </div>
         </div>
