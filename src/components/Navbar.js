@@ -221,6 +221,10 @@ export default function Navbar() {
               onMouseEnter={closeMenu}>
               Blogs
             </NavLink>
+            <NavLink to="/careers" className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
+              onMouseEnter={closeMenu}>
+              Careers
+            </NavLink>
             <NavLink to="/contact" className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
               onMouseEnter={closeMenu}>
               Contact Us
@@ -392,6 +396,7 @@ export default function Navbar() {
               )}
 
               <Link to="/blogs" className="drawer-link" onClick={() => setMobileOpen(false)}>Blogs</Link>
+              <Link to="/careers" className="drawer-link" onClick={() => setMobileOpen(false)}>Careers</Link>
               <Link to="/contact" className="drawer-link" onClick={() => setMobileOpen(false)}>Contact Us</Link>
             </nav>
 

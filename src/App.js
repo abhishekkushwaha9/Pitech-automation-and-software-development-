@@ -17,6 +17,9 @@ import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import CareersLanding from "./pages/careers/CareersLanding";
+import JobListing from "./pages/careers/JobListing";
+import JobDetail from "./pages/careers/JobDetail";
 
 /* ===== INDUSTRY 4.0 ===== */
 import Digitalization from "./pages/industry/Digitalization";
@@ -168,8 +171,13 @@ function AppContent() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
+        
+        {/* ===== CAREERS ===== */}
+        <Route path="/careers" element={<CareersLanding />} />
+        <Route path="/careers/jobs" element={<JobListing />} />
+        <Route path="/careers/job/:id" element={<JobDetail />} />
 
-        {/* ===== ADMIN ===== */}
+        {/* ===== ADMIN ===== */ }
         <Route path="/@PAAM" element={<AdminLogin />} />
         <Route path="/dashboard" element={<AdminDashboard />} />
 
