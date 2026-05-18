@@ -7,7 +7,7 @@ import "./Digitalization.css";
 export default function Digitalization() {
     useEffect(() => {
         // SEO logic
-        document.title = "Industry 4.0 - PiTech Automation";
+        document.title = "Industry 4.0 Solutions in Haryana | Smart Manufacturing";
         let canonical = document.querySelector('link[rel="canonical"]');
         if (!canonical) {
             canonical = document.createElement('link');
@@ -18,7 +18,7 @@ export default function Digitalization() {
 
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-            metaDesc.setAttribute("content", "Pitech Automation's Industry 4.0 solutions for factory digitalization and smart manufacturing. Transform your factory with real-time data.");
+            metaDesc.setAttribute("content", "Transform your factory with Pitech Automation's Industry 4.0 solutions in Haryana. We integrate IoT, data analytics, and smart automation for manufacturing.");
         }
 
         const observer = new IntersectionObserver(
@@ -472,6 +472,27 @@ export default function Digitalization() {
         </div>
       </section>
 
+
+      {/* Section 5: SEO Content Block */}
+      <section style={{ padding: "80px 20px", backgroundColor: "var(--white)" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", color: "var(--gray-900)", marginBottom: "20px" }}>
+            Industry 4.0 Solutions in Haryana | Smart Manufacturing
+          </h2>
+          <p style={{ fontSize: "16px", lineHeight: "1.8", color: "var(--gray-600)", marginBottom: "16px" }}>
+            The future of manufacturing relies on connectivity, data, and intelligent systems. At Pitech Automation, we are at the forefront of delivering comprehensive <strong>Industry 4.0 solutions in Haryana</strong>. Our goal is to help traditional manufacturing setups transition into fully connected, smart factories that operate with maximum efficiency and minimal downtime.
+          </p>
+          <p style={{ fontSize: "16px", lineHeight: "1.8", color: "var(--gray-600)", marginBottom: "16px" }}>
+            Industry 4.0 represents the fourth industrial revolution, emphasizing the integration of digital technologies into manufacturing and industrial practices. As leading <strong>Industry 4.0 consultants in Haryana</strong>, we implement advanced technologies such as the Industrial Internet of Things (IIoT), cloud computing, and real-time data analytics. By connecting your machinery and software systems, we enable machines to communicate with each other, providing you with unprecedented visibility into your production lines.
+          </p>
+          <p style={{ fontSize: "16px", lineHeight: "1.8", color: "var(--gray-600)", marginBottom: "16px" }}>
+            Our <strong>smart manufacturing companies in Gurgaon</strong> and Manesar trust us to digitize their operations. We deploy smart sensors and IoT gateways that collect critical performance data. This data is then analyzed to predict equipment failures before they happen, reducing maintenance costs and avoiding unexpected production halts.
+          </p>
+          <p style={{ fontSize: "16px", lineHeight: "1.8", color: "var(--gray-600)" }}>
+            Whether you are looking to implement predictive maintenance, digital twins, or automated quality control, our <strong>factory automation solutions in Manesar</strong> are designed to scale with your business. We tailor our Industry 4.0 strategies to match your specific production requirements, ensuring a seamless digital transformation that boosts productivity and ROI. Embrace the power of <strong>smart factory automation in Gurgaon</strong> with Pitech Automation and stay ahead of the competition.
+          </p>
+        </div>
+      </section>
 
     </PageLayout>
   );

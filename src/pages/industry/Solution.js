@@ -10,6 +10,15 @@ const Solution = () => {
     const [expandedSoftware, setExpandedSoftware] = useState(null);
 
     useEffect(() => {
+        document.title = "Software Development Company for Industries in Manesar";
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+            metaDesc = document.createElement('meta');
+            metaDesc.name = "description";
+            document.head.appendChild(metaDesc);
+        }
+        metaDesc.content = "Need custom software for your factory? Pitech Automation offers specialized software development for manufacturing industries in Manesar and Gurgaon.";
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -1415,6 +1424,27 @@ const Solution = () => {
                             </div>
                         ))}
                     </div>
+                </div>
+            </div>
+
+            {/* SEO Content Block */}
+            <div className="seo-content-block" style={{ backgroundColor: "#ffffff", padding: "60px 20px" }}>
+                <div className="container" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+                    <h2 style={{ fontSize: "28px", fontWeight: "700", color: "#0f172a", marginBottom: "20px" }}>
+                        Software Development Company for Industries in Manesar
+                    </h2>
+                    <p style={{ fontSize: "16px", lineHeight: "1.8", color: "#475569", marginBottom: "16px" }}>
+                        While hardware automation drives physical processes, intelligent software is the brain that orchestrates modern manufacturing. Pitech Automation is a specialized <strong>software development company for industries</strong>, offering bespoke software solutions designed specifically for the manufacturing sector. Based in Manesar, we bridge the gap between IT (Information Technology) and OT (Operational Technology).
+                    </p>
+                    <p style={{ fontSize: "16px", lineHeight: "1.8", color: "#475569", marginBottom: "16px" }}>
+                        Off-the-shelf software rarely addresses the nuanced needs of complex industrial operations. That’s why we focus on <strong>custom software for manufacturing in Haryana</strong>. Our development team creates scalable and secure applications that integrate seamlessly with your existing industrial hardware, ERP, and CRM systems. We build robust MES (Manufacturing Execution Systems), inventory management software, and production tracking dashboards that give plant managers real-time insights into factory performance.
+                    </p>
+                    <p style={{ fontSize: "16px", lineHeight: "1.8", color: "#475569", marginBottom: "16px" }}>
+                        Our <strong>industrial software development</strong> services empower decision-makers with accurate data analytics. By visualizing machine metrics, production rates, and energy consumption, factory owners can make informed decisions to optimize resource allocation and reduce waste. Whether you need a web-based monitoring portal or a dedicated desktop application for machine control, our <strong>industrial IT solutions in Haryana</strong> are built to deliver high performance in demanding industrial environments.
+                    </p>
+                    <p style={{ fontSize: "16px", lineHeight: "1.8", color: "#475569" }}>
+                        By choosing Pitech Automation for your <strong>software development for manufacturing industry in Gurgaon</strong>, you are investing in technology that enhances transparency, traceability, and overall efficiency. Empower your workforce and streamline your operations with our custom-built industrial software solutions.
+                    </p>
                 </div>
             </div>
 

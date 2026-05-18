@@ -625,7 +625,7 @@ export default function Vision() {
             <div className="text-center mb-12">
               <div className="mb-8">
                 <img 
-                  src="/images/pitech-logo.png" 
+                  src="/images/pitech-logo.jpeg" 
                   alt="PiTech Automation" 
                   className="h-12 w-auto mx-auto" 
                 />

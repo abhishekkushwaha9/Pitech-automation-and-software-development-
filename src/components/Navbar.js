@@ -178,7 +178,7 @@ export default function Navbar() {
         <div className="navbar-inner">
           {/* Logo */}
           <Link to="/" className="navbar-logo-wrap">
-            <img src="/images/pitech-logo.png" alt="PiTech" className="navbar-logo"
+            <img src="/images/pitech-logo.jpeg" alt="PiTech" className="navbar-logo"
               onError={e => { e.target.style.display = 'none'; }} />
 
           </Link>
@@ -319,7 +319,7 @@ export default function Navbar() {
           <div className="navbar-drawer">
             <div className="drawer-header">
               <Link to="/" className="navbar-logo-wrap" onClick={() => setMobileOpen(false)}>
-                <img src="/images/pitech-logo.png" alt="PiTech" className="navbar-logo"
+                <img src="/images/pitech-logo.jpeg" alt="PiTech" className="navbar-logo"
                   onError={e => { e.target.style.display = 'none'; }} />
               </Link>
               <button className="drawer-close" onClick={() => setMobileOpen(false)}>✕</button>

@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 
 const TraceabilitySCADA = () => {
     useEffect(() => {
+        document.title = "Industrial Automation Company in Manesar | Factory Automation";
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+            metaDesc = document.createElement('meta');
+            metaDesc.name = "description";
+            document.head.appendChild(metaDesc);
+        }
+        metaDesc.content = "Pitech Automation provides top-tier industrial automation services in Manesar and Gurgaon. Enhance productivity with our custom factory automation solutions.";
+
         const observerCallback = (entries, observer) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -390,6 +399,26 @@ const TraceabilitySCADA = () => {
                 </div>
             </section>
 
+            {/* SEO Content Block */}
+            <section className="ts-seo-content section-padding" style={{ backgroundColor: "#ffffff" }}>
+                <div className="container">
+                    <h2 style={{ fontSize: "28px", fontWeight: "700", color: "#0f172a", marginBottom: "20px" }}>
+                        Industrial Automation Company in Manesar | Factory Automation
+                    </h2>
+                    <p style={{ fontSize: "16px", lineHeight: "1.8", color: "#475569", marginBottom: "16px" }}>
+                        Efficiency, precision, and safety are the cornerstones of modern manufacturing. Pitech Automation is a premier <strong>industrial automation company in Manesar</strong>, dedicated to optimizing your production lines through state-of-the-art automation technologies. We cater to a diverse range of industrial clients, providing robust solutions that streamline complex manufacturing processes and reduce human error.
+                    </p>
+                    <p style={{ fontSize: "16px", lineHeight: "1.8", color: "#475569", marginBottom: "16px" }}>
+                        Our expertise spans across various domains of <strong>industrial automation</strong>, including PLC programming, HMI development, SCADA systems, and robotic integration. As a trusted <strong>automation service provider in Manesar</strong>, we understand that every manufacturing facility has unique operational challenges. Our engineering team conducts thorough assessments of your existing setup to design and deploy customized <strong>machine automation services</strong> that align perfectly with your production goals.
+                    </p>
+                    <p style={{ fontSize: "16px", lineHeight: "1.8", color: "#475569", marginBottom: "16px" }}>
+                        By implementing our <strong>factory automation solutions</strong>, manufacturing companies in Haryana can significantly increase their production throughput while maintaining consistent product quality. Automated systems not only speed up repetitive tasks but also ensure a safer working environment by taking over hazardous operations. From automated assembly lines to material handling and packaging, our solutions cover the entire spectrum of manufacturing requirements.
+                    </p>
+                    <p style={{ fontSize: "16px", lineHeight: "1.8", color: "#475569" }}>
+                        Partnering with the <strong>best automation company in Gurgaon</strong> ensures you receive end-to-end support, from initial design and installation to ongoing maintenance and system upgrades. Let Pitech Automation transform your facility with reliable, high-performance automation systems that drive sustainable growth and operational excellence.
+                    </p>
+                </div>
+            </section>
 
         </div>
     );

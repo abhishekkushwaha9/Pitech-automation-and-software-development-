@@ -20,7 +20,7 @@ const SLIDES = [
 const EXPERTISE = [
   {
     num: '01',
-    title: 'Industrial Automation',
+    title: 'Industrial Automation Systems',
     desc: 'Transform manufacturing processes with cutting-edge PLC, SCADA, HMI, and IoT technologies to boost productivity and ensure seamless operations.',
     img: '/images/Traceability998.jpeg',
   },
@@ -198,9 +198,8 @@ export default function Home() {
               India's Leading Industry 4.0 Partner
             </div>
             <h1 className="hero-title">
-              Transforming Indian
-              <span className="hero-title-accent">Manufacturing</span>
-              with Smart Automation
+              Empowering Manufacturing with<br/>
+              <span className="hero-title-accent">Industry 4.0 & Industrial Automation in Manesar</span>
             </h1>
             <p className="hero-desc">
               Empowering MSMEs and large manufacturers with cutting-edge IIoT, automation,
@@ -266,24 +265,23 @@ export default function Home() {
           <div className="home-about-text animate-on-scroll">
             <span className="section-tag">About PiTech Automation</span>
             <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', marginBottom: '16px', marginTop: '12px' }}>
-              Leading India's<br />
+              Innovative Solutions for<br />
               <span style={{
                 background: 'linear-gradient(135deg, #2a6b9e, #4fb5e0)',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 display: 'inline-block'
-              }}>Manufacturing Revolution</span>
+              }}>Smart Manufacturing</span>
             </h2>
             <p style={{ color: 'var(--gray-500)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '8px' }}>
-              PiTech Automation & Software Solutions brings world-class Industry 4.0
-              technologies to Indian MSMEs and large manufacturers. Our skilled team
-              of engineers and developers helps you harness the power of IIoT,
-              digitalization, and smart automation.
+              Welcome to Pitech Automation, your trusted partner for <strong>industrial automation</strong> and <strong>Industry 4.0 solutions in Haryana</strong>. Located in the industrial hub of <strong>Manesar</strong>, we specialize in transforming traditional factories into smart manufacturing units. In today's competitive landscape, optimizing production processes is critical, and we deliver customized automation solutions tailored to the needs of manufacturing companies.
+            </p>
+            <p style={{ color: 'var(--gray-500)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '8px' }}>
+              As a leading <strong>automation company in Manesar</strong>, we provide comprehensive services ranging from machine automation to advanced IoT integration. Our team understands the unique challenges of the manufacturing sector. We offer end-to-end <strong>factory automation solutions</strong>, ensuring increased efficiency, reduced downtime, and enhanced productivity. Pitech Automation is the preferred <strong>automation service provider in Gurgaon</strong> and Manesar.
             </p>
             <p style={{ color: 'var(--gray-500)', fontSize: '0.95rem', lineHeight: 1.8 }}>
-              From PLC programming to full factory digitalization, we deliver end-to-end
-              solutions that improve efficiency, reduce costs, and keep you ahead of the curve.
+              In addition to hardware automation, we are a premier <strong>software development company for industries</strong>. Manufacturing facilities trust our <strong>industrial IT solutions</strong> to bring real-time data analytics and seamless connectivity to their shop floors. We bridge the gap between hardware and software through our innovative <strong>IoT solutions for factories</strong>. Partner with Pitech Automation today and step into the future of manufacturing with the best <strong>industrial software development</strong> and automation expertise in the region.
             </p>
 
             <div className="home-about-features">
@@ -349,7 +347,7 @@ export default function Home() {
                     </div>
                     <div className="expertise-card-body">
                       <div className="expertise-num">{e.num}</div>
-                      <h4>{e.title}</h4>
+                      <h3>{e.title}</h3>
                       <p>{e.desc}</p>
                     </div>
                   </div>
