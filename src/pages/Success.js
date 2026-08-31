@@ -20,7 +20,7 @@ const Success = () => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
+    
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     mount.appendChild(renderer.domElement);
@@ -33,7 +33,7 @@ const Success = () => {
       pos[i] = (Math.random() - 0.5) * 50;
     }
     geometry.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-
+    
     const material = new THREE.PointsMaterial({
       size: 0.1,
       color: 0x2563eb,
@@ -41,7 +41,7 @@ const Success = () => {
       opacity: 0.4,
       sizeAttenuation: true
     });
-
+    
     const points = new THREE.Points(geometry, material);
     scene.add(points);
 
@@ -58,11 +58,11 @@ const Success = () => {
       requestAnimationFrame(animate);
       points.rotation.y += 0.001;
       points.rotation.x += 0.0005;
-
+      
       camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
       camera.position.y += (-mouseY * 5 - camera.position.y) * 0.05;
       camera.lookAt(scene.position);
-
+      
       renderer.render(scene, camera);
     };
     animate();
@@ -90,13 +90,13 @@ const Success = () => {
       .fromTo(".hero-v2-title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: "power4.out" }, "-=0.5")
       .fromTo(".hero-v2-subtitle", { opacity: 0 }, { opacity: 1, duration: 1 }, "-=0.7")
     // Stats Reveal
-    gsap.fromTo(".stat-card-v2",
+    gsap.fromTo(".stat-card-v2", 
       { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.15,
-        duration: 1,
+      { 
+        opacity: 1, 
+        y: 0, 
+        stagger: 0.15, 
+        duration: 1, 
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".stats-v2",
@@ -107,12 +107,12 @@ const Success = () => {
 
     // Cards Reveal on Scroll
     gsap.utils.toArray(".story-card-v2").forEach((card) => {
-      gsap.fromTo(card,
+      gsap.fromTo(card, 
         { opacity: 0, scale: 0.9, y: 50 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
+        { 
+          opacity: 1, 
+          scale: 1, 
+          y: 0, 
           duration: 1,
           scrollTrigger: {
             trigger: card,
@@ -234,7 +234,7 @@ const Success = () => {
 
             <div className="card-v2-body">
               <h3 className="card-v2-title">{story.title}</h3>
-
+              
               <div className="info-item-v2">
                 <span className="info-label-v2">The Challenge</span>
                 <p className="info-text-v2">{story.problem.substring(0, 100)}...</p>
@@ -247,7 +247,7 @@ const Success = () => {
             </div>
 
             <div className="card-v2-footer">
-              <button
+              <button 
                 className="view-case-btn"
                 onClick={() => setSelectedStory(story)}
               >
@@ -266,7 +266,7 @@ const Success = () => {
               <img src={selectedStory.image} alt={selectedStory.title} className="modal-v3-hero-img" />
               <div className="modal-v3-hero-overlay"></div>
               <button className="modal-v3-close" onClick={() => setSelectedStory(null)}>&times;</button>
-
+              
               <div className="modal-v3-hero-text">
                 <div className="client-badge-v3">
                   <img src={selectedStory.logo} alt={selectedStory.company} className="client-logo-v3" />
@@ -307,9 +307,9 @@ const Success = () => {
               </div>
 
               <div className="modal-v3-footer">
-                <button
-                  className="ent-btn-primary"
-                  onClick={() => window.location.href = '/contact'}
+                <button 
+                  className="ent-btn-primary" 
+                  onClick={() => window.location.href='/contact'}
                 >
                   Request Similar Implementation
                 </button>
