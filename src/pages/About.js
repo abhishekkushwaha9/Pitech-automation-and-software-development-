@@ -32,13 +32,7 @@ function AnimatedCounter({ end, suffix = '', duration = 1800, start = false }) {
   return <>{start ? count : 0}{suffix}</>;
 }
 
-/* ── Data ── */
-const STATS = [
-  { num: '25+', label: 'Expert Engineers' },
-  { num: '120+', label: 'Projects Delivered' },
-  { num: '80+', label: 'Enterprise Clients' },
-  { num: '24/7', label: 'Technical Support' },
-];
+
 
 
 const VALUES = [
@@ -209,22 +203,40 @@ export default function About() {
   useScrollFade();
 
   useEffect(() => {
+    const elem = statsRef.current;
+    if (!elem) return;
+
+    const checkVisibility = () => {
+      const rect = elem.getBoundingClientRect();
+      const inView = rect.top <= (window.innerHeight || document.documentElement.clientHeight) + 60 && rect.bottom >= 0;
+      if (inView) {
+        setStatsVisible(true);
+        return true;
+      }
+      return false;
+    };
+
+    if (checkVisibility()) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setStatsVisible(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.05, rootMargin: '60px 0px' }
     );
 
-    const elem = statsRef.current;
-    if (elem) {
-      observer.observe(elem);
-    }
+    observer.observe(elem);
+
+    const fallbackTimer = setTimeout(() => {
+      setStatsVisible(true);
+    }, 2000);
 
     return () => {
-      if (elem) observer.unobserve(elem);
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
     };
   }, []);
 
@@ -263,7 +275,7 @@ export default function About() {
             <span style={{ color: 'rgba(255,255,255,0.9)' }}>About Us</span>
           </div>
           <span className="page-hero-tag">Our Story</span>
-          <h1>About <span>PiTech</span> Automation</h1>
+          <h1>About <span>Pitech</span> Automation</h1>
           <p>India's trusted partner in industrial automation and Industry 4.0 transformation — powering manufacturing excellence.</p>
         </div>
         <div className="page-hero-wave">
@@ -279,7 +291,7 @@ export default function About() {
           <div className="about-story-imgs animate-on-scroll">
 
             <div className="about-story-img-main">
-              <img src="/images/1759499897557.jpg" alt="PiTech Automation Team" />
+              <img src="/images/1759499897557.jpg" alt="Pitech Automation Team" />
             </div>
             <div className="about-story-img-sm">
               <img src="/images/1763185884948.jpg" alt="Factory Floor" />
@@ -292,7 +304,7 @@ export default function About() {
               A Decade of Manufacturing <span style={{ color: 'var(--primary-light)' }}>Experience</span>
             </h2>
             <p>
-              PiTech Automation & Software Solutions was established with a clear mission: bring world-class Industry 4.0 technologies to Indian manufacturers. Based in Manesar, Haryana, the heart of India's industrial corridor, we serve clients across automotive, steel, glass, and material handling sectors.
+              Pitech Automation & Software Solutions was established with a clear mission: bring world-class Industry 4.0 technologies to Indian manufacturers. Based in Manesar, Haryana, the heart of India's industrial corridor, we serve clients across automotive, steel, glass, and material handling sectors.
 
             </p>
             <p>

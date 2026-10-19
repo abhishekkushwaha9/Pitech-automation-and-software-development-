@@ -3,7 +3,6 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
-import emailjs from 'emailjs-com';
 import { AREAS_OF_INTEREST } from './careersData';
 import '../Careers.css';
 

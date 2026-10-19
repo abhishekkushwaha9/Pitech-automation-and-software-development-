@@ -11,6 +11,9 @@ const FOOTER_LINKS = {
     { name: "Energy Monitoring", path: "/industry/energy-monitoring" },
     { name: "Production Dashboard", path: "/industry/production-dashboard" },
     { name: "Predictive Maintenance", path: "/industry/predictive-maintenance" },
+    { name: "AI based vision solution", path: "/industry/color-detection" },
+    { name: "RFID", path: "/industry/rfid" },
+    { name: "BLE Tag", path: "/industry/ble-tag" },
   ],
   products: [
     { name: "Sensors", path: "/products/sensor" },

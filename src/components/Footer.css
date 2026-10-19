@@ -52,9 +52,10 @@
 .footer-cta-inner {
   position: relative;
   z-index: 1;
-  max-width: var(--container);
+  max-width: 1720px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 clamp(20px, 3.5vw, 60px);
 }
 
 .footer-cta h2 {
@@ -121,12 +122,13 @@
 .footer-body {
   position: relative;
   z-index: 1;
-  max-width: var(--container);
+  max-width: 1720px;
+  width: 100%;
   margin: 0 auto;
-  padding: 72px 32px 48px;
+  padding: clamp(48px, 5vw, 72px) clamp(20px, 3.5vw, 60px) 48px;
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 48px;
+  gap: clamp(24px, 3vw, 48px);
 }
 
 /* Brand column */
@@ -357,7 +359,8 @@
 .footer-divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.15);
-  max-width: var(--container);
+  max-width: 1720px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -365,9 +368,10 @@
 .footer-bottom {
   position: relative;
   z-index: 1;
-  max-width: var(--container);
+  max-width: 1720px;
+  width: 100%;
   margin: 0 auto;
-  padding: 24px 32px;
+  padding: 24px clamp(20px, 3.5vw, 60px);
   display: flex;
   align-items: center;
   justify-content: space-between;

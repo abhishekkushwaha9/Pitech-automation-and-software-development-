@@ -205,22 +205,40 @@ export default function Home() {
   }, [nextSlide]);
 
   useEffect(() => {
+    const elem = statsRef.current;
+    if (!elem) return;
+
+    const checkVisibility = () => {
+      const rect = elem.getBoundingClientRect();
+      const inView = rect.top <= (window.innerHeight || document.documentElement.clientHeight) + 60 && rect.bottom >= 0;
+      if (inView) {
+        setStatsVisible(true);
+        return true;
+      }
+      return false;
+    };
+
+    if (checkVisibility()) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setStatsVisible(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.05, rootMargin: '60px 0px' }
     );
 
-    const elem = statsRef.current;
-    if (elem) {
-      observer.observe(elem);
-    }
+    observer.observe(elem);
+
+    const fallbackTimer = setTimeout(() => {
+      setStatsVisible(true);
+    }, 2000);
 
     return () => {
-      if (elem) observer.unobserve(elem);
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
     };
   }, []);
 
@@ -297,7 +315,7 @@ export default function Home() {
               </span>
               <span className="hero-title-sub">
                 <span className="hero-title-with">
-                  <TypewriterText text="with" speed={30} delay={950} />
+                  <TypewriterText text="with " speed={30} delay={950} />
                 </span>
                 <span className="hero-title-accent">
                   <TypewriterText text="Industry 4.0 & Industrial Automation in Manesar" speed={22} delay={1150} />

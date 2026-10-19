@@ -14,9 +14,10 @@
 }
 
 .navbar-topbar-inner {
-  max-width: var(--container);
+  max-width: 1720px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 clamp(20px, 3.5vw, 60px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,9 +75,10 @@
 }
 
 .navbar-inner {
-  max-width: var(--container);
+  max-width: 1720px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 clamp(20px, 3.5vw, 60px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -301,9 +303,10 @@
 }
 
 .navbar-mega-inner {
-  max-width: var(--container);
+  max-width: 1720px;
+  width: 100%;
   margin: 0 auto;
-  padding: 18px 32px;
+  padding: 18px clamp(20px, 3.5vw, 60px);
   display: flex;
   gap: 0;
   min-height: auto;
