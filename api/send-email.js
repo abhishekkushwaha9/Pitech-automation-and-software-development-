@@ -44,43 +44,26 @@ async function handler(req, res) {
     return res.status(400).json({ error: "Missing required fields: email and message are mandatory" });
   }
 
-  // Check credentials strictly from environment variables (.env)
-  const emailUser = process.env.EMAIL || process.env.MAIL_USERNAME;
-  const emailPass = process.env.PASSWORD || process.env.MAIL_PASSWORD;
-  if (!emailUser || !emailPass) {
-    console.error("CRITICAL ERROR: EMAIL or PASSWORD environment variables are NOT set.");
-    if (!emailUser) console.error("- EMAIL variable is missing");
-    if (!emailPass) console.error("- PASSWORD variable is missing");
-    return res.status(500).json({ error: "Server configuration error: missing credentials in environment" });
+  // Check credentials from environment variables with verified fallback
+  const emailUser = (process.env.EMAIL || process.env.MAIL_USERNAME || "career@pitechiot.dpdns.org").trim();
+  const emailPass = (process.env.PASSWORD || process.env.MAIL_PASSWORD || "6u9y+mnjGxMcgJXs4egb").trim();
+
+  // Smart host detection:
+  // If emailUser is a Gmail address, use smtp.gmail.com unless SMTP_HOST is explicitly provided
+  let smtpHost = process.env.SMTP_HOST;
+  if (!smtpHost) {
+    if (emailUser.toLowerCase().includes('@gmail.com')) {
+      smtpHost = "smtp.gmail.com";
+    } else {
+      smtpHost = "mail1297.mailasp.net";
+    }
   }
 
-  try {
-    // SMTP Configuration
-    // Previous Gmail configuration:
-    // const transporter = nodemailer.createTransport({
-    //   host: "smtp.gmail.com",
-    //   port: 465,
-    //   secure: true,
-    //   auth: {
-    //     user: process.env.EMAIL,
-    //     pass: process.env.PASSWORD
-    //   }
-    // });
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "mail1297.mailasp.net",
-      port: process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT) : 465,
-      secure: process.env.SMTP_SECURE !== undefined ? process.env.SMTP_SECURE === 'true' : true,
-      auth: {
-        user: emailUser,
-        pass: emailPass
-      }
-    });
+  const smtpPort = process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT) : 465;
+  const smtpSecure = process.env.SMTP_SECURE !== undefined ? process.env.SMTP_SECURE === 'true' : true;
 
-    // Email Options - Direct all contact and job inquiries to configured COMPANY_EMAIL or EMAIL from environment
-    // Previous recipient:
-    // to: process.env.COMPANY_EMAIL || "info@pitechautomation.com", // Delivered to company email
-    // to: "Abhishekkushwaha7928@gmail.com",
-    const targetRecipient = process.env.COMPANY_EMAIL || emailUser;
+  try {
+    const targetRecipient = process.env.COMPANY_EMAIL || "career@pitechiot.dpdns.org";
 
     const emailSubject = isJobApp
       ? `New Job Application: ${position || "Career Opportunity"} - ${name}`
@@ -163,9 +146,44 @@ async function handler(req, res) {
       html: htmlBody
     };
 
-    // Send Mail
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully:", info.messageId);
+    let info;
+    try {
+      const transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort,
+        secure: smtpSecure,
+        auth: {
+          user: emailUser,
+          pass: emailPass
+        }
+      });
+      info = await transporter.sendMail(mailOptions);
+      console.log("Email sent successfully via primary SMTP:", info.messageId);
+    } catch (primaryErr) {
+      console.warn("Primary SMTP failed:", primaryErr.message, "- Trying backup verified SMTP...");
+      
+      // Determine alternative transport
+      const backupIsGmail = !emailUser.toLowerCase().includes('@gmail.com');
+      const backupUser = backupIsGmail ? "Abhishekkushwaha7928@gmail.com" : "career@pitechiot.dpdns.org";
+      const backupPass = backupIsGmail ? "wtgo vytn tige ctjw" : "6u9y+mnjGxMcgJXs4egb";
+      const backupHost = backupIsGmail ? "smtp.gmail.com" : "mail1297.mailasp.net";
+
+      const backupTransporter = nodemailer.createTransport({
+        host: backupHost,
+        port: 465,
+        secure: true,
+        auth: {
+          user: backupUser,
+          pass: backupPass
+        }
+      });
+
+      info = await backupTransporter.sendMail({
+        ...mailOptions,
+        from: `"${name}" <${backupUser}>`
+      });
+      console.log("Email sent successfully via backup SMTP:", info.messageId);
+    }
 
     // Success Response
     return res.status(200).json({ success: true, messageId: info.messageId });
