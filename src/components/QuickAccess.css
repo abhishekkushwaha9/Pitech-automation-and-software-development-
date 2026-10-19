@@ -5,7 +5,7 @@
 .quick-access-wrapper {
   position: relative;
   width: 100%;
-  max-width: clamp(340px, 26vw, 420px);
+  max-width: 440px;
   margin-left: auto;
   flex-shrink: 0;
   display: flex;
