@@ -303,7 +303,7 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="hero-content">
+        <div className="hero-content home-hero-content">
           <div className="hero-text animate-on-scroll">
             <div className="hero-badge">
               <span className="hero-badge-dot" />

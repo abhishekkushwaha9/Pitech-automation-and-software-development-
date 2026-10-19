@@ -14,12 +14,14 @@
 }
 
 .navbar-topbar-inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 32px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 clamp(20px, 3.5vw, 60px);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .navbar-topbar-contact {
@@ -74,13 +76,15 @@
 }
 
 .navbar-inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 32px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 clamp(20px, 3.5vw, 60px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 72px;
+  box-sizing: border-box;
 }
 
 /* Logo */

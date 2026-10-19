@@ -48,7 +48,7 @@
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
 }
 
-.hero-content {
+.hero-section .hero-content {
     flex: 1;
     max-width: 700px;
     position: relative;
@@ -79,7 +79,7 @@
     color: #3B82F6;
 }
 
-.hero-text {
+.hero-section .hero-text {
     font-size: 18px;
     line-height: 1.8;
     color: #cbd5e1;

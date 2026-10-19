@@ -20,14 +20,14 @@
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
 }
 
-.hero-content {
+.digitalization-container .hero-content {
     flex: 1;
     max-width: 650px;
     position: relative;
     z-index: 2;
 }
 
-.hero-badge {
+.digitalization-container .hero-badge {
     display: inline-block;
     background: linear-gradient(90deg, #3B82F6, #8B5CF6);
     color: white;
@@ -38,7 +38,7 @@
     margin-bottom: 25px;
 }
 
-.hero-title {
+.digitalization-container .hero-title {
     font-size: 52px;
     font-weight: 800;
     line-height: 1.2;
@@ -46,11 +46,11 @@
     margin-bottom: 20px;
 }
 
-.hero-highlight {
+.digitalization-container .hero-highlight {
     color: #3B82F6;
 }
 
-.hero-text {
+.digitalization-container .hero-text {
     font-size: 17px;
     line-height: 1.7;
     color: #626a72;

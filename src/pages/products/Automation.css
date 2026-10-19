@@ -47,7 +47,7 @@
     }
 }
 
-.hero-content {
+.automation-page .hero-content {
     position: relative;
     z-index: 2;
     max-width: 800px;
@@ -55,7 +55,7 @@
     animation: fadeInUp 1s ease-out;
 }
 
-.hero-title {
+.automation-page .hero-title {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
     line-height: 1.2;
@@ -63,7 +63,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.hero-subtitle {
+.automation-page .hero-subtitle {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 40px;
@@ -71,7 +71,7 @@
     max-width: 600px;
 }
 
-.hero-buttons {
+.automation-page .hero-buttons {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
