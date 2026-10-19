@@ -14,14 +14,12 @@
 }
 
 .navbar-topbar-inner {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0 clamp(20px, 4.5vw, 80px);
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
 }
 
 .navbar-topbar-contact {
@@ -76,15 +74,13 @@
 }
 
 .navbar-inner {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0 clamp(20px, 4.5vw, 80px);
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 72px;
-  box-sizing: border-box;
 }
 
 /* Logo */
@@ -305,15 +301,13 @@
 }
 
 .navbar-mega-inner {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 18px clamp(20px, 4.5vw, 80px);
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px 32px;
   display: flex;
   gap: 0;
   min-height: auto;
   align-items: center;
-  box-sizing: border-box;
 }
 
 /* Mega: Sidebar */
