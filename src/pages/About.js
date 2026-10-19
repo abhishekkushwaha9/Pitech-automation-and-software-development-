@@ -275,7 +275,7 @@ export default function About() {
             <span style={{ color: 'rgba(255,255,255,0.9)' }}>About Us</span>
           </div>
           <span className="page-hero-tag">Our Story</span>
-          <h1>About <span>Pitech</span> Automation</h1>
+          <h1 style={{ fontWeight: 800 }}>About <span>Pitech</span> Automation</h1>
           <p>India's trusted partner in industrial automation and Industry 4.0 transformation — powering manufacturing excellence.</p>
         </div>
         <div className="page-hero-wave">
