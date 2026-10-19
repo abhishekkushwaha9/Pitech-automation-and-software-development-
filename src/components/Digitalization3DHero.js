@@ -637,7 +637,7 @@ export default function Digitalization3DHero() {
 
     const animate = () => {
       animId = requestAnimationFrame(animate);
-      const delta = clock.getDelta();
+      clock.getDelta();
       const elapsed = clock.getElapsedTime();
 
       // Continuous gentle rotation around Y axis

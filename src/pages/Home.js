@@ -149,14 +149,6 @@ const PROCESS = [
   { num: '04', title: 'Support & Scale', desc: 'Ongoing 24/7 support, training, and iterative enhancements.' },
 ];
 
-const TESTIMONIALS = [
-  { text: "PiTech's factory digitalization tools have revolutionized our quality control processes. The real-time monitoring of our production lines has led to a significant reduction in waste and improved overall efficiency.", name: "Mahesh Dhaka", role: "Plant Head, Saint Gobain", initials: "MD", color: "linear-gradient(135deg, #2a6b9e, #4fb5e0)" },
-  { text: "The integration of PiTech's IIoT platform across our manufacturing systems has provided unprecedented visibility. We've seen a significant improvement in energy efficiency and data accuracy since implementation.", name: "Akshay Agrawal", role: "Operations Director, CMR", initials: "AA", color: "#7c3aed" },
-  { text: "PiTech's automated assembly line solutions have significantly boosted our throughput. Their expertise in robotics and PLC programming ensured a seamless transition to our new production standards.", name: "Nippun Kumar", role: "Senior Manager - Production, Honda", initials: "NK", color: "#059669" },
-  { text: "The custom MES solution provided by PiTech has streamlined our compliance reporting and batch tracking. Their understanding of complex manufacturing workflows is truly world-class.", name: "Sanjay Yadav", role: "GM Manufacturing, Johnson Matthey", initials: "SY", color: "linear-gradient(135deg, #f59e0b, #d97706)" },
-  { text: "Implementing PiTech’s smart manufacturing solution improved our production visibility and reduced downtime significantly. Their team understands the nuances of industrial automation perfectly.", name: "Manish Sehgal", role: "Technical Lead, PV", initials: "MS", color: "#e11d48" },
-];
-
 const ALL_CLIENTS = [
   { company: 'Saint Gobain', logo: '/images/saint goobin.png', contact: 'Mahesh Dhaka' },
   { company: 'Green fuel', logo: '/images/green fuel.png', contact: 'Industrial Partner' },

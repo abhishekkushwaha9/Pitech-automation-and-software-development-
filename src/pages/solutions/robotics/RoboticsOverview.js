@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import '../../generated/PremiumTemplate.css';
 import { Link } from 'react-router-dom';
 import TypewriterText from '../../../components/TypewriterText';

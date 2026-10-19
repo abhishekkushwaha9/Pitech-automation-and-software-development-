@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./PremiumTemplate.css";
 import "./RoboticInspection.css";
 import { Link } from "react-router-dom";

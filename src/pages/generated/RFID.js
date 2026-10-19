@@ -192,9 +192,9 @@ export default function RFID() {
   return (
     <div className="rfid-page-wrapper">
       <PageLayout
-        title="RFID <span>(Radio Frequency Identification)</span>"
+        title={renderedTitle}
         tag="Industry 4.0"
-        subtitle="Complete RFID solutions for traceability, access control, and asset tracking in harsh industrial environments."
+        subtitle={renderedSubtitle}
         heroVideo="/videos/rfid.mp4"
         heroImage="/images/RFID-i.jpg"
         breadcrumb={[
