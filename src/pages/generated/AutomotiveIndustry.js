@@ -33,7 +33,7 @@ const AutomotiveIndustry = () => {
     return (
         <div className="premium-page" style={{ backgroundColor: '#ffffff' }}>
             {/* HERO SECTION */}
-            <section className="premium-hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '650px', display: 'flex', alignItems: 'center' }}>
+            <section className="premium-hero" style={{ position: 'relative', overflow: 'hidden', padding: '110px 0 65px', minHeight: 'auto' }}>
                 <div 
                     className="premium-hero-parallax-bg"
                     style={{ 
@@ -45,17 +45,17 @@ const AutomotiveIndustry = () => {
                 ></div>
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: "rgba(10, 25, 47, 0.75)", zIndex: 1 }}></div>
 
-                <div className="container premium-hero-container" style={{ position: "relative", zIndex: 2 }}>
-                    <div className="premium-animate slide-up" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
-                        <span className="premium-chip" style={{ background: 'rgba(56, 189, 248, 0.1)', color: '#38bdf8', marginBottom: '20px', display: 'inline-block' }}>Assembly Line Perfection</span>
-                        <h1 className="premium-hero-title" style={{ color: "#fff" }}>
-                            Automotive Industry <br />
+                <div className="container premium-hero-container left-aligned-hero" style={{ position: "relative", zIndex: 2, display: 'block', width: '100%', textAlign: 'left' }}>
+                    <div className="premium-animate slide-up" style={{ textAlign: "left", maxWidth: "800px", margin: "0" }}>
+                        <span className="premium-chip" style={{ background: 'rgba(56, 189, 248, 0.1)', color: '#38bdf8', marginBottom: '14px', display: 'inline-block' }}>Assembly Line Perfection</span>
+                        <h1 className="premium-hero-title" style={{ color: "#fff", textAlign: 'left' }}>
+                            Automotive Industry{" "}
                             <span style={{ background: 'linear-gradient(135deg, #38bdf8, #818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Automation</span>
                         </h1>
-                        <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
+                        <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 0 32px 0', maxWidth: '680px', textAlign: 'left' }}>
                             Advanced Industry 4.0 automation for automotive OEMs. Orchestrating body shops, paint lines, and assembly floors with zero-defect synchronization.
                         </p>
-                        <div style={{ marginTop: "40px", display: 'flex', justifyContent: 'center' }}>
+                        <div style={{ marginTop: "32px", display: 'flex', justifyContent: 'flex-start' }}>
                             <Link to="/contact" className="premium-btn-primary">Explore Solutions</Link>
                         </div>
                     </div>
@@ -71,7 +71,7 @@ const AutomotiveIndustry = () => {
                     </div>
                     <div className="premium-split">
                         <div className="premium-split-image premium-animate slide-up">
-                            <img src="/images/Automotive_1.gif" alt="Automotive Industry Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", width: '100%', objectFit: 'cover' }} />
+                            <img src="/images/automotive-overview-hd.jpg" alt="Automotive Industry Operations" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", width: '100%', objectFit: 'cover' }} />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s' }}>
                             <p className="lead" style={{ color: '#2563eb', fontWeight: '600' }}>

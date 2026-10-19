@@ -1,0 +1,26 @@
+/* TypewriterText.css - Preserves exact typography while animating characters on scroll */
+.typewriter-text-wrapper {
+  display: inline-block;
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  position: relative;
+}
+
+.typewriter-text-cursor {
+  display: inline-block;
+  margin-left: 3px;
+  color: #06b6d4;
+  font-weight: 300;
+  animation: typewriterCursorPulse 0.8s infinite;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+}
+
+@keyframes typewriterCursorPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

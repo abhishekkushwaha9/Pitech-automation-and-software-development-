@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import PageLayout from "../../layouts/PageLayout";
+import { ProductionHeroAnimation } from "../../components/SolutionsHeroAnimations";
 import "../../layouts/PageLayout.css";
 import "./ProductionDashboard.css";
 
@@ -24,30 +25,23 @@ export default function ProductionDashboard() {
       subtitle="A single, unified view of your entire production operation — from individual machines to plant-wide KPIs — updated in real-time."
       tag="Real-time Analytics"
       heroImage="/images/dashboard-new.jpeg"
+      heroAnimation={<ProductionHeroAnimation />}
       breadcrumb={[
         { label: "Solutions", path: "/services" },
         { label: "Production Dashboard" }
       ]}
     >
       {/* Section 1: Dashboard Overview */}
-      <section style={{ padding: "80px 20px", backgroundColor: "var(--white)" }}>
+      <section style={{ padding: "60px 20px 40px", backgroundColor: "var(--white)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div
-            className="animate-on-scroll"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "60px",
-              alignItems: "center"
-            }}
-          >
+          <div className="animate-on-scroll dashboard-overview-grid">
             {/* Left Column */}
             <div>
               <h2
                 style={{
                   fontSize: "32px",
                   fontWeight: "700",
-                  marginBottom: "20px",
+                  marginBottom: "16px",
                   color: "var(--gray-900)"
                 }}
               >
@@ -58,18 +52,18 @@ export default function ProductionDashboard() {
                   fontSize: "16px",
                   lineHeight: "1.6",
                   color: "var(--gray-600)",
-                  marginBottom: "40px"
+                  marginBottom: "28px"
                 }}
               >
                 Our Production Dashboard gives you instant visibility into every machine, line, and KPI across your entire facility. Make data-driven decisions in real-time with customizable widgets and drill-down analytics.
               </p>
 
-              {/* Feature List */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              {/* Feature List (2-column grid) */}
+              <div className="dashboard-points-grid">
                 {[
                   {
                     title: "Live KPI Widgets",
-                    desc: "Production count, efficiency, quality rate widgets"
+                    desc: "Production count, efficiency, and quality rate widgets"
                   },
                   {
                     title: "Multi-line View",
@@ -77,11 +71,11 @@ export default function ProductionDashboard() {
                   },
                   {
                     title: "Historical Trends",
-                    desc: "Daily/weekly/monthly trend analysis charts"
+                    desc: "Daily, weekly, and monthly trend analysis charts"
                   },
                   {
                     title: "Target vs Actual",
-                    desc: "Real-time target achievement tracking"
+                    desc: "Real-time target achievement and variance tracking"
                   },
                   {
                     title: "Machine Utilization",
@@ -92,11 +86,23 @@ export default function ProductionDashboard() {
                     desc: "Compare shifts and teams for continuous improvement"
                   }
                 ].map((feature, idx) => (
-                  <div key={idx} style={{ display: "flex", gap: "16px" }}>
+                  <div
+                    key={idx}
+                    className="dashboard-point-card pitech-ripple-card"
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      alignItems: "flex-start",
+                      padding: "14px 12px",
+                      backgroundColor: "var(--gray-50)",
+                      borderRadius: "var(--radius)",
+                      border: "1px solid var(--gray-100)"
+                    }}
+                  >
                     <div
                       style={{
-                        width: "24px",
-                        height: "24px",
+                        width: "22px",
+                        height: "22px",
                         backgroundColor: "var(--primary-light)",
                         borderRadius: "50%",
                         display: "flex",
@@ -104,8 +110,9 @@ export default function ProductionDashboard() {
                         justifyContent: "center",
                         flexShrink: 0,
                         color: "var(--white)",
-                        fontWeight: "600",
-                        fontSize: "14px"
+                        fontWeight: "700",
+                        fontSize: "12px",
+                        marginTop: "1px"
                       }}
                     >
                       ✓
@@ -114,13 +121,15 @@ export default function ProductionDashboard() {
                       <h4
                         style={{
                           fontWeight: "600",
+                          fontSize: "14px",
                           color: "var(--gray-900)",
-                          marginBottom: "4px"
+                          marginBottom: "4px",
+                          lineHeight: "1.3"
                         }}
                       >
                         {feature.title}
                       </h4>
-                      <p style={{ fontSize: "14px", color: "var(--gray-600)" }}>
+                      <p style={{ fontSize: "12px", color: "var(--gray-600)", margin: 0, lineHeight: "1.45" }}>
                         {feature.desc}
                       </p>
                     </div>
@@ -130,15 +139,24 @@ export default function ProductionDashboard() {
             </div>
 
             {/* Right Column - Image */}
-            <div className="animate-on-scroll">
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
               <img
                 src="/images/Production Planning.png"
                 alt="Production Dashboard"
                 style={{
                   width: "100%",
-                  height: "auto",
+                  maxHeight: "380px",
+                  objectFit: "cover",
                   borderRadius: "var(--radius-lg)",
-                  boxShadow: "var(--shadow-lg)"
+                  boxShadow: "var(--shadow-lg)",
+                  border: "1px solid var(--gray-200)"
                 }}
               />
             </div>
@@ -149,16 +167,16 @@ export default function ProductionDashboard() {
       {/* Section 2: Key Advantages */}
       <section
         className="benefits-section"
-        style={{ padding: "80px 20px", backgroundColor: "var(--gray-50)" }}
+        style={{ padding: "50px 20px 60px", backgroundColor: "var(--gray-50)" }}
       >
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "60px" }}>
+          <div style={{ textAlign: "center", marginBottom: "36px" }}>
             <h2
               style={{
                 fontSize: "32px",
                 fontWeight: "700",
                 color: "var(--gray-900)",
-                marginBottom: "16px"
+                marginBottom: "12px"
               }}
             >
               Dashboard Capabilities
@@ -183,22 +201,50 @@ export default function ProductionDashboard() {
             }}
           >
             {[
-              { metric: "Real-time", label: "Data Updates" },
-              { metric: "Custom", label: "Widgets" },
-              { metric: "Cloud", label: "Access" },
-              { metric: "Mobile", label: "Ready" },
-              { metric: "Auto", label: "Shift Reports" },
-              { metric: "Role-based", label: "Access Control" }
+              {
+                metric: "Real-time",
+                label: "Data Updates",
+                desc: "Live millisecond telemetry streaming from every active machine on the production floor."
+              },
+              {
+                metric: "Custom",
+                label: "Widgets",
+                desc: "Configurable drag-and-drop tiles for OEE, cycle times, throughput, and scrap metrics."
+              },
+              {
+                metric: "Cloud",
+                label: "Access",
+                desc: "Secure remote plant monitoring and analytics accessible from any authorized browser."
+              },
+              {
+                metric: "Mobile",
+                label: "Ready",
+                desc: "Responsive mobile interface for floor supervisors and plant managers on the go."
+              },
+              {
+                metric: "Auto",
+                label: "Shift Reports",
+                desc: "Automated end-of-shift summaries and production exports delivered straight to inbox."
+              },
+              {
+                metric: "Role-based",
+                label: "Access Control",
+                desc: "Granular permission levels ensuring operators, supervisors, and executives see relevant data."
+              }
             ].map((benefit, idx) => (
               <div
                 key={idx}
-                className="animate-on-scroll"
+                className="animate-on-scroll prod-card pitech-ripple-card"
                 style={{
                   backgroundColor: "var(--white)",
-                  padding: "40px 30px",
+                  padding: "36px 24px",
                   borderRadius: "var(--radius-lg)",
                   boxShadow: "var(--shadow)",
+                  border: "1px solid var(--gray-100)",
                   textAlign: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                   transition: "all 0.3s ease"
                 }}
               >
@@ -207,13 +253,32 @@ export default function ProductionDashboard() {
                     fontSize: "32px",
                     fontWeight: "700",
                     color: "var(--primary-light)",
-                    marginBottom: "12px"
+                    marginBottom: "10px"
                   }}
                 >
                   {benefit.metric}
                 </div>
-                <p style={{ fontSize: "16px", fontWeight: "600", color: "var(--gray-900)" }}>
+                <h4
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    color: "var(--gray-900)",
+                    marginBottom: "10px"
+                  }}
+                >
                   {benefit.label}
+                </h4>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "1.6",
+                    color: "var(--gray-600)",
+                    margin: 0,
+                    textAlign: "left",
+                    width: "100%"
+                  }}
+                >
+                  {benefit.desc}
                 </p>
               </div>
             ))}
@@ -290,7 +355,7 @@ export default function ProductionDashboard() {
             ].map((component, idx) => (
               <div
                 key={idx}
-                className="animate-on-scroll"
+                className="animate-on-scroll prod-card pitech-ripple-card"
                 style={{
                   position: "relative",
                   padding: "40px 30px",

@@ -291,7 +291,8 @@ const Implementation = () => {
                             <h4>Contact Us</h4>
                             <p>📍 123 Automation Street</p>
                             <p>📞 +1 (555) 123-4567</p>
-                            <p>✉️ info@pitech.com</p>
+                            {/* <p>✉️ info@pitech.com</p> */}
+                            <p>✉️ career@pitechiot.dpdns.org</p>
                         </div>
                         <div className="footer-social">
                             <h4>Follow Us</h4>

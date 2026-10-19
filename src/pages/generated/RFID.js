@@ -1,15 +1,61 @@
 import React from "react";
+import { Factory, Wrench, PackageCheck, ShieldCheck, Radio } from "lucide-react";
 import PageLayout from "../../layouts/PageLayout";
 import "./RFID.css";
 
+const HERO_SUBTITLE_WORDS = [
+  "Complete",
+  "RFID",
+  "solutions",
+  "for",
+  "traceability,",
+  "access",
+  "control,",
+  "and",
+  "asset",
+  "tracking",
+  "in",
+  "harsh",
+  "industrial",
+  "environments."
+];
+
 export default function RFID() {
+  const [titleWordsCount, setTitleWordsCount] = React.useState(0);
+  const [subtitleWordsCount, setSubtitleWordsCount] = React.useState(0);
+  const [isTypingDone, setIsTypingDone] = React.useState(false);
+
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
     document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    let titleIdx = 0;
+    const titleInterval = setInterval(() => {
+      titleIdx++;
+      setTitleWordsCount(titleIdx);
+      if (titleIdx >= 4) {
+        clearInterval(titleInterval);
+        setTimeout(() => {
+          let subIdx = 0;
+          const subInterval = setInterval(() => {
+            subIdx++;
+            setSubtitleWordsCount(subIdx);
+            if (subIdx >= HERO_SUBTITLE_WORDS.length) {
+              clearInterval(subInterval);
+              setTimeout(() => setIsTypingDone(true), 1200);
+            }
+          }, 110);
+        }, 150);
+      }
+    }, 140);
+
+    return () => {
+      observer.disconnect();
+      clearInterval(titleInterval);
+    };
   }, []);
 
   const rfidTypes = [
@@ -52,35 +98,115 @@ export default function RFID() {
   ];
 
   const applications = [
-    { icon: "🏭", name: "Assembly Traceability", desc: "Track components through manufacturing stages" },
-    { icon: "🔧", name: "Tooling Management", desc: "Monitor tool location and maintenance status" },
-    { icon: "📦", name: "WIP Tracking", desc: "Real-time work-in-progress visibility" },
-    { icon: "🔐", name: "Access Control", desc: "Secure personnel and asset movement" },
-    { icon: "📊", name: "Asset Tracking", desc: "Complete lifecycle monitoring of equipment" }
+    { icon: <Factory size={26} strokeWidth={2} />, name: "Assembly Traceability", desc: "Track components through manufacturing stages" },
+    { icon: <Wrench size={26} strokeWidth={2} />, name: "Tooling Management", desc: "Monitor tool location and maintenance status" },
+    { icon: <PackageCheck size={26} strokeWidth={2} />, name: "WIP Tracking", desc: "Real-time work-in-progress visibility" },
+    { icon: <ShieldCheck size={26} strokeWidth={2} />, name: "Access Control", desc: "Secure personnel and asset movement" },
+    { icon: <Radio size={26} strokeWidth={2} />, name: "Asset Tracking", desc: "Complete lifecycle monitoring of equipment" }
   ];
 
   const rfidProducts = [
-    { name: "RFM 32 SL 200", type: "RFID read/write device", image: "/images/RFM 32 SL 200.jpg" },
-    { name: "RDH 242 00", type: "RFID read/write device", image: "/images/RDH 242 00.jpg" },
-    { name: "RFM 32 SL 200 Ex-n", type: "RFID read/write device", image: "/images/RFM 32 SL 200 Ex-n.jpg" },
-    { name: "RFM 62 SL 200", type: "RFID read/write device", image: "/images/RFM 62 SL 200.jpg" },
-    { name: "RFM 32 SL 200-M12-5A", type: "RFID read/write device", image: "/images/RFM 32 SL 200-M12-5A.jpg" },
-    { name: "RFI 32 L 120-L10", type: "RFID read device", image: "/images/RFI 32 L 120-L10.jpg" }
+    { 
+      name: "RFM 32 SL 200", 
+      type: "RFID Read/Write Device", 
+      image: "/images/RFM 32 SL 200.jpg",
+      frequency: "13.56 MHz (HF)",
+      range: "Up to 200 mm",
+      interface: "RS485 / Profinet",
+      desc: "Industrial high-frequency read/write head optimized for automated conveyor lines and pallet routing."
+    },
+    { 
+      name: "RDH 242 00", 
+      type: "UHF Long-Range Device", 
+      image: "/images/RDH 242 00.jpg",
+      frequency: "865 - 868 MHz (UHF)",
+      range: "Up to 2.5 Meters",
+      interface: "Ethernet / Modbus TCP",
+      desc: "Heavy-duty UHF transceiver for bulk identification, logistics gating, and yard asset management."
+    },
+    { 
+      name: "RFM 32 SL 200 Ex-n", 
+      type: "Explosion-Proof RFID Head", 
+      image: "/images/RFM 32 SL 200 Ex-n.jpg",
+      frequency: "13.56 MHz (HF)",
+      range: "Up to 180 mm",
+      interface: "ATEX Zone 2 Certified",
+      desc: "ATEX certified explosion-proof head designed for paint shops, chemical lines, and hazardous zones."
+    },
+    { 
+      name: "RFM 62 SL 200", 
+      type: "High-Performance RFID Head", 
+      image: "/images/RFM 62 SL 200.jpg",
+      frequency: "13.56 MHz (HF)",
+      range: "Up to 300 mm",
+      interface: "IO-Link / Profibus",
+      desc: "Extended sensing range reader with direct PLC fieldbus connectivity for robotic cell part verification."
+    },
+    { 
+      name: "RFM 32 SL 200-M12-5A", 
+      type: "M12 Connector RFID Unit", 
+      image: "/images/RFM 32 SL 200-M12-5A.jpg",
+      frequency: "13.56 MHz (HF)",
+      range: "Up to 200 mm",
+      interface: "M12 5-Pin Quick-Lock",
+      desc: "Compact cylindrical housing with industrial quick-disconnect M12 connector for space-constrained tooling."
+    },
+    { 
+      name: "RFI 32 L 120-L10", 
+      type: "Compact RFID Read Sensor", 
+      image: "/images/RFI 32 L 120-L10.jpg",
+      frequency: "125 kHz / 13.56 MHz",
+      range: "Up to 120 mm",
+      interface: "Digital I/O & Serial",
+      desc: "Ultra-fast read-only sensor engineered for rapid component indexing and error-proof assembly lines."
+    }
   ];
 
-  return (
+  const renderedTitle = (
     <>
+      {titleWordsCount >= 1 && <span className="rfid-typed-word">RFID</span>}
+      {titleWordsCount >= 2 && (
+        <span>
+          <span className="rfid-typed-word">(Radio</span>
+          {titleWordsCount >= 3 && <span className="rfid-typed-word">Frequency</span>}
+          {titleWordsCount >= 4 && <span className="rfid-typed-word">Identification)</span>}
+        </span>
+      )}
+      {titleWordsCount < 4 && <span className="rfid-typewriter-cursor">|</span>}
+    </>
+  );
+
+  const renderedSubtitle = (
+    <p className="rfid-hero-subtitle">
+      {HERO_SUBTITLE_WORDS.slice(0, subtitleWordsCount).map((word, idx) => (
+        <span key={idx} className="rfid-typed-word">
+          {word}
+        </span>
+      ))}
+      {titleWordsCount >= 4 && !isTypingDone && (
+        <span className="rfid-typewriter-cursor">|</span>
+      )}
+    </p>
+  );
+
+  return (
+    <div className="rfid-page-wrapper">
       <PageLayout
-        title="RFID <span>Systems</span>"
-        tag="Auto-ID Technology"
+        title="RFID <span>(Radio Frequency Identification)</span>"
+        tag="Industry 4.0"
         subtitle="Complete RFID solutions for traceability, access control, and asset tracking in harsh industrial environments."
+        heroVideo="/videos/rfid.mp4"
         heroImage="/images/RFID-i.jpg"
-        breadcrumb={[{ label: "Products" }, { label: "RFID" }]}
+        breadcrumb={[
+          { label: "Solutions", path: "/services" },
+          { label: "Industry 4.0", path: "/industry/digitalization" },
+          { label: "RFID" }
+        ]}
       >
         {/* RFID Types Section */}
         <section className="rfid-types-section">
           <div className="container">
-            <div className="section-header animate-on-scroll">
+            <div className="rfid-section-header animate-on-scroll">
               <h2>Complete RFID Technology Suite</h2>
               <p>From readers and tags to middleware, we provide all components for end-to-end traceability</p>
             </div>
@@ -183,7 +309,7 @@ export default function RFID() {
         {/* Products Section */}
         <section className="rfid-products-section">
           <div className="container">
-            <div className="section-header animate-on-scroll">
+            <div className="rfid-section-header animate-on-scroll">
               <h2>Featured RFID Products</h2>
               <p>Explore our industrial-grade RFID read and write devices</p>
             </div>
@@ -195,8 +321,14 @@ export default function RFID() {
                     <img src={product.image} alt={product.name} />
                   </div>
                   <div className="product-info">
-                    <h3>{product.name}</h3>
                     <span className="product-type-badge">{product.type}</span>
+                    <h3>{product.name}</h3>
+                    <p className="product-card-desc">{product.desc}</p>
+                    <div className="product-specs-pills">
+                      <span className="spec-pill">📡 {product.frequency}</span>
+                      <span className="spec-pill">📏 {product.range}</span>
+                      <span className="spec-pill">🔌 {product.interface}</span>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -207,7 +339,7 @@ export default function RFID() {
         {/* Applications Section */}
         <section className="rfid-applications-section">
           <div className="container">
-            <div className="section-header animate-on-scroll">
+            <div className="rfid-section-header animate-on-scroll">
               <h2>Real-World RFID Applications</h2>
               <p>Proven use cases across manufacturing and logistics</p>
             </div>
@@ -273,6 +405,6 @@ export default function RFID() {
 
 
       </PageLayout>
-    </>
+    </div>
   );
 }

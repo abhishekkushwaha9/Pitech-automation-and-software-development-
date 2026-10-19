@@ -1,2 +1,77 @@
 /* Digital Andon page uses shared layout styles */
 @import "../../layouts/PageLayout.css";
+
+.realtime-control-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.realtime-points-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.realtime-point-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px 14px;
+  background-color: var(--gray-50);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-100);
+  transition: all 0.2s ease;
+}
+
+.realtime-point-card:hover {
+  background-color: var(--white);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.realtime-point-icon {
+  width: 22px;
+  height: 22px;
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+.realtime-image-wrap {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.realtime-image-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .realtime-control-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .realtime-points-grid {
+    grid-template-columns: 1fr;
+  }
+}

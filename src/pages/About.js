@@ -1,6 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { AboutHeroBackgroundAnimation } from "../components/SolutionsHeroAnimations";
 import "./About.css";
+
+/* ── Animated Counter on Scroll ── */
+function AnimatedCounter({ end, suffix = '', duration = 1800, start = false }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!start) return;
+    let startTime = null;
+    let frameId;
+
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(easeOut * end));
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    frameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frameId);
+  }, [end, duration, start]);
+
+  return <>{start ? count : 0}{suffix}</>;
+}
 
 /* ── Data ── */
 const STATS = [
@@ -9,6 +39,7 @@ const STATS = [
   { num: '80+', label: 'Enterprise Clients' },
   { num: '24/7', label: 'Technical Support' },
 ];
+
 
 const VALUES = [
   { icon: '💡', title: 'Innovation', desc: 'Continuously developing cutting-edge technologies and solutions to stay ahead of industrial evolution.' },
@@ -140,6 +171,24 @@ const SUCCESS_STORIES = [
     desc: 'Visualization of network topology, PLC connection statuses, and MQTT data payloads across the factory.',
     img: '/images/Iot Architecture & data flow .png',
     link: 'https://pitechiotdashboard.runasp.net/IoTArchitecture/Index'
+  },
+  {
+    id: 23, cat: 'Inspection', color: '#ec4899', catBg: 'rgba(236,72,153,0.1)',
+    title: 'Color Detection (Vision Inspection)',
+    desc: 'High-speed RGB vision system for automated color verification and OK/NG defect sorting.',
+    img: '/images/ROOOObotic inspection.webp',
+  },
+  {
+    id: 24, cat: 'Tracking', color: '#0284c7', catBg: 'rgba(2,132,199,0.1)',
+    title: 'BLE Tag (Bluetooth Low Energy Tag)',
+    desc: 'Active beacon asset tracking system for real-time indoor positioning and trolley tracking.',
+    img: '/images/ble.png',
+  },
+  {
+    id: 25, cat: 'Traceability', color: '#8b5cf6', catBg: 'rgba(139,92,246,0.1)',
+    title: 'RFID (Radio Frequency Identification)',
+    desc: 'Industrial RFID tags and antenna systems for rugged shop-floor component history and MES batch validation.',
+    img: '/images/RFID-Devices1.jpg',
   }
 ];
 
@@ -155,7 +204,29 @@ function useScrollFade() {
 }
 
 export default function About() {
+  const [statsVisible, setStatsVisible] = useState(false);
+  const statsRef = useRef(null);
   useScrollFade();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const elem = statsRef.current;
+    if (elem) {
+      observer.observe(elem);
+    }
+
+    return () => {
+      if (elem) observer.unobserve(elem);
+    };
+  }, []);
 
   useEffect(() => {
     // SEO Meta Tags
@@ -181,6 +252,10 @@ export default function About() {
       <div className="page-hero">
         <div className="page-hero-bg" style={{ backgroundImage: "url('/images/1759499868874.jpg')" }} />
         <div className="page-hero-gradient" />
+        
+        {/* Ambient 3D Tech Background Animation */}
+        <AboutHeroBackgroundAnimation />
+
         <div className="page-hero-inner">
           <div className="page-hero-breadcrumb">
             <Link to="/">Home</Link>
@@ -242,17 +317,82 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Stats ── */}
-      <div className="about-stats">
-        <div className="about-stats-inner">
-          {STATS.map((s, i) => (
-            <div key={i} className="about-stat-card animate-on-scroll" style={{ transitionDelay: `${i * 0.1}s` }}>
-              <div className="about-stat-num">{s.num}</div>
-              <div className="about-stat-label">{s.label}</div>
-            </div>
+      {/* ════════════════════════════════════════════
+          STATS BAND (Matching Homepage Design)
+      ════════════════════════════════════════════ */}
+      <div className="stats-band" ref={statsRef}>
+        <div className="stats-band-inner">
+          {[
+            {
+              target: 25,
+              suffix: '+',
+              label: 'Expert Engineers',
+              icon: (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              )
+            },
+            {
+              target: 120,
+              suffix: '+',
+              label: 'Projects Delivered',
+              icon: (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z" />
+                  <polyline points="10 12 11.5 13.5 14.5 10.5" strokeWidth="2.2" />
+                </svg>
+              )
+            },
+            {
+              target: 80,
+              suffix: '+',
+              label: 'Enterprise Clients',
+              icon: (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 21h18" />
+                  <path d="M5 21V7a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2v14" />
+                  <path d="M12 21V11a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v10" />
+                  <path d="M8 9h1M8 13h1M8 17h1M15 13h1M15 17h1" strokeWidth="2.2" />
+                </svg>
+              )
+            },
+            {
+              target: 24,
+              suffix: '/7',
+              label: 'Technical Support',
+              icon: (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  <circle cx="12" cy="11" r="1" fill="currentColor" />
+                  <circle cx="8" cy="11" r="1" fill="currentColor" />
+                  <circle cx="16" cy="11" r="1" fill="currentColor" />
+                </svg>
+              )
+            },
+          ].map((s, idx, arr) => (
+            <React.Fragment key={s.label}>
+              <div className="stats-band-item animate-on-scroll">
+                <div className="stats-band-icon-badge">
+                  <div className="stats-band-icon-inner">
+                    {s.icon}
+                  </div>
+                </div>
+                <div className="stats-band-num">
+                  <AnimatedCounter end={s.target} suffix={s.suffix} start={statsVisible} />
+                </div>
+                <div className="stats-band-label">{s.label}</div>
+              </div>
+              {idx < arr.length - 1 && <div className="stats-band-divider" />}
+            </React.Fragment>
           ))}
         </div>
       </div>
+
 
       {/* ── Vision & Mission ── */}
       <section className="about-vision">

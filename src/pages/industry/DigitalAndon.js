@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import PageLayout from "../../layouts/PageLayout";
+import { AndonHeroAnimation } from "../../components/SolutionsHeroAnimations";
 import "../../layouts/PageLayout.css";
 import "./DigitalAndon.css";
 
@@ -39,132 +40,97 @@ export default function DigitalAndon() {
       subtitle="Visualize production status in real-time, respond to issues instantly, and eliminate downtime with intelligent alert escalation."
       tag="Production Monitoring"
       heroImage="/images/digital-andonnn.jpg"
+      heroAnimation={<AndonHeroAnimation />}
       breadcrumb={[
         { label: "Solutions", path: "/services" },
         { label: "Digital Andon" }
       ]}
     >
       {/* Section 1: What is Digital Andon? */}
-      <section style={{ padding: "80px 20px", backgroundColor: "var(--white)" }}>
+      <section style={{ padding: "60px 20px 40px", backgroundColor: "var(--white)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div
-            className="animate-on-scroll"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "60px",
-              alignItems: "center"
-            }}
-          >
-            {/* Left Column */}
-            <div>
-              <h2
-                style={{
-                  fontSize: "32px",
-                  fontWeight: "700",
-                  marginBottom: "20px",
-                  color: "var(--gray-900)"
-                }}
-              >
-                Real-time Visual Control
-              </h2>
-              <p
-                style={{
-                  fontSize: "16px",
-                  lineHeight: "1.6",
-                  color: "var(--gray-600)",
-                  marginBottom: "40px"
-                }}
-              >
-                The Digital Andon System replaces manual alert systems with intelligent, real-time visualization that ensures no production issue goes unnoticed. Automatically escalate alerts through your team hierarchy and track response times for continuous improvement.
-              </p>
+          {/* Section Header */}
+          <div className="animate-on-scroll" style={{ marginBottom: "36px" }}>
+            <h2
+              style={{
+                fontSize: "32px",
+                fontWeight: "700",
+                marginBottom: "16px",
+                color: "var(--gray-900)"
+              }}
+            >
+              Real-time Visual Control
+            </h2>
+            <p
+              style={{
+                fontSize: "16px",
+                lineHeight: "1.6",
+                color: "var(--gray-600)",
+                maxWidth: "850px"
+              }}
+            >
+              The Digital Andon System replaces manual alert systems with intelligent, real-time visualization that ensures no production issue goes unnoticed. Automatically escalate alerts through your team hierarchy and track response times for continuous improvement.
+            </p>
+          </div>
 
-              {/* Feature List */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                {[
-                  {
-                    title: "Real-time Status Display",
-                    desc: "Live production line visualization on large displays"
-                  },
-                  {
-                    title: "Automatic Alert Escalation",
-                    desc: "Multi-level escalation: operator → supervisor → manager"
-                  },
-                  {
-                    title: "Machine Status Monitoring",
-                    desc: "Green/Yellow/Red status with timestamps"
-                  },
-                  {
-                    title: "Response Time Tracking",
-                    desc: "Measure team response time for every alert"
-                  },
-                  {
-                    title: "Shift Reports",
-                    desc: "Automated end-of-shift performance summaries"
-                  },
-                  {
-                    title: "Mobile Notifications",
-                    desc: "SMS/WhatsApp alerts to on-call engineers"
-                  }
-                ].map((feature, idx) => (
-                  <div key={idx} style={{ display: "flex", gap: "16px" }}>
-                    <div
+          <div className="animate-on-scroll realtime-control-grid">
+            {/* Left Column - 2-Column Grid of 6 Points */}
+            <div className="realtime-points-grid">
+              {[
+                {
+                  title: "Real-time Status Display",
+                  desc: "Live production line visualization on large displays"
+                },
+                {
+                  title: "Automatic Alert Escalation",
+                  desc: "Multi-level escalation: operator → supervisor → manager"
+                },
+                {
+                  title: "Machine Status Monitoring",
+                  desc: "Green/Yellow/Red status with timestamps"
+                },
+                {
+                  title: "Response Time Tracking",
+                  desc: "Measure team response time for every alert"
+                },
+                {
+                  title: "Shift Reports",
+                  desc: "Automated end-of-shift performance summaries"
+                },
+                {
+                  title: "Mobile Notifications",
+                  desc: "SMS/WhatsApp alerts to on-call engineers"
+                }
+              ].map((feature, idx) => (
+                <div key={idx} className="realtime-point-card">
+                  <div className="realtime-point-icon">
+                    ✓
+                  </div>
+                  <div>
+                    <h4
                       style={{
-                        width: "24px",
-                        height: "24px",
-                        backgroundColor: "var(--primary-light)",
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                        color: "var(--white)",
                         fontWeight: "600",
-                        fontSize: "14px"
+                        fontSize: "14px",
+                        color: "var(--gray-900)",
+                        marginBottom: "4px",
+                        lineHeight: "1.3"
                       }}
                     >
-                      ✓
-                    </div>
-                    <div>
-                      <h4
-                        style={{
-                          fontWeight: "600",
-                          color: "var(--gray-900)",
-                          marginBottom: "4px"
-                        }}
-                      >
-                        {feature.title}
-                      </h4>
-                      <p style={{ fontSize: "14px", color: "var(--gray-600)" }}>
-                        {feature.desc}
-                      </p>
-                    </div>
+                      {feature.title}
+                    </h4>
+                    <p style={{ fontSize: "12px", color: "var(--gray-600)", margin: 0, lineHeight: "1.45" }}>
+                      {feature.desc}
+                    </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
 
             {/* Right Column - Image */}
-            <div
-              className="animate-on-scroll"
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
+            <div className="realtime-image-wrap">
               <img
                 src="/images/andon digital.jpeg"
                 alt="Digital Andon System"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                  maxHeight: "360px",
-                  borderRadius: "var(--radius-lg)",
-                  boxShadow: "var(--shadow-lg)",
-                  display: "block"
-                }}
               />
             </div>
           </div>
@@ -174,10 +140,10 @@ export default function DigitalAndon() {
       {/* Section 2: Key Benefits Grid */}
       <section
         className="benefits-section"
-        style={{ padding: "80px 20px", backgroundColor: "var(--gray-50)" }}
+        style={{ padding: "50px 20px 60px", backgroundColor: "var(--gray-50)" }}
       >
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "60px" }}>
+          <div style={{ textAlign: "center", marginBottom: "36px" }}>
             <h2
               style={{
                 fontSize: "32px",
@@ -208,22 +174,50 @@ export default function DigitalAndon() {
             }}
           >
             {[
-              { metric: "87%", label: "Faster Response" },
-              { metric: "Zero", label: "Missed Alerts" },
-              { metric: "Visual", label: "Factory Control" },
-              { metric: "Live", label: "Shift Analytics" },
-              { metric: "Mobile", label: "Ready Alerts" },
-              { metric: "Custom", label: "Escalation Rules" }
+              {
+                metric: "87%",
+                label: "Faster Response",
+                desc: "Instant notification triggers alert maintenance and support teams immediately upon stoppage."
+              },
+              {
+                metric: "Zero",
+                label: "Missed Alerts",
+                desc: "Multi-tiered automatic escalation ensures critical line alerts never go unaddressed."
+              },
+              {
+                metric: "Visual",
+                label: "Factory Control",
+                desc: "Color-coded shop floor dashboards offer complete visibility across all operating machines."
+              },
+              {
+                metric: "Live",
+                label: "Shift Analytics",
+                desc: "Continuously record response times, breakdown root causes, and shift-level productivity."
+              },
+              {
+                metric: "Mobile",
+                label: "Ready Alerts",
+                desc: "Send instant SMS, WhatsApp, and push notifications to engineers wherever they are located."
+              },
+              {
+                metric: "Custom",
+                label: "Escalation Rules",
+                desc: "Easily configure response thresholds, supervisor tiers, and department routing rules."
+              }
             ].map((benefit, idx) => (
               <div
                 key={idx}
                 className="animate-on-scroll"
                 style={{
                   backgroundColor: "var(--white)",
-                  padding: "40px 30px",
+                  padding: "36px 24px",
                   borderRadius: "var(--radius-lg)",
                   boxShadow: "var(--shadow)",
+                  border: "1px solid var(--gray-100)",
                   textAlign: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                   transition: "all 0.3s ease"
                 }}
               >
@@ -232,13 +226,30 @@ export default function DigitalAndon() {
                     fontSize: "32px",
                     fontWeight: "700",
                     color: "var(--primary-light)",
-                    marginBottom: "12px"
+                    marginBottom: "10px"
                   }}
                 >
                   {benefit.metric}
                 </div>
-                <p style={{ fontSize: "16px", fontWeight: "600", color: "var(--gray-900)" }}>
+                <h4
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    color: "var(--gray-900)",
+                    marginBottom: "10px"
+                  }}
+                >
                   {benefit.label}
+                </h4>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "1.6",
+                    color: "var(--gray-600)",
+                    margin: 0
+                  }}
+                >
+                  {benefit.desc}
                 </p>
               </div>
             ))}
@@ -454,18 +465,34 @@ export default function DigitalAndon() {
                 alignItems: "center"
               }}
             >
-              <img
-                src="/images/andon_mobile_image.jpg"
-                alt="Mobile Andon Interface"
+              <div
                 style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                  maxHeight: "320px", /* Limits height without breaking ratio or using contain layout gaps */
+                  width: "100%",
+                  maxWidth: "400px",
                   borderRadius: "var(--radius-lg)",
+                  overflow: "hidden",
                   boxShadow: "var(--shadow-lg)",
-                  display: "block"
+                  border: "1px solid var(--gray-200)",
+                  backgroundColor: "var(--white)",
+                  padding: "14px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
                 }}
-              />
+              >
+                <img
+                  src="/images/andon_mobile_image.jpg"
+                  alt="Mobile Andon Interface"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    maxHeight: "400px",
+                    objectFit: "contain",
+                    borderRadius: "var(--radius-sm)",
+                    display: "block"
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

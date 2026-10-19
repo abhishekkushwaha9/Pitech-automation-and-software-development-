@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ThreeFloatingShapes from "../components/ThreeFloatingShapes";
 import "./Services.css";
@@ -131,6 +131,9 @@ const CATEGORIES = [
       { name: "Energy Monitoring", path: "/industry/energy-monitoring", desc: "Real-time energy consumption analytics", icon: <Icons.BarChart /> },
       { name: "Production Dashboard", path: "/industry/production-dashboard", desc: "Customizable KPI visualization boards", icon: <Icons.Chart /> },
       { name: "Predictive Maintenance", path: "/industry/predictive-maintenance", desc: "AI-driven maintenance scheduling", icon: <Icons.Cog /> },
+      { name: "AI Vision Solution", path: "/industry/color-detection", desc: "AI-based industrial vision & inspection", icon: <Icons.Shield /> },
+      { name: "BLE Tag System", path: "/industry/ble-tag", desc: "Bluetooth Low Energy real-time tracking", icon: <Icons.Wifi /> },
+      { name: "RFID Solutions", path: "/industry/rfid", desc: "Radio Frequency Identification component tracking", icon: <Icons.Layers /> },
     ],
   },
   {
@@ -200,8 +203,9 @@ const CATEGORIES = [
   },
 ];
 
+/* ── Benefits Data ── */
 const BENEFITS = [
-  { icon: <Icons.Chart />, title: "Proven ROI", desc: "Average 35–60% efficiency improvement within 6 months of deployment." },
+  { icon: <Icons.Chart />, title: "Proven ROI", desc: "Average 35-60% efficiency improvement within 6 months of deployment." },
   { icon: <Icons.Wrench />, title: "End-to-End Delivery", desc: "From design to commissioning — we handle everything in-house." },
   { icon: <Icons.Shield />, title: "24/7 Support", desc: "Round-the-clock remote and on-site support with guaranteed SLAs." },
   { icon: <Icons.GraduationCap />, title: "Operator Training", desc: "Comprehensive training programs ensuring smooth technology adoption." },
@@ -209,22 +213,23 @@ const BENEFITS = [
   { icon: <Icons.BarChart />, title: "Data Analytics", desc: "Real-time dashboards and reports that drive better decisions." },
 ];
 
-/* ── Category Card ── */
-function CategoryCard({ cat, index }) {
+/* ── Category Card Component ── */
+function CategoryCard({ cat }) {
   const [expanded, setExpanded] = useState(false);
   const limit = 4;
   const hasMore = cat.solutions.length > limit;
   const visibleSolutions = expanded ? cat.solutions : cat.solutions.slice(0, limit);
 
   return (
-    <div className="cat-card" style={{ animationDelay: `${index * 0.08}s` }}>
-      {/* Corner accents */}
-      <div className="corner-tl" style={{ background: cat.color }} />
+    <div className="cat-card">
+      <div className="corner-tl" style={{ background: cat.accent }} />
       <div className="corner-br" style={{ background: cat.accent }} />
 
-      {/* Header */}
-      <div className="cat-header" style={{ background: cat.bg }}>
-        <div className="cat-icon-box" style={{ color: cat.color, borderColor: cat.color }}>
+      <div className="cat-header">
+        <div
+          className="cat-icon-box"
+          style={{ borderColor: `${cat.accent}33`, color: cat.color }}
+        >
           {cat.icon}
         </div>
         <div>
@@ -233,7 +238,6 @@ function CategoryCard({ cat, index }) {
         </div>
       </div>
 
-      {/* Solutions */}
       <div className="cat-solutions">
         {visibleSolutions.map((sol, si) => (
           <Link
@@ -256,7 +260,6 @@ function CategoryCard({ cat, index }) {
         ))}
       </div>
 
-      {/* Toggle */}
       {hasMore && (
         <button
           className="cat-toggle"
@@ -274,10 +277,10 @@ function CategoryCard({ cat, index }) {
   );
 }
 
-/* ── Benefit Card ── */
-function BenefitCard({ benefit, index }) {
+/* ── Benefit Card Component ── */
+function BenefitCard({ benefit }) {
   return (
-    <div className="benefit-card" style={{ animationDelay: `${index * 0.08}s` }}>
+    <div className="benefit-card">
       <div className="benefit-icon">{benefit.icon}</div>
       <h4 className="benefit-title">{benefit.title}</h4>
       <p className="benefit-desc">{benefit.desc}</p>
@@ -285,30 +288,25 @@ function BenefitCard({ benefit, index }) {
   );
 }
 
-/* ── Main Page ── */
+/* ── Main Services Component ── */
 export default function Services() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
-      { threshold: 0.08, rootMargin: "0px 0px -30px 0px" }
-    );
-    document.querySelectorAll(".anim").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="services-root">
       {/* ── HERO ── */}
       <header className="hero">
+        <div className="hero-cyber-grid" />
+        <div className="hero-ambient-glow" />
+        <div className="hero-ambient-orb-2" />
         <ThreeFloatingShapes />
-        <div className="services-hero-content">
-          <div className="section-tag anim">
+        <div className="hero-content">
+          <div className="section-tag">
+            <span className="tag-dot" />
             What We Offer
           </div>
-          <h1 className="hero-title anim">
-            Our Solutions
+          <h1 className="hero-title">
+            Our <span className="gradient-text">Solutions</span>
           </h1>
-          <p className="hero-subtitle anim">
+          <p className="hero-subtitle">
             Comprehensive Industry 4.0 solutions — from IIoT platforms to complete automation lines — designed specifically for Indian manufacturers.
           </p>
         </div>
@@ -322,15 +320,14 @@ export default function Services() {
       {/* ── SOLUTIONS GRID ── */}
       <section className="section">
         <div className="section-inner">
-          <div className="section-header anim">
-            <span className="section-tag">Full Portfolio</span>
+          <div className="section-header">
             <h2 className="section-title">Every Solution Your Factory Needs</h2>
             <p className="section-subtitle">Six comprehensive domains covering every aspect of modern manufacturing automation.</p>
           </div>
 
           <div className="grid-2">
             {CATEGORIES.map((cat, i) => (
-              <CategoryCard key={i} cat={cat} index={i} />
+              <CategoryCard key={i} cat={cat} />
             ))}
           </div>
         </div>
@@ -344,7 +341,7 @@ export default function Services() {
       {/* ── WHY PITECH ── */}
       <section className="section">
         <div className="section-inner">
-          <div className="section-header anim">
+          <div className="section-header">
             <span className="section-tag">Why PiTech?</span>
             <h2 className="section-title">What Sets Us Apart</h2>
             <p className="section-subtitle">We don't just sell solutions — we become long-term technology partners in your manufacturing success.</p>
@@ -352,12 +349,11 @@ export default function Services() {
 
           <div className="grid-3">
             {BENEFITS.map((b, i) => (
-              <BenefitCard key={i} benefit={b} index={i} />
+              <BenefitCard key={i} benefit={b} />
             ))}
           </div>
         </div>
       </section>
-
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import PageLayout from "../../layouts/PageLayout";
+import { SensorHeroAnimation } from "../../components/SolutionsHeroAnimations";
 import "./Sensors.css";
 
 export default function Sensors() {
@@ -106,6 +107,7 @@ export default function Sensors() {
         tag="Smart Sensing"
         subtitle="High-accuracy industrial sensors for every measurement need — temperature, pressure, vibration, proximity, and more."
         heroImage="/images/BLE.webp"
+        heroAnimation={<SensorHeroAnimation />}
         breadcrumb={[{ label: "Products" }, { label: "Sensors" }]}
       >
         {/* Categories Grid Section */}

@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import PageLayout from "../../layouts/PageLayout";
 import "../../pages/generated/EnterpriseStyle.css";
+import { DWIHeroAnimation } from "../../components/SolutionsHeroAnimations";
 import { Link } from "react-router-dom";
 
 const DWI = () => {
@@ -17,26 +19,19 @@ const DWI = () => {
     }, []);
 
     return (
-        <div className="ent-page">
-            <section className="ent-hero" style={{ backgroundImage: "url('/images/DWI ud.png')" }}>
-                <div className="ent-hero-overlay"></div>
-                <div className="ent-shape s1"></div>
-                <div className="ent-shape s2"></div>
-
-                <div className="container" style={{ position: 'relative', zIndex: 3 }}>
-                    <div className="ent-hero-content ent-animate">
-                        <span className="ent-chip">Industry 4.0 Standard</span>
-                        <h1 className="ent-hero-title">
-                            Digital <br />
-                            <span>Work Instructions</span>
-                        </h1>
-                        <p className="ent-hero-desc">Empower operators with dynamic, multimedia guidance systems that eliminate assembly errors.</p>
-                        <Link to="/contact" className="ent-btn-primary">Request Live Demo</Link>
-                    </div>
-                </div>
-            </section>
-
-            <div className="container ent-visual-banner ent-scale-in">
+        <PageLayout
+            title="Digital <span>Work Instructions</span>"
+            subtitle="Empower operators with dynamic, multimedia guidance systems that eliminate assembly errors."
+            tag="Industry 4.0 Standard"
+            heroImage="/images/DWI ud.png"
+            heroAnimation={<DWIHeroAnimation />}
+            breadcrumb={[
+                { label: "Solutions", path: "/services" },
+                { label: "Digital Work Instructions" }
+            ]}
+        >
+            <div className="ent-page" style={{ paddingTop: 0 }}>
+                <div className="container ent-visual-banner ent-scale-in" style={{ marginTop: '20px' }}>
                 <img
                     src="/images/DWI .jpeg"
                     alt="Digital Work Instructions"
@@ -110,6 +105,7 @@ const DWI = () => {
 
 
         </div>
+        </PageLayout>
     );
 };
 

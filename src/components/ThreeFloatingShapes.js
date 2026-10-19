@@ -18,7 +18,7 @@ export default function ThreeFloatingShapes() {
     const height = mount.clientHeight;
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0xf8fafc, 0.02);
+    scene.fog = new THREE.FogExp2(0x070d18, 0.02);
 
     const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
     camera.position.set(0, 0, 20);
@@ -30,9 +30,9 @@ export default function ThreeFloatingShapes() {
     mount.appendChild(renderer.domElement);
 
     // Colors
-    const TEAL = 0x0d9488;
-    const AMBER = 0xd97706;
-    const SLATE = 0x64748b;
+    const TEAL = 0x2dd4bf;
+    const AMBER = 0xf59e0b;
+    const SLATE = 0x38bdf8;
     const CYAN = 0x06b6d4;
 
     const shapes = [];
@@ -58,7 +58,7 @@ export default function ThreeFloatingShapes() {
         color: colors[i % colors.length],
         wireframe: true,
         transparent: true,
-        opacity: 0.25 + Math.random() * 0.15,
+        opacity: 0.35 + Math.random() * 0.25,
       });
       const mesh = new THREE.Mesh(geo, mat);
 

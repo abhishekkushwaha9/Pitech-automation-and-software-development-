@@ -27,11 +27,11 @@
 
 .dwi-section-header h2 {
     font-family: var(--font-heading);
-    font-size: 2.8rem;
-    font-weight: 800;
+    font-size: clamp(1.8rem, 3vw, 2.4rem) !important;
+    font-weight: 800 !important;
     color: #0f172a;
     margin-bottom: 20px;
-    letter-spacing: -1px;
+    letter-spacing: -0.02em !important;
 }
 
 .dwi-section-header.light-text h2 {

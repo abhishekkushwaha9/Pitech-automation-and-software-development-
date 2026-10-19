@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../../pages/generated/EnterpriseStyle.css";
+import { OEEHeroAnimation } from "../../components/SolutionsHeroAnimations";
 import { Link } from "react-router-dom";
 
 const OEE = () => {
@@ -35,12 +36,15 @@ const OEE = () => {
                 }}></div>
                 <div className="ent-shape s1" style={{ opacity: 0.2 }}></div>
                 <div className="ent-shape s2" style={{ opacity: 0.2 }}></div>
+                
+                {/* Subtle movable animation */}
+                <OEEHeroAnimation />
 
                 <div className="container" style={{ position: 'relative', zIndex: 3 }}>
                     <div className="ent-hero-content ent-animate">
                         <span className="ent-chip" style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.1)' }}>Industry 4.0 Standard</span>
                         <h1 className="ent-hero-title" style={{ color: '#ffffff' }}>
-                            OEE <br />
+                            OEE{" "}
                             <span style={{ background: 'linear-gradient(135deg, #60a5fa, #7dd3fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Dashboard</span>
                         </h1>
                         <p className="ent-hero-desc" style={{ color: '#e2e8f0' }}>Track production efficiency, manufacturing KPIs, and resolve hidden downtime with real-time OEE analytics.</p>

@@ -21,6 +21,9 @@ const NAV_DATA = {
         { name: "Energy Monitoring", path: "/industry/energy-monitoring" },
         { name: "Production Dashboard", path: "/industry/production-dashboard" },
         { name: "Predictive Maintenance", path: "/industry/predictive-maintenance" },
+        { name: "AI based vision solution", path: "/industry/color-detection" },
+        { name: "BLE Tag (Bluetooth Low Energy)", path: "/industry/ble-tag" },
+        { name: "RFID (Radio Frequency Identification)", path: "/industry/rfid" },
       ],
     },
     {
@@ -68,9 +71,9 @@ const NAV_DATA = {
     { name: "Sensors", path: "/products/sensor" },
     { name: "PLC", path: "/products/plc" },
     { name: "IoT Gateway", path: "/products/iot-gateway" },
-    { name: "RFID", path: "/products/rfid" },
+    { name: "RFID (Radio Frequency Identification)", path: "/products/rfid" },
     { name: "HMI", path: "/products/hmi" },
-    { name: "BLE Tag", path: "/products/ble-tag" },
+    { name: "BLE Tag (Bluetooth Low Energy)", path: "/products/ble-tag" },
   ],
   industry: [
     { name: "Food & Beverages", path: "/industries/food-beverages" },
@@ -133,18 +136,21 @@ export default function Navbar() {
             <span>📍 Manesar, Haryana, India</span>
             <a href="tel:+919312774178">📞 +91 93127 74178 </a>
             <a href="tel:+917737374330">📞 +91 77373 74330</a>
-            <a href="mailto:info@pitechautomation.com?subject=Inquiry&body=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services.">✉ info@pitechautomation.com</a>
+            {/* <a href="mailto:info@pitechautomation.com?subject=Inquiry&body=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services.">✉ info@pitechautomation.com</a> */}
+            <a href="mailto:career@pitechiot.dpdns.org?subject=Inquiry&body=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services.">✉ career@pitechiot.dpdns.org</a>
           </div>
           <div className="navbar-topbar-social">
             <a href="https://www.linkedin.com/company/pitech-automation-and-software-solutions/posts/?feedView=all" target="_blank" rel="noreferrer" aria-label="LinkedIn" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0a66c2" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                <rect width="22" height="22" x="1" y="1" rx="4" fill="#0077b5" stroke="#ffffff" strokeWidth="1.2" />
+                <path fill="#ffffff" d="M19 19h-3v-5.6c0-1.3-.5-2.2-1.7-2.2-1 0-1.5.7-1.7 1.3-.1.2-.1.5-.1.8V19H9.5s.04-10 0-11H12v1.6c.3-.5 1-1.3 2.5-1.3 1.8 0 3.5 1.2 3.5 3.7V19zM6.5 6.7c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zM8 19H5V8h3v11z" />
               </svg>
               LinkedIn
             </a>
             <a href="https://www.facebook.com/share/1aK9Bu2hdj/" target="_blank" rel="noreferrer" aria-label="Facebook" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1877f2" viewBox="0 0 24 24">
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10.5" fill="#1877f2" stroke="#ffffff" strokeWidth="1.2" />
+                <path fill="#ffffff" d="M14 13.5h2.3l.4-3H14V8.7c0-.8.2-1.4 1.4-1.4h1.3V4.7c-.5-.1-1.3-.2-2.3-.2-2.3 0-3.9 1.4-3.9 4v2H8v3h2.5V23h3.5v-9.5z" />
               </svg>
               Facebook
             </a>
@@ -190,24 +196,24 @@ export default function Navbar() {
               Home
             </NavLink>
             {['about', 'solutions', 'products', 'industry'].map(key => {
-              const label = key === 'about' ? 'About Us' 
-                          : key === 'solutions' ? 'Solutions' 
-                          : key === 'products' ? 'Products' 
-                          : 'Industry 4.0';
-              
+              const label = key === 'about' ? 'About Us'
+                : key === 'solutions' ? 'Solutions'
+                  : key === 'products' ? 'Products'
+                    : 'Industry 4.0';
+
               // We check if the current path starts with any of the sub-paths to keep the "active" highlight
-              const isChildActive = NAV_DATA[key]?.some(item => 
-                item.path === location.pathname || 
+              const isChildActive = NAV_DATA[key]?.some(item =>
+                item.path === location.pathname ||
                 (item.items && item.items.some(sub => sub.path === location.pathname))
               ) || (key === 'solutions' && NAV_DATA.solutions.some(group => group.items.some(sub => sub.path === location.pathname)));
 
               return (
-                <div 
-                  key={key} 
+                <div
+                  key={key}
                   className={`navbar-link-container`}
                   onMouseEnter={() => openMenu(key)}
                 >
-                  <button 
+                  <button
                     type="button"
                     className={`navbar-link ${activeMenu === key || isChildActive ? 'active' : ''}`}
                   >
@@ -234,9 +240,9 @@ export default function Navbar() {
           {/* Right Actions */}
           <div className="navbar-actions">
 
-            <a 
-              href="https://pitechiotdashboard.runasp.net/" 
-              target="_blank" 
+            <a
+              href="https://pitechiotdashboard.runasp.net/"
+              target="_blank"
               rel="noreferrer"
               className="navbar-btn-live-iot"
             >

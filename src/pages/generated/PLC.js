@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import PageLayout from "../../layouts/PageLayout";
+import { PLCHeroAnimation } from "../../components/SolutionsHeroAnimations";
 import "./PLC.css";
 
 export default function PLC() {
@@ -19,6 +20,7 @@ export default function PLC() {
         tag="Industrial Automation"
         subtitle="Industry-grade Programmable Logic Controllers from leading brands — pre-configured and ready for your automation project."
         heroImage="/images/PLC.png"
+        heroAnimation={<PLCHeroAnimation />}
         breadcrumb={[{ label: "Products" }, { label: "PLC" }]}
       >
         {/* Brands Section */}
@@ -141,9 +143,9 @@ export default function PLC() {
               </div>
 
               {/* Right Column: Image */}
-              <div className="plc-features-image animate-on-scroll">
+              <div className="plc-features-image">
                 <div className="image-wrapper">
-                  <img src="/images/PLC.png" alt="PLC Controller System" />
+                  <img src="/images/plc-controller-hd.jpg" alt="PLC Controller System" />
                   <div className="image-accent"></div>
                 </div>
               </div>

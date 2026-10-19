@@ -53,6 +53,7 @@ import IoTGateway from "./pages/generated/Server";
 import RFID from "./pages/generated/RFID";
 import HMI from "./pages/generated/HMI";
 import BLETag from "./pages/generated/BLETag";
+import ColorDetection from "./pages/generated/ColorDetection";
 import PLCProgramming from "./pages/generated/PLCProgramming";
 import MachineIntegration from "./pages/industry/MachineIntegration";
 import LeakTesting from "./pages/generated/LeakTesting";
@@ -156,6 +157,9 @@ function AppContent() {
         <Route path="/industry/solution" element={<Solution />} />
         <Route path="/industry/oee" element={<OEE />} />
         <Route path="/industry/dwi" element={<DWI />} />
+        <Route path="/industry/color-detection" element={<ColorDetection />} />
+        <Route path="/industry/ble-tag" element={<BLETag />} />
+        <Route path="/industry/rfid" element={<RFID />} />
 
         <Route path="/solutions/automation/traceability-scada" element={<TraceabilitySCADA />} />
 
@@ -193,8 +197,12 @@ function AppContent() {
         <Route path="/products/rfid" element={<RFID />} />
         <Route path="/products/hmi" element={<HMI />} />
         <Route path="/products/ble-tag" element={<BLETag />} />
+        <Route path="/products/color-detection" element={<ColorDetection />} />
         <Route path="/solutions/automation/plc" element={<PLCProgramming />} />
         <Route path="/solutions/automation/machine-integration" element={<MachineIntegration />} />
+        <Route path="/solutions/automation/color-detection" element={<ColorDetection />} />
+        <Route path="/solutions/automation/ble-tag" element={<BLETag />} />
+        <Route path="/solutions/automation/rfid" element={<RFID />} />
         <Route path="/solutions/spm/leak-testing" element={<LeakTesting />} />
         <Route path="/solutions/spm" element={<Navigate to="/solutions/spm/leak-testing" replace />} />
         <Route path="/solutions/spm/assembly-line" element={<AssemblyLine />} />

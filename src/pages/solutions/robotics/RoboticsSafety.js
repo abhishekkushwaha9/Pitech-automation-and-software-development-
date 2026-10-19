@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './RoboticsStyle.css';
 import { Link } from 'react-router-dom';
+import TypewriterText from '../../../components/TypewriterText';
 
 const RoboticsSafety = () => {
     useEffect(() => {
@@ -24,17 +25,23 @@ const RoboticsSafety = () => {
         <div className="robotics-container">
             <section className="robo-hero" style={{ backgroundImage: "url('/images/robotics/safety.png')" }}>
                 <div className="robo-hero-content">
-                    <h1 className="robo-hero-title">Robotics Safety and Monitoring Systems</h1>
+                    <h1 className="robo-hero-title">
+                        <TypewriterText text="Robotics Safety and Monitoring Systems" />
+                    </h1>
                     <p className="robo-hero-subtitle">Ensuring operational security in modern smart factories</p>
                 </div>
             </section>
 
             <section className="robo-section">
-                <h2 className="robo-section-title reveal">Cell Safety and Sensor Monitoring</h2>
+                <h2 className="robo-section-title reveal">
+                    <TypewriterText text="Cell Safety and Sensor Monitoring" />
+                </h2>
 
                 <div className="robo-split-card reveal">
                     <div className="robo-card-content">
-                        <h2 className="robo-card-title">Restart Protection in Robot Cells</h2>
+                        <h2 className="robo-card-title">
+                            <TypewriterText text="Restart Protection in Robot Cells" />
+                        </h2>
                         <div className="robo-card-req">
                             <strong>Requirement</strong>
                             <p>To prevent accidents, robotic processes must not restart until it is confirmed that no personnel are inside the robot cell or hidden working areas.</p>
@@ -49,7 +56,9 @@ const RoboticsSafety = () => {
 
                 <div className="robo-split-card reverse reveal">
                     <div className="robo-card-content">
-                        <h2 className="robo-card-title">Monitoring Hidden Areas</h2>
+                        <h2 className="robo-card-title">
+                            <TypewriterText text="Monitoring Hidden Areas" />
+                        </h2>
                         <div className="robo-card-req">
                             <strong>Requirement</strong>
                             <p>Robot cells often contain hidden areas where workers may not be visible.</p>
@@ -64,7 +73,9 @@ const RoboticsSafety = () => {
 
                 <div className="robo-split-card reveal">
                     <div className="robo-card-content">
-                        <h2 className="robo-card-title">Material Presence Detection on Robotic Grippers</h2>
+                        <h2 className="robo-card-title">
+                            <TypewriterText text="Material Presence Detection on Robotic Grippers" />
+                        </h2>
                         <div className="robo-card-req">
                             <strong>Requirement</strong>
                             <p>Sensors must detect whether the robotic gripper has successfully picked up the material.</p>

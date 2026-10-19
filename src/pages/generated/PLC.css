@@ -94,15 +94,20 @@
 
 .plc-features-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 60px;
-  align-items: center;
+  align-items: start;
 }
 
 @media (max-width: 1024px) {
   .plc-features-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .plc-features-image {
+    position: relative !important;
+    top: 0 !important;
   }
 }
 
@@ -159,14 +164,26 @@
 }
 
 .plc-features-image {
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 110px;
+  align-self: start;
+  z-index: 5;
 }
 
 .image-wrapper {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(37, 99, 235, 0.12);
 }
 
 .image-wrapper img {
@@ -193,13 +210,16 @@
   background: var(--white);
 }
 
+.plc-benefits-section .benefits-grid,
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
-  margin-top: 60px;
+  margin-top: 50px;
+  align-items: stretch;
 }
 
+.plc-benefits-section .benefit-card,
 .benefit-card {
   background: linear-gradient(135deg, var(--white), rgba(37, 99, 235, 0.02));
   padding: 40px 32px;
@@ -208,6 +228,14 @@
   text-align: center;
   transition: var(--transition);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 230px;
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .benefit-card:hover {
@@ -228,12 +256,14 @@
   font-size: 1.6rem;
   font-weight: 800;
   margin: 0 auto 16px;
+  flex-shrink: 0;
 }
 
 .benefit-card h3 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   margin-bottom: 12px;
   color: var(--gray-900);
+  font-weight: 700;
 }
 
 .benefit-card p {
@@ -280,6 +310,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -288,6 +319,7 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+
   .plc-brands-section,
   .plc-features-section,
   .plc-benefits-section,
@@ -304,10 +336,12 @@
   }
 
   .benefits-grid {
+    grid-template-columns: 1fr;
     gap: 24px;
   }
 
   .benefit-card {
+    min-height: auto;
     padding: 32px 24px;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './RoboticsStyle.css';
 import { Link } from 'react-router-dom';
+import TypewriterText from '../../../components/TypewriterText';
 
 const RoboticsApplications = () => {
     useEffect(() => {
@@ -24,17 +25,23 @@ const RoboticsApplications = () => {
         <div className="robotics-container">
             <section className="robo-hero" style={{ backgroundImage: "url('/images/robotics/agv.png')" }}>
                 <div className="robo-hero-content">
-                    <h1 className="robo-hero-title">Robotics Applications in Industry</h1>
+                    <h1 className="robo-hero-title">
+                        <TypewriterText text="Robotics Applications in Industry" />
+                    </h1>
                     <p className="robo-hero-subtitle">High-precision technology driving autonomous workflows</p>
                 </div>
             </section>
 
             <section className="robo-section">
-                <h2 className="robo-section-title reveal">Key Industrial Applications</h2>
+                <h2 className="robo-section-title reveal">
+                    <TypewriterText text="Key Industrial Applications" />
+                </h2>
 
                 <div className="robo-split-card reveal">
                     <div className="robo-card-content">
-                        <h2 className="robo-card-title">Navigation and Transport Safety</h2>
+                        <h2 className="robo-card-title">
+                            <TypewriterText text="Navigation and Transport Safety" />
+                        </h2>
                         <div className="robo-card-req">
                             <strong>Requirement</strong>
                             <p>If natural navigation is used for AGVs, the safety sensor must protect the transportation path while simultaneously providing measurement data for navigation software.</p>
@@ -49,7 +56,9 @@ const RoboticsApplications = () => {
 
                 <div className="robo-split-card reverse reveal">
                     <div className="robo-card-content">
-                        <h2 className="robo-card-title">Vertical Positioning of Load Receptacles</h2>
+                        <h2 className="robo-card-title">
+                            <TypewriterText text="Vertical Positioning of Load Receptacles" />
+                        </h2>
                         <div className="robo-card-req">
                             <strong>Requirement</strong>
                             <p>For reliable storage and retrieval of pallets, the load carrier must be positioned precisely at the correct height.</p>
@@ -64,7 +73,9 @@ const RoboticsApplications = () => {
 
                 <div className="robo-split-card reveal">
                     <div className="robo-card-content">
-                        <h2 className="robo-card-title">Pallet Presence and Position Control</h2>
+                        <h2 className="robo-card-title">
+                            <TypewriterText text="Pallet Presence and Position Control" />
+                        </h2>
                         <div className="robo-card-req">
                             <strong>Requirement</strong>
                             <p>After transferring the pallet or container to a shuttle, it is necessary to verify that the load has been placed correctly.</p>

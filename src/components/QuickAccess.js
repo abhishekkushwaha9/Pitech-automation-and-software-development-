@@ -1,37 +1,98 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './QuickAccess.css';
 
 /**
- * DEFAULT_CARDS: The source of truth for all possible quick access items.
- * Each card has a unique 'id' and 'path'.
+ * 4 Canonical Quick Access Cards matching the user's reference image:
+ * 1. Top: Digitalization (Cyan theme)
+ * 2. Right: Our Stories (Royal Blue theme)
+ * 3. Bottom: Digital Andon (Purple theme)
+ * 4. Left: Success Stories (Amber theme)
  */
-const DEFAULT_CARDS = [
-  { id: 'digitalization', icon: '🏭', name: 'Digitalization', desc: 'End-to-end factory digitalization', path: '/industry/digitalization', bg: 'rgba(37,99,235,0.2)' },
-  { id: 'production-dashboard', icon: '📊', name: 'Production Dashboard', desc: 'Real-time KPI visibility', path: '/industry/production-dashboard', bg: 'rgba(16,185,129,0.2)' },
-  { id: 'predictive-maintenance', icon: '⚡', name: 'Predictive Maintenance', desc: 'AI-driven downtime prevention', path: '/industry/predictive-maintenance', bg: 'rgba(245,158,11,0.2)' },
-  { id: 'iiot', icon: '🔗', name: 'IIoT Platform', desc: 'Connected machine ecosystem', path: '/industry/iiot', bg: 'rgba(139,92,246,0.2)' },
-  { id: 'energy-monitoring', icon: '🔋', name: 'Energy Monitoring', desc: 'Track and optimize power usage', path: '/industry/energy-monitoring', bg: 'rgba(16,185,129,0.2)' },
-  { id: 'traceability-scada', icon: '🖥️', name: 'Traceability SCADA', desc: 'Supervisory control & data acquisition', path: '/solutions/automation/traceability-scada', bg: 'rgba(245,158,11,0.2)' },
-  { id: 'plc-programming', icon: '⚙️', name: 'PLC Programming', desc: 'Advanced logic control systems', path: '/solutions/automation/plc', bg: 'rgba(37,99,235,0.2)' },
-  { id: 'plc-products', icon: '🔩', name: 'PLC Products', desc: 'Industrial grade PLC hardware', path: '/products/plc', bg: 'rgba(37,99,235,0.2)' },
-  { id: 'digital-andon', icon: '🔔', name: 'Digital Andon', desc: 'Visual signal tracking system', path: '/industry/digital-andon', bg: 'rgba(139,92,246,0.2)' },
-  { id: 'sensor', icon: '📡', name: 'Smart Sensors', desc: 'Advanced industrial sensing', path: '/products/sensor', bg: 'rgba(239,68,68,0.2)' },
-  { id: 'success', icon: '🏆', name: 'Success Stories', desc: 'Our proven transformations', path: '/about/success', bg: 'rgba(245,158,11,0.2)' },
-  { id: 'leak-testing', icon: '💧', name: 'SPM Automation', desc: 'Precision leak detection systems', path: '/solutions/spm/leak-testing', bg: 'rgba(59,130,246,0.2)' },
-  { id: 'assembly-line', icon: '🏗️', name: 'Assembly Lines', desc: 'Automated production flows', path: '/solutions/spm/assembly-line', bg: 'rgba(139,92,246,0.2)' },
-  { id: 'automation-lines', icon: '🤖', name: 'Automation Lines', desc: 'Full-scale robotic systems', path: '/solutions/automation-lines', bg: 'rgba(16,185,129,0.2)' },
-  { id: 'blogs', icon: '📝', name: 'Our Stories', desc: 'Latest insights and updates', path: '/blogs', bg: 'rgba(37,99,235,0.2)' },
-  { id: 'oee', icon: '📈', name: 'OEE Dashboard', desc: 'Efficiency tracking systems', path: '/industry/oee', bg: 'rgba(239,68,68,0.2)' },
-  { id: 'iot-gateway', icon: '📡', name: 'IoT Gateway', desc: 'Smart machine connectivity', path: '/products/iot-gateway', bg: 'rgba(59,130,246,0.2)' },
-  { id: 'pharma', icon: '💊', name: 'Pharma Industry', desc: 'High-precision automation', path: '/industries/pharma', bg: 'rgba(16,185,129,0.2)' },
-  { id: 'ev', icon: '🔋', name: 'EV Manufacturing', desc: 'Battery production solutions', path: '/industries/ev-manufacturing', bg: 'rgba(139,92,246,0.2)' },
-  { id: 'food-beverage', icon: '🍱', name: 'Food & Beverage', desc: 'Automated processing lines', path: '/industries/food-beverages', bg: 'rgba(245,158,11,0.2)' },
-  { id: 'metal-industry', icon: '🔩', name: 'Metal & Steel', desc: 'Industrial process control', path: '/industry-4/metal-industry', bg: 'rgba(107,114,128,0.2)' },
+const ORBIT_CARDS = [
+  {
+    id: 'digitalization',
+    position: 'top',
+    theme: 'cyan',
+    name: 'Digitalization',
+    desc: 'Smart Factory 4.0',
+    backBadge: 'Industry 4.0',
+    backCta: 'Explore Solutions →',
+    path: '/industry/digitalization',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="white">
+        <path d="M3 21h12V11l-5 3.5V10.5L3 15v6zm3-4h3v2.5H6V17zm4.5 0h3v2.5h-3V17z" />
+        <rect x="17" y="17" width="2.8" height="2.8" rx="0.5" />
+        <rect x="21" y="17" width="2.8" height="2.8" rx="0.5" />
+        <rect x="17" y="13" width="2.8" height="2.8" rx="0.5" />
+        <rect x="21" y="13" width="2.8" height="2.8" rx="0.5" />
+        <rect x="17" y="9" width="2.8" height="2.8" rx="0.5" />
+        <rect x="21" y="9" width="2.8" height="2.8" rx="0.5" />
+        <rect x="21" y="5" width="2.8" height="2.8" rx="0.5" />
+      </svg>
+    )
+  },
+  {
+    id: 'blogs',
+    position: 'right',
+    theme: 'blue',
+    name: 'Our Stories',
+    desc: 'Latest Insights',
+    backBadge: 'Case Studies',
+    backCta: 'Read Articles →',
+    path: '/blogs',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+        <rect x="5" y="4" width="15" height="20" rx="2" fill="#ffffff" />
+        <line x1="8" y1="8" x2="16" y2="8" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+        <line x1="8" y1="12" x2="16" y2="12" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+        <line x1="8" y1="16" x2="13" y2="16" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+        <g transform="rotate(-45 16 19)">
+          <rect x="13" y="14" width="5" height="12" rx="1" fill="#f97316" />
+          <path d="M13 26l2.5 4 2.5-4h-5z" fill="#fde047" />
+          <path d="M14.5 28.5l1 1.5 1-1.5h-2z" fill="#1e293b" />
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 'digital-andon',
+    position: 'bottom',
+    theme: 'purple',
+    name: 'Digital Andon',
+    desc: 'Visual Tracking',
+    backBadge: 'Real-time Alerts',
+    backCta: 'View System →',
+    path: '/industry/digital-andon',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+        <path d="M12 2a2 2 0 0 0-2 2c0 .26.04.5.11.73C7.38 5.76 5 8.61 5 12.16V17l-2 2v1h18v-1l-2-2v-4.84c0-3.55-2.38-6.4-5.11-7.43.07-.23.11-.47.11-.73a2 2 0 0 0-2-2zm0 20a3 3 0 0 0 3-3h-6a3 3 0 0 0 3 3z" />
+      </svg>
+    )
+  },
+  {
+    id: 'success',
+    position: 'left',
+    theme: 'amber',
+    name: 'Success Stories',
+    desc: 'Transformations',
+    backBadge: 'Proven ROI',
+    backCta: 'View Stories →',
+    path: '/about/success',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+        <path d="M8 5h12v7c0 3.3-2.7 6-6 6s-6-2.7-6-6V5z" fill="#ffeb3b" />
+        <path d="M8 7H5c-1.1 0-2 .9-2 2v2c0 2.2 1.8 4 4 4h1V7zm12 0h3c1.1 0 2 .9 2 2v2c0 2.2-1.8 4-4 4h-1V7z" fill="#ffca28" />
+        <path d="M12.5 18h3v3h-3z" fill="#ffa000" />
+        <path d="M9 21h10l-1 4H10l-1-4z" fill="#6b21a8" />
+        <path d="M11 23h6v1.5h-6z" fill="#fbbf24" />
+      </svg>
+    )
+  }
 ];
 
 const STORAGE_KEY = 'pitech_clicks_v3';
 
-// Path normalization helper
 const normalizePath = (p) => {
   if (!p) return '';
   let path = p.toLowerCase();
@@ -42,124 +103,109 @@ const normalizePath = (p) => {
 };
 
 export default function QuickAccess() {
-  const [cards, setCards] = useState([]);
-  
-  // Helper to get sorted cards from current clicks
-  const getSortedCards = useCallback((clickData) => {
-    // We normalize incoming click data keys just in case
-    const normalizedData = {};
-    Object.keys(clickData).forEach(k => {
-      normalizedData[normalizePath(k)] = clickData[k];
-    });
+  const [flippedIndex, setFlippedIndex] = useState(-1);
 
-    return [...DEFAULT_CARDS]
-      .sort((a, b) => {
-        const pathA = normalizePath(a.path);
-        const pathB = normalizePath(b.path);
-        const countA = normalizedData[pathA] || 0;
-        const countB = normalizedData[pathB] || 0;
-        
-        // Primary sort: Click frequency (Highest first)
-        if (countB !== countA) return countB - countA;
-        
-        // Secondary sort: Stability (Use DEFAULT_CARDS index)
-        return DEFAULT_CARDS.indexOf(a) - DEFAULT_CARDS.indexOf(b);
-      })
-      .slice(0, 4);
+  // Gentle sequential micro-flip animation every 3.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFlippedIndex((prev) => (prev + 1) % ORBIT_CARDS.length);
+      // Reset flip after 2 seconds
+      setTimeout(() => {
+        setFlippedIndex(-1);
+      }, 2000);
+    }, 4500);
+
+    return () => clearInterval(timer);
   }, []);
 
-  // Initial load
-  useEffect(() => {
-    const s = localStorage.getItem(STORAGE_KEY);
-    const clickData = s ? JSON.parse(s) : {};
-    const sorted = getSortedCards(clickData);
-    setCards(sorted);
-    console.log("[QuickAccess] Initialized cards from localStorage");
-  }, [getSortedCards]);
-
-  /**
-   * handleCardClick:
-   * 1. Updates localStorage immediately.
-   * 2. Re-sorts using the original DEFAULT_CARDS.
-   * 3. Updates 'cards' state instantly for real-time UI response.
-   */
   const handleCardClick = (path) => {
     const normalized = normalizePath(path);
-    console.log(`[QuickAccess] Click detected for: ${normalized}`);
-    
     try {
-      // 1. Get latest clicks from storage to avoid stale state
       const s = localStorage.getItem(STORAGE_KEY);
       const currentClicks = s ? JSON.parse(s) : {};
-      
-      // 2. Increment count (using normalized path)
       const updatedClicks = {
         ...currentClicks,
         [normalized]: (currentClicks[normalized] || 0) + 1
       };
-      
-      // 3. Save back to localStorage
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedClicks));
-      
-      // 4. Immediately re-sort from DEFAULT_CARDS
-      const newSorted = getSortedCards(updatedClicks);
-      
-      // 5. Update state instantly
-      setCards(newSorted);
-      
-      console.log(`[QuickAccess] UI Updated. New Top Card: ${newSorted[0]?.name}`);
     } catch (err) {
-      console.error("[QuickAccess] Error in handleCardClick:", err);
+      console.error('[QuickAccess] Error in handleCardClick:', err);
     }
   };
 
-  // Sync logic for external changes (like navigation tracker)
-  useEffect(() => {
-    const sync = () => {
-      try {
-        const s = localStorage.getItem(STORAGE_KEY);
-        const latestClicks = s ? JSON.parse(s) : {};
-        const freshSorted = getSortedCards(latestClicks);
-        
-        // Only update state if order has actually changed to prevent loops/flicker
-        setCards(prev => {
-          const isSame = prev.length === freshSorted.length && 
-                         prev.every((c, i) => normalizePath(c.path) === normalizePath(freshSorted[i].path));
-          return isSame ? prev : freshSorted;
-        });
-      } catch (err) {}
-    };
-
-    const interval = setInterval(sync, 1000);
-    window.addEventListener('storage', sync);
-    
-    return () => {
-      clearInterval(interval);
-      window.removeEventListener('storage', sync);
-    };
-  }, [getSortedCards]);
-
   return (
-    <div className="hero-card animate-on-scroll">
-      <div className="hero-card-title">Quick Access</div>
-      {cards.map((s) => (
-        <Link 
-          key={s.id} 
-          to={s.path} 
-          className="hero-card-item visible"
-          onClick={() => handleCardClick(s.path)}
-        >
-          <div className="hero-card-icon" style={{ background: s.bg }}>{s.icon}</div>
-          <div className="hero-card-item-text">
-            <div className="hero-card-item-name">{s.name}</div>
-            <div className="hero-card-item-desc">{s.desc}</div>
+    <div className="quick-access-wrapper animate-on-scroll">
+      {/* Header */}
+      <div className="qa-header">
+        <h2 className="qa-title">
+          <span className="qa-title-quick">QUICK </span>
+          <span className="qa-title-access">ACCESS</span>
+        </h2>
+        <p className="qa-subtitle">Faster access to what you need</p>
+      </div>
+
+      {/* Compact Orbital Arena */}
+      <div className="qa-orbit-arena">
+        {/* Center Glowing 3D Stage / Platform */}
+        <div className="qa-center-stage">
+          {/* Outer Orbit Track with Chevrons */}
+          <div className="qa-orbit-outer">
+            <span className="qa-chevron-left">«</span>
+            <span className="qa-chevron-right">»</span>
           </div>
-          <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem' }}>›</span>
-        </Link>
-      ))}
+
+          {/* Inner Glowing Disc */}
+          <div className="qa-orbit-inner" />
+
+          {/* Center Brand Badge Platform */}
+          <div className="qa-core-disc">
+            <div className="qa-brand-badge">
+              <span className="qa-brand-pi">Pi</span>
+              <div className="qa-brand-text">
+                <span className="qa-brand-tech">Tech</span>
+                <span className="qa-brand-sub">Automation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Holographic Vertical Beam */}
+        <div className="qa-vertical-beam" />
+
+        {/* 4 Flipping 3D Orbital Cards */}
+        {ORBIT_CARDS.map((card, idx) => {
+          const isAutoFlipped = flippedIndex === idx;
+
+          return (
+            <Link
+              key={card.id}
+              to={card.path}
+              className={`qa-flip-card qa-node-${card.position} ${isAutoFlipped ? 'is-flipped' : ''}`}
+              onClick={() => handleCardClick(card.path)}
+            >
+              <div className="qa-flip-inner">
+                {/* Front Face */}
+                <div className="qa-flip-front">
+                  <div className={`qa-tile qa-tile-${card.theme}`}>
+                    <div className="qa-tile-gloss" />
+                    <div className="qa-tile-icon">{card.icon}</div>
+                  </div>
+                  <div className="qa-info">
+                    <span className="qa-info-title">{card.name}</span>
+                    <span className="qa-info-desc">{card.desc}</span>
+                  </div>
+                </div>
+
+                {/* Back Face (Flip) */}
+                <div className={`qa-flip-back qa-back-${card.theme}`}>
+                  <span className="qa-back-badge">{card.backBadge}</span>
+                  <span className="qa-back-cta">{card.backCta}</span>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }
-
-
-

@@ -1,0 +1,3019 @@
+/* ============================================================
+   SOLUTIONS TOPIC-SPECIFIC HERO ANIMATIONS
+   Completely unique, bespoke designs for every solution point
+   ============================================================ */
+
+/* ── Base Container for All Hero Animations ── */
+.solution-hero-anim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 4;
+  --mouse-x: 0;
+  --mouse-y: 0;
+}
+
+/* ── Movable Interactive Parallax Layers ── */
+.anim-move-layer-1 {
+  transform: translate3d(calc(var(--mouse-x, 0) * 28px),
+      calc(var(--mouse-y, 0) * 22px),
+      0);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.anim-move-layer-2 {
+  transform: translate3d(calc(var(--mouse-x, 0) * -38px),
+      calc(var(--mouse-y, 0) * -28px),
+      0);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.anim-move-layer-3 {
+  transform: translate3d(calc(var(--mouse-x, 0) * 48px),
+      calc(var(--mouse-y, 0) * 36px),
+      0);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* ── Shared Status Dots & Points ── */
+.anim-pulse-point {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.anim-pulse-point.green {
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulseDotGreen 1.5s infinite alternate;
+}
+
+.anim-pulse-point.blue,
+.anim-pulse-point.cyan {
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: pulseDotBlue 1.5s infinite alternate;
+}
+
+.anim-pulse-point.amber {
+  background: #f59e0b;
+  box-shadow: 0 0 10px #f59e0b;
+  animation: pulseDotAmber 1.5s infinite alternate;
+}
+
+@keyframes pulseDotGreen {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseDotBlue {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseDotAmber {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   1. AI BASED VISION: Camera Viewfinder & Reticle
+   ============================================================ */
+.anim-vision-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px),
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px, 36px 36px;
+  opacity: 0.85;
+}
+
+.anim-vision-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 5%, #38bdf8 30%, #60a5fa 70%, transparent 95%);
+  box-shadow: 0 0 15px 2px rgba(56, 189, 248, 0.8);
+  animation: scanlineSweep 3.2s ease-in-out infinite;
+}
+
+@keyframes scanlineSweep {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.anim-vision-viewfinder {
+  position: absolute;
+  right: 18%;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anim-reticle-outer {
+  position: absolute;
+  inset: 0;
+  border: 2px dashed rgba(56, 189, 248, 0.65);
+  border-radius: 50%;
+  animation: reticleSpinCW 14s linear infinite;
+}
+
+.anim-reticle-inner {
+  position: absolute;
+  inset: 22px;
+  border: 1.5px dotted rgba(96, 165, 250, 0.8);
+  border-radius: 50%;
+  animation: reticleSpinCCW 9s linear infinite;
+}
+
+@keyframes reticleSpinCW {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reticleSpinCCW {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.anim-target-pulse-dot {
+  width: 12px;
+  height: 12px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 4px #22c55e;
+  animation: targetPulse 1.4s infinite alternate;
+}
+
+@keyframes targetPulse {
+  0% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1.4);
+  }
+}
+
+.anim-viewfinder-frame {
+  position: absolute;
+  inset: -15px;
+  pointer-events: none;
+}
+
+.anim-bracket {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: #38bdf8;
+  border-style: solid;
+}
+
+.anim-bracket.tl {
+  top: 0;
+  left: 0;
+  border-width: 3px 0 0 3px;
+}
+
+.anim-bracket.tr {
+  top: 0;
+  right: 0;
+  border-width: 3px 3px 0 0;
+}
+
+.anim-bracket.bl {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 3px 3px;
+}
+
+.anim-bracket.br {
+  bottom: 0;
+  right: 0;
+  border-width: 0 3px 3px 0;
+}
+
+.anim-viewfinder-tag {
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.anim-vision-telemetry-stack {
+  position: absolute;
+  right: 5%;
+  top: 48%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.anim-hud-badge {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 8px 14px;
+  color: #f1f5f9;
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.anim-hud-badge.vision-live {
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.anim-hud-badge.vision-live strong {
+  color: #4ade80;
+}
+
+.anim-hud-badge.vision-sub strong {
+  color: #38bdf8;
+}
+
+.anim-hud-badge.vision-chip {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  padding: 5px 12px;
+}
+
+.anim-crosshair {
+  position: absolute;
+  color: rgba(56, 189, 248, 0.5);
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.anim-crosshair.c1 {
+  top: 20%;
+  right: 40%;
+}
+
+.anim-crosshair.c2 {
+  bottom: 25%;
+  right: 12%;
+}
+
+.anim-crosshair.c3 {
+  top: 75%;
+  right: 35%;
+}
+
+/* ============================================================
+   2. BLE TAG: Concentric Radiating Radar & Roaming Pings
+   ============================================================ */
+.anim-ble-wave {
+  position: absolute;
+  right: 18%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  border: 1.5px solid #38bdf8;
+  border-radius: 50%;
+  animation: bleWavePulse 4s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+.anim-ble-wave.w1 {
+  animation-delay: 0s;
+}
+
+.anim-ble-wave.w2 {
+  animation-delay: 1s;
+}
+
+.anim-ble-wave.w3 {
+  animation-delay: 2s;
+}
+
+.anim-ble-wave.w4 {
+  animation-delay: 3s;
+}
+
+@keyframes bleWavePulse {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  100% {
+    width: 440px;
+    height: 440px;
+    opacity: 0;
+  }
+}
+
+.anim-ble-center-wrap {
+  position: absolute;
+  right: 18%;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.anim-ble-beacon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px #38bdf8;
+  position: relative;
+  z-index: 2;
+}
+
+.anim-ble-beacon-aura {
+  position: absolute;
+  inset: -12px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.5);
+  border-radius: 50%;
+  animation: reticleSpinCW 8s linear infinite;
+}
+
+.anim-ble-asset-tag {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.anim-ble-asset-tag.t1 {
+  right: 26%;
+  top: 25%;
+  animation: floatBLE1 7s ease-in-out infinite alternate;
+}
+
+.anim-ble-asset-tag.t2 {
+  right: 5%;
+  top: 60%;
+  animation: floatBLE2 8s ease-in-out infinite alternate;
+}
+
+.anim-ble-asset-tag.t3 {
+  right: 28%;
+  top: 72%;
+  animation: floatBLE3 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatBLE1 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-14px, 12px);
+  }
+}
+
+@keyframes floatBLE2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(12px, -15px);
+  }
+}
+
+@keyframes floatBLE3 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-8px, -12px);
+  }
+}
+
+.anim-ble-asset-info strong {
+  display: block;
+  font-size: 0.78rem;
+  color: #f8fafc;
+}
+
+.anim-ble-asset-info span {
+  display: block;
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+.anim-ble-ping-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.anim-ble-ping-dot.green {
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.anim-ble-ping-dot.blue {
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.anim-ble-ping-dot.amber {
+  background: #f59e0b;
+  box-shadow: 0 0 10px #f59e0b;
+}
+
+/* ============================================================
+   3. ENERGY MONITORING: Flowing AC Sine Waves & Telemetry
+   ============================================================ */
+.anim-energy-wave-container {
+  position: absolute;
+  right: 0%;
+  top: 52%;
+  transform: translateY(-50%);
+  width: 580px;
+  height: 160px;
+}
+
+.anim-energy-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
+}
+
+.anim-sine-path {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: sineFlow 4s linear infinite;
+}
+
+.anim-sine-path.r-phase {
+  animation-delay: 0s;
+}
+
+.anim-sine-path.y-phase {
+  animation-delay: -1.3s;
+}
+
+.anim-sine-path.b-phase {
+  animation-delay: -2.6s;
+}
+
+@keyframes sineFlow {
+  0% {
+    stroke-dashoffset: 800;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.anim-energy-spark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 14px 4px #38bdf8;
+}
+
+.anim-energy-spark.s1 {
+  top: 48%;
+  left: 25%;
+  animation: sparkMove 4s linear infinite;
+}
+
+.anim-energy-spark.s2 {
+  top: 52%;
+  left: 60%;
+  background: #f59e0b;
+  box-shadow: 0 0 14px 4px #f59e0b;
+  animation: sparkMove 4s linear infinite reverse;
+}
+
+.anim-energy-spark.s3 {
+  top: 46%;
+  left: 80%;
+  background: #22c55e;
+  box-shadow: 0 0 14px 4px #22c55e;
+  animation: sparkMove 3s linear infinite;
+}
+
+@keyframes sparkMove {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(160px);
+    opacity: 0;
+  }
+}
+
+.anim-energy-telemetry-hud {
+  position: absolute;
+  right: 6%;
+  top: 48%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: floatEnergyHUD 7s ease-in-out infinite alternate;
+}
+
+@keyframes floatEnergyHUD {
+  0% {
+    transform: translateY(-50%) translate(0, 0);
+  }
+
+  100% {
+    transform: translateY(-50%) translate(-12px, -14px);
+  }
+}
+
+.anim-energy-pill {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  border-radius: 999px;
+  padding: 6px 14px;
+  color: #f1f5f9;
+  font-size: 0.74rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.anim-energy-card {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.45);
+  border-radius: 12px;
+  padding: 14px 18px;
+  width: 220px;
+  backdrop-filter: blur(10px);
+}
+
+.anim-energy-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.74rem;
+  color: #94a3b8;
+}
+
+.anim-energy-card-row strong {
+  font-size: 0.88rem;
+}
+
+.anim-kpi-green {
+  color: #4ade80;
+}
+
+.anim-kpi-cyan {
+  color: #38bdf8;
+}
+
+.anim-energy-bar-track {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.anim-energy-bar-fill {
+  width: 92%;
+  height: 100%;
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+  border-radius: 3px;
+}
+
+/* ============================================================
+   4. PREDICTIVE MAINTENANCE: ECG Waveform + FFT Spectrum
+   ============================================================ */
+.anim-pm-wave-wrap {
+  position: absolute;
+  right: 2%;
+  top: 52%;
+  transform: translateY(-50%);
+  width: 540px;
+  height: 140px;
+}
+
+.anim-pm-ecg-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.55));
+}
+
+.anim-ecg-path {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: ecgStroke 3.5s linear infinite;
+}
+
+@keyframes ecgStroke {
+  0% {
+    stroke-dashoffset: 700;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.anim-pm-spectrum {
+  position: absolute;
+  right: 26%;
+  top: 34%;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 40px;
+}
+
+.anim-fft-bar {
+  width: 5px;
+  background: #38bdf8;
+  border-radius: 2px;
+  animation: fftBounce 1.2s ease-in-out infinite alternate;
+}
+
+.anim-fft-bar.f1 {
+  height: 35%;
+  animation-delay: 0.1s;
+}
+
+.anim-fft-bar.f2 {
+  height: 65%;
+  animation-delay: 0.3s;
+  background: #22c55e;
+}
+
+.anim-fft-bar.f3 {
+  height: 90%;
+  animation-delay: 0.2s;
+  background: #f59e0b;
+}
+
+.anim-fft-bar.f4 {
+  height: 45%;
+  animation-delay: 0.5s;
+}
+
+.anim-fft-bar.f5 {
+  height: 80%;
+  animation-delay: 0.4s;
+  background: #38bdf8;
+}
+
+.anim-fft-bar.f6 {
+  height: 50%;
+  animation-delay: 0.2s;
+}
+
+.anim-fft-bar.f7 {
+  height: 70%;
+  animation-delay: 0.6s;
+  background: #22c55e;
+}
+
+.anim-fft-bar.f8 {
+  height: 30%;
+  animation-delay: 0.3s;
+}
+
+@keyframes fftBounce {
+  0% {
+    transform: scaleY(0.35);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.anim-pm-hud {
+  position: absolute;
+  right: 6%;
+  top: 48%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: floatPM 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatPM {
+  0% {
+    transform: translateY(-50%) translate(0, 0);
+  }
+
+  100% {
+    transform: translateY(-50%) translate(10px, -12px);
+  }
+}
+
+.anim-pm-pill {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  padding: 6px 14px;
+  color: #f1f5f9;
+  font-size: 0.74rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.anim-pm-card {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.4);
+  border-radius: 12px;
+  padding: 14px 18px;
+  width: 230px;
+  backdrop-filter: blur(10px);
+}
+
+.anim-pm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.74rem;
+  color: #94a3b8;
+}
+
+.anim-pm-row strong {
+  font-size: 0.88rem;
+}
+
+.anim-pm-status-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* ============================================================
+   5. DIGITAL ANDON: 3D Physical Signal Light Tower
+   ============================================================ */
+.anim-andon-radiance {
+  position: absolute;
+  right: 28%;
+  top: 40%;
+  transform: translate(50%, -50%);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 50%;
+  animation: andonRadiancePulse 3.5s ease-out infinite;
+}
+
+.anim-andon-radiance.r1 {
+  animation-delay: 0s;
+}
+
+.anim-andon-radiance.r2 {
+  animation-delay: 1.8s;
+}
+
+@keyframes andonRadiancePulse {
+  0% {
+    width: 40px;
+    height: 40px;
+    opacity: 0.8;
+  }
+
+  100% {
+    width: 340px;
+    height: 340px;
+    opacity: 0;
+  }
+}
+
+.anim-andon-tower-wrap {
+  position: absolute;
+  right: 28%;
+  top: 48%;
+  transform: translateY(-50%);
+}
+
+.anim-andon-tower {
+  width: 58px;
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.anim-andon-cap {
+  width: 28px;
+  height: 6px;
+  background: #64748b;
+  border-radius: 3px 3px 0 0;
+}
+
+.anim-andon-light {
+  width: 36px;
+  height: 30px;
+  margin: 4px 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anim-andon-light.green {
+  background: rgba(34, 197, 94, 0.2);
+  border: 1.5px solid #22c55e;
+}
+
+.anim-lens-glow.green {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 22px 6px #22c55e;
+  animation: andonPulse 1.2s infinite alternate;
+}
+
+.anim-andon-light.amber {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.anim-lens-glow.amber {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.6);
+}
+
+.anim-andon-light.red {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.anim-andon-pole {
+  width: 8px;
+  height: 28px;
+  background: #475569;
+}
+
+.anim-andon-base {
+  width: 44px;
+  height: 8px;
+  background: #334155;
+  border-radius: 4px;
+}
+
+.anim-andon-hud {
+  position: absolute;
+  right: 5%;
+  top: 48%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.anim-andon-status-card {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.anim-andon-status-card.green {
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.anim-andon-status-card.amber {
+  border-color: rgba(245, 158, 11, 0.5);
+}
+
+.anim-andon-status-card strong {
+  display: block;
+  font-size: 0.76rem;
+  color: #f8fafc;
+}
+
+.anim-andon-status-card span {
+  display: block;
+  font-size: 0.66rem;
+  color: #94a3b8;
+}
+
+/* ============================================================
+   6. PRODUCTION DASHBOARD: Operator Cockpit Console
+   ============================================================ */
+.anim-prod-console {
+  position: absolute;
+  right: 6%;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 320px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 14px;
+  padding: 16px 20px;
+  backdrop-filter: blur(12px);
+  animation: floatProdConsole 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatProdConsole {
+  0% {
+    transform: translateY(-50%) translate(0, 0);
+  }
+
+  100% {
+    transform: translateY(-50%) translate(-8px, -12px);
+  }
+}
+
+.anim-prod-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 8px;
+}
+
+.anim-prod-title {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.5px;
+}
+
+.anim-live-chip {
+  font-size: 0.65rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+.anim-prod-metric-group {
+  margin-bottom: 12px;
+}
+
+.anim-prod-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin-bottom: 5px;
+}
+
+.anim-prod-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.anim-prod-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.anim-prod-fill.cyan {
+  width: 98.6%;
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+}
+
+.anim-prod-fill.green {
+  width: 93.3%;
+  background: linear-gradient(90deg, #16a34a, #4ade80);
+}
+
+.anim-prod-footer-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.anim-prod-footer-row strong {
+  color: #ffffff;
+}
+
+.anim-prod-mini-widget {
+  position: absolute;
+  right: 28%;
+  top: 68%;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(8px);
+  animation: floatMiniWidget 5s ease-in-out infinite alternate;
+}
+
+@keyframes floatMiniWidget {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(12px, 8px);
+  }
+}
+
+.anim-spark-title {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.anim-spark-value {
+  font-size: 0.86rem;
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+/* ============================================================
+   7. OEE DASHBOARD: Subtle Cybernetic Radar Overlay
+   ============================================================ */
+.anim-oee-subtle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.anim-oee-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(56, 189, 248, 0) 15%,
+      rgba(56, 189, 248, 0.75) 50%,
+      rgba(56, 189, 248, 0) 85%,
+      transparent 100%);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+  opacity: 0.75;
+  animation: oeeScanlineSweep 6.5s ease-in-out infinite;
+}
+
+@keyframes oeeScanlineSweep {
+  0% {
+    top: 6%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.75;
+  }
+
+  85% {
+    opacity: 0.75;
+  }
+
+  100% {
+    top: 94%;
+    opacity: 0;
+  }
+}
+
+.anim-oee-radar-ping-wrap {
+  position: absolute;
+  right: 17%;
+  top: 67%;
+  transform: translate(50%, -50%);
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+}
+
+.anim-oee-radar-ring {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.22);
+}
+
+.anim-oee-radar-ring-dashed {
+  position: absolute;
+  inset: 20px;
+  border: 1px dashed rgba(96, 165, 250, 0.45);
+  border-radius: 50%;
+  animation: reticleSpinCW 16s linear infinite;
+}
+
+.anim-oee-radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+      rgba(56, 189, 248, 0.35) 0deg,
+      rgba(56, 189, 248, 0.04) 45deg,
+      transparent 55deg,
+      transparent 360deg);
+  animation: radarBeamSpin 4.5s linear infinite;
+}
+
+@keyframes radarBeamSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.anim-oee-radar-center-blip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: oeePingBlip 2.2s infinite;
+}
+
+@keyframes oeePingBlip {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.6);
+    opacity: 1;
+  }
+}
+
+.anim-oee-telemetry-badge {
+  position: absolute;
+  right: 5%;
+  top: 22%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(15, 23, 42, 0.68);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  animation: floatOEEBadge 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatOEEBadge {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.anim-oee-badge-text {
+  font-size: 0.72rem;
+  letter-spacing: 1.2px;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.anim-oee-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.anim-oee-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.anim-oee-particle.p1 {
+  width: 5px;
+  height: 5px;
+  top: 24%;
+  left: 48%;
+  animation: floatOEEParticle1 6s ease-in-out infinite alternate;
+}
+
+.anim-oee-particle.p2 {
+  width: 6px;
+  height: 6px;
+  top: 76%;
+  left: 36%;
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80;
+  animation: floatOEEParticle2 8s ease-in-out infinite alternate;
+}
+
+.anim-oee-particle.p3 {
+  width: 4px;
+  height: 4px;
+  top: 42%;
+  right: 28%;
+  animation: floatOEEParticle1 7s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatOEEParticle1 {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translateY(-16px) translateX(12px);
+    opacity: 0.85;
+  }
+}
+
+@keyframes floatOEEParticle2 {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(14px) translateX(-12px);
+    opacity: 0.8;
+  }
+}
+
+/* ============================================================
+   8. DIGITAL WORK INSTRUCTIONS: Connected Vertical Pipeline
+   ============================================================ */
+.anim-dwi-flow {
+  position: absolute;
+  right: 6%;
+  top: 48%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 290px;
+  animation: floatDWI 7s ease-in-out infinite alternate;
+}
+
+@keyframes floatDWI {
+  0% {
+    transform: translateY(-50%) translate(0, 0);
+  }
+
+  100% {
+    transform: translateY(-50%) translate(-10px, -12px);
+  }
+}
+
+.anim-dwi-station-tag {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.anim-dwi-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  padding: 10px 14px;
+  backdrop-filter: blur(10px);
+}
+
+.anim-dwi-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.anim-dwi-check.verified {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border: 1px solid #22c55e;
+}
+
+.anim-dwi-check.active {
+  background: rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+  border: 1.5px solid #38bdf8;
+  animation: andonPulse 1.2s infinite alternate;
+}
+
+.anim-dwi-check.pending {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+  border: 1px dashed #64748b;
+}
+
+.anim-dwi-step-content strong {
+  display: block;
+  font-size: 0.76rem;
+  color: #f8fafc;
+}
+
+.anim-dwi-step-content span {
+  display: block;
+  font-size: 0.66rem;
+  color: #94a3b8;
+}
+
+.anim-dwi-connector-line {
+  width: 2px;
+  height: 12px;
+  background: rgba(56, 189, 248, 0.4);
+  margin-left: 24px;
+  position: relative;
+}
+
+.anim-dwi-pulse-bead {
+  position: absolute;
+  left: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: dwiBeadDrop 1.6s infinite;
+}
+
+@keyframes dwiBeadDrop {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   9. IIoT PLATFORM: Constellation Mesh / Network Topology
+   ============================================================ */
+.anim-iiot-mesh {
+  position: absolute;
+  right: 5%;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 440px;
+  height: 180px;
+  animation: floatIIoTMesh 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatIIoTMesh {
+  0% {
+    transform: translateY(-50%) translate(0, 0);
+  }
+
+  100% {
+    transform: translateY(-50%) translate(-12px, -10px);
+  }
+}
+
+.anim-iiot-svg-streams {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.anim-stream-line {
+  stroke: rgba(56, 189, 248, 0.4);
+  stroke-width: 2;
+}
+
+.anim-stream-line.dashed {
+  stroke: rgba(96, 165, 250, 0.45);
+  stroke-dasharray: 6 4;
+}
+
+.anim-iiot-node {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #f8fafc;
+  backdrop-filter: blur(10px);
+}
+
+.anim-iiot-node.plc {
+  left: 20px;
+  top: 65px;
+}
+
+.anim-iiot-node.edge {
+  left: 170px;
+  top: 60px;
+  border-color: #38bdf8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+}
+
+.anim-iiot-node.scada {
+  left: 310px;
+  top: 65px;
+}
+
+.anim-iiot-node.cloud {
+  left: 290px;
+  top: 10px;
+  border-color: rgba(96, 165, 250, 0.6);
+}
+
+.anim-node-icon {
+  font-size: 1.2rem;
+}
+
+.anim-node-ring {
+  position: absolute;
+  inset: -6px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.6);
+  border-radius: 14px;
+  animation: reticleSpinCW 10s linear infinite;
+}
+
+.anim-iiot-packet {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 12px 3px #38bdf8;
+}
+
+.anim-iiot-packet.pkt1 {
+  top: 90px;
+  animation: packetMoveH 3.2s infinite ease-in-out;
+}
+
+.anim-iiot-packet.pkt2 {
+  top: 50px;
+  animation: packetMoveDiag 3.8s infinite ease-in-out;
+}
+
+@keyframes packetMoveH {
+  0% {
+    left: 70px;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 300px;
+    opacity: 0;
+  }
+}
+
+@keyframes packetMoveDiag {
+  0% {
+    left: 180px;
+    top: 80px;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 300px;
+    top: 30px;
+    opacity: 0;
+  }
+}
+
+.anim-iiot-telemetry {
+  position: absolute;
+  right: 6%;
+  top: 76%;
+  display: flex;
+  gap: 10px;
+}
+
+.anim-iiot-chip {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.72rem;
+  color: #e2e8f0;
+}
+
+.anim-iiot-chip.green {
+  border-color: rgba(34, 197, 94, 0.45);
+  color: #4ade80;
+}
+
+.anim-iiot-chip.blue {
+  border-color: rgba(56, 189, 248, 0.45);
+  color: #38bdf8;
+}
+
+/* ============================================================
+   10. FACTORY DIGITALIZATION: 3D Perspective Digital Twin Grid
+   ============================================================ */
+.anim-digit-grid {
+  position: absolute;
+  right: -5%;
+  bottom: -20px;
+  width: 650px;
+  height: 260px;
+  background-image:
+    linear-gradient(to right, rgba(56, 189, 248, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.16) 1px, transparent 1px);
+  background-size: 28px 28px;
+  transform: perspective(400px) rotateX(55deg);
+  transform-origin: bottom center;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+}
+
+.anim-digit-packet {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 14px 4px #38bdf8;
+  animation: digitPhotonJump 3.5s infinite linear;
+}
+
+.anim-digit-packet.p1 {
+  right: 25%;
+  top: 50%;
+  animation-delay: 0s;
+}
+
+.anim-digit-packet.p2 {
+  right: 12%;
+  top: 65%;
+  animation-delay: 1.2s;
+  background: #22c55e;
+  box-shadow: 0 0 14px 4px #22c55e;
+}
+
+.anim-digit-packet.p3 {
+  right: 35%;
+  top: 70%;
+  animation-delay: 2s;
+}
+
+.anim-digit-packet.p4 {
+  right: 20%;
+  top: 40%;
+  animation-delay: 2.8s;
+  background: #f59e0b;
+  box-shadow: 0 0 14px 4px #f59e0b;
+}
+
+@keyframes digitPhotonJump {
+  0% {
+    transform: translateY(30px) scale(0.6);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-40px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+.anim-digit-hud {
+  position: absolute;
+  right: 6%;
+  top: 48%;
+  transform: translateY(-50%);
+  animation: floatDigitHUD 7s ease-in-out infinite alternate;
+}
+
+@keyframes floatDigitHUD {
+  0% {
+    transform: translateY(-50%) translate(0, 0);
+  }
+
+  100% {
+    transform: translateY(-50%) translate(-10px, -12px);
+  }
+}
+
+.anim-digit-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 14px;
+  padding: 16px 22px;
+  width: 270px;
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.anim-digit-card-top {
+  display: flex;
+  align-items: center;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 8px;
+}
+
+.anim-digit-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.anim-digit-stat strong {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.anim-digit-stat span {
+  display: block;
+  font-size: 0.62rem;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+.anim-digit-scan-beam {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.18), transparent);
+  animation: digitCardScan 4s infinite linear;
+}
+
+@keyframes digitCardScan {
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+/* ============================================================
+   11. ABOUT US (OUR STORY): Ambient 3D Hero Background Animation
+   ============================================================ */
+.anim-about-bg-view {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Background Cyber Grid */
+.anim-about-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at 75% 50%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 75% 50%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 75%);
+}
+
+/* Ambient Sweeping Laser */
+.anim-about-laser {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(56, 189, 248, 0.4) 25%, #38bdf8 50%, rgba(56, 189, 248, 0.4) 75%, transparent);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+  animation: aboutLaserScan 9s ease-in-out infinite alternate;
+}
+
+@keyframes aboutLaserScan {
+  0% {
+    left: 15%;
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+
+  100% {
+    left: 88%;
+    opacity: 0.2;
+  }
+}
+
+/* 3D Ambient Orbital Rings in Background */
+.anim-about-orbital-wrap {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  width: 380px;
+  height: 380px;
+  margin-top: -190px;
+  perspective: 900px;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.anim-about-center-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(14, 165, 233, 0.06) 50%, transparent 70%);
+  filter: blur(14px);
+  animation: aboutGlowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes aboutGlowPulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: scale(1.25);
+    opacity: 0.85;
+  }
+}
+
+.anim-about-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.anim-about-ring.r1 {
+  width: 280px;
+  height: 280px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.35);
+  transform: rotateX(68deg) rotateY(15deg);
+  animation: aboutRingSpin1 24s linear infinite;
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.12);
+}
+
+.anim-about-ring.r2 {
+  width: 210px;
+  height: 210px;
+  border: 1.5px solid rgba(96, 165, 250, 0.35);
+  border-top-color: #38bdf8;
+  border-bottom-color: #22c55e;
+  transform: rotateX(68deg) rotateY(-22deg);
+  animation: aboutRingSpin2 17s linear infinite reverse;
+}
+
+.anim-about-ring.r3 {
+  width: 140px;
+  height: 140px;
+  border: 1px dotted rgba(34, 197, 94, 0.4);
+  transform: rotateX(60deg) rotateY(0deg);
+  animation: aboutRingSpin1 12s linear infinite;
+}
+
+@keyframes aboutRingSpin1 {
+  from {
+    transform: rotateX(68deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(68deg) rotateZ(360deg);
+  }
+}
+
+@keyframes aboutRingSpin2 {
+  from {
+    transform: rotateX(68deg) rotateZ(360deg);
+  }
+
+  to {
+    transform: rotateX(68deg) rotateZ(0deg);
+  }
+}
+
+/* Floating Constellation Tech Particles */
+.anim-about-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.anim-about-node {
+  position: absolute;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px 1px #38bdf8;
+  animation: aboutParticleFloat 5s ease-in-out infinite alternate;
+}
+
+.anim-about-node.n1 {
+  width: 5px;
+  height: 5px;
+  right: 16%;
+  top: 26%;
+  animation-duration: 4.5s;
+}
+
+.anim-about-node.n2 {
+  width: 4px;
+  height: 4px;
+  right: 30%;
+  top: 62%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+  background: #22c55e;
+  box-shadow: 0 0 8px 1px #22c55e;
+}
+
+.anim-about-node.n3 {
+  width: 6px;
+  height: 6px;
+  right: 8%;
+  top: 72%;
+  animation-duration: 5.2s;
+  animation-delay: 2s;
+}
+
+.anim-about-node.n4 {
+  width: 4px;
+  height: 4px;
+  right: 24%;
+  top: 32%;
+  animation-duration: 4s;
+  animation-delay: 0.5s;
+}
+
+.anim-about-node.n5 {
+  width: 3px;
+  height: 3px;
+  right: 14%;
+  top: 82%;
+  animation-duration: 7s;
+  animation-delay: 1.5s;
+  background: #fbbf24;
+  box-shadow: 0 0 8px 1px #fbbf24;
+}
+
+@keyframes aboutParticleFloat {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(-16px) scale(1.2);
+    opacity: 0.9;
+  }
+}
+
+/* Floating Tech Crosshairs */
+.anim-about-crosshair {
+  position: absolute;
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(56, 189, 248, 0.4);
+  pointer-events: none;
+  user-select: none;
+}
+
+.anim-about-crosshair.c1 {
+  right: 28%;
+  top: 20%;
+  animation: aboutCrossFloat 7s ease-in-out infinite alternate;
+}
+
+.anim-about-crosshair.c2 {
+  right: 10%;
+  top: 42%;
+  animation: aboutCrossFloat 9s ease-in-out infinite alternate-reverse;
+}
+
+.anim-about-crosshair.c3 {
+  right: 22%;
+  top: 76%;
+  animation: aboutCrossFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes aboutCrossFloat {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translate(8px, -12px);
+    opacity: 0.7;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE LAYOUTS
+   ============================================================ */
+@media (max-width: 1024px) {
+
+  .anim-vision-viewfinder,
+  .anim-ble-wave,
+  .anim-energy-wave-container,
+  .anim-pm-wave-wrap,
+  .anim-andon-tower-wrap,
+  .anim-prod-console,
+  .anim-dwi-flow,
+  .anim-iiot-mesh,
+  .anim-digit-grid,
+  .anim-about-orbital-wrap {
+    opacity: 0.7;
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 868px) {
+
+  .anim-vision-viewfinder,
+  .anim-ble-wave,
+  .anim-energy-wave-container,
+  .anim-pm-wave-wrap,
+  .anim-andon-tower-wrap,
+  .anim-prod-console,
+  .anim-dwi-flow,
+  .anim-iiot-mesh,
+  .anim-digit-grid,
+  .anim-about-orbital-wrap {
+    display: none;
+  }
+}
+
+/* ============================================================
+   12. SENSORS: Proximity Beam + Radar + Metric Tags
+   ============================================================ */
+.anim-sensor-view {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 4;
+}
+
+/* Background faint grid */
+.anim-sensor-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse at 70% 50%, rgba(0, 0, 0, 0.9) 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 50%, rgba(0, 0, 0, 0.9) 0%, transparent 70%);
+}
+
+/* Radar sweep */
+.anim-sensor-radar-wrap {
+  position: absolute;
+  right: 14%;
+  top: 50%;
+  width: 260px;
+  height: 260px;
+  margin-top: -130px;
+  margin-right: -130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anim-sensor-radar-ring {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.anim-sensor-radar-ring.sr1 {
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+}
+
+.anim-sensor-radar-ring.sr2 {
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+}
+
+.anim-sensor-radar-ring.sr3 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.anim-sensor-radar-sweep {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: conic-gradient(rgba(56, 189, 248, 0.35) 0deg,
+      rgba(56, 189, 248, 0.0) 80deg);
+  transform-origin: center center;
+  animation: sensorRadarSpin 4s linear infinite;
+}
+
+@keyframes sensorRadarSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.anim-sensor-radar-center {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 12px 4px #38bdf8, 0 0 24px 8px rgba(56, 189, 248, 0.35);
+  animation: sensorCenterPulse 2s ease-in-out infinite;
+}
+
+@keyframes sensorCenterPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.6;
+  }
+}
+
+/* Sensor probe + beam */
+.anim-sensor-probe-wrap {
+  position: absolute;
+  right: 32%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  pointer-events: none;
+}
+
+/* 3D Sensor body */
+.anim-sensor-3d-wrap {
+  position: absolute;
+  right: 30%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  pointer-events: none;
+}
+
+.anim-sensor-3d-body {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  transform-style: preserve-3d;
+  animation: sensor3DFloat 5s ease-in-out infinite alternate;
+}
+
+@keyframes sensor3DFloat {
+  0% {
+    transform: translateY(0) rotateX(15deg) rotateY(-20deg);
+  }
+
+  100% {
+    transform: translateY(-10px) rotateX(8deg) rotateY(-30deg);
+  }
+}
+
+.anim-sensor-3d-face {
+  position: absolute;
+  border-radius: 8px;
+}
+
+.anim-sensor-3d-face.front {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.55);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25), inset 0 0 12px rgba(56, 189, 248, 0.08);
+}
+
+.anim-sensor-3d-face.top {
+  width: 52px;
+  height: 16px;
+  top: -10px;
+  left: 0;
+  background: linear-gradient(to bottom, #2563eb 0%, #1e3a5f 100%);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  transform: rotateX(-60deg);
+  transform-origin: top center;
+}
+
+.anim-sensor-3d-face.side {
+  width: 16px;
+  height: 52px;
+  top: 0;
+  right: -10px;
+  background: linear-gradient(to right, #1e3a5f 0%, #0f172a 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  transform: rotateY(60deg);
+  transform-origin: left center;
+}
+
+/* Glowing LED on face */
+.anim-sensor-3d-led {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px 3px #22c55e;
+  top: 10px;
+  right: 10px;
+  animation: sensorLedBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes sensorLedBlink {
+
+  0%,
+  90%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* Halo rings orbiting the sensor body */
+.anim-sensor-halo {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  top: 50%;
+  left: 50%;
+}
+
+.anim-sensor-halo.h1 {
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+  animation: sensorHaloSpin1 6s linear infinite;
+}
+
+.anim-sensor-halo.h2 {
+  width: 110px;
+  height: 110px;
+  margin: -55px 0 0 -55px;
+  border-color: rgba(96, 165, 250, 0.25);
+  border-style: dashed;
+  animation: sensorHaloSpin2 10s linear infinite reverse;
+}
+
+@keyframes sensorHaloSpin1 {
+  from {
+    transform: rotateZ(0deg) rotateX(65deg);
+  }
+
+  to {
+    transform: rotateZ(360deg) rotateX(65deg);
+  }
+}
+
+@keyframes sensorHaloSpin2 {
+  from {
+    transform: rotateZ(0deg) rotateX(40deg) rotateY(20deg);
+  }
+
+  to {
+    transform: rotateZ(360deg) rotateX(40deg) rotateY(20deg);
+  }
+}
+
+.anim-sensor-beam {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #38bdf8, rgba(56, 189, 248, 0));
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+  animation: sensorBeamPulse 2s ease-in-out infinite;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.anim-sensor-beam::before {
+  content: '';
+  position: absolute;
+  inset: -5px 0;
+  background: linear-gradient(to right, rgba(56, 189, 248, 0.18), transparent);
+  filter: blur(5px);
+}
+
+@keyframes sensorBeamPulse {
+
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.9);
+  }
+}
+
+.anim-sensor-beam-target {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.anim-sensor-hit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.7);
+}
+
+.anim-sensor-hit-ring.r1 {
+  width: 36px;
+  height: 36px;
+  animation: sensorHitPulse 2s ease-out infinite;
+}
+
+.anim-sensor-hit-ring.r2 {
+  width: 24px;
+  height: 24px;
+  animation: sensorHitPulse 2s ease-out 0.4s infinite;
+}
+
+.anim-sensor-hit-ring.r3 {
+  width: 14px;
+  height: 14px;
+  animation: sensorHitPulse 2s ease-out 0.8s infinite;
+  border-color: rgba(34, 197, 94, 0.7);
+}
+
+@keyframes sensorHitPulse {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.anim-sensor-hit-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px 3px #38bdf8;
+}
+
+/* Floating glowing orbs */
+.anim-sensor-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.anim-sensor-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(6px);
+  animation: sensorOrbFloat 6s ease-in-out infinite alternate;
+}
+
+.anim-sensor-orb.o1 {
+  width: 32px;
+  height: 32px;
+  right: 8%;
+  top: 25%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.7), transparent 70%);
+  animation-duration: 5s;
+}
+
+.anim-sensor-orb.o2 {
+  width: 20px;
+  height: 20px;
+  right: 22%;
+  top: 68%;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.7), transparent 70%);
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+
+.anim-sensor-orb.o3 {
+  width: 14px;
+  height: 14px;
+  right: 5%;
+  top: 72%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.7), transparent 70%);
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+
+@keyframes sensorOrbFloat {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-18px) scale(1.2);
+    opacity: 0.9;
+  }
+}
+
+/* Floating nodes */
+.anim-sensor-nodes {
+  position: absolute;
+  inset: 0;
+}
+
+.anim-sensor-node {
+  position: absolute;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px 2px rgba(56, 189, 248, 0.5);
+  animation: sensorNodeFloat 5s ease-in-out infinite alternate;
+}
+
+.anim-sensor-node.sn1 {
+  width: 5px;
+  height: 5px;
+  right: 18%;
+  top: 20%;
+  animation-duration: 4.5s;
+}
+
+.anim-sensor-node.sn2 {
+  width: 4px;
+  height: 4px;
+  right: 7%;
+  top: 36%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+  background: #22c55e;
+  box-shadow: 0 0 8px 2px rgba(34, 197, 94, 0.5);
+}
+
+.anim-sensor-node.sn3 {
+  width: 6px;
+  height: 6px;
+  right: 26%;
+  top: 76%;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  background: #fbbf24;
+  box-shadow: 0 0 8px 2px rgba(251, 191, 36, 0.5);
+}
+
+.anim-sensor-node.sn4 {
+  width: 3px;
+  height: 3px;
+  right: 12%;
+  top: 82%;
+  animation-duration: 7s;
+  animation-delay: 0.5s;
+}
+
+.anim-sensor-node.sn5 {
+  width: 4px;
+  height: 4px;
+  right: 32%;
+  top: 88%;
+  animation-duration: 5.5s;
+  animation-delay: 1.5s;
+  background: #a78bfa;
+  box-shadow: 0 0 8px 2px rgba(167, 139, 250, 0.5);
+}
+
+@keyframes sensorNodeFloat {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-14px) scale(1.3);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .anim-sensor-3d-wrap,
+  .anim-sensor-radar-wrap {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 868px) {
+  .anim-sensor-3d-wrap,
+
+  .anim-sensor-radar-wrap,
+  .anim-sensor-metrics {
+    display: none;
+  }
+}
+
+/* ============================================================
+   13. PLC: Pure 3D — Processor Cube + Circuit Rings + Pulses
+   ============================================================ */
+.anim-plc-view {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 4;
+}
+
+/* Background circuit-board trace pattern */
+.anim-plc-circuit-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 197, 94, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 197, 94, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 68% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 55%);
+  background-size: 28px 28px, 28px 28px, 100% 100%;
+  mask-image: radial-gradient(ellipse at 72% 50%, rgba(0, 0, 0, 0.9) 0%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse at 72% 50%, rgba(0, 0, 0, 0.9) 0%, transparent 72%);
+}
+
+/* Traveling pulse lines */
+.anim-plc-pulse-line {
+  position: absolute;
+  height: 2px;
+  animation: plcPulseTravel 3s ease-in-out infinite;
+}
+
+.anim-plc-pulse-line.pl1 {
+  width: 200px;
+  top: 30%;
+  right: 28%;
+  background: linear-gradient(to right, transparent, #22c55e, transparent);
+  box-shadow: 0 0 8px #22c55e;
+  animation-delay: 0s;
+}
+
+.anim-plc-pulse-line.pl2 {
+  width: 140px;
+  top: 65%;
+  right: 8%;
+  background: linear-gradient(to right, transparent, #38bdf8, transparent);
+  box-shadow: 0 0 8px #38bdf8;
+  animation-delay: 1.4s;
+}
+
+.anim-plc-pulse-line.pl3 {
+  width: 100px;
+  top: 45%;
+  right: 38%;
+  background: linear-gradient(to right, transparent, #a78bfa, transparent);
+  box-shadow: 0 0 8px #a78bfa;
+  animation-delay: 2.2s;
+}
+
+@keyframes plcPulseTravel {
+  0% {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+}
+
+/* ── 3D Rotating Cube ── */
+.anim-plc-cube-wrap {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.anim-plc-scene {
+  width: 80px;
+  height: 80px;
+  perspective: 600px;
+}
+
+.anim-plc-cube {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: plcCubeSpin 10s linear infinite;
+}
+
+@keyframes plcCubeSpin {
+  from {
+    transform: rotateX(20deg) rotateY(0deg);
+  }
+
+  to {
+    transform: rotateX(20deg) rotateY(360deg);
+  }
+}
+
+.anim-plc-cube-face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1.5px solid rgba(34, 197, 94, 0.5);
+  background: rgba(15, 23, 42, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anim-plc-cube-face::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 3px;
+}
+
+.face-front {
+  transform: translateZ(40px);
+  background: rgba(15, 42, 23, 0.7);
+  box-shadow: inset 0 0 18px rgba(34, 197, 94, 0.12), 0 0 24px rgba(34, 197, 94, 0.15);
+}
+
+.face-back {
+  transform: rotateY(180deg) translateZ(40px);
+}
+
+.face-left {
+  transform: rotateY(-90deg) translateZ(40px);
+  background: rgba(10, 30, 18, 0.6);
+}
+
+.face-right {
+  transform: rotateY(90deg) translateZ(40px);
+  background: rgba(10, 30, 18, 0.6);
+}
+
+.face-top {
+  transform: rotateX(90deg) translateZ(40px);
+  background: rgba(20, 50, 30, 0.7);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+.face-bottom {
+  transform: rotateX(-90deg) translateZ(40px);
+  background: rgba(10, 20, 15, 0.5);
+}
+
+/* Orbiting rings around cube */
+.anim-plc-orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  top: 50%;
+  left: 50%;
+}
+
+.anim-plc-orbit-ring.or1 {
+  width: 130px;
+  height: 130px;
+  margin: -65px 0 0 -65px;
+  border-color: rgba(34, 197, 94, 0.35);
+  animation: plcOrbitSpin1 7s linear infinite;
+}
+
+.anim-plc-orbit-ring.or2 {
+  width: 180px;
+  height: 180px;
+  margin: -90px 0 0 -90px;
+  border-color: rgba(96, 165, 250, 0.2);
+  border-style: dashed;
+  animation: plcOrbitSpin2 12s linear infinite reverse;
+}
+
+@keyframes plcOrbitSpin1 {
+  from {
+    transform: rotateZ(0deg) rotateX(70deg);
+  }
+
+  to {
+    transform: rotateZ(360deg) rotateX(70deg);
+  }
+}
+
+@keyframes plcOrbitSpin2 {
+  from {
+    transform: rotateZ(0deg) rotateX(50deg) rotateY(15deg);
+  }
+
+  to {
+    transform: rotateZ(360deg) rotateX(50deg) rotateY(15deg);
+  }
+}
+
+/* I/O dot grid — purely visual LEDs */
+.anim-plc-io-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 12px);
+  gap: 6px;
+}
+
+.anim-plc-io-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.anim-plc-io-dot.on {
+  background: #22c55e;
+  box-shadow: 0 0 7px #22c55e;
+}
+
+.anim-plc-io-dot.off {
+  background: #1e293b;
+}
+
+.anim-plc-io-dot.pulsing {
+  background: #22c55e;
+  animation: plcDotPulse 1.1s ease-in-out infinite;
+}
+
+@keyframes plcDotPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 7px #22c55e;
+  }
+
+  50% {
+    opacity: 0.15;
+    box-shadow: none;
+  }
+}
+
+/* Floating diamond shapes */
+.anim-plc-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.anim-plc-diamond {
+  position: absolute;
+  border: 1.5px solid transparent;
+  transform: rotate(45deg);
+  animation: plcDiamondFloat 6s ease-in-out infinite alternate;
+}
+
+.anim-plc-diamond.d1 {
+  width: 22px;
+  height: 22px;
+  right: 34%;
+  top: 20%;
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+  animation-duration: 5s;
+}
+
+.anim-plc-diamond.d2 {
+  width: 14px;
+  height: 14px;
+  right: 28%;
+  top: 68%;
+  border-color: rgba(96, 165, 250, 0.5);
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.2);
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+
+.anim-plc-diamond.d3 {
+  width: 30px;
+  height: 30px;
+  right: 40%;
+  top: 50%;
+  border-color: rgba(167, 139, 250, 0.35);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.15);
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+
+@keyframes plcDiamondFloat {
+  0% {
+    transform: rotate(45deg) translateY(0) scale(0.9);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: rotate(65deg) translateY(-12px) scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+/* Particle nodes */
+.anim-plc-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.anim-plc-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: plcParticleFloat 5s ease-in-out infinite alternate;
+}
+
+.anim-plc-particle.pp1 {
+  width: 5px;
+  height: 5px;
+  right: 26%;
+  top: 18%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation-duration: 4.5s;
+}
+
+.anim-plc-particle.pp2 {
+  width: 4px;
+  height: 4px;
+  right: 40%;
+  top: 78%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.anim-plc-particle.pp3 {
+  width: 6px;
+  height: 6px;
+  right: 22%;
+  top: 85%;
+  background: #a78bfa;
+  box-shadow: 0 0 8px #a78bfa;
+  animation-duration: 5s;
+  animation-delay: 2s;
+}
+
+.anim-plc-particle.pp4 {
+  width: 3px;
+  height: 3px;
+  right: 35%;
+  top: 32%;
+  background: #fbbf24;
+  box-shadow: 0 0 7px #fbbf24;
+  animation-duration: 7s;
+  animation-delay: 0.5s;
+}
+
+@keyframes plcParticleFloat {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-16px) scale(1.4);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .anim-plc-cube-wrap {
+    right: 5%;
+  }
+
+  .anim-plc-orbit-ring.or2 {
+    display: none;
+  }
+}
+
+@media (max-width: 868px) {
+
+  .anim-plc-cube-wrap,
+  .anim-plc-shapes,
+  .anim-plc-particles {
+    display: none;
+  }
+}

@@ -297,7 +297,7 @@ export default function Vision() {
           </Reveal>
 
           <Reveal delay={150}>
-            <h1 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] text-slate-900">
+            <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-[3.35rem] font-bold tracking-tight leading-[1.15] text-slate-900">
               Empowering Industry.
               <br />
               <span className="bg-gradient-to-r from-cyan-700 via-cyan-600 to-amber-600 bg-clip-text text-transparent">

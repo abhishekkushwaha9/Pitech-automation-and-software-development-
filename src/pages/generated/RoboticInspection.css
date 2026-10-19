@@ -1,0 +1,131 @@
+/* RoboticInspection.css - Scoped styles for RoboticInspection page only */
+
+/* Scoped under .robotic-inspection-page to prevent style leakage */
+.robotic-inspection-page .premium-hero-parallax-bg {
+  will-change: transform;
+}
+
+.robotic-inspection-page .premium-chip {
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
+  transition: all 0.3s ease;
+}
+
+.robotic-inspection-page .premium-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(59, 130, 246, 0.4);
+}
+
+.robotic-inspection-page .premium-btn-primary {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.robotic-inspection-page .premium-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.35);
+}
+
+/* Applications Video & Badges - Scoped */
+.robotic-inspection-page .ri-video-wrapper {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  width: 100%;
+}
+
+.robotic-inspection-page .ri-video-wrapper video {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  transition: transform 0.5s ease;
+}
+
+.robotic-inspection-page .ri-video-wrapper:hover video {
+  transform: scale(1.02);
+}
+
+.robotic-inspection-page .ri-live-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 5px 12px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 3;
+}
+
+.robotic-inspection-page .ri-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+  animation: riPulseDot 1.4s infinite;
+}
+
+@keyframes riPulseDot {
+  0%, 100% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+.robotic-inspection-page .ri-app-card {
+  padding: 18px 22px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 18px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.robotic-inspection-page .ri-app-card:hover {
+  transform: translateX(8px);
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 10px 24px -6px rgba(37, 99, 235, 0.12);
+}
+
+.robotic-inspection-page .ri-app-badge {
+  background: #eff6ff;
+  color: #2563eb;
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  transition: all 0.3s ease;
+}
+
+.robotic-inspection-page .ri-app-card:hover .ri-app-badge {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.robotic-inspection-page .premium-benefit-row:hover .ri-check-circle {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  transform: scale(1.1) rotate(360deg);
+}
+
+.robotic-inspection-page .ri-check-circle {
+  transition: all 0.35s ease;
+}

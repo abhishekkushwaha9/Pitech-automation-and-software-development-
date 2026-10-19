@@ -216,51 +216,152 @@
   font-weight: 500;
 }
 
-/* ── Stats Section ── */
-.about-stats {
-  background: var(--primary);
-  padding: 72px 0;
-}
-
-.about-stats-inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 32px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-
-.about-stat-card {
-  text-align: center;
-  padding: 0 16px;
+/* ════════════════════════════════════════════
+   STATS BAND (Matching Homepage Design)
+════════════════════════════════════════════ */
+.stats-band {
+  background: linear-gradient(135deg, #1f6b9f 0%, #2a7db5 50%, #46a2dc 100%);
+  padding: 24px 0 26px;
   position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.about-stat-card:not(:last-child)::after {
+.stats-band::before {
   content: '';
   position: absolute;
+  top: 0;
+  left: 0;
   right: 0;
-  top: 10%;
-  bottom: 10%;
-  width: 1px;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 10% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.stats-band-inner {
+  width: 100%;
+  max-width: var(--container);
+  padding: 0 4%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-band-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.stats-band-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Circular Icon Badge with concentric glowing rings */
+.stats-band-icon-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12), inset 0 0 10px rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.stats-band-item:hover .stats-band-icon-badge {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.stats-band-icon-inner {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
 }
 
-.about-stat-num {
-  font-size: 2.8rem;
-  font-weight: 900;
-  color: var(--white);
-  font-family: var(--font-heading);
-  line-height: 1;
+.stats-band-num {
+  font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Montserrat', var(--font-heading), sans-serif;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+  margin-bottom: 2px;
 }
 
-.about-stat-label {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.65);
-  margin-top: 8px;
-  font-weight: 500;
+.stats-band-label {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-shadow: none;
+  line-height: 1.2;
 }
+
+/* Glowing Vertical Beam Divider with center flare */
+.stats-band-divider {
+  width: 1.5px;
+  height: 46px;
+  align-self: center;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.45) 30%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.45) 70%, transparent);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.stats-band-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px #ffffff, 0 0 12px #60a5fa, 0 0 18px #38bdf8;
+}
+
+@media (max-width: 1024px) {
+  .stats-band-inner {
+    flex-wrap: wrap;
+    gap: 32px 0;
+  }
+
+  .stats-band-item {
+    flex: 0 0 50%;
+    min-width: 140px;
+  }
+
+  .stats-band-divider {
+    display: none;
+  }
+}
+
 
 /* ── Vision Mission ── */
 .about-vision {

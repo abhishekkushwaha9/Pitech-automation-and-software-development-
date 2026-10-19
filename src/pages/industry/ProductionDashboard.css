@@ -1,2 +1,28 @@
 /* Production Dashboard page uses shared layout styles */
 @import "../../layouts/PageLayout.css";
+
+.dashboard-overview-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.dashboard-points-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 992px) {
+  .dashboard-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-points-grid {
+    grid-template-columns: 1fr;
+  }
+}

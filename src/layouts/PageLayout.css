@@ -11,9 +11,24 @@
   position: absolute; inset: 0;
   background-size: cover; background-position: center; opacity: 0.2;
 }
+.inner-hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
 .inner-hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(15,23,42,0.88) 0%, rgba(30,58,138,0.68) 100%);
+  z-index: 1;
+}
+.inner-hero-animation-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
 }
 .inner-hero-content {
   position: relative; z-index: 2;
@@ -26,9 +41,9 @@
 .inner-hero-tag { display: inline-block; background: rgba(96,165,250,0.15); color: #60a5fa; font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 14px; border: 1px solid rgba(96,165,250,0.2); }
 .inner-hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--white); margin-bottom: 14px; }
 .inner-hero h1 span { color: #60a5fa; }
-.inner-hero p { font-size: 1rem; color: rgba(255,255,255,0.72); max-width: 560px; line-height: 1.8; }
-.inner-hero-wave { position: absolute; bottom: -1px; left: 0; right: 0; }
-.inner-hero-wave svg { display: block; width: 100%; }
+.inner-hero p { font-size: 1.05rem !important; color: rgba(255,255,255,0.78); max-width: 680px; line-height: 1.75; }
+.inner-hero-wave { position: absolute; bottom: -1px; left: 0; right: 0; z-index: 5; pointer-events: none; }
+.inner-hero-wave svg { display: block; width: 100%; height: auto; }
 
 /* ── Inner Page Content Wrapper ── */
 .inner-content { padding: 80px 0; }
@@ -83,8 +98,17 @@
   .inner-two-col.reverse { direction: ltr; }
   .benefits-grid { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 868px) {
+  .inner-hero-animation-layer {
+    display: none !important;
+  }
+  .inner-hero {
+    padding: 125px 0 65px;
+  }
+}
+
 @media (max-width: 640px) {
   .benefits-grid { grid-template-columns: 1fr; }
-  .inner-hero { padding: 90px 0 60px; }
+  .inner-hero { padding: 120px 0 60px; }
   .inner-content { padding: 56px 0; }
 }

@@ -13,17 +13,38 @@ function useScrollAnimate() {
   }, []);
 }
 
-export default function PageLayout({ title, subtitle, tag, breadcrumb, heroImage, children }) {
+export default function PageLayout({ title, subtitle, tag, breadcrumb, heroImage, heroVideo, heroAnimation, children }) {
   useScrollAnimate();
 
   return (
     <>
       {/* Hero */}
       <div className="inner-hero">
-        {heroImage && (
-          <div className="inner-hero-bg" style={{ backgroundImage: `url('${heroImage}')` }} />
+        {heroVideo ? (
+          <video
+            className="inner-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            ref={(el) => {
+              if (el) {
+                el.muted = true;
+                el.defaultMuted = true;
+                el.play().catch(() => {});
+              }
+            }}
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        ) : (
+          heroImage && (
+            <div className="inner-hero-bg" style={{ backgroundImage: `url('${heroImage}')` }} />
+          )
         )}
         <div className="inner-hero-overlay" />
+        {heroAnimation && <div className="inner-hero-animation-layer">{heroAnimation}</div>}
         <div className="inner-hero-content">
           {breadcrumb && (
             <div className="inner-hero-breadcrumb">
@@ -37,8 +58,14 @@ export default function PageLayout({ title, subtitle, tag, breadcrumb, heroImage
             </div>
           )}
           {tag && <span className="inner-hero-tag">{tag}</span>}
-          <h1 dangerouslySetInnerHTML={{ __html: title }} />
-          {subtitle && <p>{subtitle}</p>}
+          {typeof title === 'string' ? (
+            <h1 dangerouslySetInnerHTML={{ __html: title }} />
+          ) : (
+            <h1>{title}</h1>
+          )}
+          {subtitle && (
+            typeof subtitle === 'string' ? <p>{subtitle}</p> : subtitle
+          )}
         </div>
         <div className="inner-hero-wave">
           <svg viewBox="0 0 1440 50" fill="none" xmlns="http://www.w3.org/2000/svg">

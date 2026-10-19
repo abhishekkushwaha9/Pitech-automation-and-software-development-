@@ -10,8 +10,18 @@ The backend has been converted from Python (Flask) to Node.js (Serverless Functi
 
 ### 1. Environment Variables
 Ensure you set the following Environment Variables in your Vercel Project Dashboard:
+<!-- Previous configuration:
 - `MAIL_USERNAME`: `Abhishekkushwaha7928@gmail.com`
 - `MAIL_PASSWORD`: `wtgo vytn tige ctjw`
+-->
+- `EMAIL`: `career@pitechiot.dpdns.org`
+- `PASSWORD`: `6u9y+mnjGxMcgJXs4egb`
+- `COMPANY_EMAIL`: `career@pitechiot.dpdns.org`
+- `SMTP_HOST`: `mail1297.mailasp.net`
+- `SMTP_PORT`: `465`
+- `SMTP_SECURE`: `true`
+- `MAIL_USERNAME`: `career@pitechiot.dpdns.org`
+- `MAIL_PASSWORD`: `6u9y+mnjGxMcgJXs4egb`
 - `CORS_ORIGINS`: `https://your-domain.com,http://localhost:3000`
 
 ### 2. Local Testing

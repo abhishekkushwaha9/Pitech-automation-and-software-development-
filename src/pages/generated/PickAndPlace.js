@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./PremiumTemplate.css";
 import { Link } from "react-router-dom";
+import TypewriterText from "../../components/TypewriterText";
 
 const PickAndPlace = () => {
+
     useEffect(() => {
         const observerCallback = (entries, observer) => {
             entries.forEach((entry) => {
@@ -60,7 +62,7 @@ const PickAndPlace = () => {
                     <div className="premium-animate slide-up" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
                         <span className="premium-chip" style={{ display: 'inline-block', marginBottom: '20px' }}>Robotics Innovation</span>
                         <h1 className="premium-hero-title" style={{ color: "#fff", justifyContent: 'center' }}>
-                            Robotic Pick and Place Solutions
+                            <TypewriterText text="Robotic Pick and Place Solutions" />
                         </h1>
                         <p className="premium-hero-subtitle" style={{ color: "#e2e8f0", margin: '0 auto', maxWidth: '650px' }}>
                             Increase production speed, precision, and efficiency using automated material handling architecture.
@@ -76,11 +78,13 @@ const PickAndPlace = () => {
             <section id="overview" className="premium-section-padding premium-bg-white">
                 <div className="container">
                     <div className="premium-header premium-animate slide-up">
-                        <h2>Overview</h2>
+                        <h2>
+                            <TypewriterText text="Overview" />
+                        </h2>
                         <p>High-precision automated handling for modern smart factory packaging processes.</p>
                     </div>
-                    <div className="premium-split">
-                        <div className="premium-split-image premium-animate slide-up">
+                    <div className="premium-split" style={{ alignItems: 'center' }}>
+                        <div className="premium-split-image premium-animate slide-up" style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 15px 35px rgba(0,0,0,0.12)", background: "#000", lineHeight: 0 }}>
                             <video
                                 src="/images/picking and place .mp4"
                                 autoPlay
@@ -88,20 +92,22 @@ const PickAndPlace = () => {
                                 muted
                                 playsInline
                                 style={{
-                                    borderRadius: "12px",
-                                    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                                    width: "100%"
+                                    borderRadius: "16px",
+                                    width: "100%",
+                                    height: "auto",
+                                    display: "block",
+                                    objectFit: "contain"
                                 }}
                             />
                         </div>
                         <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s' }}>
-                            <p className="lead" style={{ color: '#0f172a' }}>
+                            <p style={{ color: '#0f172a', fontSize: '1.05rem', fontWeight: '500', lineHeight: '1.7', marginBottom: '15px' }}>
                                 Robotic Pick and Place systems are widely used in modern smart factories to automate the handling of products, components, and materials during manufacturing and packaging processes. These systems use industrial robotic arms equipped with specialized grippers or vacuum tools to pick items from one location and place them accurately in another position.
                             </p>
-                            <p style={{ color: '#475569', marginBottom: '15px' }}>
+                            <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.7', marginBottom: '15px' }}>
                                 In PiTech Industry 4.0 solutions, robotic pick and place systems improve manufacturing efficiency, increase production speed, and reduce human error in repetitive material handling tasks. By integrating robotic systems with sensors, vision cameras, PLC controllers, and automation platforms, pick and place operations can be performed with extremely high precision and reliability.
                             </p>
-                            <p style={{ color: '#475569' }}>
+                            <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.7', margin: 0 }}>
                                 These solutions are ideal for industries where products need to be transferred, sorted, assembled, or packaged quickly and accurately. Robotic pick and place technology enables manufacturers to achieve higher throughput while maintaining consistent product quality.
                             </p>
                         </div>
@@ -113,7 +119,9 @@ const PickAndPlace = () => {
             <section className="premium-section-padding premium-bg-gradient">
                 <div className="container">
                     <div className="premium-header premium-animate slide-up">
-                        <h2>Key Features</h2>
+                        <h2>
+                            <TypewriterText text="Key Features" />
+                        </h2>
                         <p>Enterprise core capabilities built for absolute resilience and high-velocity throughput.</p>
                     </div>
                     <div className="premium-features-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
@@ -139,7 +147,9 @@ const PickAndPlace = () => {
             <section className="premium-section-padding premium-bg-light">
                 <div className="container">
                     <div className="premium-header premium-animate slide-up">
-                        <h2>Working Process</h2>
+                        <h2>
+                            <TypewriterText text="Working Process" />
+                        </h2>
                         <p>A streamlined sequence of automation for continuous operational success.</p>
                     </div>
                     <div className="premium-process-grid" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', marginTop: '40px' }}>
@@ -164,38 +174,80 @@ const PickAndPlace = () => {
             <section className="premium-section-padding premium-bg-white">
                 <div className="container">
                     <div className="premium-header premium-animate slide-up">
-                        <h2>Applications</h2>
+                        <h2>
+                            <TypewriterText text="Applications" />
+                        </h2>
                         <p>Where Pick and Place Systems make the biggest business impact.</p>
                     </div>
-                    <div className="premium-split" style={{ flexDirection: "row", marginTop: '40px' }}>
-                        <div className="premium-split-image premium-animate slide-up">
-                            <img src="/images/PEEKandPLACE_hero.gif" alt="Pick and Place Application Environment" style={{ borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", height: '100%', objectFit: 'cover' }} />
+
+                    <div style={{
+                        display: "grid",
+                        gridTemplateColumns: "1fr 1fr",
+                        gap: "60px",
+                        alignItems: "start",
+                        position: "relative",
+                        marginTop: "20px"
+                    }}>
+                        {/* Sticky Image: Compact size that stays pinned in place as user scrolls through the points */}
+                        <div style={{
+                            position: "sticky",
+                            top: "100px",
+                            alignSelf: "start",
+                            borderRadius: "16px",
+                            overflow: "hidden",
+                            boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
+                            background: "#0f172a",
+                            height: "380px"
+                        }}>
+                            <img
+                                src="/images/PEEKandPLACE_hero.gif"
+                                alt="Pick and Place Application Environment"
+                                style={{
+                                    width: "100%",
+                                    height: "100%",
+                                    display: "block",
+                                    objectFit: "cover"
+                                }}
+                            />
                         </div>
-                        <div className="premium-split-content premium-animate slide-up" style={{ transitionDelay: '0.2s', padding: '0 0 0 40px' }}>
-                            <div style={{ marginBottom: "25px" }}>
-                                <h3 style={{ fontSize: "1.2rem", fontWeight: 'bold', color: "#0f172a", marginBottom: "8px" }}>Manufacturing Assembly Lines</h3>
-                                <p style={{ color: "#475569" }}>Robotic pick and place systems are used to move components between different stages of assembly processes.</p>
-                            </div>
-                            <div style={{ marginBottom: "25px" }}>
-                                <h3 style={{ fontSize: "1.2rem", fontWeight: 'bold', color: "#0f172a", marginBottom: "8px" }}>Packaging and Sorting</h3>
-                                <p style={{ color: "#475569" }}>Products can be automatically sorted and placed into packaging boxes or trays.</p>
-                            </div>
-                            <div style={{ marginBottom: "25px" }}>
-                                <h3 style={{ fontSize: "1.2rem", fontWeight: 'bold', color: "#0f172a", marginBottom: "8px" }}>Electronics Manufacturing</h3>
-                                <p style={{ color: "#475569" }}>Used for placing electronic components onto circuit boards with high precision.</p>
-                            </div>
-                            <div style={{ marginBottom: "25px" }}>
-                                <h3 style={{ fontSize: "1.2rem", fontWeight: 'bold', color: "#0f172a", marginBottom: "8px" }}>Automotive Component Handling</h3>
-                                <p style={{ color: "#475569" }}>Robots transfer engine parts, mechanical components, and assemblies within production lines.</p>
-                            </div>
-                            <div style={{ marginBottom: "25px" }}>
-                                <h3 style={{ fontSize: "1.2rem", fontWeight: 'bold', color: "#0f172a", marginBottom: "8px" }}>Food and Beverage Industry</h3>
-                                <p style={{ color: "#475569" }}>Pick and place robots help handle packaged food items quickly while maintaining hygiene and consistency.</p>
-                            </div>
-                            <div>
-                                <h3 style={{ fontSize: "1.2rem", fontWeight: 'bold', color: "#0f172a", marginBottom: "8px" }}>Warehouse Automation</h3>
-                                <p style={{ color: "#475569" }}>Robotic systems assist in sorting and placing items in logistics and warehouse operations.</p>
-                            </div>
+
+                        {/* Normal Clean Points: No dabba, simply scrolls naturally past the pinned image */}
+                        <div style={{ padding: "0 10px" }}>
+                            {[
+                                {
+                                    title: "Manufacturing Assembly Lines",
+                                    desc: "Robotic pick and place systems are used to move components between different stages of assembly processes."
+                                },
+                                {
+                                    title: "Packaging and Sorting",
+                                    desc: "Products can be automatically sorted and placed into packaging boxes or trays."
+                                },
+                                {
+                                    title: "Electronics Manufacturing",
+                                    desc: "Used for placing electronic components onto circuit boards with high precision."
+                                },
+                                {
+                                    title: "Automotive Component Handling",
+                                    desc: "Robots transfer engine parts, mechanical components, and assemblies within production lines."
+                                },
+                                {
+                                    title: "Food and Beverage Industry",
+                                    desc: "Pick and place robots help handle packaged food items quickly while maintaining hygiene and consistency."
+                                },
+                                {
+                                    title: "Warehouse Automation",
+                                    desc: "Robotic systems assist in sorting and placing items in logistics and warehouse operations."
+                                }
+                            ].map((app, idx) => (
+                                <div key={idx} style={{ marginBottom: idx === 5 ? "20px" : "48px" }}>
+                                    <h3 style={{ fontSize: "1.28rem", fontWeight: "700", color: "#0f172a", marginBottom: "8px" }}>
+                                        {app.title}
+                                    </h3>
+                                    <p style={{ color: "#475569", fontSize: "1.05rem", lineHeight: "1.7", margin: 0 }}>
+                                        {app.desc}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -205,7 +257,9 @@ const PickAndPlace = () => {
             <section className="premium-section-padding premium-bg-gradient">
                 <div className="container">
                     <div className="premium-header premium-animate slide-up">
-                        <h2>Benefits</h2>
+                        <h2>
+                            <TypewriterText text="Benefits" />
+                        </h2>
                         <p>Core advantages of deploying our robust robotic architecture.</p>
                     </div>
                     <div className="premium-benefits-grid">

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import PageLayout from "../../layouts/PageLayout";
+import { PredictiveHeroAnimation } from "../../components/SolutionsHeroAnimations";
 import "../../layouts/PageLayout.css";
 import "./PredictiveMaintenance.css";
 
@@ -24,30 +25,23 @@ export default function PredictiveMaintenance() {
       subtitle="Stop reacting to breakdowns. Use sensor data and machine learning to predict failures before they happen."
       tag="AI-Powered Maintenance"
       heroImage="/images/ai-maintenance.jpg"
+      heroAnimation={<PredictiveHeroAnimation />}
       breadcrumb={[
         { label: "Solutions", path: "/services" },
         { label: "Predictive Maintenance" }
       ]}
     >
       {/* Section 1: Predictive Maintenance Overview */}
-      <section style={{ padding: "80px 20px", backgroundColor: "var(--white)" }}>
+      <section style={{ padding: "60px 20px 40px", backgroundColor: "var(--white)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div
-            className="animate-on-scroll"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "60px",
-              alignItems: "center"
-            }}
-          >
+          <div className="animate-on-scroll pm-overview-grid">
             {/* Left Column */}
             <div>
               <h2
                 style={{
                   fontSize: "32px",
                   fontWeight: "700",
-                  marginBottom: "20px",
+                  marginBottom: "16px",
                   color: "var(--gray-900)"
                 }}
               >
@@ -58,14 +52,14 @@ export default function PredictiveMaintenance() {
                   fontSize: "16px",
                   lineHeight: "1.6",
                   color: "var(--gray-600)",
-                  marginBottom: "40px"
+                  marginBottom: "28px"
                 }}
               >
                 Unplanned downtime costs money. Our AI-powered predictive maintenance system monitors equipment health in real-time, predicts failures days or weeks in advance, and automatically schedules maintenance before problems occur.
               </p>
 
-              {/* Feature List */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              {/* Feature List (2-column grid) */}
+              <div className="pm-points-grid">
                 {[
                   {
                     title: "Vibration Analysis",
@@ -77,26 +71,38 @@ export default function PredictiveMaintenance() {
                   },
                   {
                     title: "Oil Quality Sensing",
-                    desc: "Lubricant degradation detection"
+                    desc: "Lubricant degradation and contamination detection"
                   },
                   {
                     title: "ML-based Prediction",
-                    desc: "Machine learning models trained on your equipment data"
+                    desc: "Machine learning models trained on machine telemetry"
                   },
                   {
                     title: "Maintenance Scheduling",
-                    desc: "Auto-generate work orders based on predictions"
+                    desc: "Auto-generate work orders based on condition predictions"
                   },
                   {
                     title: "Spare Parts Optimization",
-                    desc: "Predict parts consumption for inventory management"
+                    desc: "Predict parts consumption for efficient inventory management"
                   }
                 ].map((feature, idx) => (
-                  <div key={idx} style={{ display: "flex", gap: "16px" }}>
+                  <div
+                    key={idx}
+                    className="pm-point-card pitech-ripple-card"
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      alignItems: "flex-start",
+                      padding: "14px 12px",
+                      backgroundColor: "var(--gray-50)",
+                      borderRadius: "var(--radius)",
+                      border: "1px solid var(--gray-100)"
+                    }}
+                  >
                     <div
                       style={{
-                        width: "24px",
-                        height: "24px",
+                        width: "22px",
+                        height: "22px",
                         backgroundColor: "var(--primary-light)",
                         borderRadius: "50%",
                         display: "flex",
@@ -104,8 +110,9 @@ export default function PredictiveMaintenance() {
                         justifyContent: "center",
                         flexShrink: 0,
                         color: "var(--white)",
-                        fontWeight: "600",
-                        fontSize: "14px"
+                        fontWeight: "700",
+                        fontSize: "12px",
+                        marginTop: "1px"
                       }}
                     >
                       ✓
@@ -114,13 +121,15 @@ export default function PredictiveMaintenance() {
                       <h4
                         style={{
                           fontWeight: "600",
+                          fontSize: "14px",
                           color: "var(--gray-900)",
-                          marginBottom: "4px"
+                          marginBottom: "4px",
+                          lineHeight: "1.3"
                         }}
                       >
                         {feature.title}
                       </h4>
-                      <p style={{ fontSize: "14px", color: "var(--gray-600)" }}>
+                      <p style={{ fontSize: "12px", color: "var(--gray-600)", margin: 0, lineHeight: "1.45" }}>
                         {feature.desc}
                       </p>
                     </div>
@@ -130,15 +139,24 @@ export default function PredictiveMaintenance() {
             </div>
 
             {/* Right Column - Image */}
-            <div className="animate-on-scroll">
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
               <img
                 src="/images/Predictive maintenance.png"
                 alt="Predictive Maintenance"
                 style={{
                   width: "100%",
-                  height: "auto",
+                  maxHeight: "380px",
+                  objectFit: "cover",
                   borderRadius: "var(--radius-lg)",
-                  boxShadow: "var(--shadow-lg)"
+                  boxShadow: "var(--shadow-lg)",
+                  border: "1px solid var(--gray-200)"
                 }}
               />
             </div>
@@ -149,16 +167,16 @@ export default function PredictiveMaintenance() {
       {/* Section 2: Key Benefits */}
       <section
         className="benefits-section"
-        style={{ padding: "80px 20px", backgroundColor: "var(--gray-50)" }}
+        style={{ padding: "50px 20px 60px", backgroundColor: "var(--gray-50)" }}
       >
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "60px" }}>
+          <div style={{ textAlign: "center", marginBottom: "36px" }}>
             <h2
               style={{
                 fontSize: "32px",
                 fontWeight: "700",
                 color: "var(--gray-900)",
-                marginBottom: "16px"
+                marginBottom: "12px"
               }}
             >
               Maintenance Benefits
@@ -183,22 +201,50 @@ export default function PredictiveMaintenance() {
             }}
           >
             {[
-              { metric: "-85%", label: "Unplanned Downtime" },
-              { metric: "3x", label: "Machine Lifespan" },
-              { metric: "-40%", label: "Maintenance Cost" },
-              { metric: "95%", label: "Prediction Accuracy" },
-              { metric: "Auto", label: "Work Orders" },
-              { metric: "MES", label: "Connected" }
+              {
+                metric: "-85%",
+                label: "Unplanned Downtime",
+                desc: "Eliminate sudden equipment breakdowns and catastrophic failures through early warning telemetry."
+              },
+              {
+                metric: "3x",
+                label: "Machine Lifespan",
+                desc: "Extend asset operational longevity by resolving micro-vibrations and thermal stress promptly."
+              },
+              {
+                metric: "-40%",
+                label: "Maintenance Cost",
+                desc: "Transition from emergency repairs and over-servicing to optimized condition-based intervention."
+              },
+              {
+                metric: "95%",
+                label: "Prediction Accuracy",
+                desc: "AI and ML models trained on historical equipment patterns detect anomalies with high precision."
+              },
+              {
+                metric: "Auto",
+                label: "Work Orders",
+                desc: "Automatically trigger maintenance tickets and spare parts requests before threshold breaches."
+              },
+              {
+                metric: "MES",
+                label: "Connected",
+                desc: "Seamlessly synchronize maintenance schedules with manufacturing execution systems and ERP platforms."
+              }
             ].map((benefit, idx) => (
               <div
                 key={idx}
-                className="animate-on-scroll"
+                className="animate-on-scroll pred-card pitech-ripple-card"
                 style={{
                   backgroundColor: "var(--white)",
-                  padding: "40px 30px",
+                  padding: "36px 24px",
                   borderRadius: "var(--radius-lg)",
                   boxShadow: "var(--shadow)",
+                  border: "1px solid var(--gray-100)",
                   textAlign: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                   transition: "all 0.3s ease"
                 }}
               >
@@ -207,13 +253,32 @@ export default function PredictiveMaintenance() {
                     fontSize: "32px",
                     fontWeight: "700",
                     color: "var(--primary-light)",
-                    marginBottom: "12px"
+                    marginBottom: "10px"
                   }}
                 >
                   {benefit.metric}
                 </div>
-                <p style={{ fontSize: "16px", fontWeight: "600", color: "var(--gray-900)" }}>
+                <h4
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    color: "var(--gray-900)",
+                    marginBottom: "10px"
+                  }}
+                >
                   {benefit.label}
+                </h4>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "1.6",
+                    color: "var(--gray-600)",
+                    margin: 0,
+                    textAlign: "left",
+                    width: "100%"
+                  }}
+                >
+                  {benefit.desc}
                 </p>
               </div>
             ))}

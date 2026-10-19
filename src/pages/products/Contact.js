@@ -116,9 +116,11 @@ export default function Contact() {
             </p>
           </div>
         </div>
+
+        {/* Dynamic Curved / Wave Bottom - Seamless Non-straight Edge */}
         <div className="contact-hero-wave">
-          <svg viewBox="0 0 1440 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 50 L0 25 Q360 0 720 25 Q1080 50 1440 25 L1440 50 Z" fill="#ffffff" />
+          <svg viewBox="0 0 1440 70" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 70 L0 35 Q360 0 720 35 Q1080 70 1440 35 L1440 70 Z" fill="#ffffff" />
           </svg>
         </div>
       </section>
@@ -149,7 +151,7 @@ export default function Contact() {
                         value={formData.firstName}
                         onChange={handleChange}
                         required
-                        placeholder="John"
+                        placeholder="Enter your first name"
                       />
                     </div>
                     <div className="form-group">
@@ -161,7 +163,7 @@ export default function Contact() {
                         value={formData.lastName}
                         onChange={handleChange}
                         required
-                        placeholder="Doe"
+                        placeholder="Enter your last name"
                       />
                     </div>
                   </div>
@@ -176,7 +178,7 @@ export default function Contact() {
                         value={formData.company}
                         onChange={handleChange}
                         required
-                        placeholder="Your Company"
+                        placeholder="Enter your company name"
                       />
                     </div>
                     <div className="form-group">
@@ -188,7 +190,7 @@ export default function Contact() {
                         value={formData.designation}
                         onChange={handleChange}
                         required
-                        placeholder="Production Manager"
+                        placeholder="Enter your designation"
                       />
                     </div>
                   </div>
@@ -203,7 +205,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         required
-                        placeholder="+91 98765 43210"
+                        placeholder="Enter your phone number"
                       />
                     </div>
                     <div className="form-group">
@@ -215,7 +217,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder="name@company.com"
+                        placeholder="Enter your email address"
                       />
                     </div>
                   </div>
@@ -245,7 +247,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      placeholder="Tell us about your manufacturing requirements..."
+                      placeholder="Write your message or requirements here..."
                       rows="6"
                     />
                   </div>
@@ -289,7 +291,8 @@ export default function Contact() {
                 <div className="info-card-icon">✉️</div>
                 <div className="info-card-content">
                   <h4>Email</h4>
-                  <p>info@pitechautomation.com</p>
+                  {/* <p>info@pitechautomation.com</p> */}
+                  <p>career@pitechiot.dpdns.org</p>
                   <p className="info-card-meta">We respond within 24 hours</p>
                 </div>
               </div>

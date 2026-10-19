@@ -88,7 +88,7 @@ const Blogs = () => {
                                 key={blog.id} 
                                 className="modern-blog-card"
                                 variants={cardVariants}
-                                whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
+                                whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(37,99,235,0.1)" }}
                                 onClick={() => navigate(`/blog/${blog.id}`)}
                             >
                                 <div className="blog-card-image">
@@ -109,9 +109,9 @@ const Blogs = () => {
                                     </div>
                                     <h3 className="blog-card-title">{blog.title}</h3>
                                     <p className="blog-card-excerpt">
-                                        {blog.content ? blog.content.substring(0, 120) + '...' : 'Read full article...'}
+                                        {blog.content ? blog.content.substring(0, 160) + '...' : 'Read full article...'}
                                     </p>
-                                    <span className="blog-read-more">Read More →</span>
+                                    <span className="blog-read-more">Read Full Story →</span>
                                 </div>
                             </motion.article>
                         ))}

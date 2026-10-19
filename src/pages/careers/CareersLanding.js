@@ -9,7 +9,7 @@ import '../Careers.css';
 export default function CareersLanding() {
     const navigate = useNavigate();
     const { scrollY } = useScroll();
-    const { jobs, loading } = useJobs('open');
+    const { jobs } = useJobs('open');
     
     // Parallax effect for the hero section
     const heroY = useTransform(scrollY, [0, 500], [0, 150]);

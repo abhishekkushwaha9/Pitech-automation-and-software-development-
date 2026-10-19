@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import PageLayout from "../../layouts/PageLayout";
+import { EnergyHeroAnimation } from "../../components/SolutionsHeroAnimations";
 import "../../layouts/PageLayout.css";
 import "./EnergyMonitoring.css";
 
@@ -24,6 +25,7 @@ export default function EnergyMonitoring() {
       subtitle="Track, analyze, and reduce energy consumption across your entire facility with real-time metering and AI-powered insights."
       tag="Energy Management"
       heroImage="/images/EnergyMonitoring_hero.jpg"
+      heroAnimation={<EnergyHeroAnimation />}
       breadcrumb={[
         { label: "Solutions", path: "/services" },
         { label: "Energy Monitoring" }
@@ -127,22 +129,50 @@ export default function EnergyMonitoring() {
             }}
           >
             {[
-              { metric: "-22%", label: "Energy Costs" },
-              { metric: "ISO 50001", label: "Ready" },
-              { metric: "< 18mo", label: "ROI" },
-              { metric: "Real-time", label: "Alerts" },
-              { metric: "Cost", label: "Allocation" },
-              { metric: "Carbon", label: "Reporting" }
+              {
+                metric: "-22%",
+                label: "Energy Costs",
+                desc: "Reduce facility power consumption and eliminate peak-demand penalty charges."
+              },
+              {
+                metric: "ISO 50001",
+                label: "Ready",
+                desc: "Meet international energy management standards with automated compliance logs."
+              },
+              {
+                metric: "< 18mo",
+                label: "ROI",
+                desc: "Rapid return on investment through immediate waste detection and process optimization."
+              },
+              {
+                metric: "Real-time",
+                label: "Alerts",
+                desc: "Instant notifications for power surges, voltage anomalies, and idle equipment."
+              },
+              {
+                metric: "Cost",
+                label: "Allocation",
+                desc: "Accurately distribute electricity expenses across individual lines, shifts, and batches."
+              },
+              {
+                metric: "Carbon",
+                label: "Reporting",
+                desc: "Automated carbon footprint analytics to support corporate ESG and sustainability goals."
+              }
             ].map((benefit, idx) => (
               <div
                 key={idx}
-                className="animate-on-scroll"
+                className="animate-on-scroll energy-benefit-card"
                 style={{
                   backgroundColor: "var(--white)",
-                  padding: "40px 30px",
+                  padding: "36px 24px",
                   borderRadius: "var(--radius-lg)",
                   boxShadow: "var(--shadow)",
+                  border: "1px solid var(--gray-100)",
                   textAlign: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                   transition: "all 0.3s ease"
                 }}
               >
@@ -151,13 +181,32 @@ export default function EnergyMonitoring() {
                     fontSize: "32px",
                     fontWeight: "700",
                     color: "var(--primary-light)",
-                    marginBottom: "12px"
+                    marginBottom: "10px"
                   }}
                 >
                   {benefit.metric}
                 </div>
-                <p style={{ fontSize: "16px", fontWeight: "600", color: "var(--gray-900)" }}>
+                <h4
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    color: "var(--gray-900)",
+                    marginBottom: "10px"
+                  }}
+                >
                   {benefit.label}
+                </h4>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "1.6",
+                    color: "var(--gray-600)",
+                    margin: 0,
+                    textAlign: "left",
+                    width: "100%"
+                  }}
+                >
+                  {benefit.desc}
                 </p>
               </div>
             ))}
@@ -222,7 +271,7 @@ export default function EnergyMonitoring() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="animate-on-scroll"
+                className="animate-on-scroll energy-step-card"
                 style={{
                   position: "relative",
                   padding: "40px 30px",
