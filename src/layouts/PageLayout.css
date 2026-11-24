@@ -5,7 +5,7 @@
 /* ── Shared Inner Page Hero ── */
 .inner-hero {
   position: relative; background: var(--primary); overflow: hidden;
-  padding: 110px 0 72px;
+  padding: 112px 0 72px;
 }
 .inner-hero-bg {
   position: absolute; inset: 0;
@@ -32,7 +32,8 @@
 }
 .inner-hero-content {
   position: relative; z-index: 2;
-  max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 3.5vw, 48px);
+  width: 100%;
+  max-width: var(--container, 1440px); margin: 0 auto; padding: 0 clamp(20px, 3.5vw, 48px);
 }
 .inner-hero-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
 .inner-hero-breadcrumb a { color: rgba(255,255,255,0.6); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }

@@ -64,15 +64,9 @@
 
 .pc-container {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--container, 1440px);
   margin: 0 auto;
   padding: 0 clamp(20px, 3.5vw, 48px);
-}
-
-@media (min-width: 1600px) {
-  .pc-container {
-    max-width: 1520px;
-  }
 }
 
 .pc-section {
@@ -207,12 +201,9 @@
   position: relative;
   background: #060c18;
   color: #fff;
-  padding: 56px 0 76px;
+  padding: 112px 0 72px;
   overflow: hidden;
   isolation: isolate;
-  min-height: 440px;
-  display: flex;
-  align-items: center;
 }
 
 .pc-hero-video-wrap {

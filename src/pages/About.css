@@ -7,7 +7,7 @@
   position: relative;
   background: var(--primary);
   overflow: hidden;
-  padding: 120px 0 80px;
+  padding: 112px 0 72px;
 }
 
 .page-hero-bg {
@@ -27,9 +27,10 @@
 .page-hero-inner {
   position: relative;
   z-index: 2;
-  max-width: var(--container);
+  width: 100%;
+  max-width: var(--container, 1440px);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 clamp(20px, 3.5vw, 48px);
 }
 
 .page-hero-breadcrumb {

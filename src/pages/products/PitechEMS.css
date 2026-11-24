@@ -13,7 +13,7 @@
 .pems-hero {
   position: relative;
   background: #020710;
-  padding: 115px 0 75px;
+  padding: 112px 0 72px;
   overflow: hidden;
   color: #ffffff;
 }
@@ -56,17 +56,11 @@
 
 .pems-container {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--container, 1440px);
   margin: 0 auto;
   padding: 0 clamp(20px, 3.5vw, 48px);
   position: relative;
   z-index: 3;
-}
-
-@media (min-width: 1600px) {
-  .pems-container {
-    max-width: 1520px;
-  }
 }
 
 .pems-breadcrumb {

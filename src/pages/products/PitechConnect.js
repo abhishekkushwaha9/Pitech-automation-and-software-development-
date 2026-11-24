@@ -32,7 +32,6 @@ export default function PitechConnect() {
   const [calcIncludeTrace, setCalcIncludeTrace] = useState(true);
   const [simMode, setSimMode] = useState("idle");
   const [simLogData, setSimLogData] = useState(null);
-  const [openFaq, setOpenFaq] = useState(null);
 
   useEffect(() => {
     document.title = "Pitech Connect - Universal Industrial Connectivity & Traceability Platform | PiTech Automation";
@@ -155,14 +154,6 @@ export default function PitechConnect() {
     { num: "03", icon: <Layers size={22} />, title: "Link Child Parts", desc: "Bind sub-assemblies, serials, and batch numbers to parent ID." },
     { num: "04", icon: <Workflow size={22} />, title: "PLC Handshake", desc: "Only 3 PLC words mapped (Trigger, Result, ACK). Machine runs operation." },
     { num: "05", icon: <Database size={22} />, title: "SQL Audit Log", desc: "Results, cycle times & torque logged to SQL. Ready for customer audit." },
-  ];
-
-  const faqs = [
-    { q: "Does Pitech Connect require per-tag or per-client licensing?", a: "No. Pitech Connect is licensed per server with no artificial tag restrictions. You can connect up to 500 industrial devices on a single server, and any number of engineers or managers can access the web application simultaneously across your plant network without installing client software." },
-    { q: "How does Pitech Connect communicate with the machine PLC?", a: "It uses native Ethernet drivers (like Siemens S7, Mitsubishi SLMP, Allen-Bradley CIP, Omron FINS, Modbus). In the PLC, you only need to map 3 standard words: one for Trigger, one for Result code, and one for Acknowledge. Your existing machine logic remains clean and unmodified." },
-    { q: "What databases are supported for automated data logging?", a: "Pitech Connect natively supports Microsoft SQL Server, PostgreSQL, MySQL, and SQLite. You select your database connection string, select your tags, and set the logging mode (periodic interval, on value change, or on PLC trigger). The platform creates all database tables and schema columns automatically." },
-    { q: "What happens if the factory network or database server goes down?", a: "Pitech Connect features built-in store-and-forward edge buffering. All production data and traceability events are temporarily stored on the local server disk. Once the network or database server recovers, all buffered records automatically sync with zero data loss." },
-    { q: "How does the dual-server high-availability redundancy work?", a: "You run Server A as Primary and Server B as Standby. Both servers continuously monitor each other with a witness check algorithm. If Server A fails or loses network, Server B automatically takes over all device polling and logging in ~10 seconds. The project configuration auto-syncs continuously." },
   ];
 
   const estTradMonths = Math.max(3, Math.round(calcMachines * 0.18 + calcStations * 0.45));
@@ -976,32 +967,6 @@ export default function PitechConnect() {
                 <p>{b.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════ FAQ ══════════ */}
-      <section className="pc-section pc-bg-light">
-        <div className="pc-container">
-          <header className="pc-section-head pc-animate">
-            <span className="pc-badge">FAQ</span>
-            <h2>Frequently Asked Questions</h2>
-            <p>Common questions about architecture, integration, licensing, and deployment.</p>
-          </header>
-
-          <div className="pc-faqs pc-animate pc-delay-1">
-            {faqs.map((f, i) => {
-              const isOpen = openFaq === i;
-              return (
-                <div key={i} className="pc-faq pc-glass">
-                  <button className="pc-faq-q" onClick={() => setOpenFaq(isOpen ? null : i)}>
-                    <span>{f.q}</span>
-                    <span className="pc-faq-toggle">{isOpen ? "−" : "+"}</span>
-                  </button>
-                  {isOpen && <div className="pc-faq-a"><p>{f.a}</p></div>}
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
