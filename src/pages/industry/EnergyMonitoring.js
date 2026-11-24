@@ -84,8 +84,8 @@ export default function EnergyMonitoring() {
             {/* Right Column - Image */}
             <div className="energy-img-col">
               <img
-                src="/images/Energy%20Monitoring%20.png"
-                alt="Energy Monitoring System"
+                src="/images/havells_ems_dashboard_hd.png"
+                alt="Havells EMS Energy Monitoring System"
               />
             </div>
           </div>

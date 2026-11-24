@@ -16,6 +16,9 @@ const FOOTER_LINKS = {
     { name: "BLE Tag", path: "/industry/ble-tag" },
   ],
   products: [
+    { name: "Pitech Connect", path: "/products/pitech-connect" },
+    { name: "Pitech EMS", path: "/products/pitech-ems" },
+    { name: "AI based vision solution", path: "/products/color-detection" },
     { name: "Sensors", path: "/products/sensor" },
     { name: "PLC", path: "/products/plc" },
     { name: "IoT Gateway", path: "/products/iot-gateway" },

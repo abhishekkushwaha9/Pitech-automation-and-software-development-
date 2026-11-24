@@ -304,7 +304,7 @@ const Success = () => {
       company: "Sun N Shade",
       title: "Color Detection System (Industrial Vision Inspection)",
       logo: "/images/sun n shade.jpg",
-      image: "/images/ROOOObotic inspection.webp",
+      image: "/images/color_detection_inspection_hd.jpg",
       problem: "Manual visual inspection of multi-colored parts was prone to human error, color variance mismatches, and delayed quality control on high-speed lines.",
       solution: "Deployed high-speed industrial RGB color detection and vision sensors with automated OK/NG sorting and PLC interlocking.",
       results: "Eliminated color mismatch defects by 99.8% and accelerated inspection cycle time by 45%.",
@@ -392,45 +392,75 @@ const Success = () => {
         ))}
       </section>
 
-      {/* MODAL V2 - REDESIGNED */}
+      {/* MODAL V2 - REDESIGNED & BALANCED */}
       {selectedStory && (
         <div className="modal-v3-overlay" onClick={() => setSelectedStory(null)}>
           <div className="modal-v3-content" onClick={e => e.stopPropagation()}>
-            <div className="modal-v3-hero">
-              <img src={selectedStory.image} alt={selectedStory.title} className="modal-v3-hero-img" />
-              <div className="modal-v3-hero-overlay"></div>
-              <button className="modal-v3-close" onClick={() => setSelectedStory(null)}>&times;</button>
-              
-              <div className="modal-v3-hero-text">
+            {/* Modal Header */}
+            <div className="modal-v3-header">
+              <div className="modal-v3-header-left">
                 <div className="client-badge-v3">
                   <img src={selectedStory.logo} alt={selectedStory.company} className="client-logo-v3" />
-                  <span>{selectedStory.company}</span>
+                  <span className="client-name-v3">{selectedStory.company}</span>
                 </div>
                 <h2 className="modal-v3-title">{selectedStory.title}</h2>
               </div>
+              <button 
+                className="modal-v3-close" 
+                onClick={() => setSelectedStory(null)}
+                aria-label="Close details"
+              >
+                &times;
+              </button>
             </div>
 
-            <div className="modal-v3-body">
+            {/* Modal Scrollable Body */}
+            <div className="modal-v3-scroll-body">
+              {/* Image Frame - Uncut, Full View */}
+              <div className="modal-v3-media-wrap">
+                <div className="modal-v3-img-frame">
+                  <img 
+                    src={selectedStory.image} 
+                    alt={selectedStory.title} 
+                    className="modal-v3-img-contain" 
+                  />
+                </div>
+                {selectedStory.stats && (
+                  <div className="modal-v3-stat-chip">
+                    <span className="stat-chip-label">{selectedStory.stats.label}</span>
+                    <strong className="stat-chip-val">{selectedStory.stats.value}</strong>
+                  </div>
+                )}
+              </div>
+
+              {/* Challenge / Solution / Outcome Grid */}
               <div className="modal-v3-grid">
                 <div className="modal-v3-card problem-border">
-                  <div className="modal-v3-icon">⚠️</div>
-                  <h4 className="problem-text">The Challenge</h4>
+                  <div className="modal-v3-card-head">
+                    <span className="modal-v3-icon">⚠️</span>
+                    <h4 className="problem-text">The Challenge</h4>
+                  </div>
                   <p>{selectedStory.problem}</p>
                 </div>
 
                 <div className="modal-v3-card solution-border">
-                  <div className="modal-v3-icon">💡</div>
-                  <h4 className="solution-text">The Solution</h4>
+                  <div className="modal-v3-card-head">
+                    <span className="modal-v3-icon">💡</span>
+                    <h4 className="solution-text">The Solution</h4>
+                  </div>
                   <p>{selectedStory.solution}</p>
                 </div>
 
                 <div className="modal-v3-card results-border">
-                  <div className="modal-v3-icon">🎯</div>
-                  <h4 className="results-text">The Outcome</h4>
+                  <div className="modal-v3-card-head">
+                    <span className="modal-v3-icon">🎯</span>
+                    <h4 className="results-text">The Outcome</h4>
+                  </div>
                   <p>{selectedStory.results}</p>
                 </div>
               </div>
 
+              {/* Technologies */}
               <div className="modal-v3-tech">
                 <h4>Technologies Deployed</h4>
                 <div className="tech-tags-v3">
@@ -440,12 +470,13 @@ const Success = () => {
                 </div>
               </div>
 
+              {/* Footer CTA */}
               <div className="modal-v3-footer">
                 <button 
                   className="ent-btn-primary" 
                   onClick={() => window.location.href='/contact'}
                 >
-                  Request Similar Implementation
+                  Request Similar Implementation →
                 </button>
               </div>
             </div>

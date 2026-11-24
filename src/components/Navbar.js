@@ -68,6 +68,9 @@ const NAV_DATA = {
     },
   ],
   products: [
+    { name: "Pitech Connect", path: "/products/pitech-connect" },
+    { name: "Pitech EMS (Energy Monitoring System)", path: "/products/pitech-ems" },
+    { name: "AI based vision solution", path: "/products/color-detection" },
     { name: "Sensors", path: "/products/sensor" },
     { name: "PLC", path: "/products/plc" },
     { name: "IoT Gateway", path: "/products/iot-gateway" },

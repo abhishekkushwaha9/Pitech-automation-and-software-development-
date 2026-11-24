@@ -32,7 +32,7 @@
 }
 .inner-hero-content {
   position: relative; z-index: 2;
-  max-width: var(--container); margin: 0 auto; padding: 0 32px;
+  max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 3.5vw, 48px);
 }
 .inner-hero-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
 .inner-hero-breadcrumb a { color: rgba(255,255,255,0.6); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }
@@ -47,10 +47,10 @@
 
 /* ── Inner Page Content Wrapper ── */
 .inner-content { padding: 80px 0; }
-.inner-content-inner { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+.inner-content-inner { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 3.5vw, 48px); }
 
 /* ── Two-col layout ── */
-.inner-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.inner-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 4.5vw, 72px); align-items: center; }
 .inner-two-col.reverse { direction: rtl; }
 .inner-two-col.reverse > * { direction: ltr; }
 
@@ -73,7 +73,7 @@
 
 /* ── Benefits Grid ── */
 .benefits-section { padding: 80px 0; background: var(--gray-50); }
-.benefits-inner { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+.benefits-inner { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 3.5vw, 48px); }
 .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
 .benefit-card { background: var(--white); border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-100); box-shadow: var(--shadow); transition: var(--transition); }
 .benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
@@ -83,7 +83,7 @@
 
 /* ── Related Pages CTA ── */
 .related-cta { padding: 80px 0; background: var(--primary); text-align: center; }
-.related-cta-inner { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+.related-cta-inner { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 3.5vw, 48px); }
 .related-cta h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 14px; }
 .related-cta p { font-size: 1rem; color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
 .related-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }

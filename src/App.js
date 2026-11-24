@@ -47,6 +47,8 @@ import MetalIndustry from "./pages/generated/MetalIndustry";
 import GlassIndustry from "./pages/generated/GlassIndustry";
 import AutomotiveIndustry from "./pages/generated/AutomotiveIndustry";
 import MaterialHandling from "./pages/generated/MaterialHandling";
+import PitechConnect from "./pages/products/PitechConnect";
+import PitechEMS from "./pages/products/PitechEMS";
 import Sensor from "./pages/products/Sensors";
 import PLC from "./pages/generated/PLC";
 import IoTGateway from "./pages/generated/Server";
@@ -190,6 +192,11 @@ function AppContent() {
         <Route path="/industry-4/glass-industry" element={<GlassIndustry />} />
         <Route path="/industry-4/automotive-industry" element={<AutomotiveIndustry />} />
         <Route path="/industry-4/material-handling" element={<MaterialHandling />} />
+        <Route path="/products/pitech-connect" element={<PitechConnect />} />
+        <Route path="/products/pitech-ems" element={<PitechEMS />} />
+        <Route path="/products/ems" element={<PitechEMS />} />
+        <Route path="/products/color-detection" element={<ColorDetection />} />
+        <Route path="/products/ai-vision" element={<ColorDetection />} />
         <Route path="/products/sensor" element={<Sensor />} />
         <Route path="/products" element={<Navigate to="/products/sensor" replace />} />
         <Route path="/products/plc" element={<PLC />} />

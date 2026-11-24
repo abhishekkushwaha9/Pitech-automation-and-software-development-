@@ -5,6 +5,10 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import {
+  Play, Pause, Volume2, VolumeX, Maximize2, Zap, Database, ShieldCheck,
+  ArrowRight, Sparkles, Activity
+} from "lucide-react";
 import "./home.css";
 import QuickAccess from "../components/QuickAccess";
 import TypewriterText from "../components/TypewriterText";
@@ -195,6 +199,34 @@ export default function Home() {
   const [phoneFlipped, setPhoneFlipped] = useState(false);
   const statsRef = useRef(null);
   const iotSectionRef = useRef(null);
+  const connectVideoRef = useRef(null);
+  const [isConnectPlaying, setIsConnectPlaying] = useState(true);
+  const [isConnectMuted, setIsConnectMuted] = useState(true);
+
+  const toggleConnectPlay = () => {
+    if (!connectVideoRef.current) return;
+    if (connectVideoRef.current.paused) {
+      connectVideoRef.current.play();
+      setIsConnectPlaying(true);
+    } else {
+      connectVideoRef.current.pause();
+      setIsConnectPlaying(false);
+    }
+  };
+
+  const toggleConnectMute = () => {
+    if (!connectVideoRef.current) return;
+    connectVideoRef.current.muted = !connectVideoRef.current.muted;
+    setIsConnectMuted(connectVideoRef.current.muted);
+  };
+
+  const toggleConnectFullscreen = () => {
+    if (!connectVideoRef.current) return;
+    if (connectVideoRef.current.requestFullscreen) {
+      connectVideoRef.current.requestFullscreen();
+    }
+  };
+
   useScrollAnimation();
 
   const nextSlide = useCallback(() => setSlide(s => (s + 1) % SLIDES.length), []);
@@ -487,6 +519,180 @@ export default function Home() {
             <Link to="/about" className="home-about-link">
               Learn More About Us →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          FEATURED SPOTLIGHT: PITECH CONNECT (MORPHISM VIDEO SECTION)
+      ════════════════════════════════════════════ */}
+      <section className="home-connect-showcase">
+        <div className="home-connect-bg-mesh" />
+        <div className="home-connect-container">
+          <div className="home-connect-glass-card animate-on-scroll">
+
+            {/* Left Content Column */}
+            <div className="home-connect-content">
+              <div className="home-connect-pill-badge">
+                <span className="home-connect-pulsing-dot" />
+                <Sparkles size={12} className="home-connect-sparkle-icon" />
+                <span>INNOVATION SPOTLIGHT · PITECH CONNECT</span>
+              </div>
+
+              <h2 className="home-connect-title">
+                One Platform to Connect <span className="home-connect-gradient-text">Every Machine, PLC &amp; Sensor</span>
+              </h2>
+
+              <p className="home-connect-desc">
+                Unified web-based edge hub delivering universal industrial PLC drivers, zero-script SQL logging, and microsecond barcode traceability.
+              </p>
+
+              {/* 3 Animated Morphism Feature Cards */}
+              <div className="home-connect-features-list">
+                <div className="home-connect-feature-chip chip-cyan">
+                  <div className="home-connect-feat-icon cyan">
+                    <Zap size={15} />
+                  </div>
+                  <div className="home-connect-feat-text">
+                    <div className="home-connect-feat-head">
+                      <strong>40+ Universal Protocol Drivers</strong>
+                      <span className="home-connect-feat-badge cyan">LIVE SYNC</span>
+                    </div>
+                    <span>Native SLMP, S7 ISO, CIP, FOCAS, Modbus, OPC UA &amp; MQTT</span>
+                  </div>
+                </div>
+
+                <div className="home-connect-feature-chip chip-blue">
+                  <div className="home-connect-feat-icon blue">
+                    <Database size={15} />
+                  </div>
+                  <div className="home-connect-feat-text">
+                    <div className="home-connect-feat-head">
+                      <strong>Zero-Script Database Logging</strong>
+                      <span className="home-connect-feat-badge blue">AUTO SQL</span>
+                    </div>
+                    <span>Auto-created tables for SQL Server, PostgreSQL, MySQL &amp; SQLite</span>
+                  </div>
+                </div>
+
+                <div className="home-connect-feature-chip chip-green">
+                  <div className="home-connect-feat-icon green">
+                    <ShieldCheck size={15} />
+                  </div>
+                  <div className="home-connect-feat-text">
+                    <div className="home-connect-feat-head">
+                      <strong>Configuration-Driven Traceability</strong>
+                      <span className="home-connect-feat-badge green">&lt; 10ms</span>
+                    </div>
+                    <span>Sub-10ms barcode validation with simple 3-register PLC handshake</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="home-connect-actions">
+                <Link to="/products/pitech-connect" className="home-connect-btn primary">
+                  <span>Explore PiTech Connect Platform</span>
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Video Showcase Column */}
+            <div className="home-connect-video-col">
+              <div className="home-connect-video-frame">
+                {/* Ambient glow behind player */}
+                <div className="home-connect-video-glow" />
+
+                {/* macOS / Cyber Header Bar */}
+                <div className="home-connect-video-topbar">
+                  <div className="home-connect-dots">
+                    <span className="dot red" />
+                    <span className="dot yellow" />
+                    <span className="dot green" />
+                  </div>
+                  <div className="home-connect-video-tag">
+                    <Activity size={12} className="home-connect-pulse" />
+                    <span>PITECH CONNECT / INDUSTRIAL SUITE</span>
+                  </div>
+                  <div className="home-connect-live-pill">
+                    <span className="live-dot" />
+                    <span>LIVE DEMO</span>
+                  </div>
+                </div>
+
+                {/* Video Element */}
+                <div className="home-connect-video-wrap">
+                  <video
+                    ref={connectVideoRef}
+                    className="home-connect-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    poster="/images/pitech_connect_frame_5.jpg"
+                  >
+                    <source src="/videos/Pitech_Connect_Video.mp4" type="video/mp4" />
+                    <source src="/videos/pitech-hero-video.mp4" type="video/mp4" />
+                  </video>
+
+                  {/* Floating Glassmorphic Video Controls */}
+                  <div className="home-connect-video-controls">
+                    <div className="home-connect-ctrl-left">
+                      <button
+                        type="button"
+                        onClick={toggleConnectPlay}
+                        className="home-connect-ctrl-btn"
+                        aria-label={isConnectPlaying ? "Pause Video" : "Play Video"}
+                        title={isConnectPlaying ? "Pause" : "Play"}
+                      >
+                        {isConnectPlaying ? <Pause size={14} /> : <Play size={14} fill="currentColor" />}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={toggleConnectMute}
+                        className="home-connect-ctrl-btn"
+                        aria-label={isConnectMuted ? "Unmute Audio" : "Mute Audio"}
+                        title={isConnectMuted ? "Unmute" : "Mute"}
+                      >
+                        {isConnectMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                      </button>
+                      <span className="home-connect-now-playing">Shop Floor Universal Sync</span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={toggleConnectFullscreen}
+                      className="home-connect-ctrl-btn"
+                      aria-label="Toggle Fullscreen"
+                      title="Fullscreen"
+                    >
+                      <Maximize2 size={14} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Bottom Glass Tagline Ribbon */}
+                <div className="home-connect-video-footbar">
+                  <div className="home-connect-foot-stat">
+                    <strong>500+</strong>
+                    <span>Devices / Server</span>
+                  </div>
+                  <div className="home-connect-foot-sep" />
+                  <div className="home-connect-foot-stat">
+                    <strong>&lt; 10ms</strong>
+                    <span>PLC Handshake</span>
+                  </div>
+                  <div className="home-connect-foot-sep" />
+                  <div className="home-connect-foot-stat">
+                    <strong>Zero</strong>
+                    <span>Client Software</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

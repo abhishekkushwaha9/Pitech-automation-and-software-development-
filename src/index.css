@@ -35,7 +35,7 @@
   --font-alt:       'Montserrat', sans-serif;
 
   /* Sizing */
-  --container:      1280px;
+  --container:      1440px;
   --radius-sm:      6px;
   --radius:         12px;
   --radius-lg:      20px;
@@ -153,13 +153,27 @@ h2 { font-weight: 700; letter-spacing: -0.02em; }
 
 /* ── Utility: Container ── */
 .container {
+  width: 100%;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 clamp(20px, 3.5vw, 48px);
   position: relative;
   z-index: 2;
 }
-@media (max-width: 768px) { .container { padding: 0 20px; } }
+
+@media (min-width: 1600px) {
+  :root {
+    --container: 1520px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container: 1600px;
+  }
+}
+
+@media (max-width: 768px) { .container { padding: 0 18px; } }
 
 /* ── Utility: Buttons ── */
 .btn-primary {

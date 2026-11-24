@@ -371,8 +371,8 @@
 
 .navbar-mega-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 6px 14px;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 8px 16px;
 }
 
 .navbar-mega-item {
@@ -384,7 +384,10 @@
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--gray-700);
-  line-height: 1.3;
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
   transition: var(--transition);
   text-decoration: none;
 }
@@ -414,7 +417,7 @@
 /* Simple flat grid mega (About, Products, Industry) */
 .navbar-mega-flat {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
   gap: 8px 18px;
   width: 100%;
   padding: 4px 0;
@@ -605,6 +608,9 @@
   transition: color 0.2s;
   text-decoration: none;
   border-radius: var(--radius-sm);
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.4;
 }
 
 .drawer-sub-link:hover {
@@ -680,7 +686,33 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 1024px) {
+@media (max-width: 1240px) {
+  .navbar-inner {
+    padding: 0 20px;
+    gap: 8px;
+  }
+
+  .navbar-center {
+    gap: 1px;
+  }
+
+  .navbar-link {
+    padding: 6px 10px;
+    font-size: 0.82rem;
+  }
+
+  .navbar-actions {
+    gap: 8px;
+  }
+
+  .navbar-btn-primary,
+  .navbar-btn-live-iot {
+    padding: 8px 15px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1080px) {
 
   .navbar-center,
   .navbar-toggle-wrap {
@@ -702,7 +734,7 @@
   }
 
   .navbar-inner {
-    padding: 0 20px;
+    padding: 0 16px;
     height: 64px;
   }
 

@@ -59,7 +59,7 @@ const SUCCESS_STORIES = [
     id: 4, cat: 'Live Now', color: '#10b981', catBg: 'rgba(16,185,129,0.1)',
     title: 'Energy Monitoring System',
     desc: 'Continuous monitoring of plant energy consumption, load patterns, and power quality parameters.',
-    img: '/images/Energy%20Monitoring%20.png',
+    img: '/images/havells_ems_dashboard_hd.png',
     link: 'https://pitechiotdashboard.runasp.net/EnergyMonitoring/Index'
   },
 
@@ -170,7 +170,7 @@ const SUCCESS_STORIES = [
     id: 23, cat: 'Inspection', color: '#ec4899', catBg: 'rgba(236,72,153,0.1)',
     title: 'Color Detection (Vision Inspection)',
     desc: 'High-speed RGB vision system for automated color verification and OK/NG defect sorting.',
-    img: '/images/ROOOObotic inspection.webp',
+    img: '/images/color_detection_inspection_hd.jpg',
   },
   {
     id: 24, cat: 'Tracking', color: '#0284c7', catBg: 'rgba(2,132,199,0.1)',
