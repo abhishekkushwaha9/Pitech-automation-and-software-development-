@@ -264,43 +264,23 @@ export default function Contact() {
                 </form>
               )}
 
-              {/* Direct Department Assistance Section */}
-              <div className="contact-direct-assistance">
-                <div className="direct-assistance-header">
-                  <span className="direct-badge">Direct Line & Immediate Assistance</span>
-                  <h3>Direct Department Contacts</h3>
-                  <p>Need urgent technical consultation or sales pricing? Connect directly with our department specialists:</p>
+              {/* Simple 2-Side Direct Contacts */}
+              <div className="contact-quick-numbers">
+                <div className="quick-contact-col sales">
+                  <div className="quick-contact-icon">📞</div>
+                  <div className="quick-contact-details">
+                    <span className="quick-contact-label">For Sales & Product</span>
+                    <a href="tel:+917737374330" className="quick-contact-phone">+91 77373 74330</a>
+                  </div>
                 </div>
 
-                <div className="direct-cards-grid">
-                  <div className="direct-card sales-card">
-                    <div className="direct-card-top">
-                      <span className="direct-channel-icon">🏷️</span>
-                      <span className="direct-tag sales">Sales & Product</span>
-                    </div>
-                    <div className="direct-card-content">
-                      <h4>For Sales & Product Inquiries</h4>
-                      <p>Industrial sensors, PLCs, HMIs, IoT gateways, hardware procurement & product quotes.</p>
-                      <a href="tel:+917737374330" className="direct-contact-action sales-action">
-                        <span className="direct-call-icon">📞</span>
-                        <span className="direct-number">+91 77373 74330</span>
-                      </a>
-                    </div>
-                  </div>
+                <div className="quick-contact-divider" />
 
-                  <div className="direct-card project-card">
-                    <div className="direct-card-top">
-                      <span className="direct-channel-icon">⚙️</span>
-                      <span className="direct-tag project">Project & Services</span>
-                    </div>
-                    <div className="direct-card-content">
-                      <h4>For Projects & Automation Services</h4>
-                      <p>Turnkey SPM automation machines, assembly conveyors, robotics integration & plant software.</p>
-                      <a href="tel:+919312774178" className="direct-contact-action project-action">
-                        <span className="direct-call-icon">📞</span>
-                        <span className="direct-number">+91 93127 74178</span>
-                      </a>
-                    </div>
+                <div className="quick-contact-col project">
+                  <div className="quick-contact-icon">📞</div>
+                  <div className="quick-contact-details">
+                    <span className="quick-contact-label">For Project & Services</span>
+                    <a href="tel:+919312774178" className="quick-contact-phone">+91 93127 74178</a>
                   </div>
                 </div>
               </div>
