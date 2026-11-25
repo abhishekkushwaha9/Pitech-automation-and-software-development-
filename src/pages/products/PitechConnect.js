@@ -196,7 +196,7 @@ export default function PitechConnect() {
 
             <span className="pc-hero-tag pc-glass-dark">
               <Radio size={12} className="pc-pulse" />
-              Unified Shop Floor Platform · v1.6
+              Unified Shop Floor Platform
             </span>
 
             <h1 className="pc-hero-title">

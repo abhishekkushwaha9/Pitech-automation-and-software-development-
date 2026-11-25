@@ -263,6 +263,47 @@ export default function Contact() {
                   </button>
                 </form>
               )}
+
+              {/* Direct Department Assistance Section */}
+              <div className="contact-direct-assistance">
+                <div className="direct-assistance-header">
+                  <span className="direct-badge">Direct Line & Immediate Assistance</span>
+                  <h3>Direct Department Contacts</h3>
+                  <p>Need urgent technical consultation or sales pricing? Connect directly with our department specialists:</p>
+                </div>
+
+                <div className="direct-cards-grid">
+                  <div className="direct-card sales-card">
+                    <div className="direct-card-top">
+                      <span className="direct-channel-icon">🏷️</span>
+                      <span className="direct-tag sales">Sales & Product</span>
+                    </div>
+                    <div className="direct-card-content">
+                      <h4>For Sales & Product Inquiries</h4>
+                      <p>Industrial sensors, PLCs, HMIs, IoT gateways, hardware procurement & product quotes.</p>
+                      <a href="tel:+917737374330" className="direct-contact-action sales-action">
+                        <span className="direct-call-icon">📞</span>
+                        <span className="direct-number">+91 77373 74330</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="direct-card project-card">
+                    <div className="direct-card-top">
+                      <span className="direct-channel-icon">⚙️</span>
+                      <span className="direct-tag project">Project & Services</span>
+                    </div>
+                    <div className="direct-card-content">
+                      <h4>For Projects & Automation Services</h4>
+                      <p>Turnkey SPM automation machines, assembly conveyors, robotics integration & plant software.</p>
+                      <a href="tel:+919312774178" className="direct-contact-action project-action">
+                        <span className="direct-call-icon">📞</span>
+                        <span className="direct-number">+91 93127 74178</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right: Contact Info Cards */}
@@ -281,9 +322,16 @@ export default function Contact() {
               <div className="info-card">
                 <div className="info-card-icon">📞</div>
                 <div className="info-card-content">
-                  <h4>Phone</h4>
-                  <p>+91 77373 74330</p>
-                  <p className="info-card-meta">Available Mon-Sat</p>
+                  <h4>Phone Numbers</h4>
+                  <div className="info-phone-row">
+                    <span className="info-phone-dept">Sales & Product:</span>
+                    <a href="tel:+917737374330" className="info-phone-link">+91 77373 74330</a>
+                  </div>
+                  <div className="info-phone-row" style={{ marginTop: '6px' }}>
+                    <span className="info-phone-dept">Project & Services:</span>
+                    <a href="tel:+919312774178" className="info-phone-link">+91 93127 74178</a>
+                  </div>
+                  <p className="info-card-meta" style={{ marginTop: '8px' }}>Available Mon - Sat (9:30 AM - 6:30 PM IST)</p>
                 </div>
               </div>
 

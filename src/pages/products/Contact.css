@@ -391,10 +391,195 @@
   }
 }
 
+/* ── DIRECT DEPARTMENT ASSISTANCE (BELOW FORM) ── */
+.contact-direct-assistance {
+  margin-top: 36px;
+  padding: 32px 28px;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f9 100%);
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
+}
+
+.direct-assistance-header {
+  margin-bottom: 24px;
+}
+
+.direct-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(37, 99, 235, 0.1);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  margin-bottom: 8px;
+}
+
+.direct-assistance-header h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 6px;
+}
+
+.direct-assistance-header p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.direct-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.direct-card {
+  padding: 22px 20px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1.5px solid var(--gray-100);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+.direct-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-light);
+  box-shadow: 0 12px 28px -6px rgba(37, 99, 235, 0.15);
+}
+
+.direct-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.direct-channel-icon {
+  font-size: 1.5rem;
+}
+
+.direct-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.direct-tag.sales {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.direct-tag.project {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.direct-card-content h4 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 6px;
+}
+
+.direct-card-content p {
+  font-size: 0.82rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.direct-contact-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.sales-action {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1.5px solid #bfdbfe;
+}
+
+.sales-action:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.project-action {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1.5px solid #bbf7d0;
+}
+
+.project-action:hover {
+  background: #16a34a;
+  color: #ffffff;
+  border-color: #16a34a;
+}
+
+.direct-call-icon {
+  font-size: 0.95rem;
+}
+
+/* ── PHONE CARD RIGHT COLUMN STYLES ── */
+.info-phone-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.info-phone-dept {
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: 0.85rem;
+}
+
+.info-phone-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.info-phone-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .contact-form {
     padding: 32px 24px;
+  }
+
+  .direct-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .contact-info-wrapper h2,
