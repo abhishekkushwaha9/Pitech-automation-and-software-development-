@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import {
-  Play, Pause, Volume2, VolumeX, Maximize2, Zap, Database, ShieldCheck,
+  Zap, Database, ShieldCheck,
   ArrowRight, Sparkles, Activity
 } from "lucide-react";
 import "./home.css";
@@ -200,32 +200,6 @@ export default function Home() {
   const statsRef = useRef(null);
   const iotSectionRef = useRef(null);
   const connectVideoRef = useRef(null);
-  const [isConnectPlaying, setIsConnectPlaying] = useState(true);
-  const [isConnectMuted, setIsConnectMuted] = useState(true);
-
-  const toggleConnectPlay = () => {
-    if (!connectVideoRef.current) return;
-    if (connectVideoRef.current.paused) {
-      connectVideoRef.current.play();
-      setIsConnectPlaying(true);
-    } else {
-      connectVideoRef.current.pause();
-      setIsConnectPlaying(false);
-    }
-  };
-
-  const toggleConnectMute = () => {
-    if (!connectVideoRef.current) return;
-    connectVideoRef.current.muted = !connectVideoRef.current.muted;
-    setIsConnectMuted(connectVideoRef.current.muted);
-  };
-
-  const toggleConnectFullscreen = () => {
-    if (!connectVideoRef.current) return;
-    if (connectVideoRef.current.requestFullscreen) {
-      connectVideoRef.current.requestFullscreen();
-    }
-  };
 
   useScrollAnimation();
 
@@ -636,41 +610,6 @@ export default function Home() {
                     <source src="/videos/Pitech_Connect_Video.mp4" type="video/mp4" />
                     <source src="/videos/pitech-hero-video.mp4" type="video/mp4" />
                   </video>
-
-                  {/* Floating Glassmorphic Video Controls */}
-                  <div className="home-connect-video-controls">
-                    <div className="home-connect-ctrl-left">
-                      <button
-                        type="button"
-                        onClick={toggleConnectPlay}
-                        className="home-connect-ctrl-btn"
-                        aria-label={isConnectPlaying ? "Pause Video" : "Play Video"}
-                        title={isConnectPlaying ? "Pause" : "Play"}
-                      >
-                        {isConnectPlaying ? <Pause size={14} /> : <Play size={14} fill="currentColor" />}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={toggleConnectMute}
-                        className="home-connect-ctrl-btn"
-                        aria-label={isConnectMuted ? "Unmute Audio" : "Mute Audio"}
-                        title={isConnectMuted ? "Unmute" : "Mute"}
-                      >
-                        {isConnectMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-                      </button>
-                      <span className="home-connect-now-playing">Shop Floor Universal Sync</span>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={toggleConnectFullscreen}
-                      className="home-connect-ctrl-btn"
-                      aria-label="Toggle Fullscreen"
-                      title="Fullscreen"
-                    >
-                      <Maximize2 size={14} />
-                    </button>
-                  </div>
                 </div>
 
                 {/* Bottom Glass Tagline Ribbon */}

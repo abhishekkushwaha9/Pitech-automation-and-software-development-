@@ -49,6 +49,9 @@ import AutomotiveIndustry from "./pages/generated/AutomotiveIndustry";
 import MaterialHandling from "./pages/generated/MaterialHandling";
 import PitechConnect from "./pages/products/PitechConnect";
 import PitechEMS from "./pages/products/PitechEMS";
+import PitechView from "./pages/products/PitechView";
+import PitechWebSCADA from "./pages/products/PitechWebSCADA";
+import PitechIntelliMES from "./pages/products/PitechIntelliMES";
 import Sensor from "./pages/products/Sensors";
 import PLC from "./pages/generated/PLC";
 import IoTGateway from "./pages/generated/Server";
@@ -193,8 +196,15 @@ function AppContent() {
         <Route path="/industry-4/automotive-industry" element={<AutomotiveIndustry />} />
         <Route path="/industry-4/material-handling" element={<MaterialHandling />} />
         <Route path="/products/pitech-connect" element={<PitechConnect />} />
+        <Route path="/products/pitech-view" element={<PitechView />} />
+        <Route path="/products/web-scada" element={<PitechWebSCADA />} />
+        <Route path="/products/pitech-web-scada" element={<PitechWebSCADA />} />
         <Route path="/products/pitech-ems" element={<PitechEMS />} />
         <Route path="/products/ems" element={<PitechEMS />} />
+        <Route path="/products/intelli-ai" element={<PitechIntelliMES />} />
+        <Route path="/products/pitech-intelli-ai" element={<PitechIntelliMES />} />
+        <Route path="/products/mes" element={<PitechIntelliMES />} />
+        <Route path="/products/pitech-mes" element={<PitechIntelliMES />} />
         <Route path="/products/color-detection" element={<ColorDetection />} />
         <Route path="/products/ai-vision" element={<ColorDetection />} />
         <Route path="/products/sensor" element={<Sensor />} />

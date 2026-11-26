@@ -263,6 +263,20 @@ export default function Contact() {
                   </button>
                 </form>
               )}
+            </div>
+
+            {/* Right: Contact Info Cards */}
+            <div className="contact-info-wrapper">
+              <h2>Contact Information</h2>
+
+              <div className="info-card">
+                <div className="info-card-icon">📍</div>
+                <div className="info-card-content">
+                  <h4>Address</h4>
+                  <p> 628, 6th Floor, Eros Corporate Park, Sector 2, Imt Manesar, Gurugram, Haryana 122052 </p>
+                  <p className="info-card-meta">India</p>
+                </div>
+              </div>
 
               {/* Simple 2-Side Direct Contacts */}
               <div className="contact-quick-numbers">
@@ -282,36 +296,6 @@ export default function Contact() {
                     <span className="quick-contact-label">For Project & Services</span>
                     <a href="tel:+919312774178" className="quick-contact-phone">+91 93127 74178</a>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Contact Info Cards */}
-            <div className="contact-info-wrapper">
-              <h2>Contact Information</h2>
-
-              <div className="info-card">
-                <div className="info-card-icon">📍</div>
-                <div className="info-card-content">
-                  <h4>Address</h4>
-                  <p> 628, 6th Floor, Eros Corporate Park, Sector 2, Imt Manesar, Gurugram, Haryana 122052 </p>
-                  <p className="info-card-meta">India</p>
-                </div>
-              </div>
-
-              <div className="info-card">
-                <div className="info-card-icon">📞</div>
-                <div className="info-card-content">
-                  <h4>Phone Numbers</h4>
-                  <div className="info-phone-row">
-                    <span className="info-phone-dept">Sales & Product:</span>
-                    <a href="tel:+917737374330" className="info-phone-link">+91 77373 74330</a>
-                  </div>
-                  <div className="info-phone-row" style={{ marginTop: '6px' }}>
-                    <span className="info-phone-dept">Project & Services:</span>
-                    <a href="tel:+919312774178" className="info-phone-link">+91 93127 74178</a>
-                  </div>
-                  <p className="info-card-meta" style={{ marginTop: '8px' }}>Available Mon - Sat (9:30 AM - 6:30 PM IST)</p>
                 </div>
               </div>
 

@@ -391,17 +391,24 @@
   }
 }
 
-/* ── SIMPLE 2-SIDE DIRECT CONTACTS (BELOW FORM) ── */
+/* ── SIMPLE 2-SIDE DIRECT CONTACTS (RIGHT COLUMN) ── */
 .contact-quick-numbers {
-  margin-top: 24px;
-  padding: 16px 20px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--radius);
+  margin-bottom: 20px;
+  padding: 20px 22px;
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  transition: var(--transition);
+}
+
+.contact-quick-numbers:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-4px);
 }
 
 .quick-contact-col {

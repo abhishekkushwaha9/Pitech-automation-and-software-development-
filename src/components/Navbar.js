@@ -69,6 +69,9 @@ const NAV_DATA = {
   ],
   products: [
     { name: "Pitech Connect", path: "/products/pitech-connect" },
+    { name: "Pitech View", path: "/products/pitech-view" },
+    { name: "Pitech Web SCADA", path: "/products/web-scada" },
+    { name: "intelli AI", path: "/products/intelli-ai" },
     { name: "Pitech EMS (Energy Monitoring System)", path: "/products/pitech-ems" },
     { name: "AI based vision solution", path: "/products/color-detection" },
     { name: "Sensors", path: "/products/sensor" },

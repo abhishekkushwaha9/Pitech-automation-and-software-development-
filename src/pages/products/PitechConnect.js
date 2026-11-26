@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Server, Cpu, Database, ShieldCheck, CheckCircle2, AlertTriangle,
-  Scan, Activity, ArrowRight, Play, Pause, Volume2, VolumeX,
-  Maximize, Monitor, RefreshCw, FileCode, Settings, Zap, Clock,
+  Scan, Activity, ArrowRight, Play,
+  Monitor, RefreshCw, FileCode, Settings, Zap, Clock,
   Radio, Search, Calculator, Sparkles,
   Check, X, Network, Layers, Workflow
 } from "lucide-react";
@@ -20,10 +20,7 @@ const CHAPTERS = [
 
 export default function PitechConnect() {
   const showcaseVideoRef = useRef(null);
-  const [isShowcasePlaying, setIsShowcasePlaying] = useState(true);
-  const [isShowcaseMuted, setIsShowcaseMuted] = useState(true);
   const [activeChapter, setActiveChapter] = useState(0);
-  const [currentTimeSec, setCurrentTimeSec] = useState(0);
   const [activeHeadacheTab, setActiveHeadacheTab] = useState("connectivity");
   const [driverSearch, setDriverSearch] = useState("");
   const [driverCategory, setDriverCategory] = useState("All");
@@ -60,7 +57,6 @@ export default function PitechConnect() {
   const handleTimeUpdate = () => {
     if (!showcaseVideoRef.current) return;
     const cur = showcaseVideoRef.current.currentTime;
-    setCurrentTimeSec(cur);
     for (let i = CHAPTERS.length - 1; i >= 0; i--) {
       if (cur >= CHAPTERS[i].time - 1) { setActiveChapter(i); break; }
     }
@@ -69,29 +65,8 @@ export default function PitechConnect() {
   const jumpToChapter = (time, index) => {
     if (!showcaseVideoRef.current) return;
     showcaseVideoRef.current.currentTime = time;
-    showcaseVideoRef.current.play();
-    setIsShowcasePlaying(true);
+    showcaseVideoRef.current.play().catch(() => {});
     setActiveChapter(index);
-  };
-
-  const toggleShowcasePlay = () => {
-    if (!showcaseVideoRef.current) return;
-    if (showcaseVideoRef.current.paused) {
-      showcaseVideoRef.current.play(); setIsShowcasePlaying(true);
-    } else {
-      showcaseVideoRef.current.pause(); setIsShowcasePlaying(false);
-    }
-  };
-
-  const toggleShowcaseMute = () => {
-    if (!showcaseVideoRef.current) return;
-    showcaseVideoRef.current.muted = !showcaseVideoRef.current.muted;
-    setIsShowcaseMuted(showcaseVideoRef.current.muted);
-  };
-
-  const toggleShowcaseFullscreen = () => {
-    if (!showcaseVideoRef.current) return;
-    showcaseVideoRef.current.requestFullscreen?.();
   };
 
   const runSimulator = (type) => {
@@ -262,31 +237,14 @@ export default function PitechConnect() {
                 <div className="pc-video-label">
                   <Activity size={14} className="pc-pulse" /> PITECH CONNECT / PRODUCT DEMO
                 </div>
-                <span className="pc-video-time">{Math.floor(currentTimeSec)}s / 85s</span>
               </div>
 
               <div className="pc-video-wrap">
-                <video ref={showcaseVideoRef} className="pc-video" autoPlay muted loop playsInline controls
+                <video ref={showcaseVideoRef} className="pc-video" autoPlay muted loop playsInline
                   onTimeUpdate={handleTimeUpdate} poster="/images/pitech_connect_frame_5.jpg">
                   <source src="/videos/WhatsApp Video 2026-11-05 at 12.03.16 PM.mp4" type="video/mp4" />
                   <source src="/videos/pitech-connect-demo.mp4" type="video/mp4" />
                 </video>
-                <div className="pc-video-controls">
-                  <div className="pc-video-ctrl-left">
-                    <button onClick={toggleShowcasePlay} className="pc-ctrl-btn">
-                      {isShowcasePlaying ? <Pause size={15} /> : <Play size={15} />}
-                    </button>
-                    <button onClick={toggleShowcaseMute} className="pc-ctrl-btn">
-                      {isShowcaseMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
-                    </button>
-                    <span className="pc-video-chapter-label">
-                      {CHAPTERS[activeChapter]?.label || "Pitech Connect Walkthrough"}
-                    </span>
-                  </div>
-                  <button onClick={toggleShowcaseFullscreen} className="pc-ctrl-btn">
-                    <Maximize size={15} />
-                  </button>
-                </div>
               </div>
 
               <div className="pc-video-footer">
